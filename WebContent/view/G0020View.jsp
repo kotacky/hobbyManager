@@ -1,0 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=Windows-31J"
+    pageEncoding="Windows-31J"%>
+<%@ page import = "java.util.HashMap"%>
+<%@ page import = "java.util.List" %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; Windows-31J">
+		<title>——Dˆê——</title>
+		<style>
+			*{
+				text-align : center;
+			}
+		</style>
+		<script>
+		 function func(MyCommand){
+			 alert("start!:[" + MyCommand + "]");
+			 document.MyForm.process.value=MyCommand;
+			 document.MyForm.submit();
+		 }
+		</script>
+	</head>
+
+	<body>
+<%-- ƒŠƒXƒg‚Ìæ“¾ --%>
+<%
+HashMap<String,String> actressList = new HashMap<String,String>();
+	actressList.put("actressId", "201");
+	actressList.put("actressName", "ˆ»£ ‚Í‚é‚©");
+	actressList.put("companyName", "ƒzƒŠƒvƒ");
+	actressList.put("companyAddress", "“Œ‹");
+//List<HashMap<String,String>> actressList = (List<HashMap<String,String>>)request.getAttribute("ActressList");
+String disabled = "disabled";
+if(actressList != null){
+     disabled = "";
+}
+%>
+
+		<h1>——Dˆê——</h1>
+		<%-- C‚ÖŒŸõ‚·‚éğŒ‚ğ‘—‚é --%>
+		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0020Control">
+			——DID:
+			<input type="text" name="actress_id" placeholder="——DID"  style="text-align: left;"><br>
+			——D–¼:
+			<input type="text" name="actress_name" placeholder="——D–¼"  style="text-align: left;"><br>
+			<input type=submit value="ŒŸõ" onClick="func('select');">
+			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
+			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
+<%
+//String employee_id=request.getParameter("employee_id");
+//String employee_family_name=request.getParameter("employee_family_name");
+//String employee_first_name=request.getParameter("employee_first_name");
+%>
+
+<%-- ƒe[ƒuƒ‹‚Ì•\¦ --%>
+<%if(actressList != null){ %>
+			<table width="400" border="1" align="center">
+				<Tr>
+					<Th>‘I‘ğ</Th>
+					<Th>——DID</Th>
+					<Th>——D–¼</Th>
+					<Th>Š‘®‰ïĞ–¼</Th>
+					<Th>‰ïĞZŠ</Th>
+				</Tr>
+	<% for(int i = 0 ;i<actressList.size(); i++){ %>
+				<Tr>
+					<Th><input type="radio" name="id" value=<% actressList./*get(i).*/get("actressId"); %>></Th>
+					<Th><%  out.print(actressList./*get(i).*/get("actressId")); %></Th>
+					<Th><%  out.print(actressList./*get(i).*/get("actressName")); %></Th>
+					<Th><%  out.print(actressList./*get(i).*/get("companyName")); %></Th>
+					<Th><%  out.print(actressList./*get(i).*/get("companyAddress")); %></Th>
+	<% } %>
+<% } %>
+				</Tr>
+			</table>
+			<input type="hidden" name="process">
+		</form>
+
+		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
+		<input type=button value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0021View.jsp'">
+		<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
+		<input type=button value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+	</body>
+</html>
