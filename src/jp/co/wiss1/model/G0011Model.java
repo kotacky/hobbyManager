@@ -15,12 +15,12 @@ public class G0011Model {
 	public static void main(String args[])
 	{
 
-		insertEmployee("119" , "檜山" , "隼" , "19910823");
+		insertEmployee("" , "" , "太郎" , "");
 
 	}
 
 	//List<HashMap<String,String>>⇒void
-	public static int insertEmployee(String employeeId , String familyName , String firstName , String birthDate) { //社員テーブル参照
+	public static int insertEmployee(String employeeId , String familyName , String firstName , String birthDate) { //社員テーブルにINSERTするメソッド
 
 		//List<HashMap<String,String>> insertEmployee = new ArrayList<HashMap<String,String>>() ;
 
