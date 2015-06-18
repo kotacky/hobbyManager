@@ -28,7 +28,7 @@ public class G0042Control extends HttpServlet{
 		String summary = request.getParameter("summary");
 
 		//更新するメソッドを呼び出す
-		int flagCount = G0042Model.updateContents(contentsId, title, summary);
+		int flagCount = G0042Model.updateContents(contentsId, title, summary, "");
 
 		//更新完了フラグを送る
 		if(flagCount >= 1){

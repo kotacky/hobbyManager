@@ -37,7 +37,7 @@ public class G0020Control extends HttpServlet{
 	 	 if ("select".equals(processDiv)){
 
 //		   検索項目を渡し、リストを受け取る
-		   List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName,"");
+		   List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName);
 
 //		   画面一覧へ結果を返す
 		   request.setAttribute("actressList",actressList);
@@ -49,7 +49,7 @@ public class G0020Control extends HttpServlet{
 		 if ("insert".equals(processDiv)){
 
 //		   会社名のリストを受け取る
-		   List <HashMap<String,String>> colmncompanyList =G0021Model.getColumnCompanyList("","","");
+		   List <HashMap<String,String>> colmncompanyList =G0021Model.getColumnCompnyList();
 
 //		   会社名をViewへ送る
 		   request.setAttribute("colmncompanyList",colmncompanyList);
@@ -64,7 +64,7 @@ public class G0020Control extends HttpServlet{
 		 if ("update".equals(processDiv)){
 
 //		   更新対象を検索し、リストを受け取る
-		   List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,"","");
+		   List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,"");
 
 //		   更新対象のリストを送る
 		   request.setAttribute("actressList",actressList);
@@ -86,7 +86,7 @@ public class G0020Control extends HttpServlet{
 
 
 //		   削除後の項目を送り、リストを受け取る
-		   List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName,companyName);
+		   List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName);
 
 //		   画面一覧へ結果を返す
 		   if(flag >= 1){

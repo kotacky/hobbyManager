@@ -27,7 +27,7 @@ public class G0031Control extends HttpServlet{
 
 		//Modelに引数を渡しinsert処理を実行させる
 		//int i =
-		G0031Model.insertcompanyList(companyId, companyName, companyAdress);
+		G0031Model.insertCompany(companyId, companyName, companyAdress);
 
 		//Viewに渡すフラグを設定
 		//request.setAttribute("flag",i);

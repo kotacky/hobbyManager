@@ -27,7 +27,7 @@ public class G0032Control extends HttpServlet{
 
 		//Modelに引数を渡し、更新後の結果をリストに入れる
 		//int i =
-		G0032Model.updatecompanyList(companyId, companyName, companyAdress);
+		G0032Model.updateCompany(companyId, companyName, companyAdress);
 
 		//Viewに渡すフラグを設定
 		//if(i>=1){

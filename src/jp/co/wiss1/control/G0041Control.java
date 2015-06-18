@@ -27,7 +27,7 @@ public class G0041Control extends HttpServlet{
 		String summary = request.getParameter("summary");
 
 		//登録のメソッドを呼び出す
-		int flagCount = G0041Model.insertContents(contentsId, title, summary);
+		int flagCount = G0041Model.insertContents(contentsId, title, summary,"");
 
 		//登録完了フラグを送る
 		if(flagCount >= 1){

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.wiss1.model.G0030Model;
-import jp.co.wiss1.model.G0033Model;
 
 @WebServlet("/G0030Control")
 public class G0030Control extends HttpServlet{
@@ -33,7 +32,7 @@ public class G0030Control extends HttpServlet{
 		//検索
 		if("select".equals(processDiv)){
 			//Modelに引数を渡し、検索結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getcompanyList(companyId, companyName, companyAdress);
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAdress);
 
 			//Viewに渡すリストを設定
 			request.setAttribute("companyList", companyList);
@@ -47,7 +46,7 @@ public class G0030Control extends HttpServlet{
 		//更新
 		if("update".equals(processDiv)){
 			//Modelに引数を渡し、検索結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getcompanyList(companyId, companyName, companyAdress);
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAdress);
 
 			//Viewに渡すリストを設定
 			request.setAttribute("companyList", companyList);
@@ -62,10 +61,10 @@ public class G0030Control extends HttpServlet{
 
 			//削除する項目のIDと、削除の命令をModelに送る
 			//int i =
-			G0033Model.deletecompanyList(companyId);
+			G0030Model.deleteCompany(companyId);
 
 			//削除後の結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getcompanyList("", "", "");
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList("", "", "");
 
 			//Viewに渡す削除後のリスト、フラグを設定
 			request.setAttribute("companyList", companyList);

@@ -28,7 +28,7 @@ public class G0011Control extends HttpServlet{
 
 		//Modelに引数を渡しinsert処理を実行させる
 		//int i =
-		G0011Model.insertemployeeList(employeeId, employeeFamilyName, employeeFirstName, employeeBirth);
+		G0011Model.insertEmployee(employeeId, employeeFamilyName, employeeFirstName, employeeBirth);
 
 		//Viewに渡すフラグを設定
 		//request.setAttribute("flag",i);
