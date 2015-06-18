@@ -10,7 +10,7 @@ import java.util.List;
 
 import jp.co.wiss1.common.DBAccessUtils;
 
-public class G0010Model
+public class G0010Model//git
 {
 
 	/**
