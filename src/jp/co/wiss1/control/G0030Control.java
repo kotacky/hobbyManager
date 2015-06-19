@@ -1,3 +1,4 @@
+//同期済み
 package jp.co.wiss1.control;
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0030Model;
 
 @WebServlet("/G0030Control")
@@ -18,8 +20,7 @@ public class G0030Control extends HttpServlet{
 			throws IOException, ServletException{
 
 		//ブラウザの文字コードの設定
-		request.setCharacterEncoding("Windows-31J");
-		response.setContentType("text/html;charset=Shift_JIS");
+		EncodingUtils.responseEncoding(response);
 
 		//フォーム入力を受け取る
 		String companyId = request.getParameter("companyId");
@@ -60,17 +61,15 @@ public class G0030Control extends HttpServlet{
 		if("delete".equals(processDiv)){
 
 			//削除する項目のIDと、削除の命令をModelに送る
-			//int i =
-			G0030Model.deleteCompany(companyId);
+			int deleteFlag =
+			G0033Model.deleteCompanyList(companyId);
 
 			//削除後の結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getCompanyList("", "", "");
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAdress);
 
 			//Viewに渡す削除後のリスト、フラグを設定
 			request.setAttribute("companyList", companyList);
-//			if(i>=1){
-//				request.setAttribute("flag",true);
-//			}
+			request.setAttribute("deleteFlag",deleteFlag);
 
 			//Viewにリスト、フラグを渡す
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0030View.jsp");
