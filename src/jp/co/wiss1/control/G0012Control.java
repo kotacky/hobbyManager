@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.wiss1.common.Constants;
+import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0012Model;
 
 @WebServlet("/G0012Control")
@@ -18,8 +18,7 @@ public class G0012Control extends HttpServlet{
 		throws IOException, ServletException{
 
 		//ブラウザの文字コードで返す
-		response.setCharacterEncoding(Constants.CHARACTER_ENCODING);
-		response.setContentType("text/html;charset="+Constants.CHARACTER_ENCODING);
+		EncodingUtils.responseEncoding(response);
 
 		//更新②の処理
 		//更新する内容を受け取る
@@ -29,10 +28,14 @@ public class G0012Control extends HttpServlet{
 		String birthDay = request.getParameter("employeeBirth");
 
 		//更新するメソッドを呼び出す
-		G0012Model.updateEmployee(employeeId, familyName, firstName, birthDay);
+		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDay);
 
 		//更新フラグを送る
-		//request.setAttribute("flag",2);
+		if(updateFlag == 1){
+			request.setAttribute("updateFlag",updateFlag);
+		}else{
+			request.setAttribute("updateFlag",updateFlag);
+		}
 		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 		dispatch.forward(request, response);
 	}
