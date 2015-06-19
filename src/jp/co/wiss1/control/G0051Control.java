@@ -24,9 +24,10 @@ public class G0051Control extends HttpServlet{
 		//登録に必要な情報を受け取る
 		String employeeId = request.getParameter("employeeId");
 		String actressId = request.getParameter("actressId");
+		String contentsId = request.getParameter("contentsId");
 
 		//登録のメソッドを呼び出す
-		int flagCount = G0051Model.insertPreference(employeeId, actressId);
+		int flagCount = G0051Model.insertPreference(employeeId, actressId, contentsId);
 
 		//登録フラグを送る
 		if(flagCount >= 1){
