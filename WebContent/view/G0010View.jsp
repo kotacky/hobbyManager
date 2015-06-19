@@ -95,7 +95,7 @@ if(employeeList != null){
 <% } %>
 				</Tr>
 			</table>
-			<input type="hidden" name="process">
+			<input type="hidden" name="processDiv">
 		</form>
 
 		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
