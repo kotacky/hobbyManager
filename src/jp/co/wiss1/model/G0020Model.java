@@ -17,8 +17,8 @@ public class G0020Model
 	{
 		getActressList("202", "");
 		deleteActress("0", "0");
-		getColumnEmployeeList();
-		getColumnActressList();
+		getColumnCompanyList();
+		getColumnContentsList();
 	}
 
 
@@ -142,75 +142,7 @@ public class G0020Model
 
 
 
-	public static List<HashMap<String,String>> getColumnEmployeeList() //プルダウン表示に必要な社員データを送るメソッド
-	{
-		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
-
-		//各変数を宣言、初期化
-		ResultSet resultSet = null;
-    	Connection connection = null;
-    	Statement statement = null;
-
-
-        try
-        {
-            // テーブル照会実行
-        	connection = DBAccessUtils.getConnection();
-        	statement = connection.createStatement();
-
-            //自動コミットを無効にする
-        	connection.setAutoCommit(false);
-
-        	//プルダウン用にカラム名を取得
-            String columnSelectSql = "SELECT employee_id , employee_family_name , employee_first_name FROM t_employee";
-            System.out.println("1:" + columnSelectSql);
-
-            resultSet = statement.executeQuery (columnSelectSql);
-
-           // テーブル照会結果を出力
-           while(resultSet.next())
-           {
-            	//社員情報を作成する
-            	HashMap<String, String> employeeInfo = new HashMap<String, String>();
-            	employeeInfo.put("社員Id", resultSet.getString("employee_id"));
-            	employeeInfo.put("姓", resultSet.getString("employee_family_name"));
-            	employeeInfo.put("名", resultSet.getString("employee_first_name"));
-
-            	//社員情報をリストに追加する
-            	companyColumnList.add(employeeInfo);
-
-            	//リストに入ったかの確認
-            	System.out.println(employeeInfo.get("社員Id"));
-            	System.out.println(employeeInfo.get("姓"));
-            	System.out.println(employeeInfo.get("名"));
-			}
-
-        }
-        catch (SQLException e)
-        {
-            System.err.println("SQL failed.");
-            e.printStackTrace ();
-        }
-        finally
-        {
-			// データベースのクローズ
-        	try
-        	{
-                //resultSet.close();
-                statement.close();
-                connection.close();
-        	}
-        	catch (Exception e)
-        	{
-        		System.out.println("Close failed.");
-        	}
-        	System.out.println("一覧取得処理終了");
-        }
-        return companyColumnList;
-	}
-
-
-	public static List<HashMap<String,String>> getColumnActressList() //プルダウン表示に必要な女優データを送るメソッド
+	public static List<HashMap<String,String>> getColumnContentsList() //チェックボックに必要なコンテンツデータを送るメソッド
 	{
 		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
 
@@ -230,25 +162,29 @@ public class G0020Model
 	    	connection.setAutoCommit(false);
 
 	    	//プルダウン用にカラム名を取得
-	        String columnSelectSql = "SELECT actress_id , actress_name FROM t_actress";
+	        String columnSelectSql = "SELECT contents_id , contents_name FROM t_contents";
 	        System.out.println("1:" + columnSelectSql);
 
+	        //引数に入った値を出力
+	        System.out.println(columnSelectSql);
+
 	        resultSet = statement.executeQuery (columnSelectSql);
+
 
 	       // テーブル照会結果を出力
 	       while(resultSet.next())
 	       {
 	        	//社員情報を作成する
 	        	HashMap<String, String> employeeInfo = new HashMap<String, String>();
-	        	employeeInfo.put("女優Id", resultSet.getString("actress_id"));
-	        	employeeInfo.put("女優名", resultSet.getString("actress_name"));
+	        	employeeInfo.put("コンテンツId", resultSet.getString("contents_id"));
+	        	employeeInfo.put("コンテンツ名", resultSet.getString("contents_name"));
 
 	        	//社員情報をリストに追加する
 	        	companyColumnList.add(employeeInfo);
 
 	        	//リストに入ったかの確認
-	        	System.out.println(employeeInfo.get("女優Id"));
-	        	System.out.println(employeeInfo.get("女優名"));
+	        	System.out.println(employeeInfo.get("コンテンツId"));
+	        	System.out.println(employeeInfo.get("コンテンツ名"));
 
 			}
 
@@ -275,6 +211,87 @@ public class G0020Model
 	    }
 	    return companyColumnList;
 	}
+
+
+
+//クラス0020に入れる予定のメソッド
+
+	public static List<HashMap<String,String>> getColumnCompanyList() //プルダウン表示に必要な会社データを送るメソッド
+	{
+		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
+
+		//各変数を宣言、初期化
+		ResultSet resultSet = null;
+    	Connection connection = null;
+    	Statement statement = null;
+
+
+        try
+        {
+            // テーブル照会実行
+        	connection = DBAccessUtils.getConnection();
+        	statement = connection.createStatement();
+
+            //自動コミットを無効にする
+        	connection.setAutoCommit(false);
+
+        	//プルダウン用にカラム名を取得
+            String columnSelectSql = "SELECT company_id , company_name FROM t_company";
+            System.out.println("1:" + columnSelectSql);
+
+            //引数に入った値を出力
+            //System.out.println("引数に" + companyName + "が入力されました。");
+            System.out.println(columnSelectSql);
+
+
+            resultSet = statement.executeQuery (columnSelectSql);
+
+            //影響のあった行数を出力
+
+            //System.out.println(insertCount + " 行挿入しました。");
+
+
+           // テーブル照会結果を出力
+           while(resultSet.next())
+           {
+            	//社員情報を作成する
+            	HashMap<String, String> employeeInfo = new HashMap<String, String>();
+            	employeeInfo.put("会社Id", resultSet.getString("company_id"));
+            	employeeInfo.put("会社名", resultSet.getString("company_name"));
+
+            	//社員情報をリストに追加する
+            	companyColumnList.add(employeeInfo);
+
+            	//リストに入ったかの確認
+            	System.out.println(employeeInfo.get("会社Id"));
+            	System.out.println(employeeInfo.get("会社名"));
+
+			}
+
+        }
+        catch (SQLException e)
+        {
+            System.err.println("SQL failed.");
+            e.printStackTrace ();
+        }
+        finally
+        {
+			// データベースのクローズ
+        	try
+        	{
+                //resultSet.close();
+                statement.close();
+                connection.close();
+        	}
+        	catch (Exception e)
+        	{
+        		System.out.println("Close failed.");
+        	}
+        	System.out.println("一覧取得処理終了");
+        }
+        return companyColumnList;
+	}
+
 
 }
 
