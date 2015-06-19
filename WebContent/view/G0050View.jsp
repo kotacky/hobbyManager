@@ -3,9 +3,9 @@
 <%@ page import = "java.util.HashMap"%>
 <%@ page import = "java.util.List" %>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; Windows-31J">
+		<meta charset="Windows-31J">
 		<title>好み一覧</title>
 		<style>
 			*{
