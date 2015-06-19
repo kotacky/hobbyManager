@@ -11,12 +11,12 @@ public class G0041Model {
 	public static void main(String args[])
 	{
 
-		insertContents("70" , "子ずれ狼" , "大河ドラマ" , "");
+		insertContents("" , "子ずれ狼" , "大河ドラマ");
 
 	}
 
 
-	public static int insertContents(String contentsId , String contentsName , String summary , String actressId) { //女優テーブル参照
+	public static int insertContents(String contentsId , String contentsName , String summary) { //女優テーブル参照
 
 		//各変数を宣言、初期化
     	Connection connection = null;
@@ -45,6 +45,8 @@ public class G0041Model {
              			+ "VALUES('" + contentsId + "'"
              			+ ",'" + contentsName + "'"
  						+ ",'" + summary + "')";
+
+             	insertCount = statement.executeUpdate(insertSql);
              }
              else
              {
@@ -63,7 +65,7 @@ public class G0041Model {
              //rs0 = stmt0.executeQuery (sql0);
 
              //影響のあった行数を出力
-             insertCount = statement.executeUpdate(insertSql);
+
              System.out.println(insertCount + " 行挿入しました。");
          }
          catch (SQLException e)
@@ -89,3 +91,5 @@ public class G0041Model {
         return insertCount;
  	}
 }
+
+//ぼくのサーヴァントは最強なんだ！(集中線)
