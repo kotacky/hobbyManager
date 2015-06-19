@@ -67,7 +67,7 @@ if(preferenceList != null){
 				</Tr>
 	<% for(int i = 0 ;i<preferenceList.size(); i++){ %>
 				<Tr>
-					<Th><input type="radio" name="id" value="<%= preferenceList./*get(i).*/get("employee_id")%>"></Th>
+					<Th><input type="radio" name="radioButton" value="<%= preferenceList./*get(i).*/get("employee_id")%>"></Th>
 								<% if(i == 0){ %>
 									<Th><% out.print(preferenceList./*get(i).*/get("employeeId")); %></Th>
 									<Th><% out.print(preferenceList./*get(i).*/get("employeeFamilyname")); %></Th>
