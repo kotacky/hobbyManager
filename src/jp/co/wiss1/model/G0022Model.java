@@ -34,15 +34,16 @@ public class G0022Model {
         	statement = connection.createStatement();
 
             /* 自動コミットを無効にする */
-        	connection.setAutoCommit(true);
+        	connection.setAutoCommit(false);
 
 
             String sql = "UPDATE t_actress SET";
-            	if(!"". equals(actressId)){
+            	if(!"". equals(contentsId)&&!"". equals(actressId)){
             		sql = sql +" actress_name = '"+ actressName +"',"
             				+ "company_id = '"+ companyId + "',"
             				+ "contents_id = '"+ contentsId +"'"
-            				+ "WHERE actress_id = '"+ actressId +"' AND contents_id = '"+ contentsId +"'";
+            				+ "WHERE actress_id = '"+ actressId +"' AND"
+            				+ " contents_id = '"+ contentsId +"'";
 
             		upDateCount = statement.executeUpdate (sql);
             	}
