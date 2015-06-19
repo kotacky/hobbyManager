@@ -18,7 +18,7 @@ public class G0012Control extends HttpServlet{
 		throws IOException, ServletException{
 
 		//ブラウザの文字コードで返す
-		EncodingUtils.responseEncoding(response);
+		EncodingUtils.responseEncoding(request,response);
 
 		//更新②の処理
 		//更新する内容を受け取る

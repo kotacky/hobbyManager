@@ -21,7 +21,7 @@ public class G0020Control extends HttpServlet{
 		throws IOException, ServletException{
 
 		// ブラウザの文字コードの調整
-		EncodingUtils.responseEncoding(response);
+		EncodingUtils.responseEncoding(request,response);
 
 		//どの処理を行うかの命令を受け取る
 		String processDiv = request.getParameter("processDiv");
