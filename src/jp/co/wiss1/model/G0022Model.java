@@ -16,7 +16,7 @@ public class G0022Model {
 		//getCompanyList(0,null);
 		//getPreferenceList();
 		//getContentsList();
-		updateActress("","","","");
+		updateActress("0","","0","0");
 	}
 
 
@@ -37,9 +37,12 @@ public class G0022Model {
         	connection.setAutoCommit(true);
 
 
-            String sql = "UPDATE0 t_actress SET";
+            String sql = "UPDATE t_actress SET";
             	if(!"". equals(actressId)){
-            		sql = sql +" actress_name = '"+ actressName +"' WHERE actress_id = '"+ actressId +"'";
+            		sql = sql +" actress_name = '"+ actressName +"',"
+            				+ "company_id = '"+ companyId + "',"
+            				+ "contents_id = '"+ contentsId +"'"
+            				+ "WHERE actress_id = '"+ actressId +"' AND contents_id = '"+ contentsId +"'";
 
             		upDateCount = statement.executeUpdate (sql);
             	}
