@@ -36,7 +36,7 @@ public class G0010Control extends HttpServlet{
 			List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId, familyName, firstName);
 
 			//検索結果をViewに送る
-			request.setAttribute("EmployeeList", employeeList);
+			request.setAttribute("employeeList", employeeList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -51,7 +51,7 @@ public class G0010Control extends HttpServlet{
 			List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(updateId, "", "");
 
 			//更新前の情報を更新ページに飛ばす
-			request.setAttribute("EmployeeList", employeeList);
+			request.setAttribute("employeeList", employeeList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0012View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -69,7 +69,7 @@ public class G0010Control extends HttpServlet{
 			List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId,familyName,firstName);
 
 			//デリート後のリストと削除完了のフラグを送る
-			request.setAttribute("EmployeeList",employeeList);
+			request.setAttribute("employeeList",employeeList);
 			if(deleteFlag == 1){
 				request.setAttribute("deleteFlag",deleteFlag);
 			}else{
