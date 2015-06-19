@@ -1,7 +1,7 @@
 package jp.co.wiss1.control;
 
 import java.io.IOException;
- 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +17,7 @@ public class G0032Control extends HttpServlet{
 		throws IOException, ServletException{
 
 		//ブラウザの文字コードの設定
-		EncodingUtils.responseEncoding(response);
+		EncodingUtils.responseEncoding(request,response);
 
 		//update処理
 		//フォーム入力を受け取る

@@ -20,7 +20,7 @@ public class G0030Control extends HttpServlet{
 			throws IOException, ServletException{
 
 		//ブラウザの文字コードの設定
-		EncodingUtils.responseEncoding(response);
+		EncodingUtils.responseEncoding(request,response);
 
 		//フォーム入力を受け取る
 		String companyId = request.getParameter("companyId");
