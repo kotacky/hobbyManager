@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-<title>ドラマ・映画登録</title>
+<title>コンテンツ登録</title>
 </head>
 <body>
-<H1>ドラマ・映画登録</H1>
+<H1>コンテンツ登録</H1>
 <% //Cへ登録する条件を送る %>
 <form method="POST" action="<%=request.getContextPath() %>/G0041Control">
-ドラマ・映画ID:
+コンテンツID:
 <input type="text" name="contents__id"><br>
-作品名:
+コンテンツ名:
 <input type="text" name="contents_name"><br>
-ドラマ・映画種類:
+概要:
 <input type="text" name="summary"><br>
 <input type=submit value="登録">
 </form>
