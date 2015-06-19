@@ -112,3 +112,4 @@ public class G0020Control extends HttpServlet{
 		 }
 	}
 }
+//最新変更
