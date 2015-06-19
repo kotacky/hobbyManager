@@ -13,7 +13,7 @@ public class G0012Model {
 		// TODO 自動生成されたメソッド・スタブ
 		//getEmployeeList_SELECT("0" , "島" , "雅");
 		//getEmployeeList_INSERT("128" , "檜山" , "隼" , "20001001");
-		updateEmployee("126","","", "");
+		updateEmployee("126","倉島","雅也", "20000801");
 		//getCompanyList(0,null);
 		//getPreferenceList();
 		//getContentsList();
@@ -43,8 +43,8 @@ public class G0012Model {
             //SQL文を入力
             String sql = "UPDATE t_employee SET ";
             	if(!"". equals(employeeId)){
-            		sql = sql + "employee_family_name = '"+ familyName +"'"
-            		+ "employee_first_name = '"+ firstName +"'"
+            		sql = sql + "employee_family_name = '"+ familyName +"',"
+            		+ "employee_first_name = '"+ firstName +"',"
             		+ "birth_date = '"+ birthDate +"' WHERE "
             		+ "employee_id = '"+ employeeId +"'";
             		System.out.println(sql);
@@ -105,3 +105,4 @@ public class G0012Model {
 	}
 
 }
+
