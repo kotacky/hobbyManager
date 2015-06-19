@@ -18,25 +18,25 @@
 	<H1>更新情報入力</H1>
 	<%-- リストの取得 --%>
 	<%
-		HashMap<String,String> EmployeeList = new HashMap<String,String>();
-			EmployeeList.put("employeeId", "122");
-			EmployeeList.put("employeeFamilyname", "金井");
-			EmployeeList.put("employeeFirstname", "才");
-			EmployeeList.put("birthDate", "19920811");
+		//HashMap<String,String> EmployeeList = new HashMap<String,String>();
+			//EmployeeList.put("employeeId", "122");
+			//EmployeeList.put("employeeFamilyname", "金井");
+			//EmployeeList.put("employeeFirstname", "才");
+			//EmployeeList.put("birthDate", "19920811");
  	%>
 
-<% //List<HashMap<String, String>> EmployeeList = (List<HashMap<String, String>>)request.getAttribute("EmployeeList"); %>
+<% List<HashMap<String, String>> EmployeeList = (List<HashMap<String, String>>)request.getAttribute("EmployeeList"); %>
 
 	<%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0012Control">
 		社員ID:
-		<input type="text" name="employee_id"  disabled value=<% out.print(EmployeeList./*get(0).*/get("employeeId")); %>><br>
+		<input type="text" name="employeeId" readonly value=<% out.print(EmployeeList.get(0).get("employeeId")); %>><br>
 		姓:
-		<input type="text" name="employee_family_name" value=<% out.print(EmployeeList./*get(0).*/get("employeeFamilyname")); %>><br>
+		<input type="text" name="employeeFamilyName" value=<% out.print(EmployeeList.get(0).get("employeeFamilyname")); %>><br>
 		名:
-		<input type="text" name="employee_first_name" value=<% out.print(EmployeeList./*get(0).*/get("employeeFirstname")); %>><br>
+		<input type="text" name="employeeFirstName" value=<% out.print(EmployeeList.get(0).get("employeeFirstname")); %>><br>
 		生年月日:
-		<input type="text" name="employee_birth" value=<% out.print(EmployeeList./*get(0).*/get("birthDate")); %>><br>
+		<input type="text" name="birthDate" value=<% out.print(EmployeeList.get(0).get("birthDate")); %>><br>
 		<input type=submit value="更新">
 	</form>
 	<%-- メニュー画面に戻る処理 --%>
