@@ -16,7 +16,7 @@ public class G0031Control extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException{
 
-		//ブラウザの文字コードの設定
+		//ブラウザの文字コードの設定　
 		EncodingUtils.responseEncoding(request,response);
 
 		//insert処理
