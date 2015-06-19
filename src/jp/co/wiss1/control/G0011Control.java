@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0011Model;
 @WebServlet("/G0011Control")
 public class G0011Control extends HttpServlet{
@@ -16,8 +17,7 @@ public class G0011Control extends HttpServlet{
 		throws IOException, ServletException{
 
 		//ブラウザの文字コードの設定
-		request.setCharacterEncoding("Windows-31J");
-		response.setContentType("text/html;charset=Shift_JIS");
+		EncodingUtils.responseEncoding(response);
 
 		//insert処理
 		//フォーム入力を受け取る
@@ -27,11 +27,11 @@ public class G0011Control extends HttpServlet{
 		String employeeBirth = request.getParameter("employee_birth");
 
 		//Modelに引数を渡しinsert処理を実行させる
-		//int i =
+		int insertFlag =
 		G0011Model.insertEmployee(employeeId, employeeFamilyName, employeeFirstName, employeeBirth);
 
 		//Viewに渡すフラグを設定
-		//request.setAttribute("flag",i);
+		request.setAttribute("insertFlag",insertFlag);
 
 		//Viewにフラグを渡す
 		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
