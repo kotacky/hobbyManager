@@ -31,8 +31,11 @@ public class G0011Control extends HttpServlet{
 		G0011Model.insertEmployee(employeeId, employeeFamilyName, employeeFirstName, employeeBirth);
 
 		//Viewに渡すフラグを設定
-		request.setAttribute("insertFlag",insertFlag);
-
+		if(insertFlag == 1){
+			request.setAttribute("insertFlag",insertFlag);
+		}else{
+			request.setAttribute("insertFlag",insertFlag);
+		}
 		//Viewにフラグを渡す
 		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 		dispatch.forward(request, response);

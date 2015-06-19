@@ -60,7 +60,7 @@ public class G0010Control extends HttpServlet{
 		if ("delete".equals(processDiv)){
 
 			//削除に必要な情報を受け取る
-			String deleteId = request.getParameter("employeeId");
+			String deleteId = request.getParameter("radioButton");
 
 			//デリートのメソッドを呼ぶ
 			int deleteFlag = G0010Model.deleteEmployee(deleteId);
