@@ -43,8 +43,8 @@ public class G0050Model {
 		        					+ "t_actress.actress_name,"
 		        					+ "t_contents.contents_name "
 		        					+ "FROM "
-		        					+ "((t_preference INNER JOIN t_employee ON t_employee.employee_id = t_preference.employee_id) "
-		        					+ "INNER JOIN t_contents ON t_contents.contents_id = t_preference.contents_id) "
+		        					+ "t_preference INNER JOIN t_employee ON t_employee.employee_id = t_preference.employee_id "
+		        					+ "INNER JOIN t_contents ON t_contents.contents_id = t_preference.contents_id "
 		        					+ "INNER JOIN t_actress ON t_actress.actress_id = t_preference.actress_id "
 		        					+ "AND t_actress.contents_id = t_preference.contents_id where ";
 
