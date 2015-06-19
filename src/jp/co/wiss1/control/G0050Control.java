@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.wiss1.common.Constants;
+import jp.co.wiss1.common.EncodingUtils;
+import jp.co.wiss1.model.G0020Model;
 import jp.co.wiss1.model.G0050Model;
 import jp.co.wiss1.model.G0051Model;
 
@@ -21,8 +22,7 @@ public class G0050Control extends HttpServlet{
 		throws IOException, ServletException{
 
 		//ブラウザの文字コードで返す
-		response.setCharacterEncoding(Constants.CHARACTER_ENCODING);
-		response.setContentType("text/html;charset="+Constants.CHARACTER_ENCODING);
+		EncodingUtils.responseEncoding(request,response);
 
 		//Viewから処理命令を受け取る
 		String processDiv = request.getParameter("");
@@ -49,10 +49,13 @@ public class G0050Control extends HttpServlet{
 
 			//登録画面に必要な要素を引き出す
 			List<HashMap<String, String>> employeeList = G0051Model.getColumnEmployeeList();
-//			List<HashMap<String, String>> actressList = G0051Model.getActress();
+			List<HashMap<String, String>> actressList = G0051Model.getColumnActressList();
+			List<HashMap<String, String>> ContentsList = G0020Model.getColumnContentsList();
 
 			//登録画面にプルダウンで必要なもの送る
 			request.setAttribute("employeeList", employeeList);
+			request.setAttribute("actressList", actressList);
+			request.setAttribute("ContentsList", ContentsList);
 //			request.setAttribute("actressList", actressList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0051View.jsp");
 			dispatch.forward(request, response);
@@ -64,17 +67,17 @@ public class G0050Control extends HttpServlet{
 			String contentsId = request.getParameter("contentsId");
 
 			//デリートのメソッドを呼ぶ
-			int flagCount = G0050Model.deletePreference(employeeId, contentsId);
+			int deleteFlag = G0050Model.deletePreference(employeeId, contentsId);
 
 			//デリート後のリストを検索メソッドで取り出す
 			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
 
 			//デリート後のリストと削除処理のフラグを送る
 			request.setAttribute("PreferenceList", preferenceList);
-			if(flagCount >= 1){
-				//request.setAttribute("flag",31);
+			if(deleteFlag == 1){
+				request.setAttribute("deleteFlag",deleteFlag);
 			}else{
-				//request.setAttribute("flag",30);
+				request.setAttribute("deleteFlag",deleteFlag);
 			}
 
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");

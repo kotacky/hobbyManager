@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.wiss1.common.Constants;
+import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0051Model;
 
 @WebServlet("/G0051Control")
@@ -18,8 +18,7 @@ public class G0051Control extends HttpServlet{
 			throws IOException, ServletException{
 
 		//ブラウザの文字コードで返す
-		response.setCharacterEncoding(Constants.CHARACTER_ENCODING);
-		response.setContentType("text/html;charset="+Constants.CHARACTER_ENCODING);
+		EncodingUtils.responseEncoding(request,response);
 
 		//登録に必要な情報を受け取る
 		String employeeId = request.getParameter("employeeId");
@@ -27,13 +26,13 @@ public class G0051Control extends HttpServlet{
 		String contentsId = request.getParameter("contentsId");
 
 		//登録のメソッドを呼び出す
-		int flagCount = G0051Model.insertPreference(employeeId, actressId, contentsId);
+		int insertFlag = G0051Model.insertPreference(employeeId, actressId, contentsId);
 
 		//登録フラグを送る
-		if(flagCount >= 1){
-			//request.setAttribute("flag",11);
+		if(insertFlag >= 1){
+			request.setAttribute("insertFlag",insertFlag);
 		}else{
-			//request.setAttribute("flag",10);
+			request.setAttribute("insertFlag",insertFlag);
 		}
 		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 		dispatch.forward(request, response);

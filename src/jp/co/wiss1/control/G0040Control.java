@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.wiss1.common.Constants;
+import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0040Model;
 
 @WebServlet("/G0040Control")
@@ -20,8 +20,7 @@ public class G0040Control extends HttpServlet{
 		throws IOException, ServletException{
 
 		//ブラウザの文字コードで返す
-		response.setCharacterEncoding(Constants.CHARACTER_ENCODING);
-		response.setContentType("text/html;charset="+Constants.CHARACTER_ENCODING);
+		EncodingUtils.responseEncoding(request,response);
 
 		//Viewから処理命令を受け取る
 		String processDiv = request.getParameter("processDiv");
@@ -65,17 +64,17 @@ public class G0040Control extends HttpServlet{
 			String deleteId = request.getParameter("contentsId");
 
 			//デリートのメソッドを呼ぶ
-			int flagCount = G0040Model.deleteContents(deleteId);
+			int deleteFlag = G0040Model.deleteContents(deleteId);
 
 			//デリート後のリストを検索メソッドで取り出す
 			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, summary);
 
 			//デリート後のリストと削除完了のフラグを送る
 			request.setAttribute("contentsList", contentsList);
-			if(flagCount >= 1){
-				//request.setAttribute("flag",31);
+			if(deleteFlag == 1){
+				request.setAttribute("deleteFlag",deleteFlag);
 			}else{
-				//request.setAttribute("flag",30);
+				request.setAttribute("deleteFlag",deleteFlag);
 			}
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 			dispatch.forward(request, response);
