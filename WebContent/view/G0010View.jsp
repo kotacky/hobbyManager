@@ -22,6 +22,30 @@
 	</head>
 
 	<body>
+<%-- メッセージの表示 --%>
+
+		<% try{ %>
+			<% int insertFlag = Integer.parseInt(request.getParameter("insertFlag")); %>
+				<% if(insertFlag == 1){ %>
+				<H2><% out.print("更新が完了しました。"); %></H2>
+				<% }else { %>
+				<H2><% out.print("登録が失敗しました。"); %></H2>
+				<% } %>
+			<% int updateFlag = Integer.parseInt(request.getParameter("updateFlag")); %>
+				<% if(updateFlag == 1){ %>
+				<H2><% out.print("更新が完了しました。"); %></H2>
+				<% }else { %>
+				<H2><% out.print("更新が失敗しました。"); %></H2>
+				<% } %>
+			<% int deleteFlag = Integer.parseInt(request.getParameter("deletefFlag")); %>
+				<% if(deleteFlag == 1){ %>
+				<H2><% out.print("削除が完了しました。"); %></H2>
+				<% }else { %>
+				<H2><% out.print("削除が失敗しました。"); %></H2>
+				<% } %>
+		<% }catch(NumberFormatException e){ %>
+		<% } %>
+
 <%-- リストの取得 --%>
 <%
 List<HashMap<String,String>> employeeList = (List<HashMap<String,String>>)request.getAttribute("employeeList");

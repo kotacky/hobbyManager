@@ -34,7 +34,7 @@ if(contentsList != null){
      disabled = "";
 }
 %>
-		<h1>ドラマ・映画一覧</h1>
+		<h1>コンテンツ一覧</h1>
 		<% //Cへ検索する条件を送る %>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0040Control">
 			コンテンツID:
