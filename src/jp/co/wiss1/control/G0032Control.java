@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0032Model;
 @WebServlet("/G0032Control")
 public class G0032Control extends HttpServlet{
@@ -16,23 +17,20 @@ public class G0032Control extends HttpServlet{
 		throws IOException, ServletException{
 
 		//ブラウザの文字コードの設定
-		request.setCharacterEncoding("Windows-31J");
-		response.setContentType("text/html;charset=Shift_JIS");
+		EncodingUtils.responseEncoding(response);
 
 		//update処理
 		//フォーム入力を受け取る
-		String companyId = request.getParameter("company_id");
-		String companyName = request.getParameter("company_name");
-		String companyAdress = request.getParameter("company_adress");
+		String companyId = request.getParameter("companyId");
+		String companyName = request.getParameter("companyName");
+		String companyAdress = request.getParameter("companyAdress");
 
 		//Modelに引数を渡し、更新後の結果をリストに入れる
-		//int i =
+		int updateFlag =
 		G0032Model.updateCompany(companyId, companyName, companyAdress);
 
 		//Viewに渡すフラグを設定
-		//if(i>=1){
-		//request.setAttribute("flag", true);
-		//}
+		request.setAttribute("updateFlag", updateFlag);
 
 		//Viewにフラグを渡す
 		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0030View.jsp");
