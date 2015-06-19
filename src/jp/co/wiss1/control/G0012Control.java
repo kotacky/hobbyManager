@@ -25,7 +25,7 @@ public class G0012Control extends HttpServlet{
 		String employeeId = request.getParameter("employeeId");
 		String familyName = request.getParameter("employeeFamilyName");
 		String firstName = request.getParameter("employeeFirstName");
-		String birthDay = request.getParameter("employeeBirth");
+		String birthDay = request.getParameter("birthDate");
 
 		//更新するメソッドを呼び出す
 		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDay);

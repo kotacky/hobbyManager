@@ -21,10 +21,10 @@ public class G0011Control extends HttpServlet{
 
 		//insert処理
 		//フォーム入力を受け取る
-		String employeeId = request.getParameter("employee_id");
-		String employeeFamilyName = request.getParameter("employee_family_name");
-		String employeeFirstName = request.getParameter("employee_first_name");
-		String employeeBirth = request.getParameter("employee_birth");
+		String employeeId = request.getParameter("employeeId");
+		String employeeFamilyName = request.getParameter("employeeFamilyName");
+		String employeeFirstName = request.getParameter("employeeFirstName");
+		String employeeBirth = request.getParameter("birthDate");
 
 		//Modelに引数を渡しinsert処理を実行させる
 		int insertFlag =
