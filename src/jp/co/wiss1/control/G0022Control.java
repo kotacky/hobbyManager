@@ -19,7 +19,7 @@ public class G0022Control extends HttpServlet{
 	throws IOException, ServletException{
 
 		//ブラウザの文字コードの調整
-		EncodingUtils.responseEncoding(response);
+		EncodingUtils.responseEncoding(request,response);
 
 		// 更新(UPDATE)②の処理
 
