@@ -15,7 +15,7 @@ public class G0020Model
 
 	public static void main(String[] args)
 	{
-		getActressList("", "");
+		getActressList("201", "");
 		deleteActress("0", "0");
 
 	}
