@@ -65,6 +65,13 @@
 コンテンツは登録から新しく登録することが出来ます</p>
 
 <%
+//ダミーのデータ
+//HashMap<String,String> actressList = new HashMap<String,String>();
+	//actressList.put("actressId", "201");
+	//actressList.put("actressName", "綾瀬 はるか");
+	//actressList.put("companyName", "ホリプロ");
+	//actressList.put("companyAddress", "東京");
+
 	List<HashMap<String, String>> contentsList = (List<HashMap<String, String>>)request.getAttribute("contentsList");
 	String[] check = null;
 		if (contentsList == null) {
