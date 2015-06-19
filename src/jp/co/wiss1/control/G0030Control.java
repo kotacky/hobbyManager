@@ -1,4 +1,4 @@
-//同期済み
+//同期
 package jp.co.wiss1.control;
 import java.io.IOException;
 import java.util.HashMap;
