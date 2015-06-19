@@ -11,12 +11,8 @@ public class G0032Model {
 	public static void main(String[] args)
 	{
 		// TODO 自動生成されたメソッド・スタブ
-		//getEmployeeList_SELECT("0" , "島" , "雅");
-		//getEmployeeList_INSERT("128" , "檜山" , "隼" , "20001001");
 		updateCompany("","","");
-		//getPreferenceList();
-		//getContentsList();
-		//getActressList();
+
 	}
 
 
@@ -55,30 +51,6 @@ public class G0032Model {
             System.out.println(upDateCount + "行を更新しました。");
 
 
-
-            /*System.out.println(rows);
-            int i = 0;
-            // テーブル照会結果を出力
-            while(rs0.next())
-           {
-
-            	map.add(new HashMap());
-
-
-            	map.get(i).put("所属会社ID", rs0.getInt("company_ID"));
-            	map.get(i).put("所属会社名", rs0.getString("company_name"));
-            	map.get(i).put("所属会社住所", rs0.getString("company_ID"));
-
-
-
-
-            	//リストに入ったかの確認
-            	System.out.println(map.get(i).get("所属会社ID"));
-    			System.out.println(map.get(i).get("所属会社名"));
-    			System.out.println(map.get(i).get("所属会社住所"));
-
-				i++;
-            }*/
 
 
         }

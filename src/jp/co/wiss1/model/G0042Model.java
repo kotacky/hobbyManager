@@ -13,12 +13,7 @@ public class G0042Model {
 	public static void main(String[] args)
 	{
 		// TODO 自動生成されたメソッド・スタブ
-		//getEmployeeList_SELECT("0" , "島" , "雅");
-		//getEmployeeList_INSERT("128" , "檜山" , "隼" , "20001001");
-		//getCompanyList(0,null);
-		//getPreferenceList();
 		updateContents("","","","");
-		//getActressList();
 	}
 
 
@@ -58,30 +53,6 @@ public class G0042Model {
             System.out.println(upDateCount + "行を更新しました。");
 
 
-
-            // テーブル照会結果を出力
-            /*while(rs0.next())
-            {
-
-            	map.add(new HashMap());
-
-
-            	map.get(i).put("コンテンツID", rs0.getInt("contents_ID"));
-            	map.get(i).put("作品名", rs0.getString("contents_name"));
-            	map.get(i).put("概要", rs0.getString("summary"));
-
-
-
-
-            	//リストに入ったかの確認
-            	System.out.println(map.get(i).get("コンテンツID"));
-    			System.out.println(map.get(i).get("作品名"));
-    			System.out.println(map.get(i).get("概要"));
-
-				i++;
-            }*/
-
-
         }
         catch (SQLException e)
         {
@@ -91,7 +62,6 @@ public class G0042Model {
         finally{
         	// データベースのクローズ
         	try {
-                //resultSet.close();
                 statement.close();
                 connection.close();
         	}
