@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0020Model;
-import jp.co.wiss1.model.G0021Model;
 
 @WebServlet("/G0020Contlrl")
 public class G0020Control extends HttpServlet{
@@ -49,7 +48,7 @@ public class G0020Control extends HttpServlet{
 		if ("insert".equals(processDiv)){
 
 			//会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> columncompanyList =G0021Model.getColumnCompanyList();
+			List <HashMap<String,String>> columncompanyList =G0020Model.getColumnCompanyList();
 			List <HashMap<String,String>> columncontentsList = G0020Model.getColumnContentsList();
 
 			// 会社名リストとコンテンツリストをViewへ送る
@@ -66,7 +65,7 @@ public class G0020Control extends HttpServlet{
 		 if ("update".equals(processDiv)){
 
 			// 会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> colmncompanyList =G0021Model.getColumnCompanyList();
+			List <HashMap<String,String>> colmncompanyList =G0020Model.getColumnCompanyList();
 			List <HashMap<String,String>> columncontentsList = G0020Model.getColumnContentsList();
 
 			//会社名リストとコンテンツリストをViewへ送る
@@ -88,11 +87,10 @@ public class G0020Control extends HttpServlet{
 		 if ("delete".equals(processDiv)){
 
 			// 削除対象の主キーを受け取る
-			String deleteId = request.getParameter("actressId");
+			String contentsId = request.getParameter("contentsId");
 
 			//削除対象の主キーを送る
-			int deleteFlag = G0020Model.deleteActress (deleteId);
-
+			int deleteFlag = G0020Model.deleteActress(actressId,contentsId);
 
 			//削除の項目を送り、削除後のリストを受け取る
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName);
@@ -112,4 +110,3 @@ public class G0020Control extends HttpServlet{
 		 }
 	}
 }
-//最新変更
