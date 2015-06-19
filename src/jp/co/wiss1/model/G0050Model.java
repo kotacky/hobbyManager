@@ -16,7 +16,7 @@ public class G0050Model {
 
 		public static void main(String[] args)
 		{
-			getPreferenceList("", "", "");
+			getPreferenceList("119", "", "");
 			deletePreference("0", "0");
 		}
 
