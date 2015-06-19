@@ -13,19 +13,12 @@
 <% //C‚Ö“o˜^‚·‚éğŒ‚ğ‘—‚é %>
 <form method="POST"name="Myform" action="<%=request.getContextPath() %>/G0051Control">
 ĞˆõID:
-<input type="text" name="employee_id"><br>
+<input type="text" name="employeeId"><br>
 ——DID:
-<input type="text" name="actress_id"><br>
-<!-- ‰ïĞ‚ğ“o˜^‚Ì‚½‚ß‚É‘I‘ğ -->
-<%
-	List<HashMap<String, String>> companyList = (List<HashMap<String, String>>)request.getAttribute("companyList");
-	String[] sel = null;
-	if (companyList == null) {
-		sel = new String[0];
-	} else {
-		sel = new String[companyList.size()];
-	}
-%>
+<input type="text" name="actressId"><br>
+——D–¼F
+
+<!-- ——D–¼‚ğ“o˜^‚Ì‚½‚ß‚É‘I‘ğ -->
 
 <%
 	List<HashMap<String, String>> conpanyList = (List<HashMap<String, String>>)request.getAttribute("conpanyList");
