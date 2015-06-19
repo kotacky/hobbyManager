@@ -15,12 +15,17 @@ public class G0051Model {
 	public static void main(String args[])
 	{
 
-		insertPreference("100" , "111");
+		insertPreference("0" , "0" , "425");
+		getColumnEmployeeList();
+		getColumnActressList();
+
+		getColumntContentsList();
+		getColumnCompnyList();
 
 	}
 
 
-	public static int insertPreference(String employeeId , String actressId) { //女優テーブル参照
+	public static int insertPreference(String employeeId , String actressId , String contentsId) { //女優テーブル参照
 
 		//各変数を宣言、初期化
     	Connection connection = null;
@@ -44,11 +49,13 @@ public class G0051Model {
              if(!"".equals(employeeId))
              {
              	insertSql = insertSql + "(employee_id"
-             			+ ",contents_id"
-             			+ ",company_address"
-             			+ ",company_id)"
+             			+ ",actress_id"
+             			+ ",contents_id)"
              			+ "VALUES('" + employeeId + "'"
-						+ ",'" + actressId + "')";
+						+ ",'" + actressId + "'"
+						+ ",'" + contentsId + "')";
+
+             	insertCount = statement.executeUpdate(insertSql);
              }
              else
              {
@@ -60,11 +67,12 @@ public class G0051Model {
 
              System.out.println("引数に" + employeeId + "が入力されました。");
              System.out.println("引数に" + actressId + "が入力されました。");
+             System.out.println("引数に" + contentsId + "が入力されました。");
 
              System.out.println(insertSql);
 
              //影響のあった行数を出力
-             insertCount = statement.executeUpdate(insertSql);
+
              System.out.println(insertCount + " 行挿入しました。");
          }
          catch (SQLException e)
@@ -91,10 +99,9 @@ public class G0051Model {
  	}
 
 
-
-	public static List<HashMap<String,String>> getColumnEmployeeList() //プルダウン表示に必要なカラムデータを送るメソッド
+	public static List<HashMap<String,String>> getColumnEmployeeList() //プルダウン表示に必要な社員データを送るメソッド
 	{
-		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得した
+		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
 
 		//各変数を宣言、初期化
 		ResultSet resultSet = null;
@@ -112,15 +119,241 @@ public class G0051Model {
         	connection.setAutoCommit(false);
 
         	//プルダウン用にカラム名を取得
-            String columnSelectSql = "SELECT employee_id, FROM t_company";
+            String columnSelectSql = "SELECT employee_id , employee_family_name , employee_first_name FROM t_employee";
+            System.out.println("1:" + columnSelectSql);
+
+            resultSet = statement.executeQuery (columnSelectSql);
+
+           // テーブル照会結果を出力
+           while(resultSet.next())
+           {
+            	//社員情報を作成する
+            	HashMap<String, String> employeeInfo = new HashMap<String, String>();
+            	employeeInfo.put("社員Id", resultSet.getString("employee_id"));
+            	employeeInfo.put("姓", resultSet.getString("employee_family_name"));
+            	employeeInfo.put("名", resultSet.getString("employee_first_name"));
+
+            	//社員情報をリストに追加する
+            	companyColumnList.add(employeeInfo);
+
+            	//リストに入ったかの確認
+            	System.out.println(employeeInfo.get("社員Id"));
+            	System.out.println(employeeInfo.get("姓"));
+            	System.out.println(employeeInfo.get("名"));
+			}
+
+        }
+        catch (SQLException e)
+        {
+            System.err.println("SQL failed.");
+            e.printStackTrace ();
+        }
+        finally
+        {
+			// データベースのクローズ
+        	try
+        	{
+                //resultSet.close();
+                statement.close();
+                connection.close();
+        	}
+        	catch (Exception e)
+        	{
+        		System.out.println("Close failed.");
+        	}
+        	System.out.println("一覧取得処理終了");
+        }
+        return companyColumnList;
+	}
+
+
+	public static List<HashMap<String,String>> getColumnActressList() //プルダウン表示に必要な女優データを送るメソッド
+	{
+		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
+
+		//各変数を宣言、初期化
+		ResultSet resultSet = null;
+		Connection connection = null;
+		Statement statement = null;
+
+
+	    try
+	    {
+	        // テーブル照会実行
+	    	connection = DBAccessUtils.getConnection();
+	    	statement = connection.createStatement();
+
+	        //自動コミットを無効にする
+	    	connection.setAutoCommit(false);
+
+	    	//プルダウン用にカラム名を取得
+	        String columnSelectSql = "SELECT actress_id , actress_name FROM t_actress";
+	        System.out.println("1:" + columnSelectSql);
+
+	        resultSet = statement.executeQuery (columnSelectSql);
+
+	       // テーブル照会結果を出力
+	       while(resultSet.next())
+	       {
+	        	//社員情報を作成する
+	        	HashMap<String, String> employeeInfo = new HashMap<String, String>();
+	        	employeeInfo.put("女優Id", resultSet.getString("actress_id"));
+	        	employeeInfo.put("女優名", resultSet.getString("actress_name"));
+
+	        	//社員情報をリストに追加する
+	        	companyColumnList.add(employeeInfo);
+
+	        	//リストに入ったかの確認
+	        	System.out.println(employeeInfo.get("女優Id"));
+	        	System.out.println(employeeInfo.get("女優名"));
+
+			}
+
+	    }
+	    catch (SQLException e)
+	    {
+	        System.err.println("SQL failed.");
+	        e.printStackTrace ();
+	    }
+	    finally
+	    {
+			// データベースのクローズ
+	    	try
+	    	{
+	            //resultSet.close();
+	            statement.close();
+	            connection.close();
+	    	}
+	    	catch (Exception e)
+	    	{
+	    		System.out.println("Close failed.");
+	    	}
+	    	System.out.println("一覧取得処理終了");
+	    }
+	    return companyColumnList;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//クラス0020に入れる予定のメソッド
+
+	public static List<HashMap<String,String>> getColumntContentsList() //チェックボックに必要なコンテンツデータを送るメソッド
+	{
+		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
+
+		//各変数を宣言、初期化
+		ResultSet resultSet = null;
+		Connection connection = null;
+		Statement statement = null;
+
+
+	    try
+	    {
+	        // テーブル照会実行
+	    	connection = DBAccessUtils.getConnection();
+	    	statement = connection.createStatement();
+
+	        //自動コミットを無効にする
+	    	connection.setAutoCommit(false);
+
+	    	//プルダウン用にカラム名を取得
+	        String columnSelectSql = "SELECT contents_id , contents_name FROM t_contents";
+	        System.out.println("1:" + columnSelectSql);
+
+	        //引数に入った値を出力
+	        System.out.println(columnSelectSql);
+
+	        resultSet = statement.executeQuery (columnSelectSql);
+
+
+	       // テーブル照会結果を出力
+	       while(resultSet.next())
+	       {
+	        	//社員情報を作成する
+	        	HashMap<String, String> employeeInfo = new HashMap<String, String>();
+	        	employeeInfo.put("コンテンツId", resultSet.getString("contents_id"));
+	        	employeeInfo.put("コンテンツ名", resultSet.getString("contents_name"));
+
+	        	//社員情報をリストに追加する
+	        	companyColumnList.add(employeeInfo);
+
+	        	//リストに入ったかの確認
+	        	System.out.println(employeeInfo.get("コンテンツId"));
+	        	System.out.println(employeeInfo.get("コンテンツ名"));
+
+			}
+
+	    }
+	    catch (SQLException e)
+	    {
+	        System.err.println("SQL failed.");
+	        e.printStackTrace ();
+	    }
+	    finally
+	    {
+			// データベースのクローズ
+	    	try
+	    	{
+	            //resultSet.close();
+	            statement.close();
+	            connection.close();
+	    	}
+	    	catch (Exception e)
+	    	{
+	    		System.out.println("Close failed.");
+	    	}
+	    	System.out.println("一覧取得処理終了");
+	    }
+	    return companyColumnList;
+	}
+
+
+
+//クラス0020に入れる予定のメソッド
+
+	public static List<HashMap<String,String>> getColumnCompnyList() //プルダウン表示に必要な会社データを送るメソッド
+	{
+		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
+
+		//各変数を宣言、初期化
+		ResultSet resultSet = null;
+    	Connection connection = null;
+    	Statement statement = null;
+
+
+        try
+        {
+            // テーブル照会実行
+        	connection = DBAccessUtils.getConnection();
+        	statement = connection.createStatement();
+
+            //自動コミットを無効にする
+        	connection.setAutoCommit(false);
+
+        	//プルダウン用にカラム名を取得
+            String columnSelectSql = "SELECT company_id , company_name FROM t_company";
             System.out.println("1:" + columnSelectSql);
 
             //引数に入った値を出力
             //System.out.println("引数に" + companyName + "が入力されました。");
-            //System.out.println(columnSelectSql);
+            System.out.println(columnSelectSql);
 
-            //String selectSql = "SELECT * FROM t_employee where employee_id like '119' ORDER BY employee_id";
-            //System.out.println(selectSql);
 
             resultSet = statement.executeQuery (columnSelectSql);
 
@@ -134,12 +367,14 @@ public class G0051Model {
            {
             	//社員情報を作成する
             	HashMap<String, String> employeeInfo = new HashMap<String, String>();
+            	employeeInfo.put("会社Id", resultSet.getString("company_id"));
             	employeeInfo.put("会社名", resultSet.getString("company_name"));
 
             	//社員情報をリストに追加する
             	companyColumnList.add(employeeInfo);
 
             	//リストに入ったかの確認
+            	System.out.println(employeeInfo.get("会社Id"));
             	System.out.println(employeeInfo.get("会社名"));
 
 			}
@@ -167,5 +402,6 @@ public class G0051Model {
         }
         return companyColumnList;
 	}
-
 }
+
+//Gitkat(kitkat)
