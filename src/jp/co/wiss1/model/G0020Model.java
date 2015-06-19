@@ -15,8 +15,8 @@ public class G0020Model
 
 	public static void main(String[] args)
 	{
-		getActressList("", "瀬");
-		deleteActress("0");
+		getActressList("", "");
+		deleteActress("0", "0");
 
 	}
 
@@ -38,16 +38,15 @@ public class G0020Model
 	        connection.setAutoCommit(false);															//自動コミットを無効にする
 
 
-	        String sql = "SELECT t_actress.actress_id, t_actress.actress_name, t_company.company_name "
-	        				+ "FROM "
-	        				+ "(t_actress INNER JOIN t_company ON t_actress.company_id = t_company.company_id)"
-	        				+ "INNER JOIN t_contents ON t_actress.contents_id = t_contents.contents_id where ";
+	        String sql = "SELECT distinct t_actress.actress_id, t_actress.actress_name, t_company.company_name "
+        		     +"FROM "
+        	         +"t_actress INNER JOIN t_company ON t_actress.company_id = t_company.company_id where ";
 
 	        if(!"".equals(actressId)) {
 	        	sql = sql + "t_actress.actress_id = '"+ actressId +"' AND ";
 	        }
 	        	sql = sql + "actress_name like '%"+ actressName +"%'";
-	        
+	        	sql = sql +  "ORDER BY actress_id ";
 
             System.out.println("引数に" + actressId + "が入力されました。");
             System.out.println("引数に" + actressName + "が入力されました。");
@@ -99,7 +98,7 @@ public class G0020Model
 
 
 
-	public static int deleteActress(String actressId) {	 												//女優テーブル削除
+	public static int deleteActress(String actressId, String contentsId) {	 												//女優テーブル削除
 
 		//List<HashMap<String, String>> employeeList = new ArrayList<HashMap<String, String>>() ;
 		//ResultSet resultSet = null;
@@ -113,10 +112,13 @@ public class G0020Model
         	connection = DBAccessUtils.getConnection();													//DBへ接続
         	statement = connection.createStatement();													//Statementを取得するためのコード
 
-            connection.setAutoCommit(true);							 									//自動コミットを有効にする
+            connection.setAutoCommit(true);							 								//自動コミットを有効にする
 
-            String sql = "DELETE FROM t_actress where actress_id = '"+ actressId +"'";
+            String sql = "DELETE FROM t_actress where actress_id = '"+ actressId +"' "
+            		+ "AND contents_id = '"+ contentsId +"'";
+
             System.out.println("引数に" + actressId + "が入力されました。");
+            System.out.println("引数に" + contentsId + "が入力されました。");
             System.out.println(sql);
 
             deleteCount = statement.executeUpdate (sql);
