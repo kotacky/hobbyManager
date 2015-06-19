@@ -11,7 +11,7 @@ public class G0031Model {
 	public static void main(String args[])
 	{
 
-		insertCompany("27" , "劇団四季" , "愛媛");
+		insertCompany("" , "劇団四季" , "岡山");
 
 	}
 
@@ -45,6 +45,8 @@ public class G0031Model {
              			+ "VALUES('" + companyId + "'"
              			+ ",'" + companyName + "'"
  						+ ",'" + companyAddress + "')";
+
+             	insertCount = statement.executeUpdate(insertSql);
              }
              else
              {
@@ -63,7 +65,7 @@ public class G0031Model {
              //rs0 = stmt0.executeQuery (sql0);
 
              //影響のあった行数を出力
-             insertCount = statement.executeUpdate(insertSql);
+
              System.out.println(insertCount + " 行挿入しました。");
          }
          catch (SQLException e)
@@ -89,3 +91,5 @@ public class G0031Model {
         return insertCount;
  	}
 }
+
+//四次元バッグ～～
