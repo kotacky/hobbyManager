@@ -26,21 +26,20 @@
 
 		<% try{ %>
 			<% int insertFlag = Integer.parseInt(request.getParameter("insertFlag")); %>
-				<% if(insertFlag == 1){ %>
-				<H2><% out.print("XV‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
-				<% }else { %>
-				<H2><% out.print("“o˜^‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
-				<% } %>
 			<% int updateFlag = Integer.parseInt(request.getParameter("updateFlag")); %>
-				<% if(updateFlag == 1){ %>
-				<H2><% out.print("XV‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
-				<% }else { %>
-				<H2><% out.print("XV‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
-				<% } %>
 			<% int deleteFlag = Integer.parseInt(request.getParameter("deletefFlag")); %>
-				<% if(deleteFlag == 1){ %>
+
+				<% if(insertFlag == 1){ %>
+				<H2><% out.print("“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
+				<% }else if(insertFlag == 0){ %>
+				<H2><% out.print("“o˜^‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
+				<% }else if(updateFlag == 1){%>
+				<H2><% out.print("XV‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
+				<% }else if(updateFlag == 0){ %>
+				<H2><% out.print("XV‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
+				<% }else if(deleteFlag == 1){ %>
 				<H2><% out.print("íœ‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
-				<% }else { %>
+				<% }else if(deleteFlag == 0){ %>
 				<H2><% out.print("íœ‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
 				<% } %>
 		<% }catch(NumberFormatException e){ %>
