@@ -61,7 +61,7 @@ if(companyList != null){
 				</Tr>
 	<% for(int i = 0 ;i<companyList.size(); i++){ %>
 				<Tr>
-					<Th><input type="radio" name="id" value=<% companyList./*get(i).*/get("company_id"); %>></Th>
+					<Th><input type="radio" name="radioButton" value=<% companyList./*get(i).*/get("company_id"); %>></Th>
 					<Th><%  out.print(companyList./*get(i).*/get("companyId")); %></Th>
 					<Th><%  out.print(companyList./*get(i).*/get("companyName")); %></Th>
 					<Th><%  out.print(companyList./*get(i).*/get("companyAddress")); %></Th>
