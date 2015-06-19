@@ -125,3 +125,5 @@ public class G0011Model {
         return insertCount;
 	}
 }
+
+//同期化テスト
