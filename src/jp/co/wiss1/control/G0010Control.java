@@ -18,6 +18,7 @@ public class G0010Control extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException{
 
+		//ブラウザの文字コードで返す
 		EncodingUtils.responseEncoding(response);
 		//Viewから処理命令を受け取る
 		String processDiv = request.getParameter("processDiv");
