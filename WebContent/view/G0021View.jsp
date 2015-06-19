@@ -18,7 +18,7 @@
 	<h1>——DV‹K“o˜^</h1>
 <%--C‚Ö“o˜^‚·‚éðŒ‚ð‘—‚é --%>
 
-	<form method="Post" name="Myform" action="<%=request.getContextPath() %>/G0021Control">
+	<form method="POST" name="Myform" action="<%=request.getContextPath() %>/G0021Control">
 		——DID:
 		<input type="text" name="actressId"><br>
 		©E–¼:

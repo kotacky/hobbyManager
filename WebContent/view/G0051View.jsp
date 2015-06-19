@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=Windows-31J"
     pageEncoding="Windows-31J"%>
+    <%@ page import = "java.util.HashMap"%>
+<%@ page import = "java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +11,46 @@
 <body>
 <H1>D‚İ“o˜^</H1>
 <% //C‚Ö“o˜^‚·‚éğŒ‚ğ‘—‚é %>
-<form method="POST" action="<%=request.getContextPath() %>/G0051Control">
+<form method="POST"name="Myform" action="<%=request.getContextPath() %>/G0051Control">
 ĞˆõID:
 <input type="text" name="employee_id"><br>
 ——DID:
 <input type="text" name="actress_id"><br>
-Š‘®‰ïĞID:
-<input type="text" name="company_id"><br>
+<!-- ‰ïĞ‚ğ“o˜^‚Ì‚½‚ß‚É‘I‘ğ -->
+<%
+	List<HashMap<String, String>> companyList = (List<HashMap<String, String>>)request.getAttribute("companyList");
+	String[] sel = null;
+	if (companyList == null) {
+		sel = new String[0];
+	} else {
+		sel = new String[companyList.size()];
+	}
+%>
+
+<%
+	List<HashMap<String, String>> conpanyList = (List<HashMap<String, String>>)request.getAttribute("conpanyList");
+	String[] pul = null;
+	if (conpanyList == null) {
+		pul = new String[0];
+	} else {
+		pul = new String[conpanyList.size()];
+	}
+%>
+
+<SELECT NAME="lang">
+<option>
+	<% for(int i = 0 ;i<conpanyList.size(); i++){ %>
+		<option value="<%= conpanyList.get(i).get("conpanyId") %>">
+		<% out.println(conpanyList.get(i).get("conpanyName")); %>
+	<% } %>
+</option>
+
+
+</SELECT>
+
+
+
+
 D‚İID:
 <input type="text" name="employee_id"><br>
 
