@@ -3,9 +3,9 @@
 <%@ page import = "java.util.HashMap"%>
 <%@ page import = "java.util.List" %>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; Windows-31J">
+		<meta charset="Windows-31J">
 		<title>新人DB - 社員一覧</title>
 		<style>
 			*{
@@ -15,7 +15,7 @@
 		<script>
 		 function func(MyCommand){
 			 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.process.value=MyCommand;
+			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
 		</script>
