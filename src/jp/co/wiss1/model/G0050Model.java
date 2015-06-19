@@ -16,8 +16,8 @@ public class G0050Model {
 
 		public static void main(String[] args)
 		{
-			getPreferenceList("122", "", "");
-			deletePreference("0");
+			getPreferenceList("", "", "");
+			deletePreference("0", "0");
 		}
 
 		public static List<HashMap<String, String>> getPreferenceList(String employeeId , String familyName, String firstName)	//好みテーブル参照
@@ -36,24 +36,27 @@ public class G0050Model {
 
 		        connection.setAutoCommit(false);														//自動コミットを無効にする
 
-		        String sql = "SELECT t_employee.employee_id, "											//sql文開始
-		        		+"t_employee.employee_family_name, t_employee.employee_first_name,"
-		        		+"t_actress.actress_name,"
-		        		+"t_contents.contents_name "
-		        		+"FROM"
-		        		+"(((t_actress INNER JOIN t_preference ON t_actress.actress_id = t_preference.actress_id)"
-		        		+"INNER JOIN t_contents ON t_actress.contents_id = t_contents.contents_id)"
-		        		+"INNER JOIN t_company ON t_actress.company_id = t_company.company_id)"
-		        		+"INNER JOIN t_employee ON t_employee.employee_id = t_preference.employee_id where ";
+
+		        String sql = "SELECT t_employee.employee_id,"
+		        					+ "t_employee.employee_family_name,"
+		        					+ "t_employee.employee_first_name,"
+		        					+ "t_actress.actress_name,"
+		        					+ "t_contents.contents_name "
+		        					+ "FROM "
+		        					+ "((t_preference INNER JOIN t_employee ON t_employee.employee_id = t_preference.employee_id) "
+		        					+ "INNER JOIN t_contents ON t_contents.contents_id = t_preference.contents_id) "
+		        					+ "INNER JOIN t_actress ON t_actress.actress_id = t_preference.actress_id "
+		        					+ "AND t_actress.contents_id = t_preference.contents_id where ";
+
 
 		        if(!"".equals(employeeId)) {
-		        	sql = sql + "employee_id = '"+ employeeId +"' AND ";
+		        	sql = sql + "t_employee.employee_id = '"+ employeeId +"' AND ";
 		        }
 		        if(!"".equals(familyName)) {
-		        	sql = sql + "employee_family_name like '%"+ familyName +"%' AND ";
+		        	sql = sql + "t_employee.employee_family_name like '%"+ familyName +"%' AND ";
 		        }
-		        	sql = sql + "employee_first_name like '%"+ firstName +"%'";
-		        	sql = sql + "ORDER BY employee_id";												//sql文終了
+		        	sql = sql + "t_employee.employee_first_name like '%"+ firstName +"%'";
+		        	sql = sql + "ORDER BY employee_id";												     //sql文終了
 
 
 
@@ -114,7 +117,7 @@ public class G0050Model {
 
 
 
-		public static int deletePreference(String employeeId) {	 										//好みテーブル削除
+		public static int deletePreference(String employeeId, String contentsId) {	 										//好みテーブル削除
 
 
 			Connection connection = null;
@@ -129,8 +132,9 @@ public class G0050Model {
 
 	            connection.setAutoCommit(true);															//自動コミットを有効にする
 
-	            String sql = "DELETE FROM t_preference where employee_id = '"+ employeeId +"'";			//sql文
+	            String sql = "DELETE FROM t_preference where employee_id = '"+ employeeId +"' AND contents_id = '"+ contentsId +"'";			//sql文
 	            System.out.println("引数に" + employeeId + "が入力されました。");
+	            System.out.println("引数に" + contentsId + "が入力されました。");
 	            System.out.println(sql);
 
 	            deleteCount = statement.executeUpdate (sql);
@@ -205,3 +209,21 @@ if(!"".equals(companyId)) {
 }
 	sql = sql + "employee_id = '"+ employeeId +"'";
 	System.out.println("4:" + sql);								*/	//sql文終了
+
+
+
+
+/*
+
+SELECT t_employee.employee_id,
+t_employee.employee_family_name,
+t_employee.employee_first_name,
+t_actress.actress_name,
+t_contents.contents_name
+FROM
+((t_preference INNER JOIN t_employee ON t_employee.employee_id = t_preference.employee_id)
+	     INNER JOIN t_contents ON t_contents.contents_id = t_preference.contents_id)
+              INNER JOIN t_actress ON t_actress.actress_id = t_preference.actress_id AND t_actress.contents_id = t_preference.contents_id;
+
+
+*/
