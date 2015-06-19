@@ -40,9 +40,9 @@ if(actressList != null){
 		<%-- C‚ÖŒŸõ‚·‚éğŒ‚ğ‘—‚é --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0020Control">
 			——DID:
-			<input type="text" name="actress_id" placeholder="——DID"  style="text-align: left;"><br>
+			<input type="text" name="actressId" placeholder="——DID"  style="text-align: left;"><br>
 			——D–¼:
-			<input type="text" name="actress_name" placeholder="——D–¼"  style="text-align: left;"><br>
+			<input type="text" name="actressName" placeholder="——D–¼"  style="text-align: left;"><br>
 			<input type=submit value="ŒŸõ" onClick="func('select');">
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />

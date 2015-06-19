@@ -59,11 +59,11 @@ if(employeeList != null){
 		<%-- CÇ÷åüçıÇ∑ÇÈèåèÇëóÇÈ --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
 			é–àıID:
-			<input type="text" name="employee_id" placeholder="é–àıID"  style="text-align: left;"><br>
+			<input type="text" name="employeeId" placeholder="é–àıID"  style="text-align: left;"><br>
 			ê©:
-			<input type="text" name="employee_family_name" placeholder="ê©"  style="text-align: left; "><br>
+			<input type="text" name="employeeFamilyName" placeholder="ê©"  style="text-align: left; "><br>
 			ñº:
-			<input type="text" name="employee_first_name" placeholder="ñº"  style="text-align: left; "><br>
+			<input type="text" name="employeeFirstName" placeholder="ñº"  style="text-align: left; "><br>
 			<input type="button" value="åüçı" onClick="func('select');" />
 			<input type="button" value="çXêV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="çÌèú" onClick="func('delete');" <%= disabled %> />
