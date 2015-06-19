@@ -15,7 +15,7 @@
 		<script>
 		 function func(MyCommand){
 			 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.process.value=MyCommand;
+			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
 		</script>
@@ -89,7 +89,7 @@ if(preferenceList != null){
 <% } %>
 				</Tr>
 			</table>
-			<input type="hidden" name="process">
+			<input type="hidden" name="processDiv">
 		</form>
 
 		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
