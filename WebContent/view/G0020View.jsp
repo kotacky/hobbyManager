@@ -24,12 +24,12 @@
 	<body>
 <%-- リストの取得 --%>
 <%
-HashMap<String,String> actressList = new HashMap<String,String>();
-	actressList.put("actressId", "201");
-	actressList.put("actressName", "綾瀬 はるか");
-	actressList.put("companyName", "ホリプロ");
-	actressList.put("companyAddress", "東京");
-//List<HashMap<String,String>> actressList = (List<HashMap<String,String>>)request.getAttribute("ActressList");
+//HashMap<String,String> actressList = new HashMap<String,String>();
+	//actressList.put("actressId", "201");
+	//actressList.put("actressName", "綾瀬 はるか");
+	//actressList.put("companyName", "ホリプロ");
+	//actressList.put("companyAddress", "東京");
+List<HashMap<String,String>> actressList = (List<HashMap<String,String>>)request.getAttribute("ActressList");
 String disabled = "disabled";
 if(actressList != null){
      disabled = "";
@@ -64,11 +64,11 @@ if(actressList != null){
 				</Tr>
 	<% for(int i = 0 ;i<actressList.size(); i++){ %>
 				<Tr>
-					<Th><input type="radio" name="id" value=<% actressList./*get(i).*/get("actressId"); %>></Th>
-					<Th><%  out.print(actressList./*get(i).*/get("actressId")); %></Th>
-					<Th><%  out.print(actressList./*get(i).*/get("actressName")); %></Th>
-					<Th><%  out.print(actressList./*get(i).*/get("companyName")); %></Th>
-					<Th><%  out.print(actressList./*get(i).*/get("companyAddress")); %></Th>
+					<Th><input type="radio" name="id" value=<% actressList.get(i).get("actressId"); %>></Th>
+					<Th><%  out.print(actressList.get(i).get("actressId")); %></Th>
+					<Th><%  out.print(actressList.get(i).get("actressName")); %></Th>
+					<Th><%  out.print(actressList.get(i).get("companyName")); %></Th>
+					<Th><%  out.print(actressList.get(i).get("companyAddress")); %></Th>
 	<% } %>
 <% } %>
 				</Tr>
