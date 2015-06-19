@@ -62,7 +62,7 @@ public class G0030Control extends HttpServlet{
 
 			//削除する項目のIDと、削除の命令をModelに送る
 			int deleteFlag =
-			G0033Model.deleteCompanyList(companyId);
+			G0030Model.deleteCompany(companyId);
 
 			//削除後の結果をリストに入れる
 			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAdress);
