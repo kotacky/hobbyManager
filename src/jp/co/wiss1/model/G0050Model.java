@@ -17,7 +17,7 @@ public class G0050Model {
 		public static void main(String[] args)
 		{
 			getPreferenceList("119", "", "");
-			deletePreference("0", "0");
+			deletePreference("0");
 		}
 
 		public static List<HashMap<String, String>> getPreferenceList(String employeeId , String familyName, String firstName)	//好みテーブル参照
@@ -117,7 +117,7 @@ public class G0050Model {
 
 
 
-		public static int deletePreference(String employeeId, String contentsId) {	 										//好みテーブル削除
+		public static int deletePreference(String employeeId) {	 										//好みテーブル削除
 
 
 			Connection connection = null;
@@ -132,9 +132,8 @@ public class G0050Model {
 
 	            connection.setAutoCommit(true);															//自動コミットを有効にする
 
-	            String sql = "DELETE FROM t_preference where employee_id = '"+ employeeId +"' AND contents_id = '"+ contentsId +"'";			//sql文
+	            String sql = "DELETE FROM t_preference where employee_id = '"+ employeeId +"'";			//sql文
 	            System.out.println("引数に" + employeeId + "が入力されました。");
-	            System.out.println("引数に" + contentsId + "が入力されました。");
 	            System.out.println(sql);
 
 	            deleteCount = statement.executeUpdate (sql);
