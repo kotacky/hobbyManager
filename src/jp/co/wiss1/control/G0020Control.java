@@ -88,7 +88,7 @@ public class G0020Control extends HttpServlet{
 		 //削除(DELETE)の処理
 		 if ("delete".equals(processDiv)){
 
-			// 削除対象の主キーを受け取る(View待ちで改良の予定)
+			// 削除対象の主キーを受け取る
 			String deleteActressId = request.getParameter("radioBottun");
 
 			//削除対象の主キーを送る
