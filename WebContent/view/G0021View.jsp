@@ -39,7 +39,7 @@
 
 </SELECT>
 
-<input type="hidden" name="hidden1">
+
 
 <br><br><br>
 ƒRƒ“ƒeƒ“ƒc
