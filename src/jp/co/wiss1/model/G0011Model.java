@@ -15,7 +15,7 @@ public class G0011Model {
 	public static void main(String args[])
 	{
 
-		insertEmployee("" , "" , "太郎" , "");
+		insertEmployee("128" , "大伝馬" , "太郎" , "19910823");
 
 	}
 
