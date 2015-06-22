@@ -33,7 +33,7 @@ public class G0022Control extends HttpServlet{
 
 		for(int i = 1;i <= contentsIdList.length; i++){
 			//登録する項目を送る
-			int ret = G0022Model.updateActress(actressId,actressName,companyId,contentsIdList[i]);
+			int ret = G0022Model.updateActress(companyId,actressName,actressId,contentsIdList[i]);
 			if (ret == 0) {
 				successFlag = false;
 				break;
