@@ -23,11 +23,11 @@ public class G0032Control extends HttpServlet{
 		//フォーム入力を受け取る
 		String companyId = request.getParameter("companyId");
 		String companyName = request.getParameter("companyName");
-		String companyAdress = request.getParameter("companyAdress");
+		String companyAddress = request.getParameter("companyAddress");
 
 		//Modelに引数を渡し、更新後の結果をリストに入れる
 		int updateFlag =
-		G0032Model.updateCompany(companyId, companyName, companyAdress);
+		G0032Model.updateCompany(companyId, companyName, companyAddress);
 
 		//Viewに渡すフラグを設定
 		request.setAttribute("updateFlag", updateFlag);

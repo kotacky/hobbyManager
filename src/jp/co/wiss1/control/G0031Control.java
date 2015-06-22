@@ -23,11 +23,11 @@ public class G0031Control extends HttpServlet{
 		//フォーム入力を受け取る
 		String companyId = request.getParameter("companyId");
 		String companyName =request.getParameter("companyName");
-		String companyAdress = request.getParameter("companyAdress");
+		String companyAddress = request.getParameter("companyAddress");
 
 		//Modelに引数を渡しinsert処理を実行させる
 		int insertFlag =
-		G0031Model.insertCompany(companyId, companyName, companyAdress);
+		G0031Model.insertCompany(companyId, companyName, companyAddress);
 
 		//Viewに渡すフラグを設定
 		request.setAttribute("insertFlag",insertFlag);

@@ -25,7 +25,7 @@ public class G0030Control extends HttpServlet{
 		//フォーム入力を受け取る
 		String companyId = request.getParameter("companyId");
 		String companyName = request.getParameter("companyName");
-		String companyAdress = request.getParameter("companyAdress");
+		String companyAddress = request.getParameter("companyAddress");
 
 		//どのボタンからの入力かを受け取る
 		String processDiv = request.getParameter("processDiv");
@@ -33,7 +33,7 @@ public class G0030Control extends HttpServlet{
 		//検索
 		if("select".equals(processDiv)){
 			//Modelに引数を渡し、検索結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAdress);
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAddress);
 
 			//Viewに渡すリストを設定
 			request.setAttribute("companyList", companyList);
@@ -47,7 +47,7 @@ public class G0030Control extends HttpServlet{
 		//更新
 		if("update".equals(processDiv)){
 			//Modelに引数を渡し、検索結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAdress);
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAddress);
 
 			//Viewに渡すリストを設定
 			request.setAttribute("companyList", companyList);
@@ -65,7 +65,7 @@ public class G0030Control extends HttpServlet{
 			G0030Model.deleteCompany(companyId);
 
 			//削除後の結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAdress);
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAddress);
 
 			//Viewに渡す削除後のリスト、フラグを設定
 			request.setAttribute("companyList", companyList);
