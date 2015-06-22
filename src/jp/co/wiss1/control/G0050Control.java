@@ -39,7 +39,7 @@ public class G0050Control extends HttpServlet{
 			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
 
 			//結果をViewに送る
-			request.setAttribute("PreferenceList", preferenceList);
+			request.setAttribute("preferenceList", preferenceList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -50,13 +50,12 @@ public class G0050Control extends HttpServlet{
 			//登録画面に必要な要素を引き出す
 			List<HashMap<String, String>> employeeList = G0051Model.getColumnEmployeeList();
 			List<HashMap<String, String>> actressList = G0051Model.getColumnActressList();
-			List<HashMap<String, String>> ContentsList = G0020Model.getColumnContentsList();
+			List<HashMap<String, String>> contentsList = G0020Model.getColumnContentsList();
 
 			//登録画面にプルダウンで必要なもの送る
 			request.setAttribute("employeeList", employeeList);
 			request.setAttribute("actressList", actressList);
-			request.setAttribute("ContentsList", ContentsList);
-//			request.setAttribute("actressList", actressList);
+			request.setAttribute("contentsList", contentsList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0051View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -73,7 +72,7 @@ public class G0050Control extends HttpServlet{
 			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
 
 			//デリート後のリストと削除処理のフラグを送る
-			request.setAttribute("PreferenceList", preferenceList);
+			request.setAttribute("preferenceList", preferenceList);
 			if(deleteFlag == 1){
 				request.setAttribute("deleteFlag",deleteFlag);
 			}else{
