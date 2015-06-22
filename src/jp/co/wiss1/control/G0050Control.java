@@ -66,7 +66,7 @@ public class G0050Control extends HttpServlet{
 			String contentsId = request.getParameter("contentsId");
 
 			//デリートのメソッドを呼ぶ
-			int deleteFlag = G0050Model.deletePreference(employeeId, contentsId);
+			int deleteFlag = G0050Model.deletePreference(employeeId);
 
 			//デリート後のリストを検索メソッドで取り出す
 			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
