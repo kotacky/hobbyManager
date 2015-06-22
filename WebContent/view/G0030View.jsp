@@ -25,15 +25,9 @@
 <%-- ƒƒbƒZ[ƒW‚Ì•\Ž¦ --%>
 
 		<% try{ %>
-			<% int insertFlag = Integer.parseInt(request.getParameter("insertFlag")); %>
 			<% int updateFlag = Integer.parseInt(request.getParameter("updateFlag")); %>
 			<% int deleteFlag = Integer.parseInt(request.getParameter("deletefFlag")); %>
-
-				<% if(insertFlag == 1){ %>
-				<H2><% out.print("“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
-				<% }else if(insertFlag == 0){ %>
-				<H2><% out.print("“o˜^‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
-				<% }else if(updateFlag == 1){%>
+				<% if(updateFlag == 1){%>
 				<H2><% out.print("XV‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
 				<% }else if(updateFlag == 0){ %>
 				<H2><% out.print("XV‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
