@@ -70,17 +70,17 @@ public class G0010Model//git
             while(resultSet.next()) {														//SELECT文の結果を参照
 
         	   HashMap<String, String> employeeInfo = new HashMap<String, String>();
-        	   employeeInfo.put("社員ID", resultSet.getString("employee_id"));
-        	   employeeInfo.put("姓", resultSet.getString("employee_family_name"));
-        	   employeeInfo.put("名", resultSet.getString("employee_first_name"));
-        	   employeeInfo.put("生年月日", resultSet.getString("birth_date"));
+        	   employeeInfo.put("employeeId", resultSet.getString("employee_id"));
+        	   employeeInfo.put("employeeFamilyName", resultSet.getString("employee_family_name"));
+        	   employeeInfo.put("employeeFirstName", resultSet.getString("employee_first_name"));
+        	   employeeInfo.put("birthDate", resultSet.getString("birth_date"));
 
         	   employeeList.add(employeeInfo);
 
-            	System.out.println(employeeInfo.get("社員ID"));								//リストに入ったかの確認
-            	System.out.println(employeeInfo.get("姓"));
-            	System.out.println(employeeInfo.get("名"));
-            	System.out.println(employeeInfo.get("生年月日"));
+            	System.out.println(employeeInfo.get("employeeId"));								//リストに入ったかの確認
+            	System.out.println(employeeInfo.get("employeeFamilyName"));
+            	System.out.println(employeeInfo.get("employeeFirstName"));
+            	System.out.println(employeeInfo.get("birthDate"));
             }
 
         }
