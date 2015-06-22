@@ -72,8 +72,10 @@ public class G0020Control extends HttpServlet{
 			request.setAttribute("columncompanyList",columncompanyList);
 			request.setAttribute("columncontentsList",columncontentsList);
 
+			//更新対象の主キーを受け取る
 			String updateActressId = request.getParameter("radioBottun");
-			//更新するリストを検索し、リストを受け取る
+
+			//更新対象の主キーを送り、リストを受け取る
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
 
 			//更新するリストをView送る
@@ -88,7 +90,7 @@ public class G0020Control extends HttpServlet{
 		 //削除(DELETE)の処理
 		 if ("delete".equals(processDiv)){
 
-			// 削除対象の主キーを受け取る(View待ちで改良の予定)
+			// 削除対象の主キーを受け取る
 			String deleteActressId = request.getParameter("radioBottun");
 
 			//削除対象の主キーを送る

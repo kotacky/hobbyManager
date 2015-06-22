@@ -7,7 +7,6 @@
 	<head>
 		<meta charset="Windows-31J">
 		<title>女優登録</title>
-		<link rel="stylesheet" href="view.css">
 				<style>
 			*{
 				text-align : center;
@@ -27,19 +26,19 @@
 <!-- 会社を登録のために選択 -->
 
 <%
-	List<HashMap<String, String>> companyList = (List<HashMap<String, String>>)request.getAttribute("columncompanyList");%>
+	List<HashMap<String, String>> columncompanyList = (List<HashMap<String, String>>)request.getAttribute("columncompanyList");%>
 
 
 <SELECT NAME="lang">
 <option>
-<% for(int i = 0 ;i<companyList.size(); i++){ %>
-<option value="<%= companyList.get(i).get("会社名") %>">
+<% for(int i = 0 ;i<columncompanyList.size(); i++){ %>
+<option value="<%= columncompanyList.get(i).get("会社名") %>">
 <% } %>
 
 
 </SELECT>
 
-<input type="hidden" name="hidden1">
+
 
 <br><br><br>
 コンテンツ
@@ -53,20 +52,20 @@
 <%
 
 
-	List<HashMap<String, String>> contentsList = (List<HashMap<String, String>>)request.getAttribute("columncontentsList");
+	List<HashMap<String, String>> columncontentsList = (List<HashMap<String, String>>)request.getAttribute("columncontentsList");
 	String[] check = null;
-		if (contentsList == null) {
+		if (columncontentsList == null) {
 			check = new String[0];
 		} else {
-			check = new String[contentsList.size()];
+			check = new String[columncontentsList.size()];
 		}
 %>
 
-<% if(contentsList != null){ %>
+<% if(columncontentsList != null){ %>
 
-	<% for(int i = 0; i < contentsList.size(); i++){ %>
-		<input type="checkBox" name="contentsList" value="<%= contentsList.get(i).get("contentsId") %>" />
-		<%  out.print(contentsList.get(i).get("contentesName")); %>
+	<% for(int i = 0; i < columncontentsList.size(); i++){ %>
+		<input type="checkBox" name="contentsList" value="<%= columncontentsList.get(i).get("contentsId") %>" />
+		<%  out.print(columncontentsList.get(i).get("contentesName")); %>
 
 	<% } %>
 <% } %>
@@ -79,5 +78,3 @@
 		<input type=button value="戻る" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';">
 </body>
 </html>
-
-<!-- コミットテスト　越湖　片山 -->

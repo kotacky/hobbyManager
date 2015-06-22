@@ -45,10 +45,10 @@ public class G0010Control extends HttpServlet{
 		if("update".equals(processDiv)){
 
 			//更新前の情報を引き出すための主キーを受け取る
-			String updateId = request.getParameter("employeeId");
+			String updateEmployeeId = request.getParameter("radioButton");
 
 			//更新前の情報を検索メソッドで受け取る
-			List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(updateId, "", "");
+			List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(updateEmployeeId, "", "");
 
 			//更新前の情報を更新ページに飛ばす
 			request.setAttribute("employeeList", employeeList);
@@ -60,10 +60,10 @@ public class G0010Control extends HttpServlet{
 		if ("delete".equals(processDiv)){
 
 			//削除に必要な情報を受け取る
-			String deleteId = request.getParameter("radioButton");
+			String deleteEmployeeId = request.getParameter("radioButton");
 
 			//デリートのメソッドを呼ぶ
-			int deleteFlag = G0010Model.deleteEmployee(deleteId);
+			int deleteFlag = G0010Model.deleteEmployee(deleteEmployeeId);
 
 			//デリート後のリストを検索メソッドで取り出す
 			List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId,familyName,firstName);
