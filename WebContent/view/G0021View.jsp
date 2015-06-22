@@ -53,7 +53,7 @@
 <%
 
 
-	List<HashMap<String, String>> contentsList = (List<HashMap<String, String>>)request.getAttribute("contentsList");
+	List<HashMap<String, String>> contentsList = (List<HashMap<String, String>>)request.getAttribute("columncontentsList");
 	String[] check = null;
 		if (contentsList == null) {
 			check = new String[0];
