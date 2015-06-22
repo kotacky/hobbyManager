@@ -46,7 +46,7 @@ if(actressList != null){
 			<input type=submit value="ŒŸõ" onClick="func('select');">
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
-			<input type="button" value="“o˜^" onClick="func('insert');" <%= disabled %> />
+			<input type="button" value="“o˜^" onClick="func('insert');"/>
 <%
 //String employee_id=request.getParameter("employee_id");
 //String employee_family_name=request.getParameter("employee_family_name");
