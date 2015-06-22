@@ -33,12 +33,11 @@ public class G0022Model {
 
 
             String sql = "UPDATE t_actress SET";
-            	if(!"". equals(contentsId)&&!"". equals(actressId)){
+            	if(!"".equals(actressId)){
             		sql = sql +" actress_name = '"+ actressName +"',"
-            				+ "company_id = '"+ companyId + "',"
-            				+ "contents_id = '"+ contentsId +"'"
-            				+ "WHERE actress_id = '"+ actressId +"' AND"
-            				+ " contents_id = '"+ contentsId +"'";
+            		+ "company_id = '"+ companyId + "',"
+            		+ "contents_id = '"+ contentsId +"'"
+            		+ "WHERE actress_id = '"+ actressId +"'";
 
             		upDateCount = statement.executeUpdate (sql);
             	}
