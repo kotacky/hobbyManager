@@ -11,7 +11,7 @@ public class G0031Model {
 	public static void main(String args[])
 	{
 
-		insertCompany("" , "劇団四季" , "岡山");
+		insertCompany("310" , "劇団四季" , "岡山");
 
 	}
 
