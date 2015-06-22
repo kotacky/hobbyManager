@@ -10,7 +10,7 @@ public class G0021Model {
 
 	public static void main(String args[])
 	{
-		insertActress("" , "" , "0" , "0");
+		insertActress("310" , "南沢　奈央" , "210" , "425");
 	}
 
 
