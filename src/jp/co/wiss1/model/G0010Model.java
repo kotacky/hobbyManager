@@ -122,8 +122,7 @@ public class G0010Model//git
             // テーブル照会実行
         	connection = DBAccessUtils.getConnection();										//DBへ接続
         	statement = connection.createStatement();										//Statementを取得するためのコード
-
-            connection.setAutoCommit(false);												//自動コミットを有効にする
+            connection.setAutoCommit(true);												//自動コミットを有効にする
 
             String sql = "DELETE FROM t_employee where employee_id = '"+ employeeId +"'";	//sql文
             System.out.println("引数に" + employeeId + "が入力されました。");
