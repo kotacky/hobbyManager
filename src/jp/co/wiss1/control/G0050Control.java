@@ -50,12 +50,12 @@ public class G0050Control extends HttpServlet{
 			//登録画面に必要な要素を引き出す
 			List<HashMap<String, String>> employeeList = G0051Model.getColumnEmployeeList();
 			List<HashMap<String, String>> actressList = G0051Model.getColumnActressList();
-			List<HashMap<String, String>> ContentsList = G0020Model.getColumnContentsList();
+			List<HashMap<String, String>> contentsList = G0020Model.getColumnContentsList();
 
 			//登録画面にプルダウンで必要なもの送る
 			request.setAttribute("employeeList", employeeList);
 			request.setAttribute("actressList", actressList);
-			request.setAttribute("contentsList", ContentsList);
+			request.setAttribute("contentsList", contentsList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0051View.jsp");
 			dispatch.forward(request, response);
 		}
