@@ -19,22 +19,22 @@
 	<H1>更新情報入力</H1>
 	<%-- リストの取得 --%>
 	<%
-		HashMap<String,String> companyList = new HashMap<String,String>();
-			companyList.put("companyId", "201");
-			companyList.put("companyName", "ホリプロ");
-			companyList.put("companyAddress", "東京");
+		//HashMap<String,String> companyList = new HashMap<String,String>();
+			//companyList.put("companyId", "201");
+			//companyList.put("companyName", "ホリプロ");
+			//companyList.put("companyAddress", "東京");
 	%>
 
-<% //List<HashMap<String, String>> companyList = (List<HashMap<String, String>>)request.getAttribute("CompanyList"); %>
+<% List<HashMap<String, String>> companyList = (List<HashMap<String, String>>)request.getAttribute("companyList"); %>
 
 	<%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0032Control">
 		所属会社ID:
-		<input type="text" name="company_id" disabled value=<% out.print(companyList./*get(0).*/get("companyId")); %>><br>
+		<input type="text" name="companyId" disabled value=<% out.print(companyList.get(0).get("companyId")); %>><br>
 		会社名:
-		<input type="text" name="company_name" value=<% out.print(companyList./*get(0).*/get("companyName")); %>><br>
+		<input type="text" name="companyName" value=<% out.print(companyList.get(0).get("companyName")); %>><br>
 		住所:
-		<input type="text" name="company_address" value=<% out.print(companyList./*get(0).*/get("companyAddress")); %>><br>
+		<input type="text" name="companyAddress" value=<% out.print(companyList.get(0).get("companyAddress")); %>><br>
 		<input type=submit value="更新">
 	</form>
 	<%-- メニュー画面に戻る処理 --%>
