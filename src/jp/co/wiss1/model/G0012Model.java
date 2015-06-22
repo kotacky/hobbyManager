@@ -11,7 +11,7 @@ public class G0012Model {
 	public static void main(String[] args)
 	{
 		// TODO 自動生成されたメソッド・スタブ
-		updateEmployee("126","倉島","雅也", "20000801");}
+		updateEmployee("","","", "");}
 
 
 	//社員一覧UPDATEの実行！！！
