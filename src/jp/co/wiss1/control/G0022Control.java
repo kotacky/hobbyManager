@@ -46,11 +46,11 @@ public class G0022Control extends HttpServlet{
 			request.setAttribute("updateFlag",1);
 		}
 		else{
-			//登録失敗
+			// 登録失敗
 			request.setAttribute("updateFlag",0);
 		}
 
 		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 		dispatch.forward(request, response);
     }
-}//修正
+}
