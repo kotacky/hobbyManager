@@ -45,7 +45,7 @@
 	//companyList.put("companyId", "301");
 	//companyList.put("companyName", "ƒzƒŠƒvƒ");
 	//companyList.put("companyAddress", "“Œ‹");
-List<HashMap<String,String>> companyList = (List<HashMap<String,String>>)request.getAttribute("CompanyList");
+List<HashMap<String,String>> companyList = (List<HashMap<String,String>>)request.getAttribute("companyList");
 String disabled = "disabled";
 if(companyList != null){
      disabled = "";
