@@ -63,10 +63,10 @@ public class G0050Control extends HttpServlet{
 		if("delete".equals(processDiv)){
 
 			//処理に必要な情報を受け取る
-			String contentsId = request.getParameter("contentsId");
+			String deleteEmployeeId = request.getParameter("radioButton");
 
 			//デリートのメソッドを呼ぶ
-			int deleteFlag = G0050Model.deletePreference(employeeId);
+			int deleteFlag = G0050Model.deletePreference(deleteEmployeeId);
 
 			//デリート後のリストを検索メソッドで取り出す
 			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);

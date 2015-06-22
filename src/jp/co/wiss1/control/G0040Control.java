@@ -46,10 +46,10 @@ public class G0040Control extends HttpServlet{
 		if("update".equals(processDiv)){
 
 			//更新前の情報を引き出すための主キーを受け取る
-			String updateId = request.getParameter("contentsId");
+			String updateContentsId = request.getParameter("radioButton");
 
 			//更新前の情報を検索メソッドで受け取る
-			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(updateId, "", "");
+			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(updateContentsId, "", "");
 
 			//更新前の情報を更新ページに飛ばす
 			request.setAttribute("contentsList", contentsList);
@@ -61,10 +61,10 @@ public class G0040Control extends HttpServlet{
 		if("delete".equals(processDiv)){
 
 			//削除に必要な情報を受け取る
-			String deleteId = request.getParameter("contentsId");
+			String deleteContentsId = request.getParameter("radioButton");
 
 			//デリートのメソッドを呼ぶ
-			int deleteFlag = G0040Model.deleteContents(deleteId);
+			int deleteFlag = G0040Model.deleteContents(deleteContentsId);
 
 			//デリート後のリストを検索メソッドで取り出す
 			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, summary);
