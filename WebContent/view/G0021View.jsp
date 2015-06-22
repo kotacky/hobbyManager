@@ -18,7 +18,7 @@
 	<h1>女優新規登録</h1>
 <%--Cへ登録する条件を送る --%>
 
-	<form method="POST" name="Myform" action="<%=request.getContextPath() %>/G0021Control">
+	<form method="POST" name="Myform" action="<%=request.getContextPath() %>/G0020Control">
 		女優ID:
 		<input type="text" name="actressId"><br>
 		姓・名:
@@ -27,29 +27,15 @@
 <!-- 会社を登録のために選択 -->
 
 <%
-	List<HashMap<String, String>> companyList = (List<HashMap<String, String>>)request.getAttribute("companyList");
-	String[] sel = null;
-	if (companyList == null) {
-		sel = new String[0];
-	} else {
-		sel = new String[companyList.size()];
-	}
-%>
+	List<HashMap<String, String>> companyList = (List<HashMap<String, String>>)request.getAttribute("columncompanyList");%>
+
 
 <SELECT NAME="lang">
 <option>
 <% for(int i = 0 ;i<companyList.size(); i++){ %>
-<option value="<%= companyList.get(i).get("companyList") %>">
+<option value="<%= companyList.get(i).get("会社名") %>">
 <% } %>
-<option value="sel1">ホリプロ
-<option value="sel2">フォスター
-<option value="sel3">Sweet Power
-<option value="sel4">FLaMme
-<option value="sel5">劇団東俳
-<option value="sel6">ホリプロ
-<option value="sel7">レプロエンターテイメント
-<option value="sel8">スターダストプロモーション
-<option value="sel9">オスカー
+
 
 </SELECT>
 

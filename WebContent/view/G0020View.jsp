@@ -29,7 +29,7 @@
 	//actressList.put("actressName", "ˆ»£ ‚Í‚é‚©");
 	//actressList.put("companyName", "ƒzƒŠƒvƒ");
 	//actressList.put("companyAddress", "“Œ‹");
-List<HashMap<String,String>> actressList = (List<HashMap<String,String>>)request.getAttribute("ActressList");
+List<HashMap<String,String>> actressList = (List<HashMap<String,String>>)request.getAttribute("actressList");
 String disabled = "disabled";
 if(actressList != null){
      disabled = "";
