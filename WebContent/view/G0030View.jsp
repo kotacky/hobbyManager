@@ -22,13 +22,30 @@
 	</head>
 
 	<body>
+<%-- メッセージの表示 --%>
+
+		<% try{ %>
+			<% int updateFlag = Integer.parseInt(request.getParameter("updateFlag")); %>
+			<% int deleteFlag = Integer.parseInt(request.getParameter("deletefFlag")); %>
+				<% if(updateFlag == 1){%>
+				<H2><% out.print("更新が完了しました。"); %></H2>
+				<% }else if(updateFlag == 0){ %>
+				<H2><% out.print("更新が失敗しました。"); %></H2>
+				<% }else if(deleteFlag == 1){ %>
+				<H2><% out.print("削除が完了しました。"); %></H2>
+				<% }else if(deleteFlag == 0){ %>
+				<H2><% out.print("削除が失敗しました。"); %></H2>
+				<% } %>
+		<% }catch(NumberFormatException e){ %>
+		<% } %>
+
 <%-- リストの取得 --%>
 <%
-HashMap<String,String> companyList = new HashMap<String,String>();
-	companyList.put("companyId", "301");
-	companyList.put("companyName", "ホリプロ");
-	companyList.put("companyAddress", "東京");
-//List<HashMap<String,String>> companyList = (List<HashMap<String,String>>)request.getAttribute("CompanyList");
+//HashMap<String,String> companyList = new HashMap<String,String>();
+	//companyList.put("companyId", "301");
+	//companyList.put("companyName", "ホリプロ");
+	//companyList.put("companyAddress", "東京");
+List<HashMap<String,String>> companyList = (List<HashMap<String,String>>)request.getAttribute("CompanyList");
 String disabled = "disabled";
 if(companyList != null){
      disabled = "";
@@ -37,10 +54,12 @@ if(companyList != null){
 		<h1>所属会社一覧</h1>
 		<% //Cへ検索する条件を送る %>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0030Control">
-			所属会社ID:
-			<input type="text" name="company_id" placeholder="会社ID"  style="text-align: left;"><br>
+			会社ID:
+			<input type="text" name="companyId" placeholder="会社ID"  style="text-align: left;"><br>
 			会社名:
-			<input type="text" name="company_name" placeholder="会社名"  style="text-align: left;"><br>
+			<input type="text" name="companyName" placeholder="会社名"  style="text-align: left;"><br>
+			会社住所:
+			<input type="text" name="companyAdress" placeholder="会社住所"  style="text-align: left;"><br>
 			<input type=submit value="検索" onClick="func('select');">
 			<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
@@ -61,10 +80,10 @@ if(companyList != null){
 				</Tr>
 	<% for(int i = 0 ;i<companyList.size(); i++){ %>
 				<Tr>
-					<Th><input type="radio" name="radioButton" value=<% companyList./*get(i).*/get("company_id"); %>></Th>
-					<Th><%  out.print(companyList./*get(i).*/get("companyId")); %></Th>
-					<Th><%  out.print(companyList./*get(i).*/get("companyName")); %></Th>
-					<Th><%  out.print(companyList./*get(i).*/get("companyAddress")); %></Th>
+					<Th><input type="radio" name="radioButton" value=<% companyList.get(i).get("companyId"); %>></Th>
+					<Th><%  out.print(companyList.get(i).get("companyId")); %></Th>
+					<Th><%  out.print(companyList.get(i).get("companyName")); %></Th>
+					<Th><%  out.print(companyList.get(i).get("companyAddress")); %></Th>
 	<% } %>
 <% } %>
 				</Tr>

@@ -13,12 +13,12 @@ public class G0042Model {
 	public static void main(String[] args)
 	{
 		// TODO 自動生成されたメソッド・スタブ
-		updateContents("","","","");
+		updateContents("","","");
 	}
 
 
 	//ドラマ・映画一覧UPDATE文の実行！！！
-	public static int updateContents(String contentsId , String contentsName , String summary , String actressId) { //社員テーブル参照
+	public static int updateContents(String contentsId , String contentsName , String summary) { //社員テーブル参照
 
 		Connection connection = null;
     	Statement statement = null;
