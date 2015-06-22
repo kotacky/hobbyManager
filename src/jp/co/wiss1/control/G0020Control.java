@@ -65,12 +65,12 @@ public class G0020Control extends HttpServlet{
 		 if ("update".equals(processDiv)){
 
 			// 会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> colmncompanyList =G0020Model.getColumnCompanyList();
+			List <HashMap<String,String>> columncompanyList =G0020Model.getColumnCompanyList();
 			List <HashMap<String,String>> columncontentsList = G0020Model.getColumnContentsList();
 
 			//会社名リストとコンテンツリストをViewへ送る
-			request.setAttribute("colmncompanyList",colmncompanyList);
-			request.setAttribute("colmncontentsList",columncontentsList);
+			request.setAttribute("columncompanyList",columncompanyList);
+			request.setAttribute("columncontentsList",columncontentsList);
 
 			String updateActressId = request.getParameter("radioBottun");
 			//更新するリストを検索し、リストを受け取る
