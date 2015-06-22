@@ -24,6 +24,8 @@
 		<input type=submit value="“o˜^">
 		</form>
 	<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
-	<input type=button value="–ß‚é" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+	<input type=button value="–ß‚é"           onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+	<input type=button value="ƒRƒ“ƒeƒ“ƒcˆê——" onClick="form.action=location.href='../../hobbyManager/view/G0030View.jsp'">
+	<input type=button value="——Dˆê——"       onClick="form.action=location.href='../../hobbyManager/view/G0020View.jsp'">
 </body>
 </html>
