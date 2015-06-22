@@ -16,7 +16,7 @@ public class G0020Model
 	public static void main(String[] args)
 	{
 		getActressList("202", "");
-		deleteActress("0", "0");
+		deleteActress("0");
 		getColumnCompanyList();
 		getColumnContentsList();
 	}
@@ -99,7 +99,7 @@ public class G0020Model
 
 
 
-	public static int deleteActress(String actressId, String contentsId) {	 												//女優テーブル削除
+	public static int deleteActress(String actressId) {	 												//女優テーブル削除
 
 		//List<HashMap<String, String>> employeeList = new ArrayList<HashMap<String, String>>() ;
 		//ResultSet resultSet = null;
@@ -115,11 +115,9 @@ public class G0020Model
 
             connection.setAutoCommit(true);							 								//自動コミットを有効にする
 
-            String sql = "DELETE FROM t_actress where actress_id = '"+ actressId +"' "
-            		+ "AND contents_id = '"+ contentsId +"'";
+            String sql = "DELETE FROM t_actress where actress_id = '"+ actressId +"'";
 
             System.out.println("引数に" + actressId + "が入力されました。");
-            System.out.println("引数に" + contentsId + "が入力されました。");
             System.out.println(sql);
 
             deleteCount = statement.executeUpdate (sql);
