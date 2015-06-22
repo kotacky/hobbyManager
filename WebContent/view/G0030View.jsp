@@ -22,6 +22,29 @@
 	</head>
 
 	<body>
+<%-- メッセージの表示 --%>
+
+		<% try{ %>
+			<% int insertFlag = Integer.parseInt(request.getParameter("insertFlag")); %>
+			<% int updateFlag = Integer.parseInt(request.getParameter("updateFlag")); %>
+			<% int deleteFlag = Integer.parseInt(request.getParameter("deletefFlag")); %>
+
+				<% if(insertFlag == 1){ %>
+				<H2><% out.print("登録が完了しました。"); %></H2>
+				<% }else if(insertFlag == 0){ %>
+				<H2><% out.print("登録が失敗しました。"); %></H2>
+				<% }else if(updateFlag == 1){%>
+				<H2><% out.print("更新が完了しました。"); %></H2>
+				<% }else if(updateFlag == 0){ %>
+				<H2><% out.print("更新が失敗しました。"); %></H2>
+				<% }else if(deleteFlag == 1){ %>
+				<H2><% out.print("削除が完了しました。"); %></H2>
+				<% }else if(deleteFlag == 0){ %>
+				<H2><% out.print("削除が失敗しました。"); %></H2>
+				<% } %>
+		<% }catch(NumberFormatException e){ %>
+		<% } %>
+
 <%-- リストの取得 --%>
 <%
 //HashMap<String,String> companyList = new HashMap<String,String>();
