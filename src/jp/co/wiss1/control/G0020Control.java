@@ -90,9 +90,9 @@ public class G0020Control extends HttpServlet{
 
 			// 削除対象の主キーを受け取る(View待ちで改良の予定)
 			String deleteActressId = request.getParameter("radioBottun");
-			String deleteContentsId = request.getParameter("radioBottun");
+
 			//削除対象の主キーを送る
-			int deleteFlag = G0020Model.deleteActress(deleteActressId,deleteContentsId);
+			int deleteFlag = G0020Model.deleteActress(deleteActressId);
 
 			//削除の項目を送り、削除後のリストを受け取る
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName);
