@@ -27,7 +27,7 @@
 		<% try{ %>
 			<% int insertFlag = Integer.parseInt(request.getParameter("insertFlag")); %>
 			<% int updateFlag = Integer.parseInt(request.getParameter("updateFlag")); %>
-			<% int deleteFlag = Integer.parseInt(request.getParameter("deletefFlag")); %>
+			<% int deleteFlag = Integer.parseInt(request.getParameter("deleteFlag")); %>
 
 				<% if(insertFlag == 1){ %>
 				<H2><% out.print("“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
