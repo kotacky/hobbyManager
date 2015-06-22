@@ -46,6 +46,7 @@ if(actressList != null){
 			<input type=submit value="ŒŸõ" onClick="func('select');">
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
+			<input type="button" value="“o˜^" onClick="func('insert');" <%= disabled %> />
 <%
 //String employee_id=request.getParameter("employee_id");
 //String employee_family_name=request.getParameter("employee_family_name");
@@ -77,8 +78,7 @@ if(actressList != null){
 		</form>
 
 		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
-		<input type=button value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0021View.jsp'">
-		<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
+				<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
 		<input type=button value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 	</body>
 </html>
