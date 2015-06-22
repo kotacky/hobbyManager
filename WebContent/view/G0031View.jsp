@@ -14,7 +14,7 @@
 <body>
 <%-- メッセージの表示 --%>
 	<% try{ %>
-		<% int insertFlag = Integer.parseInt(request.getParameter("inseryFlag")); %>
+		<% int insertFlag = Integer.parseInt(request.getParameter("insertFlag")); %>
 			<% if(insertFlag == 1){ %>
 			<H2><% out.print("登録が完了しました。"); %></H2>
 			<% }else{ %>
