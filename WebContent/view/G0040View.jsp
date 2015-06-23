@@ -38,12 +38,12 @@ if(contentsList != null){
 		<% //Cへ検索する条件を送る %>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0040Control">
 			コンテンツID:
-			<input type="text" name="contents_id" placeholder="コンテンツID"  style="text-align: left;"><br>
+			<input type="text" name="contentsId" placeholder="コンテンツID"  style="text-align: left;"><br>
 			コンテンツ名:
-			<input type="text" name="contents_name" placeholder="コンテンツ名"  style="text-align: left;"><br>
+			<input type="text" name="contentsName" placeholder="コンテンツ名"  style="text-align: left;"><br>
 			概要:
 			<input type="text" name="summary" placeholder="概要"  style="text-align: left;"><br>
-			<input type=submit value="検索" onClick="func('select');">
+			<input type="submit" value="検索" onClick="func('select');">
 			<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 <%
@@ -75,7 +75,7 @@ if(contentsList != null){
 		</form>
 
 		<%-- 登録画面への遷移 --%>
-		<input type=button value="新規登録" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0041View.jsp';return true">
+		<input type=button value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';return true">
 		<%-- メニュー画面に戻る処理 --%>
 		<input type=button value="メニューへ" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
 	</body>
