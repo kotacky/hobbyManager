@@ -47,7 +47,7 @@ public class G0030Control extends HttpServlet{
 		//更新
 		if("update".equals(processDiv)){
 			//ラジオボタン入力を受け取る
-			String updateCompanyId = request.getParameter("updateCompanyId");
+			String updateCompanyId = request.getParameter("radioButton");
 
 			//Modelに引数を渡し、検索結果をリストに入れる
 			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(updateCompanyId, companyName, companyAddress);
@@ -64,14 +64,14 @@ public class G0030Control extends HttpServlet{
 		if("delete".equals(processDiv)){
 
 			//ラジオボタン入力を受け取る
-			String deleteCompanyId = request.getParameter("deleteCompanyId");
+			String deleteCompanyId = request.getParameter("radioButton");
 
 			//削除する項目のIDと、削除の命令をModelに送る
 			int deleteFlag =
 			G0030Model.deleteCompany(deleteCompanyId);
 
 			//削除後の結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(deleteCompanyId, companyName, companyAddress);
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(deleteCompanyId,companyName,companyAddress);
 
 			//Viewに渡す削除後のリスト、フラグを設定
 			request.setAttribute("companyList", companyList);
