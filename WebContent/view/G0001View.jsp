@@ -25,7 +25,7 @@
 				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0010View.jsp'" value="社員一覧"><br>
 				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0020View.jsp'" value="女優一覧"><br>
 				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0030View.jsp'" value="所属会社一覧"><br>
-				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0040View.jsp'" value="ドラマ・映画一覧"><br>
+				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0040View.jsp'" value="コンテンツ一覧"><br>
 				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0050View.jsp'" value="好み一覧"><br>
 				<p>
 			</form>
