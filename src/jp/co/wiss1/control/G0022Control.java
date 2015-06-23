@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0022Model;
 
-@WebServlet("/G0022Contlrl")
+@WebServlet("/G0022Control")
 public class G0022Control extends HttpServlet{
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
