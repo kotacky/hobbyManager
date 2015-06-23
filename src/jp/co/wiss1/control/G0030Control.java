@@ -71,7 +71,7 @@ public class G0030Control extends HttpServlet{
 			G0030Model.deleteCompany(deleteCompanyId);
 
 			//削除後の結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(deleteCompanyId,companyName,companyAddress);
+			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId,companyName,companyAddress);
 
 			//Viewに渡す削除後のリスト、フラグを設定
 			request.setAttribute("companyList", companyList);
