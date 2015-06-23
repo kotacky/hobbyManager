@@ -15,7 +15,7 @@ public class G0051Model {
 	public static void main(String args[])
 	{
 
-		insertPreference("128" , "210" , "425");
+		insertPreference("128" , "0" , "425");
 		getColumnEmployeeList();
 		getColumnActressList();
 	}
