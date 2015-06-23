@@ -63,7 +63,7 @@ if(contentsList != null){
 				</Tr>
 	<% for(int i = 0 ;i<contentsList.size(); i++){ %>
 				<Tr>
-					<Th><input type="radio" name="radioButton" value=<% contentsList.get(i).get("contentsId"); %>></Th>
+					<Th><input type="radio" name="radioButton" value=<%= contentsList.get(i).get("contentsId") %>></Th>
 					<Th><%  out.print(contentsList.get(i).get("contentsId")); %></Th>
 					<Th><%  out.print(contentsList.get(i).get("contentsName")); %></Th>
 					<Th><%  out.print(contentsList.get(i).get("summary")); %></Th>
