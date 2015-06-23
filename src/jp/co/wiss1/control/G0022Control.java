@@ -31,7 +31,7 @@ public class G0022Control extends HttpServlet{
 		boolean successFlag = true;
 		String[]  contentsIdList  = request.getParameterValues("contentsIdList") ;
 
-		for(int i = 1;i <= contentsIdList.length; i++){
+		for(int i = 0;i < contentsIdList.length; i++){
 			//登録する項目を送る
 			int ret = G0022Model.updateActress(companyId,actressName,actressId,contentsIdList[i]);
 			if (ret == 0) {
