@@ -60,15 +60,15 @@ public class G0020Model
            while(resultSet.next()) {																	//SELECT文の結果を参照
 
         	   HashMap<String, String> actressInfo = new HashMap<String, String>();
-        	   actressInfo.put("女優ID", resultSet.getString("actress_id"));
-        	   actressInfo.put("女優名", resultSet.getString("actress_name"));
-        	   actressInfo.put("所属会社名", resultSet.getString("company_name"));
+        	   actressInfo.put("actressId", resultSet.getString("actress_id"));
+        	   actressInfo.put("actressName", resultSet.getString("actress_name"));
+        	   actressInfo.put("companyName", resultSet.getString("company_name"));
         	   actressList.add(actressInfo);
 
             	//System.out.println(actressInfo.get("所属会社ID"));
-        	   System.out.println(actressInfo.get("女優ID"));
-        	   System.out.println(actressInfo.get("女優名"));
-        	   System.out.println(actressInfo.get("所属会社名"));										//リストに入ったかの確認
+        	   System.out.println(actressInfo.get("actressId"));
+        	   System.out.println(actressInfo.get("actressName"));
+        	   System.out.println(actressInfo.get("companyName"));										//リストに入ったかの確認
             }
 
         }
@@ -174,15 +174,15 @@ public class G0020Model
 	       {
 	        	//社員情報を作成する
 	        	HashMap<String, String> employeeInfo = new HashMap<String, String>();
-	        	employeeInfo.put("コンテンツId", resultSet.getString("contents_id"));
-	        	employeeInfo.put("コンテンツ名", resultSet.getString("contents_name"));
+	        	employeeInfo.put("contentsId", resultSet.getString("contents_id"));
+	        	employeeInfo.put("contentsName", resultSet.getString("contents_name"));
 
 	        	//社員情報をリストに追加する
 	        	companyColumnList.add(employeeInfo);
 
 	        	//リストに入ったかの確認
-	        	System.out.println(employeeInfo.get("コンテンツId"));
-	        	System.out.println(employeeInfo.get("コンテンツ名"));
+	        	System.out.println(employeeInfo.get("contentsId"));
+	        	System.out.println(employeeInfo.get("contenysName"));
 
 			}
 
@@ -254,15 +254,15 @@ public class G0020Model
            {
             	//社員情報を作成する
             	HashMap<String, String> employeeInfo = new HashMap<String, String>();
-            	employeeInfo.put("会社Id", resultSet.getString("company_id"));
-            	employeeInfo.put("会社名", resultSet.getString("company_name"));
+            	employeeInfo.put("companyId", resultSet.getString("company_id"));
+            	employeeInfo.put("companyName", resultSet.getString("company_name"));
 
             	//社員情報をリストに追加する
             	companyColumnList.add(employeeInfo);
 
             	//リストに入ったかの確認
-            	System.out.println(employeeInfo.get("会社Id"));
-            	System.out.println(employeeInfo.get("会社名"));
+            	System.out.println(employeeInfo.get("companyId"));
+            	System.out.println(employeeInfo.get("companyName"));
 
 			}
 
