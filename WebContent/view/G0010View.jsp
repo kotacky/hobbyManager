@@ -25,24 +25,31 @@
 <%-- メッセージの表示 --%>
 
 		<% try{ %>
-			<% int insertFlag = Integer.parseInt(request.getParameter("insertFlag")); %>
-			<% int updateFlag = Integer.parseInt(request.getParameter("updateFlag")); %>
-			<% int deleteFlag = Integer.parseInt(request.getParameter("deleteFlag")); %>
-
-				<% if(insertFlag == 1){ %>
+			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+			<% if("1".equals(insertFlag)){ %>
 				<H2><% out.print("登録が完了しました。"); %></H2>
-				<% }else if(insertFlag == 0){ %>
+				<% }else if("0".equals(insertFlag)){ %>
 				<H2><% out.print("登録が失敗しました。"); %></H2>
-				<% }else if(updateFlag == 1){%>
-				<H2><% out.print("更新が完了しました。"); %></H2>
-				<% }else if(updateFlag == 0){ %>
-				<H2><% out.print("更新が失敗しました。"); %></H2>
-				<% }else if(deleteFlag == 1){ %>
-				<H2><% out.print("削除が完了しました。"); %></H2>
-				<% }else if(deleteFlag == 0){ %>
-				<H2><% out.print("削除が失敗しました。"); %></H2>
 				<% } %>
-		<% }catch(NumberFormatException e){ %>
+		<% }catch(NullPointerException insertException){ %>
+			<% try{ %>
+				<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
+					<% if("1".equals(updateFlag)){ %>
+						<H2><% out.print("更新が完了しました。"); %></H2>
+						<% }else if("0".equals(updateFlag)){ %>
+						<H2><% out.print("更新が失敗しました。"); %></H2>
+						<% } %>
+			<% }catch(NullPointerException updateException){ %>
+				<% try{ %>
+					<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
+					<% if("1".equals(deleteFlag)){ %>
+						<H2><% out.print("削除が完了しました。"); %></H2>
+						<% }else if("0".equals(deleteFlag)){ %>
+						<H2><% out.print("削除が失敗しました。"); %></H2>
+						<% } %>
+		<% }catch(NullPointerException deleteException){ %>
+				<% } %>
+			<% } %>
 		<% } %>
 
 <%-- リストの取得 --%>
