@@ -65,7 +65,7 @@ if(actressList != null){
 				</Tr>
 	<% for(int i = 0 ;i<actressList.size(); i++){ %>
 				<Tr>
-					<Th><input type="radio" name="radioButton" value=<% actressList.get(i).get("actressId"); %>></Th>
+					<Th><input type="radio" name="radioButton" value=<%= actressList.get(i).get("actressId") %>></Th>
 					<Th><%  out.print(actressList.get(i).get("actressId")); %></Th>
 					<Th><%  out.print(actressList.get(i).get("actressName")); %></Th>
 					<Th><%  out.print(actressList.get(i).get("companyName")); %></Th>
