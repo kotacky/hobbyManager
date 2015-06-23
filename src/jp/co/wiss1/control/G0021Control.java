@@ -30,7 +30,7 @@ public class G0021Control extends HttpServlet{
 		boolean successFlag = true;
 		String[]  contentsIdList  = request.getParameterValues("comtentsIdList") ;
 
-		for(int i = 1;i <= contentsIdList.length; i++){
+		for(int i = 0;i < contentsIdList.length; i++){
 			//登録する項目を送る
 			int ret = G0021Model.insertActress(companyId,actressName,actressId,contentsIdList[i]);
 			if (ret == 0) {
