@@ -59,7 +59,7 @@ if(companyList != null){
 			‰ïĞ–¼:
 			<input type="text" name="companyName" placeholder="‰ïĞ–¼"  style="text-align: left;"><br>
 			‰ïĞZŠ:
-			<input type="text" name="companyAdress" placeholder="‰ïĞZŠ"  style="text-align: left;"><br>
+			<input type="text" name="companyAddress" placeholder="‰ïĞZŠ"  style="text-align: left;"><br>
 			<input type=submit value="ŒŸõ" onClick="func('select');">
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
