@@ -16,8 +16,7 @@
 
 	<body>
 	<H1>更新情報入力</H1>
-	<%-- ラジオボタンが押されていなかった場合 --%>
-	<% try{%>
+
 	<%-- リストの取得 --%>
 	<%
 		//HashMap<String,String> EmployeeList = new HashMap<String,String>();
@@ -29,6 +28,8 @@
 
 <% List<HashMap<String, String>> employeeList = (List<HashMap<String, String>>)request.getAttribute("employeeList"); %>
 
+<%-- ラジオボタンが押されていなかった場合 --%>
+	<% try{ %>
 	<%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0012Control">
 		社員ID:
@@ -42,7 +43,7 @@
 		<input type=submit value="更新">
 	</form>
 
-	<% }catch(NullPointerException e){ %>
+	<% }catch(IndexOutOfBoundsException e){ %>
 		<H2>ラジオボタンの選択が行われなかった、エラーが発生しました。</H2>
 		<H2>メニュー画面へ戻ってください。</H2>
 	<% } %>
