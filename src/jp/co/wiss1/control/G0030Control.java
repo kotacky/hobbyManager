@@ -56,7 +56,7 @@ public class G0030Control extends HttpServlet{
 			request.setAttribute("companyList", companyList);
 
 			//Viewにリストを渡す
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0032View.jsp");
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0032View.jsp");
 			dispatch.forward(request, response);
 		}
 
