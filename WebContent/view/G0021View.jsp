@@ -25,36 +25,22 @@
 
 <!-- 会社を登録のために選択 -->
 
-<%
-	List<HashMap<String, String>> columnCompanyList = (List<HashMap<String, String>>)request.getAttribute("columnCompanyList");%>
+<h2>会社を選んでください。</h2>
 
+<%
+	List<HashMap<String, String>> columnCompanyList = (List<HashMap<String, String>>)request.getAttribute("columnCompanyList");
+%>
 
 <SELECT NAME="lang">
-<option>
-<% for(int i = 0 ;i<columnCompanyList.size(); i++){ %>
-<option value="<%= columnCompanyList.get(i).get("companyName") %>">
-<option value="<%= columnCompanyList.get(i).get("companyId") %>">
-
-<%  out.print(columnCompanyList.get(i).get("companyName")); %>
-<% } %>
-
-
+	<% for(int i = 0 ;i<columnCompanyList.size(); i++){ %>
+	<option value="<%= columnCompanyList.get(i).get("companyId") %>">
+	<%  out.print(columnCompanyList.get(i).get("companyName")); %>
+	<% } %>
 </SELECT>
 
 
 
-<br><br><br>
-コンテンツ
-
-
-<!-- コンテンツを登録のために3つ選択 -->
-
-<p>選択肢から3つ選択してください。<br />
-コンテンツは登録から新しく登録することが出来ます</p>
-
 <%
-
-
 	List<HashMap<String, String>> columnContentsList = (List<HashMap<String, String>>)request.getAttribute("columnContentsList");
 	String[] check = null;
 		if (columnContentsList == null) {
@@ -63,6 +49,8 @@
 			check = new String[columnContentsList.size()];
 		}
 %>
+
+<h2>コンテンツを選んでください。</h2>
 
 <% if(columnContentsList != null){ %>
 
