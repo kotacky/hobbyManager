@@ -25,7 +25,7 @@ public class G0050Control extends HttpServlet{
 		EncodingUtils.responseEncoding(request,response);
 
 		//Viewから処理命令を受け取る
-		String processDiv = request.getParameter("");
+		String processDiv = request.getParameter("processDiv");
 
 		//処理に必要な情報を受け取る
 		String employeeId = request.getParameter("employeeId");
