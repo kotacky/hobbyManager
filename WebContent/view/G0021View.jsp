@@ -32,7 +32,7 @@
 <SELECT NAME="lang">
 <option>
 <% for(int i = 0 ;i<columncompanyList.size(); i++){ %>
-<option value="<%= columncompanyList.get(i).get("‰ïŽÐ–¼") %>">
+<option value="<%= columncompanyList.get(i).get("companyName") %>">
 <% } %>
 
 
@@ -70,11 +70,11 @@
 	<% } %>
 <% } %>
 
-		<input type=submit value="“o˜^">
+		<input type="submit" value="“o˜^">
 	</form>
 
 
 <!-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— -->
-		<input type=button value="–ß‚é" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';">
+		<input type="button" value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';">
 </body>
 </html>
