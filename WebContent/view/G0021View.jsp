@@ -33,6 +33,9 @@
 <option>
 <% for(int i = 0 ;i<columnCompanyList.size(); i++){ %>
 <option value="<%= columnCompanyList.get(i).get("companyName") %>">
+<option value="<%= columnCompanyList.get(i).get("companyId") %>">
+
+<%  out.print(columnCompanyList.get(i).get("companyName")); %>
 <% } %>
 
 
