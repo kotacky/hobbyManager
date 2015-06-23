@@ -24,11 +24,11 @@
 	<body>
 <%-- リストの取得 --%>
 <%
-		    HashMap<String,String> contentsList = new HashMap<String,String>();
-				contentsList.put("contents_id", "401");
-				contentsList.put("contents_name", "八重の桜");
-				contentsList.put("summary", "大河ドラマ");
-//List<HashMap<String,String>> contentsList = (List<HashMap<String,String>>)request.getAttribute("ContentsList");
+	//	    HashMap<String,String> contentsList = new HashMap<String,String>();
+	//			contentsList.put("contents_id", "401");
+	//			contentsList.put("contents_name", "八重の桜");
+	//			contentsList.put("summary", "大河ドラマ");
+List<HashMap<String,String>> contentsList = (List<HashMap<String,String>>)request.getAttribute("contentsList");
 String disabled = "disabled";
 if(contentsList != null){
      disabled = "";
@@ -63,10 +63,10 @@ if(contentsList != null){
 				</Tr>
 	<% for(int i = 0 ;i<contentsList.size(); i++){ %>
 				<Tr>
-					<Th><input type="radio" name="radioButton" value=<% contentsList./*get(i).*/get("contents_id"); %>></Th>
-					<Th><%  out.print(contentsList./*get(i).*/get("contents_id")); %></Th>
-					<Th><%  out.print(contentsList./*get(i).*/get("contents_name")); %></Th>
-					<Th><%  out.print(contentsList./*get(i).*/get("summary")); %></Th>
+					<Th><input type="radio" name="radioButton" value=<% contentsList.get(i).get("contentsId"); %>></Th>
+					<Th><%  out.print(contentsList.get(i).get("contentsId")); %></Th>
+					<Th><%  out.print(contentsList.get(i).get("contentsName")); %></Th>
+					<Th><%  out.print(contentsList.get(i).get("summary")); %></Th>
 	<% } %>
 <% } %>
 				</Tr>
