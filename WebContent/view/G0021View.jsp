@@ -32,7 +32,7 @@
 <SELECT NAME="lang">
 <option>
 <% for(int i = 0 ;i<columncompanyList.size(); i++){ %>
-<option value="<%= columncompanyList.get(i).get("‰ïŽÐ–¼") %>">
+<option value="<%= columncompanyList.get(i).get("companyName") %>">
 <% } %>
 
 
