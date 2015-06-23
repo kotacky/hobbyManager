@@ -44,7 +44,7 @@ public class G0030Model {
         		System.out.println("2:" + sql);
         	}
         	if(!"".equals(companyName)) {
-        		sql = sql + "company_name = '%"+ companyName +"%' AND ";
+        		sql = sql + "company_name like '%"+ companyName +"%' AND ";
         		System.out.println("3:" + sql);
         	}
         		sql = sql + "company_address like '%"+ companyAddress +"%'";
