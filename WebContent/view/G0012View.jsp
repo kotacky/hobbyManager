@@ -16,6 +16,8 @@
 
 	<body>
 	<H1>更新情報入力</H1>
+	<%-- ラジオボタンが押されていなかった場合 --%>
+	<% try{ %>
 	<%-- リストの取得 --%>
 	<%
 		//HashMap<String,String> EmployeeList = new HashMap<String,String>();
@@ -39,6 +41,10 @@
 		<input type="text" name="birthDate" value=<% out.print(employeeList.get(0).get("birthDate")); %>><br>
 		<input type=submit value="更新">
 	</form>
+	<% }catch(IndexOutOfBoundsException e){ %>
+	<H2>ラジオボタンの選択が行われなかった、エラーが発生しました。</H2>
+	<H2>メニュー画面へ戻ってください。</H2>
+	<% } %>
 	<%-- メニュー画面に戻る処理 --%>
 		<input type=button value="メニューヘ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 	</body>
