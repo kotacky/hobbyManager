@@ -3,9 +3,9 @@
 <%@ page import = "java.util.HashMap"%>
 <%@ page import = "java.util.List" %>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
+		<meta charset="Windows-31J">
 		<title>更新画面</title>
 		<style>
 			*{
@@ -15,7 +15,7 @@
 	</head>
 
 	<body>
-	<H1>更新情報入力</H1>
+	<h1>更新情報入力</h1>
 
 	<%-- リストの取得 --%>
 	<%
@@ -31,7 +31,7 @@
 <%-- ラジオボタンが押されていなかった場合 --%>
 	<% try{ %>
 	<%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
-	<form method="POST" action="<%=request.getContextPath() %>/G0012Control">
+
 		社員ID:
 		<input type="text" name="employeeId" readonly value=<% out.print(employeeList.get(0).get("employeeId")); %>><br>
 		姓:
@@ -40,15 +40,18 @@
 		<input type="text" name="employeeFirstName" value=<% out.print(employeeList.get(0).get("employeeFirstName")); %>><br>
 		生年月日:
 		<input type="text" name="birthDate" value=<% out.print(employeeList.get(0).get("birthDate")); %>><br>
-		<input type=submit value="更新">
-	</form>
+		<input type="submit" value="更新">
+	>
 
 	<% }catch(IndexOutOfBoundsException e){ %>
-		<H2>ラジオボタンの選択が行われなかった、エラーが発生しました。</H2>
-		<H2>メニュー画面へ戻ってください。</H2>
+		<h2>ラジオボタンの選択が行われなかったためエラーが発生しました。</h2>
+		<h2>メニュー画面へ戻ってください。</h2>
+
 	<% } %>
+	
+
 
 	<%-- メニュー画面に戻る処理 --%>
-		<input type=button value="メニューヘ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+		<input type="button" value="メニューヘ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 	</body>
 </html>
