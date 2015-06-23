@@ -29,8 +29,8 @@ public class G0050Control extends HttpServlet{
 
 		//処理に必要な情報を受け取る
 		String employeeId = request.getParameter("employeeId");
-		String familyName = request.getParameter("familyName");
-		String firstName = request.getParameter("firstName");
+		String familyName = request.getParameter("employeeFamilyName");
+		String firstName = request.getParameter("employeeFirstName");
 
 		//検索の処理
 		if("select".equals(processDiv)){
