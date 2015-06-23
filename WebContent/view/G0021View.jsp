@@ -26,13 +26,13 @@
 <!-- ‰ïŽÐ‚ð“o˜^‚Ì‚½‚ß‚É‘I‘ð -->
 
 <%
-	List<HashMap<String, String>> columncompanyList = (List<HashMap<String, String>>)request.getAttribute("columncompanyList");%>
+	List<HashMap<String, String>> columnCompanyList = (List<HashMap<String, String>>)request.getAttribute("columnCompanyList");%>
 
 
 <SELECT NAME="lang">
 <option>
-<% for(int i = 0 ;i<columncompanyList.size(); i++){ %>
-<option value="<%= columncompanyList.get(i).get("companyName") %>">
+<% for(int i = 0 ;i<columnCompanyList.size(); i++){ %>
+<option value="<%= columnCompanyList.get(i).get("companyName") %>">
 <% } %>
 
 
@@ -52,20 +52,20 @@
 <%
 
 
-	List<HashMap<String, String>> columncontentsList = (List<HashMap<String, String>>)request.getAttribute("columncontentsList");
+	List<HashMap<String, String>> columnContentsList = (List<HashMap<String, String>>)request.getAttribute("columnContentsList");
 	String[] check = null;
-		if (columncontentsList == null) {
+		if (columnContentsList == null) {
 			check = new String[0];
 		} else {
-			check = new String[columncontentsList.size()];
+			check = new String[columnContentsList.size()];
 		}
 %>
 
-<% if(columncontentsList != null){ %>
+<% if(columnContentsList != null){ %>
 
-	<% for(int i = 0; i < columncontentsList.size(); i++){ %>
-		<input type="checkBox" name="contentsList" value="<%= columncontentsList.get(i).get("contentsId") %>" />
-		<%  out.print(columncontentsList.get(i).get("contentesName")); %>
+	<% for(int i = 0; i < columnContentsList.size(); i++){ %>
+		<input type="checkBox" name="contentsList" value="<%= columnContentsList.get(i).get("contentsId") %>" />
+		<%  out.print(columnContentsList.get(i).get("contentesName")); %>
 
 	<% } %>
 <% } %>
