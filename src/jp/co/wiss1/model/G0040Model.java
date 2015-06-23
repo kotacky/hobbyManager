@@ -62,15 +62,15 @@ public class G0040Model {
 	            while(resultSet.next()) {														//SELECT文の結果を参照
 
 	        	   HashMap<String, String> contentsInfo = new HashMap<String, String>();
-	        	   contentsInfo.put("コンテンツID", resultSet.getString("contents_id"));
-	        	   contentsInfo.put("コンテンツ名", resultSet.getString("contents_name"));
-	        	   contentsInfo.put("概要", resultSet.getString("summary"));
+	        	   contentsInfo.put("contentsId", resultSet.getString("contents_id"));
+	        	   contentsInfo.put("contentsName", resultSet.getString("contents_name"));
+	        	   contentsInfo.put("summary", resultSet.getString("summary"));
 
 	        	   contentsList.add(contentsInfo);
 
-	            	System.out.println(contentsInfo.get("コンテンツID"));						//リストに入ったかの確認
-	            	System.out.println(contentsInfo.get("コンテンツ名"));
-	            	System.out.println(contentsInfo.get("概要"));
+	            	System.out.println(contentsInfo.get("contentsId"));						//リストに入ったかの確認
+	            	System.out.println(contentsInfo.get("contentsName"));
+	            	System.out.println(contentsInfo.get("summary"));
 	            }
 
 	        }
