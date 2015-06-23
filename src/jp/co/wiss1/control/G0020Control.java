@@ -91,7 +91,7 @@ public class G0020Control extends HttpServlet{
 		 if ("delete".equals(processDiv)){
 
 			// 削除対象の主キーを受け取る
-			String deleteActressId = request.getParameter("radioBottun");
+			String deleteActressId = request.getParameter("radioButton");
 
 			//削除対象の主キーを送る
 			int deleteFlag = G0020Model.deleteActress(deleteActressId);
