@@ -32,9 +32,9 @@
 		ŽÐˆõID:
 		<input type="text" name="employeeId" readonly value=<% out.print(employeeList.get(0).get("employeeId")); %>><br>
 		©:
-		<input type="text" name="employeeFamilyName" value=<% out.print(employeeList.get(0).get("employeeFamilyname")); %>><br>
+		<input type="text" name="employeeFamilyName" value=<% out.print(employeeList.get(0).get("employeeFamilyName")); %>><br>
 		–¼:
-		<input type="text" name="employeeFirstName" value=<% out.print(employeeList.get(0).get("employeeFirstname")); %>><br>
+		<input type="text" name="employeeFirstName" value=<% out.print(employeeList.get(0).get("employeeFirstName")); %>><br>
 		¶”NŒŽ“ú:
 		<input type="text" name="birthDate" value=<% out.print(employeeList.get(0).get("birthDate")); %>><br>
 		<input type=submit value="XV">
