@@ -63,15 +63,15 @@ public class G0030Model {
             while(resultSet.next()) {														//SELECT文の結果を参照
 
         	   HashMap<String, String> companyInfo = new HashMap<String, String>();
-        	   companyInfo.put("所属会社ID", resultSet.getString("company_id"));
-        	   companyInfo.put("所属会社名", resultSet.getString("company_name"));
-        	   companyInfo.put("住所", resultSet.getString("company_address"));
+        	   companyInfo.put("companyId", resultSet.getString("company_id"));
+        	   companyInfo.put("companyName", resultSet.getString("company_name"));
+        	   companyInfo.put("companyAddress", resultSet.getString("company_address"));
 
         	   companyList.add(companyInfo);
 
-            	System.out.println(companyInfo.get("所属会社ID"));							//リストに入ったかの確認
-            	System.out.println(companyInfo.get("所属会社名"));
-            	System.out.println(companyInfo.get("住所"));
+            	System.out.println(companyInfo.get("companyId"));							//リストに入ったかの確認
+            	System.out.println(companyInfo.get("companyName"));
+            	System.out.println(companyInfo.get("companyAddress"));
             }
 
         }
