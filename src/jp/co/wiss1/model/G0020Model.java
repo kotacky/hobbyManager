@@ -173,16 +173,16 @@ public class G0020Model
 	       while(resultSet.next())
 	       {
 	        	//社員情報を作成する
-	        	HashMap<String, String> employeeInfo = new HashMap<String, String>();
-	        	employeeInfo.put("contentsId", resultSet.getString("contents_id"));
-	        	employeeInfo.put("contentsName", resultSet.getString("contents_name"));
+	        	HashMap<String, String> contentsInfo = new HashMap<String, String>();
+	        	contentsInfo.put("contentsId", resultSet.getString("contents_id"));
+	        	contentsInfo.put("contentsName", resultSet.getString("contents_name"));
 
 	        	//社員情報をリストに追加する
-	        	columnCompanyList.add(employeeInfo);
+	        	columnCompanyList.add(contentsInfo);
 
 	        	//リストに入ったかの確認
-	        	System.out.println(employeeInfo.get("contentsId"));
-	        	System.out.println(employeeInfo.get("contentsName"));
+	        	System.out.println(contentsInfo.get("contentsId"));
+	        	System.out.println(contentsInfo.get("contentsName"));
 
 			}
 
@@ -253,16 +253,16 @@ public class G0020Model
            while(resultSet.next())
            {
             	//社員情報を作成する
-            	HashMap<String, String> employeeInfo = new HashMap<String, String>();
-            	employeeInfo.put("companyId", resultSet.getString("company_id"));
-            	employeeInfo.put("companyName", resultSet.getString("company_name"));
+            	HashMap<String, String> companyInfo = new HashMap<String, String>();
+            	companyInfo.put("companyId", resultSet.getString("company_id"));
+            	companyInfo.put("companyName", resultSet.getString("company_name"));
 
             	//社員情報をリストに追加する
-            	columnCompanyList.add(employeeInfo);
+            	columnCompanyList.add(companyInfo);
 
             	//リストに入ったかの確認
-            	System.out.println(employeeInfo.get("companyId"));
-            	System.out.println(employeeInfo.get("companyName"));
+            	System.out.println(companyInfo.get("companyId"));
+            	System.out.println(companyInfo.get("companyName"));
 
 			}
 
