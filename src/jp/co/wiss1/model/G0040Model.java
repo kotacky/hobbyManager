@@ -43,7 +43,7 @@ public class G0040Model {
 	        		System.out.println("2:" + sql);
 	        	}
 	        	if(!"".equals(contentsName)) {
-	        		sql = sql + "contents_name = '%"+ contentsName +"%' AND ";
+	        		sql = sql + "contents_name like '%"+ contentsName +"%' AND ";
 	        		System.out.println("3:" + sql);
 	        	}
 	        		sql = sql + "summary like '%"+ summary +"%'";
