@@ -69,3 +69,4 @@
 		<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';">
 </body>
 </html>
+<!-- コミットテスト　越湖 -->
