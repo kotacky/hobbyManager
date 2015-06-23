@@ -142,7 +142,7 @@ public class G0020Model
 
 	public static List<HashMap<String,String>> getColumnContentsList() //チェックボックに必要なコンテンツデータを送るメソッド
 	{
-		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
+		List<HashMap<String,String>> columnCompanyList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
 
 		//各変数を宣言、初期化
 		ResultSet resultSet = null;
@@ -178,7 +178,7 @@ public class G0020Model
 	        	employeeInfo.put("contentsName", resultSet.getString("contents_name"));
 
 	        	//社員情報をリストに追加する
-	        	companyColumnList.add(employeeInfo);
+	        	columnCompanyList.add(employeeInfo);
 
 	        	//リストに入ったかの確認
 	        	System.out.println(employeeInfo.get("contentsId"));
@@ -207,7 +207,7 @@ public class G0020Model
 	    	}
 	    	System.out.println("一覧取得処理終了");
 	    }
-	    return companyColumnList;
+	    return columnCompanyList;
 	}
 
 
@@ -216,7 +216,7 @@ public class G0020Model
 
 	public static List<HashMap<String,String>> getColumnCompanyList() //プルダウン表示に必要な会社データを送るメソッド
 	{
-		List<HashMap<String,String>> companyColumnList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
+		List<HashMap<String,String>> columnCompanyList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
 
 		//各変数を宣言、初期化
 		ResultSet resultSet = null;
@@ -258,7 +258,7 @@ public class G0020Model
             	employeeInfo.put("companyName", resultSet.getString("company_name"));
 
             	//社員情報をリストに追加する
-            	companyColumnList.add(employeeInfo);
+            	columnCompanyList.add(employeeInfo);
 
             	//リストに入ったかの確認
             	System.out.println(employeeInfo.get("companyId"));
@@ -287,7 +287,7 @@ public class G0020Model
         	}
         	System.out.println("一覧取得処理終了");
         }
-        return companyColumnList;
+        return columnCompanyList;
 	}
 
 
