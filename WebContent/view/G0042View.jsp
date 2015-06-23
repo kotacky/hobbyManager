@@ -31,7 +31,7 @@
 	<%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0042Control">
 		コンテンツID:
-		<input type="text" name="contentsId" disabled value=<% out.print(contentsList.get(0).get("contentsId")); %>><br>
+		<input type="text" name="contentsId" readonly value=<% out.print(contentsList.get(0).get("contentsId")); %>><br>
 		コンテンツ名:
 		<input type="text" name=contentsName value=<% out.print(contentsList.get(0).get("contentsName")); %>><br>
 		概要:
