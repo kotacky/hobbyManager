@@ -72,21 +72,21 @@ public class G0050Model {
 	            while(resultSet.next()) {																//SELECT文の結果を参照
 
 	        	   HashMap<String, String> preferenceInfo = new HashMap<String, String>();
-	        	   preferenceInfo.put("社員ID", resultSet.getString("employee_id"));
-	        	   preferenceInfo.put("姓", resultSet.getString("employee_family_name"));
-	        	   preferenceInfo.put("名", resultSet.getString("employee_first_name"));
-	        	   preferenceInfo.put("女優名", resultSet.getString("actress_name"));
-	        	   preferenceInfo.put("コンテンツ名", resultSet.getString("contents_name"));
+	        	   preferenceInfo.put("employeeId", resultSet.getString("employee_id"));
+	        	   preferenceInfo.put("employeeFamilyName", resultSet.getString("employee_family_name"));
+	        	   preferenceInfo.put("employeeFirstName", resultSet.getString("employee_first_name"));
+	        	   preferenceInfo.put("actressName", resultSet.getString("actress_name"));
+	        	   preferenceInfo.put("contentsName", resultSet.getString("contents_name"));
 
 
 
 	        	   preferenceList.add(preferenceInfo);
 
-	        	   System.out.println(preferenceInfo.get("社員ID"));
-	        	   System.out.println(preferenceInfo.get("姓"));
-	        	   System.out.println(preferenceInfo.get("名"));
-	        	   System.out.println(preferenceInfo.get("女優名"));
-	        	   System.out.println(preferenceInfo.get("コンテンツ名"));								//リストに入ったかの確認
+	        	   System.out.println(preferenceInfo.get("employeeId"));
+	        	   System.out.println(preferenceInfo.get("employeeFamilyName"));
+	        	   System.out.println(preferenceInfo.get("employeeFirstName"));
+	        	   System.out.println(preferenceInfo.get("actressName"));
+	        	   System.out.println(preferenceInfo.get("contentsName"));								//リストに入ったかの確認
 
 	            }
 
