@@ -30,7 +30,7 @@
 					//preferenceList.put("employeeFirstname", "Ë");
 					//preferenceList.put("actressName","ˆ»£‚Í‚é‚©");
 					//preferenceList.put("contentsName","”ªd‚Ì÷");
-List<HashMap<String,String>> preferenceList = (List<HashMap<String,String>>)request.getAttribute("PreferenceList");
+List<HashMap<String,String>> preferenceList = (List<HashMap<String,String>>)request.getAttribute("preferenceList");
 String disabled = "disabled";
 if(preferenceList != null){
      disabled = "";
