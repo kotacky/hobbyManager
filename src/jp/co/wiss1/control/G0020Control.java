@@ -73,7 +73,7 @@ public class G0020Control extends HttpServlet{
 			request.setAttribute("columnContentsList",columnContentsList);
 
 			//更新対象の主キーを受け取る
-			String updateActressId = request.getParameter("radioBottun");
+			String updateActressId = request.getParameter("radioButton");
 
 			//更新対象の主キーを送り、リストを受け取る
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
