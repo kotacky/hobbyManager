@@ -192,16 +192,16 @@ public class G0051Model {
 	       while(resultSet.next())
 	       {
 	        	//社員情報を作成する
-	        	HashMap<String, String> employeeInfo = new HashMap<String, String>();
-	        	employeeInfo.put("女優Id", resultSet.getString("actress_id"));
-	        	employeeInfo.put("女優名", resultSet.getString("actress_name"));
+	        	HashMap<String, String> actressInfo = new HashMap<String, String>();
+	        	actressInfo.put("女優Id", resultSet.getString("actress_id"));
+	        	actressInfo.put("女優名", resultSet.getString("actress_name"));
 
 	        	//社員情報をリストに追加する
-	        	companyColumnList.add(employeeInfo);
+	        	companyColumnList.add(actressInfo);
 
 	        	//リストに入ったかの確認
-	        	System.out.println(employeeInfo.get("女優Id"));
-	        	System.out.println(employeeInfo.get("女優名"));
+	        	System.out.println(actressInfo.get("女優Id"));
+	        	System.out.println(actressInfo.get("女優名"));
 
 			}
 
