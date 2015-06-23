@@ -48,12 +48,12 @@ public class G0020Control extends HttpServlet{
 		if ("insert".equals(processDiv)){
 
 			//会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> columncompanyList =G0020Model.getColumnCompanyList();
-			List <HashMap<String,String>> columncontentsList = G0020Model.getColumnContentsList();
+			List <HashMap<String,String>> columnCompanyList =G0020Model.getColumnCompanyList();
+			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
 
 			// 会社名リストとコンテンツリストをViewへ送る
-			request.setAttribute("columncompanyList",columncompanyList);
-			request.setAttribute("columncontentsList",columncontentsList);
+			request.setAttribute("columnCompanyList",columnCompanyList);
+			request.setAttribute("columnContentsList",columnContentsList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0021View.jsp");
 			dispatch.forward(request, response);
 
@@ -65,12 +65,12 @@ public class G0020Control extends HttpServlet{
 		 if ("update".equals(processDiv)){
 
 			// 会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> columncompanyList =G0020Model.getColumnCompanyList();
-			List <HashMap<String,String>> columncontentsList = G0020Model.getColumnContentsList();
+			List <HashMap<String,String>> columnCompanyList =G0020Model.getColumnCompanyList();
+			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
 
 			//会社名リストとコンテンツリストをViewへ送る
-			request.setAttribute("columncompanyList",columncompanyList);
-			request.setAttribute("columncontentsList",columncontentsList);
+			request.setAttribute("columnCompanyList",columnCompanyList);
+			request.setAttribute("columnContentsList",columnContentsList);
 
 			//更新対象の主キーを受け取る
 			String updateActressId = request.getParameter("radioBottun");
