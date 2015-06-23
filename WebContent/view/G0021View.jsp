@@ -31,7 +31,7 @@
 	List<HashMap<String, String>> columnCompanyList = (List<HashMap<String, String>>)request.getAttribute("columnCompanyList");
 %>
 
-<SELECT NAME="lang">
+<SELECT name="companyId">
 	<% for(int i = 0 ;i<columnCompanyList.size(); i++){ %>
 	<option value="<%= columnCompanyList.get(i).get("companyId") %>">
 	<%  out.print(columnCompanyList.get(i).get("companyName")); %>
