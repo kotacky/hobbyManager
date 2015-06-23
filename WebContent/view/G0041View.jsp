@@ -19,9 +19,9 @@
 		コンテンツID:
 		<input type="text" name="contentsId" placeholder="ID" style="text-align:left;"><br>
 		コンテンツ名:
-		<input type="text" name="contentsName"><br>
+		<input type="text" name="contentsName" placeholder="コンテンツ名" style="text-align:left;"><br>
 		概要:
-		<input type="text" name="summary"><br>
+		<input type="text" name="summary" placeholder="概要" style="text-align:left;"><br>
 		<input type=submit value="登録">
 		</form>
 
