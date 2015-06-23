@@ -39,7 +39,7 @@ public class G0020Control extends HttpServlet{
 
 			// 画面一覧へ結果を返す
 			request.setAttribute("actressList",actressList);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0020View.jsp");
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 			dispatch.forward(request, response);
 		 }
 
@@ -48,13 +48,13 @@ public class G0020Control extends HttpServlet{
 		if ("insert".equals(processDiv)){
 
 			//会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> columnCompanyList =G0020Model.getColumnCompanyList();
+			List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
 			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
 
 			// 会社名リストとコンテンツリストをViewへ送る
 			request.setAttribute("columnCompanyList",columnCompanyList);
 			request.setAttribute("columnContentsList",columnContentsList);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0021View.jsp");
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0021View.jsp");
 			dispatch.forward(request, response);
 
 			//G0021Controlへ
@@ -65,7 +65,7 @@ public class G0020Control extends HttpServlet{
 		 if ("update".equals(processDiv)){
 
 			// 会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> columnCompanyList =G0020Model.getColumnCompanyList();
+			List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
 			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
 
 			//会社名リストとコンテンツリストをViewへ送る
@@ -80,7 +80,7 @@ public class G0020Control extends HttpServlet{
 
 			//更新するリストをView送る
 			request.setAttribute("actressList",actressList);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0022View.jsp");
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0022View.jsp");
 			dispatch.forward(request, response);
 
 			//G0022Controlへ
@@ -109,8 +109,8 @@ public class G0020Control extends HttpServlet{
 			request.setAttribute("deleteFlag",deleteFlag);
 			}
 			request.setAttribute("actressList",actressList);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0020View.jsp");
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 			dispatch.forward(request, response);
 		 }
 	}
-}
+}//
