@@ -65,7 +65,7 @@
 
 	<% for(int i = 0; i < columnContentsList.size(); i++){ %>
 		<input type="checkBox" name="contentsList" value="<%= columnContentsList.get(i).get("contentsId") %>" />
-		<%  out.print(columnContentsList.get(i).get("contentesName")); %>
+		<%  out.print(columnContentsList.get(i).get("contentsName")); %>
 
 	<% } %>
 <% } %>
