@@ -182,7 +182,7 @@ public class G0020Model
 
 	        	//リストに入ったかの確認
 	        	System.out.println(employeeInfo.get("contentsId"));
-	        	System.out.println(employeeInfo.get("contenysName"));
+	        	System.out.println(employeeInfo.get("contentsName"));
 
 			}
 
