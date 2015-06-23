@@ -61,7 +61,7 @@ if(actressList != null){
 					<Th>——DID</Th>
 					<Th>——D–¼</Th>
 					<Th>Š‘®‰ïĞ–¼</Th>
-					<Th>‰ïĞZŠ</Th>
+					<%-- <Th>‰ïĞZŠ</Th> --%>
 				</Tr>
 	<% for(int i = 0 ;i<actressList.size(); i++){ %>
 				<Tr>
@@ -69,7 +69,7 @@ if(actressList != null){
 					<Th><%  out.print(actressList.get(i).get("actressId")); %></Th>
 					<Th><%  out.print(actressList.get(i).get("actressName")); %></Th>
 					<Th><%  out.print(actressList.get(i).get("companyName")); %></Th>
-					<Th><%  out.print(actressList.get(i).get("companyAddress")); %></Th>
+					<%-- <Th><%  out.print(actressList.get(i).get("companyAddress")); %></Th> --%>
 	<% } %>
 <% } %>
 				</Tr>
