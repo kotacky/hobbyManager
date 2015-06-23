@@ -58,7 +58,7 @@ if(companyList != null){
 			<input type="text" name="companyId" placeholder="‰ïĞID"  style="text-align: left;"><br>
 			‰ïĞ–¼:
 			<input type="text" name="companyName" placeholder="‰ïĞ–¼"  style="text-align: left;"><br>
-			‰ïĞZŠ:
+			<%-- ‰ïĞZŠ: --%>
 			<!-- <input type="text" name="companyAddress" placeholder="‰ïĞZŠ"  style="text-align: left;"> --><br>
 			<input type=submit value="ŒŸõ" onClick="func('select');">
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
@@ -83,7 +83,7 @@ if(companyList != null){
 					<Th><input type="radio" name="radioButton" value="<%= companyList.get(i).get("companyId") %>"></Th>
 					<Th><%  out.print(companyList.get(i).get("companyId")); %></Th>
 					<Th><%  out.print(companyList.get(i).get("companyName")); %></Th>
- 					<!-- <Th>ZŠ</Th> -->
+					<Th><%--  out.print(companyList.get(i).get("companyAddress")); --%></Th>
 	<% } %>
 <% } %>
 				</Tr>
