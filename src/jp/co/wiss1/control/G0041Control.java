@@ -23,10 +23,10 @@ public class G0041Control extends HttpServlet{
 		//登録に必要な情報を受け取る
 		String contentsId = request.getParameter("contentsId");
 		String title = request.getParameter("contentsName");
-		String summary = request.getParameter("summary");
+		String broadCast = request.getParameter("broadCast");
 
 		//登録のメソッドを呼び出す
-		int insertFlag = G0041Model.insertContents(contentsId, title, summary);
+		int insertFlag = G0041Model.insertContents(contentsId, title, broadCast);
 
 		//登録完了フラグを送る
 		if(insertFlag == 1){
