@@ -27,6 +27,17 @@
 	</head>
 
 	<body>
+<%-- ƒƒbƒZ[ƒW‚Ì•\Ž¦ --%>
+
+		<% try{ %>
+			<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
+			<% if("1".equals(deleteFlag)){ %>
+			<H2><% out.print("íœ‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
+			<% }else if("0".equals(deleteFlag)){ %>
+			<H2><% out.print("íœ‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
+			<% } %>
+		<% }catch(NullPointerException deleteException){ %>
+		<% } %>
 <%-- ƒŠƒXƒg‚ÌŽæ“¾ --%>
 <%
 //HashMap<String,String> actressList = new HashMap<String,String>();
@@ -86,5 +97,24 @@ if(actressList != null){
 		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
 				<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
 		<input type="button" value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+
+	<% try{ %>
+			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+			<% if("1".equals(insertFlag)){ %>
+				<H2><% out.print("“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
+				<% }else if("0".equals(insertFlag)){ %>
+				<H2><% out.print("“o˜^‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
+				<% } %>
+		<% }catch(NullPointerException insertException){ %>
+			<% try{ %>
+				<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
+					<% if("1".equals(updateFlag)){ %>
+						<H2><% out.print("XV‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
+						<% }else if("0".equals(updateFlag)){ %>
+						<H2><% out.print("XV‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
+						<% } %>
+			<% }catch(NullPointerException updateException){ %>
+			<% } %>
+		<% } %>
 	</body>
 </html>
