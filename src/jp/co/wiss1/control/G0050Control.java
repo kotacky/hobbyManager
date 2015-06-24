@@ -85,6 +85,8 @@ public class G0050Control extends HttpServlet{
 				dispatch.forward(request, response);
 			}else{
 				//nullのとき処理を行わずに返す
+				List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
+				request.setAttribute("preferenceList", preferenceList);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 				dispatch.forward(request, response);
 			}
