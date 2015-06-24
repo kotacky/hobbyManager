@@ -1,36 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=Windows-31J"
-    pageEncoding="Windows-31J"%>
+<%@ page contentType="text/html; charset=Windows-31J" %>
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 	<head>
-		<meta charset="Windows-31J">
-		<title>新人DB一覧メニュー</title>
-		<style>
-			*{
-				text-align : center ;
-			}
-		</style>
+		<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J" />
+		<title></title>
+		<meta name="keywords" content="キーワード" />
+		<meta name="description" content="サイトの説明" />
+		<meta http-equiv="Content-Language" content="ja" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<link href="./css/index.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="./css/import.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="./css/share.css" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="./js/default.js"></script>
 	</head>
 
 	<body>
-	<%
-		// Controller側からもらう想定
-		//ArrayList<String> xxxList = new ArrayList<String>();
-		/*  xxxList.add("ssss");
-			xxxList.add("dddd");
-			xxxList.add("ffff");
-			xxxList.add("gggg");*/
-	%>
-		<h1>メニュー</h1>
-
-		<p><strong>閲覧ページを選択してください</strong></p>
-
-			<form method="POST" action="G0010View.jsp">
-				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0010View.jsp'" value="社員一覧"><br>
-				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0020View.jsp'" value="女優一覧"><br>
-				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0030View.jsp'" value="所属会社一覧"><br>
-				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0040View.jsp'" value="コンテンツ一覧"><br>
-				<input type="button" name="ページ選択" onClick="form.action=location.href='../view/G0050View.jsp'" value="好み一覧"><br>
-			</form>
+		<div id="wrapper">
+			<div id="headerBg" class="clearfix">
+				<div id="header">
+					<h1>2015年度新人研修<br />好きな女優を管理してみよう</h1>
+					<ul id="gNavi" class="clearfix">
+						<li><a href="sample.html" title="">好み一覧</a></li>
+						<li><a href="sample.html" title="">コンテンツ一覧</a></li>
+						<li><a href="sample.html" title="">女優一覧</a></li>
+						<li><a href="sample.html" title="">所属会社一覧</a></li>
+						<li class="firstItem"><a href="index.html" title="">社員一覧</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="mainImgBox">
+				<img src="./img/mainimg.jpg" alt="" />
+			</div>
+			<div id="footer">
+				<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
+			</div>
+		</div>
 	</body>
 </html>
