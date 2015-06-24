@@ -63,7 +63,7 @@
 		<%  out.print(columnContentsList.get(i).get("contentsName")); %>
 
 	<% } %>
-<% } %>
+<% } %><br>
 
 		<input type="submit" value="XV">
 	</form>
