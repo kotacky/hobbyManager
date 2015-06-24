@@ -13,9 +13,9 @@
 <% //C‚Ö“o˜^‚·‚éðŒ‚ð‘—‚é %>
 <form method="POST"name="MyForm" action="<%=request.getContextPath() %>/G0051Control">
 	ŽÐˆõID:
-	<input type="text" name="employeeId"><br>
+
 	——DID:
-	<input type="text" name="actressId"><br>
+
 
 <!-- ——D–¼‚ð“o˜^‚Ì‚½‚ß‚É‘I‘ð -->
 
