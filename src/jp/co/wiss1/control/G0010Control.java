@@ -57,7 +57,8 @@ public class G0010Control extends HttpServlet{
 				request.setAttribute("employeeList", employeeList);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0012View.jsp");
 				dispatch.forward(request, response);
-			}else{//nullのとき処理を行わずに返す。
+			}else{
+				//nullのとき処理を行わずに返す
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 				dispatch.forward(request, response);
 			}
@@ -69,6 +70,7 @@ public class G0010Control extends HttpServlet{
 			//削除に必要な情報を受け取る
 			String deleteEmployeeId = request.getParameter("radioButton");
 
+			//radioButtoがnullでないならば処理を行う
 			if(deleteEmployeeId != null){
 
 				//デリートのメソッドを呼ぶ
@@ -87,8 +89,9 @@ public class G0010Control extends HttpServlet{
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 				dispatch.forward(request, response);
 			}else{
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
-			dispatch.forward(request, response);
+				//nullのとき処理を行わずに返す
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
+				dispatch.forward(request, response);
 			}
 		}
 	}
