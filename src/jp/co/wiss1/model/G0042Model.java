@@ -38,7 +38,7 @@ public class G0042Model {
             String sql = "UPDATE t_contents SET";
             	if(!"". equals(contentsId)){
             		sql = sql+ " contents_name = '"+ contentsName +"', "
-            		+ " broadCast = '"+ broadCast +"' WHERE"
+            		+ " broadcasting_office = '"+ broadCast +"' WHERE"
             		+ " contents_id = '"+ contentsId +"'";
 
                     upDateCount = statement.executeUpdate (sql);
