@@ -64,6 +64,16 @@ public class G0020Control extends HttpServlet{
 		 //更新(UPDATE)①の処理
 		 if ("update".equals(processDiv)){
 
+
+			//更新対象の主キーを受け取る
+			String updateActressId = request.getParameter("radioButton");
+
+			//ラジオボタンに印がついている時の処理
+			if(updateActressId == null){
+
+			//更新対象の主キーを送り、リストを受け取る
+			List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
+
 			// 会社名リストとコンテンツリストを受け取る
 			List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
 			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
@@ -72,18 +82,18 @@ public class G0020Control extends HttpServlet{
 			request.setAttribute("columnCompanyList",columnCompanyList);
 			request.setAttribute("columnContentsList",columnContentsList);
 
-			//更新対象の主キーを受け取る
-			String updateActressId = request.getParameter("radioButton");
-
-			//更新対象の主キーを送り、リストを受け取る
-			List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
-
 			//更新するリストをView送る
 			request.setAttribute("actressList",actressList);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0022View.jsp");
 			dispatch.forward(request, response);
-
+			}
 			//G0022Controlへ
+
+			//ラジオボタンに印がついていない時の処理
+			else{
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
+			dispatch.forward(request, response);
+			}
 		 }
 
 
@@ -113,4 +123,4 @@ public class G0020Control extends HttpServlet{
 			dispatch.forward(request, response);
 		 }
 	}
-}//
+}
