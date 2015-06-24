@@ -11,9 +11,9 @@ pageEncoding="Windows-31J"%>
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="imagetoolbar" content="no" />
-		<link href="<%= request.getContextPath() %>/css/index.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="<%= request.getContextPath() %>/css/import.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="<%= request.getContextPath() %>/css/share.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="text/javascript" src="./js/default.js"></script>
 	</head>
 <body>
