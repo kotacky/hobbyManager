@@ -27,6 +27,18 @@
 	</head>
 
 	<body>
+<%-- メッセージの表示 --%>
+
+		<% try{ %>
+			<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
+			<% if("1".equals(deleteFlag)){ %>
+			<H2><% out.print("削除が完了しました。"); %></H2>
+			<% }else if("0".equals(deleteFlag)){ %>
+			<H2><% out.print("削除が失敗しました。"); %></H2>
+			<% } %>
+		<% }catch(NullPointerException deleteException){ %>
+		<% } %>
+
 <%-- リストの取得 --%>
 <%
 		    //HashMap<String,String> preferenceList = new HashMap<String,String>();
@@ -100,5 +112,15 @@ if(preferenceList != null){
 
 		<%-- メニュー画面に戻る処理 --%>
 		<input type="button" value="メニューへ" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
+
+	<% try{ %>
+			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+			<% if("1".equals(insertFlag)){ %>
+				<H2><% out.print("登録が完了しました。"); %></H2>
+				<% }else if("0".equals(insertFlag)){ %>
+				<H2><% out.print("登録が失敗しました。"); %></H2>
+				<% } %>
+		<% }catch(NullPointerException insertException){ %>
+		<% } %>
 	</body>
 </html>
