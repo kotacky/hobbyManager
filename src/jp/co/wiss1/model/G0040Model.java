@@ -18,7 +18,7 @@ public class G0040Model {
 			deleteContents("0");
 		}
 
-		public static List<HashMap<String, String>> getContentsList(String contentsId , String contentsName , String summary)	//コンテンツテーブル参照
+		public static List<HashMap<String, String>> getContentsList(String contentsId , String contentsName , String broadCast)	//コンテンツテーブル参照
 		{
 
 			List<HashMap<String, String>> contentsList = new ArrayList<HashMap<String, String>>() ;
@@ -46,13 +46,13 @@ public class G0040Model {
 	        		sql = sql + "contents_name like '%"+ contentsName +"%' AND ";
 	        		System.out.println("3:" + sql);
 	        	}
-	        		sql = sql + "summary like '%"+ summary +"%'";
+	        		sql = sql + "summary like '%"+ broadCast +"%'";
 	        		sql = sql + " ORDER BY contents_id";
 	        		System.out.println("4:" + sql);												//sql文終了
 
 	            System.out.println("引数に" + contentsId + "が入力されました。");
 	            System.out.println("引数に" + contentsName + "が入力されました。");
-	            System.out.println("引数に" + summary + "が入力されました。");
+	            System.out.println("引数に" + broadCast + "が入力されました。");
 	            System.out.println(sql);
 
 	            resultSet = statement.executeQuery(sql);										//SELECT文を実行するコード
@@ -64,13 +64,13 @@ public class G0040Model {
 	        	   HashMap<String, String> contentsInfo = new HashMap<String, String>();
 	        	   contentsInfo.put("contentsId", resultSet.getString("contents_id"));
 	        	   contentsInfo.put("contentsName", resultSet.getString("contents_name"));
-	        	   contentsInfo.put("summary", resultSet.getString("summary"));
+	        	   contentsInfo.put("broadCast", resultSet.getString("broadcasting_office"));
 
 	        	   contentsList.add(contentsInfo);
 
 	            	System.out.println(contentsInfo.get("contentsId"));						//リストに入ったかの確認
 	            	System.out.println(contentsInfo.get("contentsName"));
-	            	System.out.println(contentsInfo.get("summary"));
+	            	System.out.println(contentsInfo.get("broadCast"));
 	            }
 
 	        }
