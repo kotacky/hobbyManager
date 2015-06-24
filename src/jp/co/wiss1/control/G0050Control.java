@@ -85,7 +85,7 @@ public class G0050Control extends HttpServlet{
 				dispatch.forward(request, response);
 			}else{
 				//nullのとき処理を行わずに返す
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 				dispatch.forward(request, response);
 			}
 		}
