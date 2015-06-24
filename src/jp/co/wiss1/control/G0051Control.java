@@ -39,8 +39,7 @@ public class G0051Control extends HttpServlet{
 		if(successFlag == true){
 			// 登録成功
 			request.setAttribute("insertFlag",1);
-	    }
-		else{
+	    }else{
 			// 登録失敗
 			request.setAttribute("insertFlag",0);
 		}
