@@ -59,6 +59,8 @@ public class G0010Control extends HttpServlet{
 				dispatch.forward(request, response);
 			}else{
 				//nullのとき処理を行わずに返す
+				int updateFlag = 0;
+				request.setAttribute("updateFlag",updateFlag);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 				dispatch.forward(request, response);
 			}
