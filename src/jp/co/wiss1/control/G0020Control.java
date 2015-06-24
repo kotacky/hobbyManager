@@ -20,7 +20,7 @@ public class G0020Control extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException{
 
-		// ブラウザの文字コードの調整
+		//ブラウザの文字コードの調整
 		EncodingUtils.responseEncoding(request,response);
 
 		//どの処理を行うかの命令を受け取る
@@ -79,7 +79,7 @@ public class G0020Control extends HttpServlet{
 			//更新対象の主キーを送り、リストを受け取る
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
 
-			// 会社名リストとコンテンツリストを受け取る
+			//会社名リストとコンテンツリストを受け取る
 			List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
 			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
 
@@ -99,7 +99,7 @@ public class G0020Control extends HttpServlet{
 		 //削除(DELETE)の処理
 		 if ("delete".equals(processDiv)){
 
-			// 削除対象の主キーを受け取る
+			//削除対象の主キーを受け取る
 			String deleteActressId = request.getParameter("radioButton");
 
 			//削除対象の主キーを送る
