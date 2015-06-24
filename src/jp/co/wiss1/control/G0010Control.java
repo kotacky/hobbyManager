@@ -91,7 +91,9 @@ public class G0010Control extends HttpServlet{
 			}else{
 				//nullのとき処理を行わずに返す
 				List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId,familyName,firstName);
+				int deleteFlag = 0;
 				request.setAttribute("employeeList",employeeList);
+				request.setAttribute("deleteFlag",deleteFlag);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 				dispatch.forward(request, response);
 			}
