@@ -7,11 +7,16 @@
 	<head>
 		<meta charset="Windows-31J">
 		<title>所属会社一覧</title>
-		<style>
-			*{
-				text-align : center;
-			}
-		</style>
+		<meta name="keywords" content="キーワード" />
+		<meta name="description" content="サイトの説明" />
+		<meta http-equiv="Content-Language" content="ja" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<link href="./css/index.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="./css/import.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="./css/share.css" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="./js/default.js"></script>
 		<script>
 		 function func(MyCommand){
 	//		 alert("start!:[" + MyCommand + "]");
