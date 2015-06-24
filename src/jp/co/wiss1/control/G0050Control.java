@@ -65,22 +65,29 @@ public class G0050Control extends HttpServlet{
 			//処理に必要な情報を受け取る
 			String deleteEmployeeId = request.getParameter("radioButton");
 
-			//デリートのメソッドを呼ぶ
-			int deleteFlag = G0050Model.deletePreference(deleteEmployeeId);
+			//radioButtoがnullでないならば処理を行う
+			if(deleteEmployeeId != null){
 
-			//デリート後のリストを検索メソッドで取り出す
-			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
+				//デリートのメソッドを呼ぶ
+				int deleteFlag = G0050Model.deletePreference(deleteEmployeeId);
 
-			//デリート後のリストと削除処理のフラグを送る
-			request.setAttribute("preferenceList", preferenceList);
-			if(deleteFlag == 1){
-				request.setAttribute("deleteFlag",deleteFlag);
+				//デリート後のリストを検索メソッドで取り出す
+				List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
+
+				//デリート後のリストと削除処理のフラグを送る
+				request.setAttribute("preferenceList", preferenceList);
+				if(deleteFlag == 1){
+					request.setAttribute("deleteFlag",deleteFlag);
+				}else{
+					request.setAttribute("deleteFlag",deleteFlag);
+				}
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
+				dispatch.forward(request, response);
 			}else{
-				request.setAttribute("deleteFlag",deleteFlag);
+				//nullのとき処理を行わずに返す
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
+				dispatch.forward(request, response);
 			}
-
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
-			dispatch.forward(request, response);
 		}
 	}
 }
