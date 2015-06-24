@@ -53,6 +53,7 @@ if(employeeList != null){
 			–¼:
 			<input type="text" name="employeeFirstName" placeholder="–¼"  style="text-align: left; "><br>
 			<input type="button" value="ŒŸõ" onClick="func('select');" />
+			<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'"<%= disabled %> />
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 
@@ -86,8 +87,6 @@ if(employeeList != null){
 			<input type="hidden" name="processDiv">
 		</form>
 
-		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
-		<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'">
 		<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
 		<input type="button" value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 
