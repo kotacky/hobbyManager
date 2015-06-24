@@ -9,9 +9,9 @@
 	<title>D‚İ“o˜^</title>
 </head>
 <body>
-<h1>D‚İ“o˜^</h1>
+	<h1>D‚İ“o˜^</h1>
 <% //C‚Ö“o˜^‚·‚éğŒ‚ğ‘—‚é %>
-<form method="POST"name="Myform" action="<%=request.getContextPath() %>/G0051Control">
+<form method="POST"name="MyForm" action="<%=request.getContextPath() %>/G0051Control">
 	ĞˆõID:
 	<input type="text" name="employeeId"><br>
 	——DID:
@@ -41,26 +41,31 @@
 	<option value="<%= actressList.get(i).get("actressId") %>">
 	<%  out.print(actressList.get(i).get("actressName")); %>
 	<% } %>
-</SELECT>
+</SELECT><br>
 
 <%-- ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ÉƒŠƒXƒg‚ğ“ü‚ê‚Ä•\¦ --%>
 
 <%
-	List<HashMap<String, String>> columnContentsList = (List<HashMap<String, String>>)request.getAttribute("columnContentsList");
+	List<HashMap<String, String>> columnContentsList = (List<HashMap<String, String>>)request.getAttribute("contentsList");
 	String[] check = null;
-
+		if (columnContentsList == null) {
+			check = new String[0];
+		} else {
+			check = new String[columnContentsList.size()];
+		}
 %>
 
 <% if(columnContentsList != null){ %>
+
 	<% for(int i = 0; i < columnContentsList.size(); i++){ %>
 		<input type="checkBox" name="contentsList" value="<%= columnContentsList.get(i).get("contentsId") %>" />
 		<%  out.print(columnContentsList.get(i).get("contentsName")); %>
-	<% } %>
-<% } %>
 
-<input type="submit" value="“o˜^">
+	<% } %>
+<% } %><br>
+	<input type="submit" value="“o˜^">
 </form>
 <%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
-<input type="button" value="–ß‚é" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+	<input type="button" value="–ß‚é" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 </body>
 </html>
