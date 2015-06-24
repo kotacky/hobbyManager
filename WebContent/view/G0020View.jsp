@@ -72,7 +72,7 @@ if(actressList != null){
 
 <%-- テーブルの表示 --%>
 <%if(actressList != null){ %>
-			<table width="400" border="1" align="center">
+			<table width="400" border="1">
 				<Tr>
 					<Th>選択</Th>
 					<Th>女優ID</Th>
