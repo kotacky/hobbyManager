@@ -22,11 +22,11 @@
 				<div id="header">
 					<h1>2015年度新人研修<br />好きな女優を管理してみよう</h1>
 					<ul id="gNavi" class="clearfix">
-						<li><a href="sample.html" title="">好み一覧</a></li>
-						<li><a href="sample.html" title="">コンテンツ一覧</a></li>
-						<li><a href="sample.html" title="">女優一覧</a></li>
-						<li><a href="sample.html" title="">所属会社一覧</a></li>
-						<li class="firstItem"><a href="index.html" title="">社員一覧</a></li>
+						<li><a href="G0050View.jsp" title="">好み一覧</a></li>
+						<li><a href="G0040View.jsp" title="">コンテンツ一覧</a></li>
+						<li><a href="G0020View.jsp" title="">女優一覧</a></li>
+						<li><a href="G0030View.jsp" title="">所属会社一覧</a></li>
+						<li class="firstItem"><a href="G0010View.jsp" title="">社員一覧</a></li>
 					</ul>
 				</div>
 			</div>
