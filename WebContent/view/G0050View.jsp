@@ -74,7 +74,7 @@ if(preferenceList != null){
 
 <% //テーブルの表示%>
 <%if(preferenceList != null){ %>
-			<table width="600" border="1" align="center">
+			<table width="600" border="1">
 				<Tr>
 					<Th>選択</Th>
 					<Th>社員ID</Th>

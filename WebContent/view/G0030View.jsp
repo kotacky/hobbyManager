@@ -72,7 +72,7 @@ if(companyList != null){
 
 <%-- テーブルの表示 --%>
 <%if(companyList != null){ %>
-			<table width="400" border="1" align="center">
+			<table width="400" border="1">
 				<Tr>
 					<Th>選択</Th>
 					<Th>所属会社ID</Th>

@@ -70,7 +70,7 @@ if(employeeList != null){
 
 <%-- テーブルの表示--%>
 <% if(employeeList != null){ %>
-			<table width="350" border="1" align="center">
+			<table width="350" border="1">
 				<Tr>
 					<Th>選択</Th>
 					<Th>社員ID</Th>
