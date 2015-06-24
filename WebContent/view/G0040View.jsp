@@ -14,7 +14,7 @@
 		</style>
 		<script>
 		 function func(MyCommand){
-			 alert("start!:[" + MyCommand + "]");
+		//	 alert("start!:[" + MyCommand + "]");
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
@@ -36,20 +36,20 @@ if(contentsList != null){
 %>
 		<h1>コンテンツ一覧</h1>
 		<% //Cへ検索する条件を送る %>
-		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0040Control">
+		<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
 			コンテンツID:
 			<input type="text" name="contentsId" placeholder="コンテンツID"  style="text-align: left;"><br>
 			コンテンツ名:
 			<input type="text" name="contentsName" placeholder="コンテンツ名"  style="text-align: left;"><br>
-			概要:
-			<input type="text" name="summary" placeholder="概要"  style="text-align: left;"><br>
+			放送局:
+			<input type="text" name="broadCast" placeholder="放送局"  style="text-align: left;"><br>
 			<input type="submit" value="検索" onClick="func('select');">
 			<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 <%
-//String employee_id=request.getParameter("employee_id");
-//String employee_family_name=request.getParameter("employee_family_name");
-//String employee_first_name=request.getParameter("employee_first_name");
+	//String employee_id=request.getParameter("employee_id");
+	//String employee_family_name=request.getParameter("employee_family_name");
+	//String employee_first_name=request.getParameter("employee_first_name");
 %>
 
 <% //テーブルの表示%>
@@ -59,14 +59,14 @@ if(contentsList != null){
 					<Th>選択</Th>
 					<Th>コンテンツID</Th>
 					<Th>コンテンツ名</Th>
-					<Th>概要</Th>
+					<Th>放送局</Th>
 				</Tr>
 	<% for(int i = 0 ;i<contentsList.size(); i++){ %>
 				<Tr>
 					<Th><input type="radio" name="radioButton" value=<%= contentsList.get(i).get("contentsId") %>></Th>
 					<Th><%  out.print(contentsList.get(i).get("contentsId")); %></Th>
 					<Th><%  out.print(contentsList.get(i).get("contentsName")); %></Th>
-					<Th><%  out.print(contentsList.get(i).get("summary")); %></Th>
+					<Th><%  out.print(contentsList.get(i).get("broadCast")); %></Th>
 	<% } %>
 <% } %>
 				</Tr>
@@ -75,8 +75,8 @@ if(contentsList != null){
 		</form>
 
 		<%-- 登録画面への遷移 --%>
-		<input type=button value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';return true">
+		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';return true">
 		<%-- メニュー画面に戻る処理 --%>
-		<input type=button value="メニューへ" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
+		<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';return true">
 	</body>
 </html>
