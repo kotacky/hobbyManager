@@ -28,13 +28,13 @@ public class G0040Control extends HttpServlet{
 		//処理に必要な情報を受け取る
 		String contentsId = request.getParameter("contentsId");
 		String title = request.getParameter("contentsName");
-		String summary = request.getParameter("summary");
+		String broadCast = request.getParameter("broadCast");
 
 		//検索の処理
 		if("select".equals(processDiv)){
 
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
-			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, summary);
+			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
 
 			//検索結果をViewに送る
 			request.setAttribute("contentsList", contentsList);
@@ -67,7 +67,7 @@ public class G0040Control extends HttpServlet{
 			int deleteFlag = G0040Model.deleteContents(deleteContentsId);
 
 			//デリート後のリストを検索メソッドで取り出す
-			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, summary);
+			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
 
 			//デリート後のリストと削除完了のフラグを送る
 			request.setAttribute("contentsList", contentsList);
