@@ -13,8 +13,8 @@
 			}
 		</style>
 		<script>
-		 function func(MyCommand){
-			 alert("start!:[" + MyCommand + "]");
+			 function func(MyCommand){
+	//		 alert("start!:[" + MyCommand + "]");
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
@@ -38,15 +38,16 @@ if(actressList != null){
 
 		<h1>——Dˆê——</h1>
 		<%-- C‚ÖŒŸõ‚·‚éğŒ‚ğ‘—‚é --%>
-		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0020Control">
+		<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0020Control">
 			——DID:
 			<input type="text" name="actressId" placeholder="——DID"  style="text-align: left;"><br>
 			——D–¼:
 			<input type="text" name="actressName" placeholder="——D–¼"  style="text-align: left;"><br>
-			<input type=submit value="ŒŸõ" onClick="func('select');">
+			<input type="submit" value="ŒŸõ" onClick="func('select');">
+			<input type="button" value="V‹K“o˜^" onClick="func('insert');" <%= disabled %>/>
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
-			<input type="button" value="“o˜^" onClick="func('insert');"/>
+
 <%
 //String employee_id=request.getParameter("employee_id");
 //String employee_family_name=request.getParameter("employee_family_name");
@@ -79,6 +80,6 @@ if(actressList != null){
 
 		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
 				<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
-		<input type=button value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+		<input type="button" value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 	</body>
 </html>
