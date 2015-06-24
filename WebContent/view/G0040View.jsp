@@ -61,6 +61,7 @@ if(contentsList != null){
 			•ú‘—‹Ç:
 			<input type="text" name="broadCast" placeholder="•ú‘—‹Ç"  style="text-align: left;"><br>
 			<input type="submit" value="ŒŸõ" onClick="func('select');">
+			<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';">
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 <%
@@ -90,9 +91,6 @@ if(contentsList != null){
 			</table>
 			<input type="hidden" name="processDiv">
 		</form>
-
-		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
-		<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';return true">
 		<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
 		<input type="button" value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';return true">
 
