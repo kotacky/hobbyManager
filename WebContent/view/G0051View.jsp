@@ -7,18 +7,21 @@
 <head>
 	<meta charset="Windows-31J">
 	<title>好み登録</title>
+	<style>
+	label {
+	display : block;
+	float : left;
+	width : 300px;
+	}
+	</style>
 </head>
 <body>
 	<h1>好み登録</h1>
 <% //Cへ登録する条件を送る %>
 <form method="POST"name="MyForm" action="<%=request.getContextPath() %>/G0051Control">
-	社員ID:
-
-	女優ID:
-
 
 <!-- 女優名を登録のために選択 -->
-
+	社員ID:
 <%
 	List<HashMap<String, String>> employeeList = (List<HashMap<String, String>>)request.getAttribute("employeeList");
 
@@ -31,6 +34,7 @@
 	<% } %>
 </SELECT>
 
+	女優ID:
 <%
 	List<HashMap<String, String>> actressList = (List<HashMap<String, String>>)request.getAttribute("actressList");
 
@@ -42,6 +46,8 @@
 	<%  out.print(actressList.get(i).get("actressName")); %>
 	<% } %>
 </SELECT><br>
+
+<p><strong>好きなコンテンツを選んで下さい。</strong></p>
 
 <%-- チェックボックスにリストを入れて表示 --%>
 
@@ -58,12 +64,14 @@
 <% if(columnContentsList != null){ %>
 
 	<% for(int i = 0; i < columnContentsList.size(); i++){ %>
+		<label>
 		<input type="checkBox" name="contentsList" value="<%= columnContentsList.get(i).get("contentsId") %>" />
 		<%  out.print(columnContentsList.get(i).get("contentsName")); %>
+		</label>
 
 	<% } %>
-<% } %><br>
-	<input type="submit" value="登録">
+<% } %><br style="clear:both;">
+	<input type="submit" value="登録"  />
 </form>
 <%-- メニュー画面に戻る処理 --%>
 	<input type="button" value="戻る" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
