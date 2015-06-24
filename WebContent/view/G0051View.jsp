@@ -21,7 +21,7 @@
 <form method="POST"name="MyForm" action="<%=request.getContextPath() %>/G0051Control">
 
 <!-- ——D–¼‚ğ“o˜^‚Ì‚½‚ß‚É‘I‘ğ -->
-	ĞˆõID:
+	Ğˆõ–¼:
 <%
 	List<HashMap<String, String>> employeeList = (List<HashMap<String, String>>)request.getAttribute("employeeList");
 
@@ -32,9 +32,9 @@
 	<option value="<%= employeeList.get(i).get("employeeId") %>">
 	<%  out.print(employeeList.get(i).get("employeeFamilyName") + employeeList.get(i).get("employeeFirstName")); %>
 	<% } %>
-</SELECT>
+</SELECT><br>
 
-	——DID:
+	——D–¼:
 <%
 	List<HashMap<String, String>> actressList = (List<HashMap<String, String>>)request.getAttribute("actressList");
 
