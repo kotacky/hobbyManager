@@ -47,6 +47,8 @@ public class G0040Control extends HttpServlet{
 
 			//更新前の情報を引き出すための主キーを受け取る
 			String updateContentsId = request.getParameter("radioButton");
+
+			//radioButtoがnullでないならば処理を行う
 			if(updateContentsId != null){
 
 				//更新前の情報を検索メソッドで受け取る
@@ -56,8 +58,8 @@ public class G0040Control extends HttpServlet{
 				request.setAttribute("contentsList", contentsList);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0042View.jsp");
 				dispatch.forward(request, response);
-
 			}else{
+				//nullのとき処理を行わずに返す
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 				dispatch.forward(request, response);
 			}
@@ -70,6 +72,7 @@ public class G0040Control extends HttpServlet{
 			//削除に必要な情報を受け取る
 			String deleteContentsId = request.getParameter("radioButton");
 
+			//radioButtoがnullでないならば処理を行う
 			if(deleteContentsId != null){
 
 				//デリートのメソッドを呼ぶ
@@ -88,6 +91,7 @@ public class G0040Control extends HttpServlet{
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 				dispatch.forward(request, response);
 			}else{
+				//nullのとき処理を行わずに返す
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 				dispatch.forward(request, response);
 			}
