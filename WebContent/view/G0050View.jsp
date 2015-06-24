@@ -13,11 +13,11 @@
 			}
 		</style>
 		<script>
-		 function func(MyCommand){
-			 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
-		 }
+			 function func(MyCommand){
+		//		 alert("start!:[" + MyCommand + "]");
+				 document.MyForm.processDiv.value=MyCommand;
+				 document.MyForm.submit();
+			 }
 		</script>
 	</head>
 
@@ -38,14 +38,15 @@ if(preferenceList != null){
 %>
 		<h1>çDÇ›àÍóó</h1>
 		<% //CÇ÷åüçıÇ∑ÇÈèåèÇëóÇÈ %>
-		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0050Control">
+		<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0050Control">
 			é–àıID:
 			<input type="text" name="employeeId" placeholder="é–àıID"  style="text-align: left;"><br>
 			ê©:
 			<input type="text" name="employeeFamilyName" placeholder="ê©"  style="text-align: left;"><br>
 			ñº:
 			<input type="text" name="employeeFirstName" placeholder="ñº"  style="text-align: left;"><br>
-			<input type=submit value="åüçı" onClick="func('select');">
+			<input type="submit" value="åüçı" onClick="func('select');">
+			<input type="button" value="êVãKìoò^" onClick="func('insert');" <%= disabled %> />
 			<input type="button" value="çÌèú" onClick="func('delete');" <%= disabled %> />
 
 <%
@@ -92,9 +93,7 @@ if(preferenceList != null){
 			<input type="hidden" name="processDiv">
 		</form>
 
-		<%-- ìoò^âÊñ Ç÷ÇÃëJà⁄ --%>
-		<input type=button value="êVãKìoò^" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0051View.jsp';return true">
 		<%-- ÉÅÉjÉÖÅ[âÊñ Ç…ñﬂÇÈèàóù --%>
-		<input type=button value="ÉÅÉjÉÖÅ[Ç÷" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
+		<input type="button" value="ÉÅÉjÉÖÅ[Ç÷" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
 	</body>
 </html>
