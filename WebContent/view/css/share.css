@@ -4,7 +4,7 @@
 /*-------------------------------------*/
 
 body{
-	background: #000;
+	background: #DDDED3;
 	line-height: 1.8;
 }
 
@@ -72,7 +72,7 @@ ul#gNavi li.firstItem a{
 	padding-left: 16px;
 	border-left: 1px solid #ccc;
 }
-	
+
 /*-------------------------------------*/
 /* フッター */
 /*-------------------------------------*/
