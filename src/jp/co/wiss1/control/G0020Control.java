@@ -68,9 +68,14 @@ public class G0020Control extends HttpServlet{
 			//更新対象の主キーを受け取る
 			String updateActressId = request.getParameter("radioButton");
 
-			//ラジオボタンに印がついている時の処理
+			//ラジオボタンに印がついていない時の処理
 			if(updateActressId == null){
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
+			dispatch.forward(request, response);
+			}
 
+			//ラジオボタンに印がついている時の処理
+			else{
 			//更新対象の主キーを送り、リストを受け取る
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
 
@@ -86,13 +91,7 @@ public class G0020Control extends HttpServlet{
 			request.setAttribute("actressList",actressList);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0022View.jsp");
 			dispatch.forward(request, response);
-			}
 			//G0022Controlへ
-
-			//ラジオボタンに印がついていない時の処理
-			else{
-			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
-			dispatch.forward(request, response);
 			}
 		 }
 
