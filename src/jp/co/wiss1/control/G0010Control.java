@@ -90,6 +90,8 @@ public class G0010Control extends HttpServlet{
 				dispatch.forward(request, response);
 			}else{
 				//nullのとき処理を行わずに返す
+				List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId,familyName,firstName);
+				request.setAttribute("employeeList",employeeList);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 				dispatch.forward(request, response);
 			}
