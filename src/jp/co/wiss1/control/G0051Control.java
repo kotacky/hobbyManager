@@ -28,6 +28,7 @@ public class G0051Control extends HttpServlet{
 
 		if(contentsIdList != null){
 			for(int i = 0;i < contentsIdList.length; i++){
+
 				//登録する項目を送る
 				int ret = G0051Model.insertPreference(employeeId,actressId,contentsIdList[i]);
 				if (ret == 0) {
@@ -41,9 +42,11 @@ public class G0051Control extends HttpServlet{
 
 		//Viewの画面に戻す
 		if(successFlag == true){
+
 			// 登録成功
 			request.setAttribute("insertFlag",1);
 	    }else{
+
 			// 登録失敗
 			request.setAttribute("insertFlag",0);
 		}
