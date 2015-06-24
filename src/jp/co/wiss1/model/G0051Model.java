@@ -183,7 +183,7 @@ public class G0051Model {
 	    	connection.setAutoCommit(false);
 
 	    	//プルダウン用にカラム名を取得
-	        String columnSelectSql = "SELECT actress_id , actress_name FROM t_actress";
+	        String columnSelectSql = "SELECT distinct actress_id , actress_name FROM t_actress";
 	        System.out.println("1:" + columnSelectSql);
 
 	        resultSet = statement.executeQuery (columnSelectSql);
