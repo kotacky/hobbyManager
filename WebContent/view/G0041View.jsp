@@ -20,7 +20,7 @@
 			<% }else if("0".equals(insertFlag)){ %>
 			<H2><% out.print("“o˜^‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
 			<% } %>
-	<% }catch(NumberFormatException e){ %>
+	<% }catch(NullPointerException insertException){ %>
 	<% } %>
 
 	<h1>ƒRƒ“ƒeƒ“ƒc“o˜^</h1>
