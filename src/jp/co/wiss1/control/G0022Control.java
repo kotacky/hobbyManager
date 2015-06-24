@@ -29,7 +29,7 @@ public class G0022Control extends HttpServlet{
 		String companyId =request.getParameter("companyId");
 
 		boolean successFlag = true;
-		String[]  contentsIdList  = request.getParameterValues("contentsIdList") ;
+		String[]  contentsIdList  = request.getParameterValues("contentsList") ;
 
 		for(int i = 0;i < contentsIdList.length; i++){
 			//登録する項目を送る
