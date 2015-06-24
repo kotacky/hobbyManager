@@ -16,7 +16,7 @@ public class G0041Model {
 	}
 
 
-	public static int insertContents(String contentsId , String contentsName , String summary) { //女優テーブル参照
+	public static int insertContents(String contentsId , String contentsName , String  broadCast) { //女優テーブル参照
 
 		//各変数を宣言、初期化
     	Connection connection = null;
@@ -41,10 +41,10 @@ public class G0041Model {
              {
              	insertSql = insertSql + "(contents_id"
              			+ ",contents_name"
-             			+ ",summary)"
+             			+ ",broadcasting_office)"
              			+ "VALUES('" + contentsId + "'"
              			+ ",'" + contentsName + "'"
- 						+ ",'" + summary + "')";
+ 						+ ",'" +  broadCast + "')";
 
              	insertCount = statement.executeUpdate(insertSql);
              }
@@ -58,7 +58,7 @@ public class G0041Model {
 
              System.out.println("引数に" + contentsId + "が入力されました。");
              System.out.println("引数に" + contentsName + "が入力されました。");
-             System.out.println("引数に" + summary + "が入力されました。");
+             System.out.println("引数に" + broadCast + "が入力されました。");
 
              System.out.println(insertSql);
 
