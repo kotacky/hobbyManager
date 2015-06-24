@@ -47,14 +47,21 @@ public class G0040Control extends HttpServlet{
 
 			//更新前の情報を引き出すための主キーを受け取る
 			String updateContentsId = request.getParameter("radioButton");
+			if(updateContentsId != null){
 
-			//更新前の情報を検索メソッドで受け取る
-			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(updateContentsId, "", "");
+				//更新前の情報を検索メソッドで受け取る
+				List<HashMap<String, String>> contentsList = G0040Model.getContentsList(updateContentsId, "", "");
 
-			//更新前の情報を更新ページに飛ばす
-			request.setAttribute("contentsList", contentsList);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0042View.jsp");
-			dispatch.forward(request, response);
+				//更新前の情報を更新ページに飛ばす
+				request.setAttribute("contentsList", contentsList);
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0042View.jsp");
+				dispatch.forward(request, response);
+
+			}else{
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
+				dispatch.forward(request, response);
+			}
+
 		}
 
 		//削除の処理
@@ -63,21 +70,27 @@ public class G0040Control extends HttpServlet{
 			//削除に必要な情報を受け取る
 			String deleteContentsId = request.getParameter("radioButton");
 
-			//デリートのメソッドを呼ぶ
-			int deleteFlag = G0040Model.deleteContents(deleteContentsId);
+			if(deleteContentsId != null){
 
-			//デリート後のリストを検索メソッドで取り出す
-			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
+				//デリートのメソッドを呼ぶ
+				int deleteFlag = G0040Model.deleteContents(deleteContentsId);
 
-			//デリート後のリストと削除完了のフラグを送る
-			request.setAttribute("contentsList", contentsList);
-			if(deleteFlag == 1){
-				request.setAttribute("deleteFlag",deleteFlag);
+				//デリート後のリストを検索メソッドで取り出す
+				List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
+
+				//デリート後のリストと削除完了のフラグを送る
+				request.setAttribute("contentsList", contentsList);
+				if(deleteFlag == 1){
+					request.setAttribute("deleteFlag",deleteFlag);
+				}else{
+					request.setAttribute("deleteFlag",deleteFlag);
+				}
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
+				dispatch.forward(request, response);
 			}else{
-				request.setAttribute("deleteFlag",deleteFlag);
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
+				dispatch.forward(request, response);
 			}
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
-			dispatch.forward(request, response);
 		}
 	}
 }
