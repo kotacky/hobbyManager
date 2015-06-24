@@ -23,16 +23,26 @@ public class G0051Control extends HttpServlet{
 		//登録に必要な情報を受け取る
 		String employeeId = request.getParameter("employeeId");
 		String actressId = request.getParameter("actressId");
-		String contentsId = request.getParameter("contentsId");
+		boolean successFlag = true;
+		String[]  contentsIdList  = request.getParameterValues("contentsList") ;
 
-		//登録のメソッドを呼び出す
-		int insertFlag = G0051Model.insertPreference(employeeId, actressId, contentsId);
+		for(int i = 0;i < contentsIdList.length; i++){
+			//登録する項目を送る
+			int ret = G0051Model.insertPreference(employeeId,actressId,contentsIdList[i]);
+			if (ret == 0) {
+				successFlag = false;
+				break;
+			}
+		}
 
-		//登録フラグを送る
-		if(insertFlag >= 1){
-			request.setAttribute("insertFlag",insertFlag);
-		}else{
-			request.setAttribute("insertFlag",insertFlag);
+		//Viewの画面に戻す
+		if(successFlag == true){
+			// 登録成功
+			request.setAttribute("insertFlag",1);
+	    }
+		else{
+			// 登録失敗
+			request.setAttribute("insertFlag",0);
 		}
 		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 		dispatch.forward(request, response);
