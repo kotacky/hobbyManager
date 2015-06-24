@@ -26,13 +26,17 @@ public class G0051Control extends HttpServlet{
 		boolean successFlag = true;
 		String[]  contentsIdList  = request.getParameterValues("contentsList") ;
 
-		for(int i = 0;i < contentsIdList.length; i++){
-			//登録する項目を送る
-			int ret = G0051Model.insertPreference(employeeId,actressId,contentsIdList[i]);
-			if (ret == 0) {
-				successFlag = false;
-				break;
+		if(contentsIdList != null){
+			for(int i = 0;i < contentsIdList.length; i++){
+				//登録する項目を送る
+				int ret = G0051Model.insertPreference(employeeId,actressId,contentsIdList[i]);
+				if (ret == 0) {
+					successFlag = false;
+					break;
+				}
 			}
+		}else{
+			successFlag = false;
 		}
 
 		//Viewの画面に戻す
