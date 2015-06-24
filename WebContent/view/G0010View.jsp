@@ -13,11 +13,11 @@
 			}
 		</style>
 		<script>
-		 function func(MyCommand){
-			 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
-		 }
+			 function func(MyCommand){
+			//	 alert("start!:[" + MyCommand + "]");
+				 document.MyForm.processDiv.value=MyCommand;
+				 document.MyForm.submit();
+			 }
 		</script>
 	</head>
 
@@ -82,7 +82,7 @@ if(employeeList != null){
 
 <%-- ƒe[ƒuƒ‹‚Ì•\Ž¦--%>
 <% if(employeeList != null){ %>
-			<table width="300" border="1" align="center">
+			<table width="350" border="1" align="center">
 				<Tr>
 					<Th>‘I‘ð</Th>
 					<Th>ŽÐˆõID</Th>
@@ -105,8 +105,8 @@ if(employeeList != null){
 		</form>
 
 		<%-- “o˜^‰æ–Ê‚Ö‚Ì‘JˆÚ --%>
-		<input type=button value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'">
+		<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'">
 		<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
-		<input type=button value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+		<input type="button" value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 	</body>
 </html>
