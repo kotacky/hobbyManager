@@ -45,7 +45,7 @@ public class G0050Control extends HttpServlet{
 		}
 
 		//登録①の処理
-		if("update".equals(processDiv)){
+		if("insert".equals(processDiv)){
 
 			//登録画面に必要な要素を引き出す
 			List<HashMap<String, String>> employeeList = G0051Model.getColumnEmployeeList();
