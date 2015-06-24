@@ -27,6 +27,18 @@
 	</head>
 
 	<body>
+<%-- メッセージの表示 --%>
+
+		<% try{ %>
+			<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
+			<% if("1".equals(deleteFlag)){ %>
+			<H2><% out.print("削除が完了しました。"); %></H2>
+			<% }else if("0".equals(deleteFlag)){ %>
+			<H2><% out.print("削除が失敗しました。"); %></H2>
+			<% } %>
+		<% }catch(NullPointerException deleteException){ %>
+		<% } %>
+
 <%-- リストの取得 --%>
 <%
 	//	    HashMap<String,String> contentsList = new HashMap<String,String>();
@@ -83,5 +95,15 @@ if(contentsList != null){
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';return true">
 		<%-- メニュー画面に戻る処理 --%>
 		<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';return true">
+
+	<% try{ %>
+				<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
+					<% if("1".equals(updateFlag)){ %>
+						<H2><% out.print("更新が完了しました。"); %></H2>
+						<% }else if("0".equals(updateFlag)){ %>
+						<H2><% out.print("更新が失敗しました。"); %></H2>
+						<% } %>
+			<% }catch(NullPointerException updateException){ %>
+			<% } %>
 	</body>
 </html>
