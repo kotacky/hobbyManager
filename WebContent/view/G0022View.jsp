@@ -34,7 +34,7 @@
 		<input type="text" name="actressId" readonly value=<% out.print(actressList.get(0).get("actressId")); %>><br>
 		女優名:
 		<input type="text" name="actressName" value=<% out.print(actressList.get(0).get("actressName")); %>><br>
-		会社名:
+	<h2>会社を選んでください。</h2>
 <%
 	List<HashMap<String, String>> columnCompanyList = (List<HashMap<String, String>>)request.getAttribute("columnCompanyList");
 %>
@@ -45,7 +45,7 @@
 			<% } %>
 		</SELECT>
 
-		出演作品:
+	<h2>コンテンツを選んでください。</h2>
 <%
 	List<HashMap<String, String>> columnContentsList = (List<HashMap<String, String>>)request.getAttribute("columnContentsList");
 	String[] check = null;
