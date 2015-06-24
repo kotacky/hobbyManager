@@ -34,7 +34,7 @@ public class G0021Model {
         	//主キーが入力されなかったとき、SQL文を実行しない
             String insertSql = "INSERT INTO t_actress";//変数insertSqlにSQL文を代入
 
-            if(!"".equals(companyId))//変数companyId(主キー)に値が入力されているとき、if文内のSQL文を実行する
+            if(!"".equals(actressId))//変数companyId(主キー)に値が入力されているとき、if文内のSQL文を実行する
             {
             	//SQL文
             	insertSql = insertSql + "(company_id"
