@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+
+/*-------------------------------------*/
+/* メインイメージ */
+/*-------------------------------------*/
+
+div#mainImgBox{
+	margin: 0 auto;
+	text-align: left;
+	width: 960px;
+	background: url(../../index/img/mainimg.jpg) no-repeat top right;
+}
+
+/*-------------------------------------*/
+
+/*-------------------------------------*/
+
+div#mainContents{
+	background: #fff;
+	width: 880px;
+	padding: 50px 40px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+/* ３つのトピックス */
+div#mainContents div.topicsBox{
+	width: 265px;
+	float: left;
+	margin-left: 33px;
+	margin-bottom: 60px;
+}
+
+div#mainContents div.firstItem{
+	margin-left: 0;
+}
+
+div#mainContents div.topicsBox strong{
+	margin-bottom: 15px;
+	font-weight: bold;
+	display: block;
+	font-size: 14px;
+}
+
+div#mainContents div.topicsBox span{
+	line-height: 1.8;
+	display: block;
+	text-align: justify;
+	margin-bottom: 8px;
+}
+
+
+/* 新着情報 */
+div#newTopics{
+	float: left;
+}
+
+	div#newTopics strong{
+		font-weight: bold;
+		font-size: 13px;
+		margin-bottom: 8px;
+		display: block;
+		font-size: 14px;
+	}
+
+	div#newTopics dl{
+		width: 265px;
+	}
+
+	div#newTopics dl dt,
+	div#newTopics dl dd{
+		padding: 10px 0;
+		border-bottom: 1px solid #ddd;
+	}
+
+	div#newTopics dl dt{
+		float:left;
+		width:75px;
+		clear:both;
+		color: #c00;
+		background: url(../img/bg_boder.gif) repeat 0 0 ;
+	}
+
+	div#newTopics dl dd{
+		width:165px;
+		margin-left:75px;
+		padding-left: 20px;
+	}
+
+
+/* 会社概要 */
+div#outlineBox{
+	margin-left: 33px;
+	float: left;
+}
+
+	div#outlineBox strong{
+		font-weight: bold;
+		font-size: 13px;
+		margin-bottom: 8px;
+		display: block;
+		font-size: 14px;
+	}
+
+	div#outlineBox dl{
+		width: 265px;
+	}
+
+	div#outlineBox dl dt,
+	div#outlineBox dl dd{
+		padding-top: 10px;
+	}
+
+	div#outlineBox dl dt{
+		float:left;
+		width:55px;
+		clear:both;
+		font-weight: bold;
+	}
+
+	div#outlineBox dl dd{
+		width:180px;
+		margin-left:55px;
+		padding-left: 20px;
+		color: #666;
+	}
+
+div#bannerBox{
+	float: left;
+	margin-left: 33px;
+}
+div#bannerBox ul{}
+div#bannerBox ul li{
+	display: block;
+	margin-bottom: 10px;
+}

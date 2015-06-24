@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+
+/*-------------------------------------*/
+
+body{
+	background: #000;
+	line-height: 1.8;
+}
+
+div#wrapper{
+	width: 100%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+/*-------------------------------------*/
+/* ヘッダー */
+/*-------------------------------------*/
+
+div#headerBg{
+	background: #fff;
+}
+
+div#header{
+	width: 960px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+	div#header h1{
+		font-size: 20px;
+		float: left;
+		width: 300px;
+		color: #333;
+		letter-spacing: 0.05em;
+		padding: 20px 0 15px 0;
+	}
+
+/*-------------------------------------*/
+/* グローバルナビゲーション */
+/*-------------------------------------*/
+
+ul#gNavi{
+	width: 600px;
+	float: right;
+	margin-top: 15px;
+}
+
+ul#gNavi li{
+	display: block;
+	float: right;
+	padding: 8px 0;
+	margin-left: 16px;
+	font-size: 13px;
+	letter-spacing: 0.08em;
+}
+
+ul#gNavi li a{
+	color: #666;
+	text-decoration: none;
+	border-right: 1px solid #ccc;
+	display: block;
+	padding-right: 16px;
+}
+
+ul#gNavi li a:hover{
+	color: #a69e7b;
+}
+
+ul#gNavi li.firstItem a{
+	padding-left: 16px;
+	border-left: 1px solid #ccc;
+}
+	
+/*-------------------------------------*/
+/* フッター */
+/*-------------------------------------*/
+
+div#footer{
+	text-align: center;
+	background: #333;
+}
+
+	div#footer p#copyright{
+		text-align: center;
+		padding: 5px;
+		color: #fff;
+		font-family:"lucida grande", tahoma, verdana, arial, sans-serif!important;
+	}
