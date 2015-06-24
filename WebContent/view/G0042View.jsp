@@ -15,8 +15,7 @@
 	</head>
 
 	<body>
-	<H1>更新情報入力</H1>
-	<%-- リストの取得 --%>
+	<h1>更新情報入力</h1>
 	<%
 	//	ダミー用データ
 	//	HashMap<String,String> contentsList = new HashMap<String,String>();
@@ -26,6 +25,10 @@
 
  	%>
 
+ 	<p><strong>更新する情報を入力してください。</strong></p>
+
+ 	<%-- リストの取得 --%>
+
 <% List<HashMap<String, String>> contentsList = (List<HashMap<String, String>>)request.getAttribute("contentsList"); %>
 
 	<%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
@@ -34,9 +37,9 @@
 		<input type="text" name="contentsId" readonly value=<% out.print(contentsList.get(0).get("contentsId")); %>><br>
 		コンテンツ名:
 		<input type="text" name=contentsName value=<% out.print(contentsList.get(0).get("contentsName")); %>><br>
-		概要:
-		<input type="text" name="summary" value=<% out.print(contentsList.get(0).get("summary")); %>><br>
-		<input type=submit value="更新">
+		放送局:
+		<input type="text" name="broadCast" value=<% out.print(contentsList.get(0).get("broadCast")); %>><br>
+		<input type="submit" value="更新">
 	</form>
 
 	<%-- メニュー画面に戻る処理 --%>
