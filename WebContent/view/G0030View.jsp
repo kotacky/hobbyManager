@@ -14,7 +14,7 @@
 		</style>
 		<script>
 		 function func(MyCommand){
-			 alert("start!:[" + MyCommand + "]");
+	//		 alert("start!:[" + MyCommand + "]");
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
@@ -60,7 +60,8 @@ if(companyList != null){
 			<input type="text" name="companyName" placeholder="âÔé–ñº"  style="text-align: left;"><br>
 			âÔé–èZèä:
 			<input type="text" name="companyAddress" placeholder="âÔé–èZèä"  style="text-align: left;"><br>
-			<input type=submit value="åüçı" onClick="func('select');">
+			<input type="submit" value="åüçı" onClick="func('select');">
+			<input type="button" value="êVãKìoò^" onClick="form.action=location.href='../../hobbyManager/view/G0031View.jsp';">
 			<input type="button" value="çXêV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="çÌèú" onClick="func('delete');" <%= disabled %> />
 <%
@@ -90,10 +91,7 @@ if(companyList != null){
 			</table>
 			<input type="hidden" name="processDiv">
 		</form>
-
-		<%-- ìoò^âÊñ Ç÷ÇÃëJà⁄ --%>
-		<input type=button value="êVãKìoò^" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0031View.jsp';return true">
 		<%-- ÉÅÉjÉÖÅ[âÊñ Ç…ñﬂÇÈèàóù --%>
-		<input type=button value="ÉÅÉjÉÖÅ[Ç÷" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
+		<input type="button" value="ÉÅÉjÉÖÅ[Ç÷" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
 	</body>
 </html>
