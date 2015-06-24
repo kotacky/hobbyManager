@@ -92,6 +92,8 @@ public class G0040Control extends HttpServlet{
 				dispatch.forward(request, response);
 			}else{
 				//nullのとき処理を行わずに返す
+				List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
+				request.setAttribute("contentsList", contentsList);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 				dispatch.forward(request, response);
 			}
