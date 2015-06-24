@@ -31,6 +31,9 @@ public class G0022Control extends HttpServlet{
 		boolean successFlag = true;
 		String[]  contentsIdList  = request.getParameterValues("contentsList") ;
 
+		if(contentsIdList == null){
+		   successFlag = false;
+		}else{
 		for(int i = 0;i < contentsIdList.length; i++){
 			//登録する項目を送る
 			int ret = G0022Model.updateActress(companyId,actressName,actressId,contentsIdList[i]);
@@ -39,7 +42,7 @@ public class G0022Control extends HttpServlet{
 				break;
 			}
 		}
-
+		}
 		// Viewの画面を戻す
 		if( successFlag == true){
 			// 登録成功
