@@ -46,7 +46,7 @@ public class G0040Model {
 	        		sql = sql + "contents_name like '%"+ contentsName +"%' AND ";
 	        		System.out.println("3:" + sql);
 	        	}
-	        		sql = sql + "summary like '%"+ broadCast +"%'";
+	        		sql = sql + "broadcasting_office like '%"+ broadCast +"%'";
 	        		sql = sql + " ORDER BY contents_id";
 	        		System.out.println("4:" + sql);												//sql文終了
 
