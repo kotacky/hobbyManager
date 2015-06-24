@@ -49,15 +49,24 @@ public class G0030Control extends HttpServlet{
 			//ラジオボタン入力を受け取る
 			String updateCompanyId = request.getParameter("radioButton");
 
-			//Modelに引数を渡し、検索結果をリストに入れる
-			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(updateCompanyId, companyName, companyAddress);
+			if(updateCompanyId == null){
+				//Viewにリストを渡す
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0030View.jsp");
+				dispatch.forward(request, response);
 
-			//Viewに渡すリストを設定
-			request.setAttribute("companyList", companyList);
+			}
+			else{
+				//Modelに引数を渡し、検索結果をリストに入れる
+				List<HashMap<String,String>> companyList = G0030Model.getCompanyList(updateCompanyId, companyName, companyAddress);
 
-			//Viewにリストを渡す
-			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0032View.jsp");
-			dispatch.forward(request, response);
+				//Viewに渡すリストを設定
+				request.setAttribute("companyList", companyList);
+
+				//Viewにリストを渡す
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0032View.jsp");
+				dispatch.forward(request, response);
+			}
+
 		}
 
 		//削除
