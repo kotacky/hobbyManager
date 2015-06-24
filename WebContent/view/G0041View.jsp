@@ -12,6 +12,17 @@
 		</style>
 	</head>
 <body>
+
+	<% try{ %>
+		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+		<% if("1".equals(insertFlag)){ %>
+			<H2><% out.print("登録が完了しました。"); %></H2>
+			<% }else if("0".equals(insertFlag)){ %>
+			<H2><% out.print("登録が失敗しました。"); %></H2>
+			<% } %>
+	<% }catch(NumberFormatException e){ %>
+	<% } %>
+
 	<h1>コンテンツ登録</h1>
 
 	<p><strong>コンテンツに関する情報を登録して下さい。</strong></p>
