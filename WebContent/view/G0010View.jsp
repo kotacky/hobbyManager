@@ -13,10 +13,10 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="imagetoolbar" content="no" />
-		<link href="./css/index.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="./css/import.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="./css/share.css" rel="stylesheet" type="text/css" media="all" />
-		<script type="text/javascript" src="./js/default.js"></script>
+		<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 		<script>
 			 function func(MyCommand){
 			//	 alert("start!:[" + MyCommand + "]");
