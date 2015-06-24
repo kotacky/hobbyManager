@@ -20,22 +20,27 @@
 <!-- 女優名を登録のために選択 -->
 
 <%
-	List<HashMap<String, String>> conpanyList = (List<HashMap<String, String>>)request.getAttribute("conpanyList");
-	String[] pul = null;
-	if (conpanyList == null) {
-		pul = new String[0];
-	} else {
-		pul = new String[conpanyList.size()];
-	}
+	List<HashMap<String, String>> employeeList = (List<HashMap<String, String>>)request.getAttribute("employeeList");
+
 %>
 
-<SELECT NAME="lang">
-	<option>
-		<% for(int i = 0 ;i<conpanyList.size(); i++){ %>
-			<option value="<%= conpanyList.get(i).get("conpanyId") %>">
-			<% out.println(conpanyList.get(i).get("conpanyName")); %>
-		<% } %>
-	</option>
+<SELECT name="employeeId">
+	<% for(int i = 0 ;i<employeeList.size(); i++){ %>
+	<option value="<%= employeeList.get(i).get("employeeId") %>">
+	<%  out.print(employeeList.get(i).get("employeeFamilyName") + employeeList.get(i).get("employeeFirstName")); %>
+	<% } %>
+</SELECT>
+
+<%
+	List<HashMap<String, String>> actressList = (List<HashMap<String, String>>)request.getAttribute("actressList");
+
+%>
+
+<SELECT name="actressId">
+	<% for(int i = 0 ;i<actressList.size(); i++){ %>
+	<option value="<%= actressList.get(i).get("actressId") %>">
+	<%  out.print(actressList.get(i).get("actressName")); %>
+	<% } %>
 </SELECT>
 
 <%-- チェックボックスにリストを入れて表示 --%>
@@ -43,11 +48,7 @@
 <%
 	List<HashMap<String, String>> columnContentsList = (List<HashMap<String, String>>)request.getAttribute("columnContentsList");
 	String[] check = null;
-	if (columnContentsList == null) {
-		pul = new String[0];
-	} else {
-		pul = new String[columnContentsList.size()];
-	}
+
 %>
 
 <% if(columnContentsList != null){ %>
