@@ -72,7 +72,7 @@ if(preferenceList != null){
 			–¼:
 			<input type="text" name="employeeFirstName" placeholder="–¼"  style="text-align: left;"><br>
 			<input type="submit" value="ŒŸõ" onClick="func('select');">
-			<input type="button" value="V‹K“o˜^" onClick="func('insert');" <%= disabled %> />
+			<input type="button" value="V‹K“o˜^" onClick="func('insert');" />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 
 <%
