@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=Windows-31J"
     pageEncoding="Windows-31J"%>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
+		<meta charset="Windows-31J">
 		<title>所属会社登録</title>
-			<meta name="keywords" content="キーワード" />
+		<meta name="keywords" content="キーワード" />
 		<meta name="description" content="サイトの説明" />
 		<meta http-equiv="Content-Language" content="ja" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -17,6 +17,15 @@
 		<script type="text/javascript" src="./js/default.js"></script>
 	</head>
 <body>
+<div id="header">
+			<ul id="gNavi" class="clearfix">
+				<li><a href="G0050View.jsp" title="">好み一覧</a></li>
+				<li><a href="G0040View.jsp" title="">コンテンツ一覧</a></li>
+				<li><a href="G0020View.jsp" title="">女優一覧</a></li>
+				<li><a href="G0030View.jsp" title="">所属会社一覧</a></li>
+				<li class="firstItem"><a href="G0010View.jsp" title="">社員一覧</a></li>
+			</ul>
+		</div>
 <%-- メッセージの表示 --%>
 	<% try{ %>
 		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
