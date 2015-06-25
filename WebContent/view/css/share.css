@@ -6,6 +6,8 @@
 body{
 	background: #DDDED3;
 	line-height: 1.8;
+	font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+	margin: 20px;
 }
 
 div#wrapper{
@@ -71,6 +73,79 @@ ul#gNavi li a:hover{
 ul#gNavi li.firstItem a{
 	padding-left: 16px;
 	border-left: 1px solid #ccc;
+}
+
+/*-------------------------------------*/
+/* テ-ブル */
+/*-------------------------------------*/
+
+table.brwsr1 {
+    font-size: 12px;
+    margin: 0px;
+    border-collapse: separate;
+    border-spacing: 0px 1px;
+}
+
+table.brwsr1 th {
+    padding: 12px;
+    vertical-align: middle;
+    text-align: left;
+    border-bottom: #999 1px solid;
+    color: #fff;
+}
+
+table.brwsr1 td {
+    padding: 12px;
+    vertical-align: middle;
+    text-align: left;
+    border-bottom: #999 1px solid;
+    font-size: 11px;
+}
+
+table.brwsr1 th.r0 {
+    width: 40px;
+    border-right: #999 1px solid;
+    background: #395084;
+}
+
+table.brwsr1 th.r1 {
+    width: 152px;
+    border-right: #999 1px solid;
+    background: #447791;
+}
+
+table.brwsr1 th.r2,
+table.brwsr1 td.r2 {
+    width: 128px;
+    border-left: #fff 1px solid;
+    border-right: #999 1px solid;
+    background: #5893b1;
+}
+
+table.brwsr1 th.r0,
+table.brwsr1 th.r1,
+table.brwsr1 th.r2,
+table.brwsr1 th.r3,
+table.brwsr1 th.r4,
+table.brwsr1 td.r2,
+table.brwsr1 td.r3,
+table.brwsr1 td.r4 {
+    text-align: center;
+}
+
+table.brwsr1 th.r3,
+table.brwsr1 td.r3 {
+    width: 128px;
+    border-left: #fff 1px solid;
+    border-right: #999 1px solid;
+    background: #7cacc2;
+}
+
+table.brwsr1 th.r4,
+table.brwsr1 td.r4 {
+    width: 128px;
+    border-left: #fff 1px solid;
+    background: #a0c2d3;
 }
 
 /*-------------------------------------*/

@@ -28,6 +28,7 @@
 
 	<body>
 		<div id="header">
+
 			<ul id="gNavi" class="clearfix">
 				<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
 				<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
@@ -49,6 +50,7 @@
 		<% } %>
 
 <%-- リストの取得 --%>
+<h1>社員新規登録</h1>
 <%
 List<HashMap<String,String>> employeeList = (List<HashMap<String,String>>)request.getAttribute("employeeList");
 String disabled = "disabled";
@@ -57,7 +59,7 @@ if(employeeList != null){
 }
 %>
 
-		<h1>社員一覧</h1>
+
 		<%-- Cへ検索する条件を送る --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
 			社員ID:
@@ -76,27 +78,30 @@ if(employeeList != null){
 //String employee_family_name=request.getParameter("employee_family_name");
 //String employee_first_name=request.getParameter("employee_first_name");
 %>
+<br style="clear" />
 
 <%-- テーブルの表示--%>
 <% if(employeeList != null){ %>
-			<table width="350" border="1">
-				<Tr>
-					<Th>選択</Th>
-					<Th>社員ID</Th>
-					<Th>姓</Th>
-					<Th>名</Th>
-					<Th>生年月日</Th>
-				</Tr>
-	<% for(int i = 0; i < employeeList.size(); i++){ %>
-				<Tr>
-					<Th><input type="radio" name="radioButton" value="<%= employeeList.get(i).get("employeeId") %>"></Th>
-					<Th><% out.print(employeeList.get(i).get("employeeId")); %></Th>
-					<Th><% out.print(employeeList.get(i).get("employeeFamilyName")); %></Th>
-					<Th><% out.print(employeeList.get(i).get("employeeFirstName")); %></Th>
-					<Th><% out.print(employeeList.get(i).get("birthDate")); %></Th>
+			<table class="brwsr1">
+				<tbody>
+					<Tr>
+						<Th class="r0">選択</Th>
+						<Th class="r1">社員ID</Th>
+						<Th class="r2">姓</Th>
+						<Th class="r3">名</Th>
+						<Th class="r4">生年月日</Th>
+					</Tr>
+		<% for(int i = 0; i < employeeList.size(); i++){ %>
+					<Tr>
+						<Th class="r0"><input type="radio" name="radioButton" value="<%= employeeList.get(i).get("employeeId") %>"></Th>
+						<Th class="r1"><% out.print(employeeList.get(i).get("employeeId")); %></Th>
+						<Td class="r2"><% out.print(employeeList.get(i).get("employeeFamilyName")); %></Td>
+						<Td class="r3"><% out.print(employeeList.get(i).get("employeeFirstName")); %></Td>
+						<Td class="r4"><% out.print(employeeList.get(i).get("birthDate")); %></Td>
+		<% } %>
 	<% } %>
-<% } %>
-				</Tr>
+					</Tr>
+				</tbody>
 			</table>
 			<input type="hidden" name="processDiv">
 		</form>
