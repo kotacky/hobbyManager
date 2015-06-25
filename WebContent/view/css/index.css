@@ -135,3 +135,16 @@ div#bannerBox ul li{
 	display: block;
 	margin-bottom: 10px;
 }
+
+/*スクロール用*/
+thead.scrollHead,tbody.scrollBody{
+	display:block;
+}
+tbody.scrollBody{
+	overflow-y:scroll;
+	height:420px;
+}
+
+form{
+	margin-left: 50px;
+}
