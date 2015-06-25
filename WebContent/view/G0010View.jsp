@@ -94,7 +94,7 @@ if(employeeList != null){
 		<% for(int i = 0; i < employeeList.size(); i++){ %>
 					<Tr>
 						<Th class="r0"><input type="radio" name="radioButton" value="<%= employeeList.get(i).get("employeeId") %>"></Th>
-						<Th class="r1"><% out.print(employeeList.get(i).get("employeeId")); %></Th>
+						<Td class="r1"><% out.print(employeeList.get(i).get("employeeId")); %></Td>
 						<Td class="r2"><% out.print(employeeList.get(i).get("employeeFamilyName")); %></Td>
 						<Td class="r3"><% out.print(employeeList.get(i).get("employeeFirstName")); %></Td>
 						<Td class="r4"><% out.print(employeeList.get(i).get("birthDate")); %></Td>

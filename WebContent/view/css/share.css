@@ -108,8 +108,10 @@ table.brwsr1 th.r0 {
     background: #395084;
 }
 
-table.brwsr1 th.r1 {
+table.brwsr1 th.r1,
+table.brwsr1 td.r1 {
     width: 152px;
+    border-left: #fff 1px solid;
     border-right: #999 1px solid;
     background: #447791;
 }
@@ -127,6 +129,7 @@ table.brwsr1 th.r1,
 table.brwsr1 th.r2,
 table.brwsr1 th.r3,
 table.brwsr1 th.r4,
+table.brwsr1 td.r1,
 table.brwsr1 td.r2,
 table.brwsr1 td.r3,
 table.brwsr1 td.r4 {
