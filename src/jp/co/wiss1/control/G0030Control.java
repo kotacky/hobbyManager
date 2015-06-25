@@ -51,6 +51,7 @@ public class G0030Control extends HttpServlet{
 
 			if(updateCompanyId == null){
 				//Viewにリストを渡す
+				request.setAttribute("updateFlag", 0);
 				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0030View.jsp");
 				dispatch.forward(request, response);
 
