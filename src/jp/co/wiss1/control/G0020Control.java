@@ -82,11 +82,11 @@ public class G0020Control extends HttpServlet{
 
 			//会社名リストとコンテンツリストを受け取る
 			List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
-			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
+			//List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
 
 			//会社名リストとコンテンツリストをViewへ送る
 			request.setAttribute("columnCompanyList",columnCompanyList);
-			request.setAttribute("columnContentsList",columnContentsList);
+			//request.setAttribute("columnContentsList",columnContentsList);
 
 			//更新するリストをView送る
 			request.setAttribute("actressList",actressList);
