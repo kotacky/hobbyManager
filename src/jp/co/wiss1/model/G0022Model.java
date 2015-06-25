@@ -11,7 +11,7 @@ public class G0022Model {
 	public static void main(String[] args)
 	{
 		// TODO 自動生成されたメソッド・スタブ
-		updateActress("0","","0","0");
+		updateActress("0301","あああ","0201","0401");
 	}
 
 
@@ -37,7 +37,7 @@ public class G0022Model {
             		sql = sql +" actress_name = '"+ actressName +"',"
             		+ "company_id = '"+ companyId + "',"
             		+ "contents_id = '"+ contentsId +"'"
-            		+ "WHERE actress_id = '"+ actressId +"'";
+            		+ "WHERE actress_id = '"+ actressId +"' AND contents_id = '"+ contentsId +"'";
 
             		upDateCount = statement.executeUpdate (sql);
             	}
