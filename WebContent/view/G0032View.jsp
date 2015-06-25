@@ -21,7 +21,6 @@
 	</head>
 
 	<body>
-	<h1>更新情報入力</h1>
 	<div id="header">
 			<ul id="gNavi" class="clearfix">
 				<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
@@ -31,6 +30,9 @@
 				<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
 			</ul>
 		</div>
+
+	<h1>更新情報入力</h1>
+
 	<%-- リストの取得 --%>
 	<%
 		//HashMap<String,String> companyList = new HashMap<String,String>();
