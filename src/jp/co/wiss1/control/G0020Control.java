@@ -70,6 +70,7 @@ public class G0020Control extends HttpServlet{
 
 			//ラジオボタンに印がついていない時の処理
 			if(updateActressId == null){
+			request.setAttribute("updateFlag",0);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 			dispatch.forward(request, response);
 			}
