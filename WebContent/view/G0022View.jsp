@@ -54,14 +54,10 @@
 %>
 		<SELECT name="companyId">
 			<% for(int i = 0 ;i<columnCompanyList.size(); i++){ %>
-				<% if(columnCompanyList.get(i).get("companyName") != actressList.get(0).get("companyName")){ %>
 				<option value="<%= columnCompanyList.get(i).get("companyId") %>">
 				<%  out.print(columnCompanyList.get(i).get("companyName")); %>
-				<% }else{ %>
-				<option value="<%= columnCompanyList.get(i).get("companyId") %>"selected>
-				<%  out.print(columnCompanyList.get(i).get("companyName")); %>
-				<% } %>
 			<% } %>
+
 
 		</SELECT>
 
