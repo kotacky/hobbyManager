@@ -52,14 +52,14 @@
 <%
 	List<HashMap<String, String>> columnCompanyList = (List<HashMap<String, String>>)request.getAttribute("columnCompanyList");
 %>
-		<SELECT name="companyId">
+		<input <SELECT name="companyId" value=>
 			<% for(int i = 0 ;i<columnCompanyList.size(); i++){ %>
 				<option value="<%= columnCompanyList.get(i).get("companyId") %>">
 				<%  out.print(columnCompanyList.get(i).get("companyName")); %>
 			<% } %>
 
 
-		</SELECT>
+		</SELECT>>
 
 	<h2>コンテンツを選んでください。</h2>
 <%
