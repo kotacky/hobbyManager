@@ -15,13 +15,13 @@ public class G0051Model {
 	public static void main(String args[])
 	{
 
-		insertPreference("128" , "0" , "425");
+		insertPreference("128" , "0");
 		getColumnEmployeeList();
 		getColumnActressList();
 	}
 
 
-	public static int insertPreference(String employeeId , String actressId , String contentsId) { //女優テーブル参照
+	public static int insertPreference(String employeeId , String actressId) { //女優テーブル参照
 
 		//各変数を宣言、初期化
     	Connection connection = null;
@@ -48,8 +48,7 @@ public class G0051Model {
              			+ ",actress_id"
              			+ ",contents_id)"
              			+ "VALUES('" + employeeId + "'"
-						+ ",'" + actressId + "'"
-						+ ",'" + contentsId + "')";
+						+ ",'" + actressId + "'";
 
              	insertCount = statement.executeUpdate(insertSql);
              }
@@ -63,7 +62,6 @@ public class G0051Model {
 
              System.out.println("引数に" + employeeId + "が入力されました。");
              System.out.println("引数に" + actressId + "が入力されました。");
-             System.out.println("引数に" + contentsId + "が入力されました。");
 
              System.out.println(insertSql);
 
