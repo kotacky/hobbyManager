@@ -30,15 +30,12 @@
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
-			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
+			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
 		</ul>
 	</div>
-
-	<h1>所属会社一覧</h1>
 
 <%-- メッセージの表示 --%>
 
@@ -74,8 +71,8 @@
 	     disabled = "";
 	}
 %>
-
-<% //Cへ検索する条件を送る %>
+	<h1>所属会社一覧</h1>
+	<% //Cへ検索する条件を送る %>
 	<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0030Control">
 		会社ID:
 		<input type="text" name="companyId" placeholder="会社ID"  style="text-align: left;">
@@ -110,7 +107,7 @@
 						<Th class="r0"><input type="radio" name="radioButton" value="<%= companyList.get(i).get("companyId") %>"></Th>
 						<Td class="r1"><% out.print(companyList.get(i).get("companyId")); %></Td>
 						<Td class="r2"><% out.print(companyList.get(i).get("companyName")); %></Td>
-						<Td class="r3"><% out.print(companyList.get(i).get("companyAddress")); %></Td>
+						<Td class="r3"><a href="<%= request.getContextPath() %>/view/map.html" target="_blank"><% out.print(companyList.get(i).get("companyAddress")); %></a></Td>
 					</Tr>
 <% } %>
 <% } %>
@@ -120,8 +117,6 @@
 	</form>
 <%-- メニュー画面に戻る処理 --%>
 	<input type="button" value="メニューへ" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
-	<div id="footer">
-		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
-	</div>
+
 </body>
 </html>
