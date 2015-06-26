@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.wiss1.common.EncodingUtils;
+import jp.co.wiss1.model.G0020Model;
 import jp.co.wiss1.model.G0022Model;
 
 @WebServlet("/G0022Control")
@@ -23,11 +24,18 @@ public class G0022Control extends HttpServlet{
 
 		// 更新(UPDATE)②の処理
 
+		//delete,insertの処理
+		//削除対象の主キーを受け取る
+		String deleteActressId = request.getParameter("radioButton");
+
+		//削除対象の主キーを送る
+		G0020Model.deleteActress(deleteActressId);
+
+
 		//更新内容の入力された項目を受け取る
 		String actressId = request.getParameter("actressId");
 		String actressName =request.getParameter("actressName");
 		String companyId =request.getParameter("companyId");
-
 		boolean successFlag = true;
 		String[]  contentsIdList  = request.getParameterValues("contentsList") ;
 
