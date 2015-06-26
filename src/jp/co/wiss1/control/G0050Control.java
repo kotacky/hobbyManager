@@ -40,7 +40,7 @@ public class G0050Control extends HttpServlet{
 			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
 
 			List<HashMap<String, String>> preferList = new ArrayList<HashMap<String, String>>() ;
-			for(int i = 0; i <  preferList.size(); i++){
+			for(int i = 0; i <  preferenceList.size(); i++){
 				HashMap<String, String> employeePreference = new HashMap<String, String>();
 				employeePreference.put("employeeId", preferenceList.get(i).get("employeeId"));
 				employeePreference.put("employeeFamilyName", preferenceList.get(i).get("employeeFamilyName"));
@@ -48,13 +48,15 @@ public class G0050Control extends HttpServlet{
 				if(preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
 					employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
 					String str = preferenceList.get(i).get("contentsName");
-					for(int j = 0; j < preferList.size(); j++){
-						if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))){
-							str += "、"+preferenceList.get(i).get("contentsName");
+					for(int j = 0; j < preferenceList.size(); j++){
+						if(!"".equals(preferenceList.get(i+1).get("actressId"))){
+							if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))){
+								str += "、"+preferenceList.get(i+1).get("contentsName");
+							}else{
+								employeePreference.put("contentsName", str);
+								break;
+							}
 							i++;
-						}else{
-							employeePreference.put("contentsName", str);
-							break;
 						}
 					}
 				}else{
