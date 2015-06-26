@@ -92,6 +92,9 @@ public class G0050Control extends HttpServlet{
 				int deleteFlag = 0;
 				request.setAttribute("deleteFlag",deleteFlag);
 				request.setAttribute("preferenceList", preferenceList);
+				request.setAttribute("employeeList", employeeId);
+				request.setAttribute("actressList", familyName);
+				request.setAttribute("contentsList", firstName);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 				dispatch.forward(request, response);
 			}
