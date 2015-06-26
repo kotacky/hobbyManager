@@ -101,6 +101,9 @@ public class G0040Control extends HttpServlet{
 				int deleteFlag = 0;
 				request.setAttribute("deleteFlag",deleteFlag);
 				request.setAttribute("contentsList", contentsList);
+				request.setAttribute("contentsId", contentsId);
+				request.setAttribute("title", title);
+				request.setAttribute("broadCast", broadCast);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 				dispatch.forward(request, response);
 			}
