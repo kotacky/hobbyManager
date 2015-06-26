@@ -23,10 +23,22 @@
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
-	</script>
+
+		function init() {
+			if (document.MyForm.employeeId.value == "null") {
+				document.MyForm.employeeId.value = "";
+			}
+			if (document.MyForm.employeeFamilyName.value == "null") {
+				document.MyForm.employeeFamilyName.value = "";
+			}
+			if (document.MyForm.employeeFirstName.value == "null") {
+				document.MyForm.employeeFirstName.value = "";
+			}
+		}
+	 </script>
 </head>
 
-<body>
+<body onload="init();">
 		<div id="header">
 			<ul id="gNavi" class="clearfix">
 				<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">çDÇ›àÍóó</a></li>
@@ -85,11 +97,11 @@ if(employeeList != null){
 <%-- CÇ÷åüçıÇ∑ÇÈèåèÇëóÇÈ --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
 			é–àıID:
-			<input type="text" name="employeeId" placeholder="é–àıID" style="text-align: left;">
+			<input type="text" id="employeeId" name="employeeId" placeholder="é–àıID" value="<%= request.getParameter("employeeId") %>" style="text-align: left;">
 			ê©:
-			<input type="text" name="employeeFamilyName" placeholder="ê©" style="text-align: left; ">
+			<input type="text" id="employeeFamilyName" name="employeeFamilyName" placeholder="ê©" value="<%= request.getParameter("employeeFamilyName") %>" style="text-align: left; ">
 			ñº:
-			<input type="text" name="employeeFirstName" placeholder="ñº"  style="text-align: left; ">
+			<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="ñº" value="<%= request.getParameter("employeeFirstName") %>" style="text-align: left; ">
 			<input type="button" value="åüçı" onClick="func('select');" /><br />
 			<input type="button" value="êVãKìoò^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'" />
 			<input type="button" value="çXêV" onClick="func('update');" <%= disabled %> />

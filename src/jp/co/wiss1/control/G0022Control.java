@@ -41,14 +41,14 @@ public class G0022Control extends HttpServlet{
 		if(contentsIdList == null){
 		   successFlag = false;
 		}else{
-		for(int i = 0;i < contentsIdList.length; i++){
-			//登録する項目を送る
-			int ret = G0021Model.insertActress(companyId,actressName,actressId,contentsIdList[i]);
-			if (ret == 0) {
-				successFlag = false;
-				break;
+			for(int i = 0;i < contentsIdList.length; i++){
+				//登録する項目を送る
+				int ret = G0021Model.insertActress(companyId,actressName,actressId,contentsIdList[i]);
+				if (ret == 0) {
+					successFlag = false;
+					break;
+				}
 			}
-		}
 		}
 		// Viewの画面を戻す
 		if( successFlag == true){
