@@ -72,29 +72,28 @@ public class G0020Control extends HttpServlet{
 
 			//ラジオボタンに印がついていない時の処理
 			if(updateActressId == null){
-			request.setAttribute("updateFlag",0);
-			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
-			dispatch.forward(request, response);
+				request.setAttribute("updateFlag",0);
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
+				dispatch.forward(request, response);
 			}
-
 			//ラジオボタンに印がついている時の処理
 			else{
-			//更新対象の主キーを送り、リストを受け取る
-			List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
+				//更新対象の主キーを送り、リストを受け取る
+				List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
 
-			//会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
-			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
+				//会社名リストとコンテンツリストを受け取る
+				List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
+				List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
 
-			//会社名リストとコンテンツリストをViewへ送る
-			request.setAttribute("columnCompanyList",columnCompanyList);
-			request.setAttribute("columnContentsList",columnContentsList);
+				//会社名リストとコンテンツリストをViewへ送る
+				request.setAttribute("columnCompanyList",columnCompanyList);
+				request.setAttribute("columnContentsList",columnContentsList);
 
-			//更新するリストをView送る
-			request.setAttribute("actressList",actressList);
-			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0022View.jsp");
-			dispatch.forward(request, response);
-			//G0022Controlへ
+				//更新するリストをView送る
+				request.setAttribute("actressList",actressList);
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0022View.jsp");
+				dispatch.forward(request, response);
+				//G0022Controlへ
 			}
 		 }
 
@@ -113,12 +112,12 @@ public class G0020Control extends HttpServlet{
 
 			//画面一覧へ結果を返す
 			if(deleteFlag == 1){
-			//登録成功
-			request.setAttribute("deleteFlag",deleteFlag);
+				//登録成功
+				request.setAttribute("deleteFlag",deleteFlag);
 			}
 			else{
-			//登録失敗
-			request.setAttribute("deleteFlag",deleteFlag);
+				//登録失敗
+				request.setAttribute("deleteFlag",deleteFlag);
 			}
 			request.setAttribute("actressId",actressId);
 			request.setAttribute("actressName",actressName);
