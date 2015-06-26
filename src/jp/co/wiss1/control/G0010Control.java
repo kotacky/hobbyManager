@@ -37,6 +37,9 @@ public class G0010Control extends HttpServlet{
 
 			//検索結果をViewに送る
 			request.setAttribute("employeeList", employeeList);
+			request.setAttribute("employeeId", employeeId);
+			request.setAttribute("familyName", familyName);
+			request.setAttribute("firstName", firstName);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 			dispatch.forward(request, response);
 		}
