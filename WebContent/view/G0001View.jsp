@@ -3,7 +3,7 @@
 <html lang="ja">
 	<head>
 		<meta charset="Windows-31J" />
-		<title>新人BD - TOP</title>
+		<title>新人DB - TOP</title>
 		<meta name="keywords" content="キーワード" />
 		<meta name="description" content="サイトの説明" />
 		<meta http-equiv="Content-Language" content="ja" />

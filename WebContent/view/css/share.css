@@ -83,6 +83,7 @@ table.brwsr1 {
     margin: 0px;
     border-collapse: separate;
     border-spacing: 0px 1px;
+    background-color: #fff;
 }
 
 table.brwsr1 th {

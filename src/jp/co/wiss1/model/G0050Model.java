@@ -98,7 +98,12 @@ public class G0050Model {
 					employeePreference.put("employeeId", preferenceList.get(i).get("employeeId"));
 					employeePreference.put("employeeFamilyName", preferenceList.get(i).get("employeeFamilyName"));
 					employeePreference.put("employeeFirstName", preferenceList.get(i).get("employeeFirstName"));
-					if(preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
+					if(i == preferenceList.size()-1){
+						employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
+						String str = preferenceList.get(i).get("contentsName");
+						employeePreference.put("contentsName", str);
+						preferList.add(employeePreference);
+					}else if(preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
 						employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
 						String str = preferenceList.get(i).get("contentsName");
 						for(int j = 0; j < preferenceList.size(); j++){
@@ -106,8 +111,7 @@ public class G0050Model {
 							if(i == preferenceList.size()-1){
 								str += "、"+preferenceList.get(i).get("contentsName");
 								break;
-							}
-							if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))
+							}else if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))
 									&& preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
 								str += "、"+preferenceList.get(i).get("contentsName");
 							}else{
