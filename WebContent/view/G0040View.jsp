@@ -16,7 +16,7 @@
 		<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
-		<script type="text/javascript" src="./js/default.js"></script>
+		<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 		<script>
 		 function func(MyCommand){
 		//	 alert("start!:[" + MyCommand + "]");
@@ -79,24 +79,30 @@ if(contentsList != null){
 	//String employee_first_name=request.getParameter("employee_first_name");
 %>
 
-<% //テーブルの表示%>
-<%if(contentsList != null){ %>
-			<table width="400" border="1">
-				<Tr>
-					<Th>選択</Th>
-					<Th>コンテンツID</Th>
-					<Th>コンテンツ名</Th>
-					<Th>放送局</Th>
-				</Tr>
-	<% for(int i = 0 ;i<contentsList.size(); i++){ %>
-				<Tr>
-					<Th><input type="radio" name="radioButton" value=<%= contentsList.get(i).get("contentsId") %>></Th>
-					<Th><%  out.print(contentsList.get(i).get("contentsId")); %></Th>
-					<Th><%  out.print(contentsList.get(i).get("contentsName")); %></Th>
-					<Th><%  out.print(contentsList.get(i).get("broadCast")); %></Th>
+			<%-- テーブルの表示--%>
+			<table class="brwsr1">
+				<thead class="scrollHead">
+					<tr>
+						<Th class="r0">選択</Th>
+						<Th class="r1">社員ID</Th>
+						<Th class="r2">コンテンツ名</Th>
+						<Th class="r3">放送局</Th>
+
+					</tr>
+				</thead>
+				<tbody class="scrollBody">
+<% if(contentsList != null){ %>
+	<% for(int i = 0; i < contentsList.size(); i++){ %>
+						<Tr>
+							<Th class="r0"><input type="radio" name="radioButton" value="<%= contentsList.get(i).get("contentsId") %>"></Th>
+							<Td class="r1"><% out.print(contentsList.get(i).get("contentsId")); %></Td>
+							<Td class="r2"><% out.print(contentsList.get(i).get("contentsName")); %></Td>
+							<Td class="r3"><% out.print(contentsList.get(i).get("broadCast")); %></Td>
+
+						</Tr>
 	<% } %>
 <% } %>
-				</Tr>
+				</tbody>
 			</table>
 			<input type="hidden" name="processDiv">
 		</form>
