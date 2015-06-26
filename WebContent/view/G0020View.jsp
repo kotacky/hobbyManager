@@ -19,14 +19,24 @@
 	<script type="text/javascript" src="./js/default.js"></script>
 	<script>
 		 function func(MyCommand){
-//		 alert("start!:[" + MyCommand + "]");
-		 document.MyForm.processDiv.value=MyCommand;
-		 document.MyForm.submit();
-	 }
-	</script>
+		//	 alert("start!:[" + MyCommand + "]");
+			 document.MyForm.processDiv.value=MyCommand;
+			 document.MyForm.submit();
+		 }
+
+		function init() {
+			if (document.MyForm.actressId.value == "null") {
+				document.MyForm.actressId.value = "";
+			}
+			if (document.MyForm.actressName.value == "null") {
+				document.MyForm.actressName.value = "";
+			}
+
+		}
+	 </script>
 </head>
 
-<body>
+<body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">D‚İˆê——</a></li>
@@ -85,13 +95,15 @@
 }
 %>
 
+
+
 <%-- C‚ÖŒŸõ‚·‚éğŒ‚ğ‘—‚é --%>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0020Control">
-		——DID:
-		<input type="text" name="actressId" placeholder="——DID"  style="text-align: left;">
-		——D–¼:
-		<input type="text" name="actressName" placeholder="——D–¼"  style="text-align: left;">
-		<input type="submit" value="ŒŸõ" onClick="func('select');"><br />
+			——DID:
+			<input type="text" id="actressId" name="actressId" placeholder="——DID" value="<%= request.getParameter("actressId") %>" style="text-align: left;">
+			——D–¼:
+			<input type="text" id="actressName" name="actressName" placeholder="——D–¼" value="<%= request.getParameter("actressName") %>" style="text-align: left; ">
+			<input type="button" value="ŒŸõ" onClick="func('select');" /><br />
 		<input type="button" value="V‹K“o˜^" onClick="func('insert');" />
 		<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />

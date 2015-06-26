@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-	<title>新人BD - 女優更新</title>
+	<title>新人DB - 女優更新</title>
 	<meta name="keywords" content="キーワード" />
 	<meta name="description" content="サイトの説明" />
 	<meta http-equiv="Content-Language" content="ja" />

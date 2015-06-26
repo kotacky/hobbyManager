@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 	<meta charset="Windows-31J">
-	<title>新人BD - 好み登録</title>
+	<title>新人DB - 好み登録</title>
 	<meta name="keywords" content="キーワード" />
 		<meta name="description" content="サイトの説明" />
 		<meta http-equiv="Content-Language" content="ja" />

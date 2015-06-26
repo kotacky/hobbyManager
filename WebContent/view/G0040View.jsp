@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 	<meta charset="Windows-31J">
-	<title>新人BD - コンテンツ一覧</title>
+	<title>新人DB - コンテンツ一覧</title>
 	<meta name="keywords" content="キーワード" />
 	<meta name="description" content="サイトの説明" />
 	<meta http-equiv="Content-Language" content="ja" />
@@ -18,15 +18,27 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
-	 function func(MyCommand){
-	//	 alert("start!:[" + MyCommand + "]");
-		 document.MyForm.processDiv.value=MyCommand;
-		 document.MyForm.submit();
-	 }
-	</script>
+		 function func(MyCommand){
+		//	 alert("start!:[" + MyCommand + "]");
+			 document.MyForm.processDiv.value=MyCommand;
+			 document.MyForm.submit();
+		 }
+
+		function init() {
+			if (document.MyForm.contentsId.value == "null") {
+				document.MyForm.contentsId.value = "";
+			}
+			if (document.MyForm.contentsName.value == "null") {
+				document.MyForm.contentsName.value = "";
+			}
+			if (document.MyForm.broadCast.value == "null") {
+				document.MyForm.broadCast.value = "";
+			}
+		}
+	 </script>
 </head>
 
-<body>
+<body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
@@ -76,15 +88,16 @@ if(contentsList != null){
 }
 %>
 
+
 <% //Cへ検索する条件を送る %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
 		コンテンツID:
-		<input type="text" name="contentsId" placeholder="コンテンツID"  style="text-align: left;">
+		<input type="text" id="contentsId" name="contentsId" placeholder="コンテンツID" value="<%= request.getParameter("contentsId") %>" style="text-align: left;">
 		コンテンツ名:
-		<input type="text" name="contentsName" placeholder="コンテンツ名"  style="text-align: left;">
+		<input type="text" id="contentsName" name="contentsName" placeholder="コンテンツ名" value="<%= request.getParameter("contentsName") %>" style="text-align: left; ">
 		放送局:
-		<input type="text" name="broadCast" placeholder="放送局"  style="text-align: left;">
-		<input type="submit" value="検索" onClick="func('select');"/><br />
+		<input type="text" id="broadCast" name="broadCast" placeholder="放送局" value="<%= request.getParameter("broadCast") %>" style="text-align: left; ">
+		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';">
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
