@@ -95,23 +95,11 @@ if(preferenceList != null){
 	<% for(int i = 0 ;i<preferenceList.size(); i++){ %>
 				<Tr>
 					<Th><input type="radio" name="radioButton" value="<%= preferenceList.get(i).get("employeeId")%>"></Th>
-								<% if(i == 0){ %>
-									<Th><% out.print(preferenceList.get(i).get("employeeId")); %></Th>
-									<Th><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Th>
-									<Th><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Th>
-									<Th><% out.print(preferenceList.get(i).get("actressName")); %></Th>
-								<% }else if(preferenceList.get(i).get("employeeId") != preferenceList.get(i - 1).get("employeeId")){ %>
-									<Th><% out.print(preferenceList.get(i).get("employeeId")); %></Th>
-									<Th><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Th>
-									<Th><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Th>
-									<Th><% out.print(preferenceList.get(i).get("actressName")); %></Th>
-								<% }else{ %>
-									<Th><% out.print(""); %></Th>
-									<Th><% out.print(""); %></Th>
-									<Th><% out.print(""); %></Th>
-									<Th><% out.print(""); %></Th>
-								<% } %>
-									<Th><% out.print(preferenceList.get(i).get("contentsName")); %></Th>
+						<Th><% out.print(preferenceList.get(i).get("employeeId")); %></Th>
+						<Th><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Th>
+						<Th><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Th>
+						<Th><% out.print(preferenceList.get(i).get("actressName")); %></Th>
+						<Th><% out.print(preferenceList.get(i).get("contentsName")); %></Th>
 	<% } %>
 <% } %>
 				</Tr>
