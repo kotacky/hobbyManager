@@ -31,16 +31,15 @@ public class G0022Control extends HttpServlet{
 		boolean successFlag = true;
 		String[]  contentsIdList  = request.getParameterValues("contentsList") ;
 
-		//delete,insertの処理
-		//削除対象の主キーを受け取る
-		String deleteActressId = request.getParameter("actressId");
-
-		//削除対象の主キーを送る
-		G0020Model.deleteActress(deleteActressId);
-
 		if(contentsIdList == null){
 		   successFlag = false;
 		}else{
+			//delete,insertの処理
+			//削除対象の主キーを受け取る
+			String deleteActressId = request.getParameter("actressId");
+
+			//削除対象の主キーを送る
+			G0020Model.deleteActress(deleteActressId);
 			for(int i = 0;i < contentsIdList.length; i++){
 				//登録する項目を送る
 				int ret = G0021Model.insertActress(companyId,actressName,actressId,contentsIdList[i]);
