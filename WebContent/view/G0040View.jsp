@@ -64,15 +64,16 @@ if(contentsList != null){
 		<% //Cへ検索する条件を送る %>
 		<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
 			コンテンツID:
-			<input type="text" name="contentsId" placeholder="コンテンツID"  style="text-align: left;"><br>
+			<input type="text" name="contentsId" placeholder="コンテンツID"  style="text-align: left;">
 			コンテンツ名:
-			<input type="text" name="contentsName" placeholder="コンテンツ名"  style="text-align: left;"><br>
+			<input type="text" name="contentsName" placeholder="コンテンツ名"  style="text-align: left;">
 			放送局:
-			<input type="text" name="broadCast" placeholder="放送局"  style="text-align: left;"><br>
-			<input type="submit" value="検索" onClick="func('select');">
+			<input type="text" name="broadCast" placeholder="放送局"  style="text-align: left;">
+			<input type="submit" value="検索" onClick="func('select');"/><br />
 			<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';">
 			<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+			<br style="clear" />
 <%
 	//String employee_id=request.getParameter("employee_id");
 	//String employee_family_name=request.getParameter("employee_family_name");
