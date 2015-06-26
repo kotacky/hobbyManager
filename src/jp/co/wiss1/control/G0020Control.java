@@ -112,15 +112,13 @@ public class G0020Control extends HttpServlet{
 
 			//画面一覧へ結果を返す
 			if(deleteFlag == 1){
-				//登録成功
+				//削除成功
 				request.setAttribute("deleteFlag",deleteFlag);
 			}
 			else{
-				//登録失敗
+				//削除失敗
 				request.setAttribute("deleteFlag",deleteFlag);
 			}
-			request.setAttribute("actressId",actressId);
-			request.setAttribute("actressName",actressName);
 			request.setAttribute("actressList",actressList);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 			dispatch.forward(request, response);
