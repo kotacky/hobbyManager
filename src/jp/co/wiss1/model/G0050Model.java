@@ -20,7 +20,7 @@ public class G0050Model {
 			deletePreference("0");
 		}
 
-		public static List<HashMap<String, String>> getPreferenceList(String employeeId , String familyName, String firstName)	//好みテーブル参照
+		public static List<HashMap<String, String>> getPreferenceList(String employeeId , String familyName, String firstName )	//好みテーブル参照
 		{
 
 			List<HashMap<String, String>> preferenceList = new ArrayList<HashMap<String, String>>() ;
@@ -40,6 +40,7 @@ public class G0050Model {
 		        String sql = "SELECT distinct t_employee.employee_id,"
 		        				+"t_employee.employee_family_name, "
 		        				+"t_employee.employee_first_name, "
+		        				+"t_actress.actress_id, "
 		        				+"t_actress.actress_name, "
 		        				+"t_contents.contents_name "
 		        				+"FROM "
@@ -77,6 +78,7 @@ public class G0050Model {
 	        	   preferenceInfo.put("employeeFirstName", resultSet.getString("employee_first_name"));
 	        	   preferenceInfo.put("actressName", resultSet.getString("actress_name"));
 	        	   preferenceInfo.put("contentsName", resultSet.getString("contents_name"));
+	        	   preferenceInfo.put("actressId", resultSet.getString("actress_id"));
 
 
 
@@ -85,6 +87,7 @@ public class G0050Model {
 	        	   System.out.println(preferenceInfo.get("employeeId"));
 	        	   System.out.println(preferenceInfo.get("employeeFamilyName"));
 	        	   System.out.println(preferenceInfo.get("employeeFirstName"));
+	        	   System.out.println(preferenceInfo.get("actressId"));
 	        	   System.out.println(preferenceInfo.get("actressName"));
 	        	   System.out.println(preferenceInfo.get("contentsName"));								//リストに入ったかの確認
 
