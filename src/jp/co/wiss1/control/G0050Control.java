@@ -40,6 +40,8 @@ public class G0050Control extends HttpServlet{
 
 			//結果をViewに送る
 			request.setAttribute("preferenceList", preferenceList);
+
+			//検索条件保持のために送る
 			request.setAttribute("employeeList", employeeId);
 			request.setAttribute("actressList", familyName);
 			request.setAttribute("contentsList", firstName);
@@ -74,30 +76,28 @@ public class G0050Control extends HttpServlet{
 				//デリートのメソッドを呼ぶ
 				int deleteFlag = G0050Model.deletePreference(deleteEmployeeId);
 
-				//デリート後のリストを検索メソッドで取り出す
-				List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
-
 				//デリート後のリストと削除処理のフラグを送る
-				request.setAttribute("preferenceList", preferenceList);
 				if(deleteFlag == 1){
 					request.setAttribute("deleteFlag",deleteFlag);
 				}else{
 					request.setAttribute("deleteFlag",deleteFlag);
 				}
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
-				dispatch.forward(request, response);
 			}else{
 				//nullのとき処理を行わずに返す
-				List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
-				int deleteFlag = 0;
-				request.setAttribute("deleteFlag",deleteFlag);
-				request.setAttribute("preferenceList", preferenceList);
-				request.setAttribute("employeeList", employeeId);
-				request.setAttribute("actressList", familyName);
-				request.setAttribute("contentsList", firstName);
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
-				dispatch.forward(request, response);
+				request.setAttribute("deleteFlag",0);
 			}
+			//デリート後のリストを検索メソッドで取り出す
+			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
+
+			//削除処理後のリストを送る
+			request.setAttribute("preferenceList", preferenceList);
+
+			//検索条件保持のために送る
+			request.setAttribute("employeeList", employeeId);
+			request.setAttribute("actressList", familyName);
+			request.setAttribute("contentsList", firstName);
+			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
+			dispatch.forward(request, response);
 		}
 	}
 }
