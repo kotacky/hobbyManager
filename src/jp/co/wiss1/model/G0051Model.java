@@ -44,11 +44,9 @@ public class G0051Model {
 
              if(!"".equals(employeeId))
              {
-             	insertSql = insertSql + "(employee_id"
-             			+ ",actress_id"
-             			+ ",contents_id)"
+             	insertSql = insertSql + "(employee_id, actress_id)"
              			+ "VALUES('" + employeeId + "'"
-						+ ",'" + actressId + "'";
+						+ ",'" + actressId + "')";
 
              	insertCount = statement.executeUpdate(insertSql);
              }
