@@ -109,7 +109,7 @@ public class G0050Model {
 						String str = preferenceList.get(i).get("contentsName");
 						for(int j = 0; j < preferenceList.size(); j++){
 							i++;
-							if(i == preferenceList.size()){
+							if(i == preferenceList.size()-1){
 								str += "、"+preferenceList.get(i).get("contentsName");
 								break;
 							}else if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))

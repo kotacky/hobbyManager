@@ -139,11 +139,6 @@
 			</table>
 			<input type="hidden" name="processDiv">
 	</form>
-
-
-<%-- メニュー画面に戻る処理 --%>
-	<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
-
 	<div id="footer">
 		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
 	</div>

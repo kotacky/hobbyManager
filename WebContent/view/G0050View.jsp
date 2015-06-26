@@ -42,10 +42,11 @@
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
-			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
 
@@ -137,9 +138,6 @@
 		</table>
 		<input type="hidden" name="processDiv">
 	</form>
-
-		<%-- メニュー画面に戻る処理 --%>
-		<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';return true">
 	<div id="footer">
 		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
 	</div>

@@ -75,13 +75,9 @@
 		<%  out.print(columnContentsList.get(i).get("contentsName")); %>
 
 	<% } %>
-<% } %>
+<% } %><br style="clear: both;" />
 
 		<input type="submit" value="“o˜^">
 	</form>
-
-
-<!-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— -->
-		<input type="button" value="ƒƒjƒ…[‚Ö" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';">
 </body>
 </html>

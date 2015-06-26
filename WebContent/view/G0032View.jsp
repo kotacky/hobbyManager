@@ -54,7 +54,5 @@
 		<input type="text" name="companyAddress" value=<% out.print(companyList.get(0).get("companyAddress")); %>><br>
 		<input type="submit" value="更新">
 	</form>
-<%-- メニュー画面に戻る処理 --%>
-	<input type="button" value="メニューヘ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 </body>
 </html>

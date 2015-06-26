@@ -113,7 +113,7 @@ if(contentsList != null){
 			<thead class="scrollHead">
 				<tr>
 					<Th class="r0">選択</Th>
-					<Th class="r1">社員ID</Th>
+					<Th class="r1">コンテンツID</Th>
 					<Th class="r2">コンテンツ名</Th>
 					<Th class="r3">放送局</Th>
 
@@ -135,8 +135,6 @@ if(contentsList != null){
 		</table>
 		<input type="hidden" name="processDiv">
 	</form>
-<%-- メニュー画面に戻る処理 --%>
-	<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';return true">
 	<div id="footer">
 		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
 	</div>

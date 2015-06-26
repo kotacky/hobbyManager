@@ -32,40 +32,38 @@
 	<h1>D‚İ“o˜^</h1>
 
 <% //C‚Ö“o˜^‚·‚éğŒ‚ğ‘—‚é %>
-<form method="POST"name="MyForm" action="<%=request.getContextPath() %>/G0051Control">
+	<form method="POST"name="MyForm" action="<%=request.getContextPath() %>/G0051Control">
 
 <!-- ——D–¼‚ğ“o˜^‚Ì‚½‚ß‚É‘I‘ğ -->
-	Ğˆõ–¼:
-<%
-	List<HashMap<String, String>> employeeList = (List<HashMap<String, String>>)request.getAttribute("employeeList");
+		Ğˆõ–¼:
+	<%
+		List<HashMap<String, String>> employeeList = (List<HashMap<String, String>>)request.getAttribute("employeeList");
 
-%>
+	%>
 
-<SELECT name="employeeId">
-	<% for(int i = 0 ;i<employeeList.size(); i++){ %>
-	<option value="<%= employeeList.get(i).get("employeeId") %>">
-	<%  out.print(employeeList.get(i).get("employeeFamilyName") + employeeList.get(i).get("employeeFirstName")); %>
-	<% } %>
-</SELECT><br>
+	<SELECT name="employeeId">
+		<% for(int i = 0 ;i<employeeList.size(); i++){ %>
+		<option value="<%= employeeList.get(i).get("employeeId") %>">
+		<%  out.print(employeeList.get(i).get("employeeFamilyName") + employeeList.get(i).get("employeeFirstName")); %>
+		<% } %>
+	</SELECT><br>
 
-	——D–¼:
-<%
-	List<HashMap<String, String>> actressList = (List<HashMap<String, String>>)request.getAttribute("actressList");
+		——D–¼:
+	<%
+		List<HashMap<String, String>> actressList = (List<HashMap<String, String>>)request.getAttribute("actressList");
 
-%>
+	%>
 
-<SELECT name="actressId">
-	<% for(int i = 0 ;i<actressList.size(); i++){ %>
-	<option value="<%= actressList.get(i).get("actressId") %>">
-	<%  out.print(actressList.get(i).get("actressName")); %>
-	<% } %>
-</SELECT><br>
+	<SELECT name="actressId">
+		<% for(int i = 0 ;i<actressList.size(); i++){ %>
+		<option value="<%= actressList.get(i).get("actressId") %>">
+		<%  out.print(actressList.get(i).get("actressName")); %>
+		<% } %>
+	</SELECT><br>
 
 
 
-	<input type="submit" value="“o˜^"  />
-</form>
-<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
-	<input type="button" value="–ß‚é" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
+		<input type="submit" value="“o˜^"  />
+	</form>
 </body>
 </html>

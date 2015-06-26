@@ -106,6 +106,7 @@ if(employeeList != null){
 			<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'" />
 			<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 			<br style="clear" />
 
 			<%-- テーブルの表示--%>

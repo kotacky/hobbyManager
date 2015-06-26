@@ -49,8 +49,6 @@
 		<input type="text" name="companyAddress" placeholder="ZŠ"><br>
 		<input type="submit" value="“o˜^">
 	</form>
-	<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
-	<input type="button" value="ƒƒjƒ…["     onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 	<input type="button" value="Š‘®ˆê——" onClick="form.action=location.href='../../hobbyManager/view/G0030View.jsp'">
 	<input type="button" value="——Dˆê——" onClick="form.action=location.href='../../hobbyManager/view/G0020View.jsp'">
 </body>

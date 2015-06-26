@@ -52,9 +52,6 @@
 		<input type="text" name="broadCast" placeholder="放送局" style="text-align:left;"><br>
 		<input type="submit" value="登録">
 		</form>
-
-	<%-- メニュー画面に戻る処理 --%>
-	<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 	<input type="button" value="コンテンツ一覧" onClick="form.action=location.href='../../hobbyManager/view/G0040View.jsp'">
 	<input type="button" value="女優一覧"       onClick="form.action=location.href='../../hobbyManager/view/G0020View.jsp'">
 </body>

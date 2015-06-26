@@ -42,8 +42,5 @@ pageEncoding="Windows-31J"%>
 		<input type="text" name="birthDate" placeholder="¶”NŒŽ“ú"><br>
 		<input type="submit" value="“o˜^" >
 	</form>
-
-<%-- ƒƒjƒ…[‰æ–Ê‚É–ß‚éˆ— --%>
-	<input type="button" value="ƒƒjƒ…[ƒw" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 </body>
 </html>
