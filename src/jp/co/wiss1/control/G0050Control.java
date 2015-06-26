@@ -77,8 +77,8 @@ public class G0050Control extends HttpServlet{
 				int deleteFlag = G0050Model.deletePreference(deleteEmployeeId);
 
 				//デリート後のリストと削除処理のフラグを送る
-				if(deleteFlag == 1){
-					request.setAttribute("deleteFlag",deleteFlag);
+				if(deleteFlag >= 1){
+					request.setAttribute("deleteFlag", 1);
 				}else{
 					request.setAttribute("deleteFlag",deleteFlag);
 				}
