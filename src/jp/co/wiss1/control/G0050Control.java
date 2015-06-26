@@ -1,6 +1,7 @@
 package jp.co.wiss1.control;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,8 +39,30 @@ public class G0050Control extends HttpServlet{
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
 			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
 
+			List<HashMap<String, String>> prefereList = new ArrayList<HashMap<String, String>>() ;
+			for(int i = 0; i <  prefereList.size(); i++){
+				HashMap<String, String> employeePreference = new HashMap<String, String>();
+				employeePreference.put("employeeId", preferenceList.get(i).get("employeeId"));
+				employeePreference.put("employeeFamilyName", preferenceList.get(i).get("employeeFamilyName"));
+				employeePreference.put("employeeFirstName", preferenceList.get(i).get("employeeFirstName"));
+				if(preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
+					employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
+					String str = preferenceList.get(i).get("contentsName");
+					for(int j = 0; j < prefereList.size(); j++){
+						if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))){
+							str += "、"+preferenceList.get(i).get("contentsName");
+						}else{
+							employeePreference.put("contentsName", str);
+							break;
+						}
+					}
+				}else{
+					prefereList.add(employeePreference);
+					continue;
+				}
+			}
 			//結果をViewに送る
-			request.setAttribute("preferenceList", preferenceList);
+			request.setAttribute("preferenceList", prefereList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 			dispatch.forward(request, response);
 		}
