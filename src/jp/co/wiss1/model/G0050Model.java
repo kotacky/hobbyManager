@@ -16,7 +16,7 @@ public class G0050Model {
 
 		public static void main(String[] args)
 		{
-			getPreferenceList("119", "", "");
+			getPreferenceList("", "", "");
 			deletePreference("0");
 		}
 
@@ -37,17 +37,17 @@ public class G0050Model {
 		        connection.setAutoCommit(false);														//自動コミットを無効にする
 
 
-		        String sql = "SELECT t_employee.employee_id,"
-		        					+ "t_employee.employee_family_name,"
-		        					+ "t_employee.employee_first_name,"
-		        					+ "t_actress.actress_name,"
-		        					+ "t_contents.contents_name "
-		        					+ "FROM "
-		        					+ "t_preference INNER JOIN t_employee ON t_employee.employee_id = t_preference.employee_id "
-		        					+ "INNER JOIN t_contents ON t_contents.contents_id = t_preference.contents_id "
-		        					+ "INNER JOIN t_actress ON t_actress.actress_id = t_preference.actress_id "
-		        					+ "AND t_actress.contents_id = t_preference.contents_id where ";
-
+		        String sql = "SELECT distinct t_employee.employee_id,"
+		        				+"t_employee.employee_family_name, "
+		        				+"t_employee.employee_first_name, "
+		        				+"t_actress.actress_name, "
+		        				+"t_contents.contents_name "
+		        				+"FROM "
+		        				+"t_preference "
+		        				+"INNER JOIN "
+		        				+"t_actress INNER JOIN t_contents ON t_actress.contents_id = t_contents.contents_id "
+		        				+"ON t_preference.actress_id = t_actress.actress_id "
+		        				+"INNER JOIN t_employee ON t_preference.employee_id = t_employee.employee_id where ";
 
 		        if(!"".equals(employeeId)) {
 		        	sql = sql + "t_employee.employee_id = '"+ employeeId +"' AND ";
