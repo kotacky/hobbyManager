@@ -4,29 +4,29 @@
 <%@ page import = "java.util.List" %>
 <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="Windows-31J">
-		<title>新人DB - 社員一覧</title>
-		<meta name="keywords" content="キーワード" />
-		<meta name="description" content="サイトの説明" />
-		<meta http-equiv="Content-Language" content="ja" />
-		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta http-equiv="Content-Style-Type" content="text/css" />
-		<meta http-equiv="imagetoolbar" content="no" />
-		<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
-		<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
-		<script>
-			 function func(MyCommand){
-			//	 alert("start!:[" + MyCommand + "]");
-				 document.MyForm.processDiv.value=MyCommand;
-				 document.MyForm.submit();
-			 }
-		</script>
-	</head>
+<head>
+	<meta charset="Windows-31J">
+	<title>新人DB - 社員一覧</title>
+	<meta name="keywords" content="キーワード" />
+	<meta name="description" content="サイトの説明" />
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
+	<script>
+		 function func(MyCommand){
+		//	 alert("start!:[" + MyCommand + "]");
+			 document.MyForm.processDiv.value=MyCommand;
+			 document.MyForm.submit();
+		 }
+	</script>
+</head>
 
-	<body>
+<body>
 		<div id="header">
 			<ul id="gNavi" class="clearfix">
 				<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
@@ -37,6 +37,10 @@
 				<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 			</ul>
 		</div>
+
+<%-- リストの取得 --%>
+		<h1>社員一覧</h1>
+
 <%-- メッセージの表示 --%>
 
 		<% try{ %>
@@ -49,8 +53,28 @@
 		<% }catch(NullPointerException deleteException){ %>
 		<% } %>
 
+		<% try{ %>
+			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+			<% if("1".equals(insertFlag)){ %>
+			<H2><% out.print("登録が完了しました。"); %></H2>
+			<% }else if("0".equals(insertFlag)){ %>
+			<H2><% out.print("登録が失敗しました。"); %></H2>
+			<% } %>
+		<% }catch(NullPointerException insertException){ %>
+
+		<% try{ %>
+			<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
+			<% if("1".equals(updateFlag)){ %>
+			<H2><% out.print("更新が完了しました。"); %></H2>
+			<% }else if("0".equals(updateFlag)){ %>
+			<H2><% out.print("更新が失敗しました。"); %></H2>
+			<% } %>
+			<% }catch(NullPointerException updateException){ %>
+			<% } %>
+		<% } %>
+
 <%-- リストの取得 --%>
-<h1>社員新規登録</h1>
+
 <%
 List<HashMap<String,String>> employeeList = (List<HashMap<String,String>>)request.getAttribute("employeeList");
 String disabled = "disabled";
@@ -59,7 +83,7 @@ if(employeeList != null){
 }
 %>
 
-		<%-- Cへ検索する条件を送る --%>
+<%-- Cへ検索する条件を送る --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
 			社員ID:
 			<input type="text" name="employeeId" placeholder="社員ID"  style="text-align: left;">
@@ -100,23 +124,5 @@ if(employeeList != null){
 			</table>
 			<input type="hidden" name="processDiv">
 		</form>
-		<% try{ %>
-			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
-			<% if("1".equals(insertFlag)){ %>
-					<H2><% out.print("登録が完了しました。"); %></H2>
-			<% }else if("0".equals(insertFlag)){ %>
-					<H2><% out.print("登録が失敗しました。"); %></H2>
-			<% } %>
-		<% }catch(NullPointerException insertException){ %>
-			<% try{ %>
-				<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
-					<% if("1".equals(updateFlag)){ %>
-						<H2><% out.print("更新が完了しました。"); %></H2>
-					<% }else if("0".equals(updateFlag)){ %>
-						<H2><% out.print("更新が失敗しました。"); %></H2>
-					<% } %>
-			<% }catch(NullPointerException updateException){ %>
-			<% } %>
-		<% } %>
-	</body>
+</body>
 </html>
