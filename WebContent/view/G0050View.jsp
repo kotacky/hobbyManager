@@ -6,7 +6,7 @@
 <html lang="ja">
 	<head>
 		<meta charset="Windows-31J">
-		<title>好み一覧</title>
+		<title>新人BD - 好み一覧</title>
 		<meta name="keywords" content="キーワード" />
 		<meta name="description" content="サイトの説明" />
 		<meta http-equiv="Content-Language" content="ja" />
@@ -26,7 +26,7 @@
 		</script>
 	</head>
 
-	<body>
+<body>
 	<div id="header">
 			<ul id="gNavi" class="clearfix">
 				<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
@@ -48,6 +48,17 @@
 		<% }catch(NullPointerException deleteException){ %>
 		<% } %>
 
+
+		<% try{ %>
+			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+			<% if("1".equals(insertFlag)){ %>
+				<H2><% out.print("登録が完了しました。"); %></H2>
+				<% }else if("0".equals(insertFlag)){ %>
+				<H2><% out.print("登録が失敗しました。"); %></H2>
+				<% } %>
+		<% }catch(NullPointerException insertException){ %>
+		<% } %>
+
 <%-- リストの取得 --%>
 <%
 		    //HashMap<String,String> preferenceList = new HashMap<String,String>();
@@ -56,11 +67,11 @@
 					//preferenceList.put("employeeFirstname", "才");
 					//preferenceList.put("actressName","綾瀬はるか");
 					//preferenceList.put("contentsName","八重の桜");
-List<HashMap<String,String>> preferenceList = (List<HashMap<String,String>>)request.getAttribute("preferenceList");
-String disabled = "disabled";
-if(preferenceList != null){
-     disabled = "";
-}
+		List<HashMap<String,String>> preferenceList = (List<HashMap<String,String>>)request.getAttribute("preferenceList");
+		String disabled = "disabled";
+		if(preferenceList != null){
+		     disabled = "";
+		}
 %>
 		<h1>好み一覧</h1>
 		<% //Cへ検索する条件を送る %>
@@ -76,13 +87,13 @@ if(preferenceList != null){
 			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 
 <%
-//String employee_id=request.getParameter("employee_id");
-//String employee_family_name=request.getParameter("employee_family_name");
-//String employee_first_name=request.getParameter("employee_first_name");
+	//String employee_id=request.getParameter("employee_id");
+	//String employee_family_name=request.getParameter("employee_family_name");
+	//String employee_first_name=request.getParameter("employee_first_name");
 %>
 
-<% //テーブルの表示%>
-<%if(preferenceList != null){ %>
+<% //テーブルの表示 %>
+<% if(preferenceList != null){ %>
 			<table width="600" border="1">
 				<Tr>
 					<Th>選択</Th>
@@ -90,16 +101,16 @@ if(preferenceList != null){
 					<Th>姓</Th>
 					<Th>名</Th>
 					<Th>女優名</Th>
-					<Th>コンテンツ名</Th>
+					<Th>出演作品</Th>
 				</Tr>
 	<% for(int i = 0 ;i<preferenceList.size(); i++){ %>
 				<Tr>
 					<Th><input type="radio" name="radioButton" value="<%= preferenceList.get(i).get("employeeId")%>"></Th>
-						<Th><% out.print(preferenceList.get(i).get("employeeId")); %></Th>
-						<Th><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Th>
-						<Th><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Th>
-						<Th><% out.print(preferenceList.get(i).get("actressName")); %></Th>
-						<Th><% out.print(preferenceList.get(i).get("contentsName")); %></Th>
+					<Th><% out.print(preferenceList.get(i).get("employeeId")); %></Th>
+					<Th><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Th>
+					<Th><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Th>
+					<Th><% out.print(preferenceList.get(i).get("actressName")); %></Th>
+					<Th><% out.print(preferenceList.get(i).get("contentsName")); %></Th>
 	<% } %>
 <% } %>
 				</Tr>
@@ -108,16 +119,6 @@ if(preferenceList != null){
 		</form>
 
 		<%-- メニュー画面に戻る処理 --%>
-		<input type="button" value="メニューへ" onClick="form.action=location.href='http://localhost:8080/hobbyManager/view/G0001View.jsp';return true">
-
-	<% try{ %>
-			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
-			<% if("1".equals(insertFlag)){ %>
-				<H2><% out.print("登録が完了しました。"); %></H2>
-				<% }else if("0".equals(insertFlag)){ %>
-				<H2><% out.print("登録が失敗しました。"); %></H2>
-				<% } %>
-		<% }catch(NullPointerException insertException){ %>
-		<% } %>
-	</body>
+		<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp';return true">
+</body>
 </html>
