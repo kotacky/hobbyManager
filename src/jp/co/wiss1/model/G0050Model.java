@@ -27,6 +27,7 @@ public class G0050Model {
 			ResultSet resultSet = null;																	//初期化
 			Connection connection = null;
 			Statement statement = null;
+			List<HashMap<String, String>> preferList = new ArrayList<HashMap<String, String>>() ;
 
 
 	        try{
@@ -92,6 +93,33 @@ public class G0050Model {
 	        	   System.out.println(preferenceInfo.get("contentsName"));								//リストに入ったかの確認
 
 	            }
+				for(int i = 0; i <  preferenceList.size(); i++){
+					HashMap<String, String> employeePreference = new HashMap<String, String>();
+					employeePreference.put("employeeId", preferenceList.get(i).get("employeeId"));
+					employeePreference.put("employeeFamilyName", preferenceList.get(i).get("employeeFamilyName"));
+					employeePreference.put("employeeFirstName", preferenceList.get(i).get("employeeFirstName"));
+					if(preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
+						employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
+						String str = preferenceList.get(i).get("contentsName");
+						for(int j = 0; j < preferenceList.size(); j++){
+							i++;
+							if(i == preferenceList.size()-1){
+								str += "、"+preferenceList.get(i).get("contentsName");
+								break;
+							}
+							if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))){
+								str += "、"+preferenceList.get(i).get("contentsName");
+							}else{
+								str += "、"+preferenceList.get(i).get("contentsName");
+								break;
+							}
+						}
+						employeePreference.put("contentsName", str);
+						preferList.add(employeePreference);
+					}else{
+						continue;
+					}
+				}
 
 	        }
 	        catch (SQLException e) {
@@ -112,7 +140,7 @@ public class G0050Model {
 	        	finally {
 	        	}
 	        }
-	        return preferenceList;
+	        return preferList;
 		}
 
 
