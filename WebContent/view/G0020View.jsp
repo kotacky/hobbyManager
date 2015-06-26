@@ -27,15 +27,19 @@
 </head>
 
 <body>
-	<div id="header">
-		<ul id="gNavi" class="clearfix">
-			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
-			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
-		</ul>
-	</div>
+		<div id="header">
+			<ul id="gNavi" class="clearfix">
+				<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
+				<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
+				<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
+				<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
+				<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+				<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
+			</ul>
+		</div>
+
+	<h1>女優一覧</h1>
+
 <%-- メッセージの表示 --%>
 
 	<% try{ %>
@@ -46,6 +50,26 @@
 		<H2><% out.print("削除が失敗しました。"); %></H2>
 		<% } %>
 	<% }catch(NullPointerException deleteException){ %>
+	<% } %>
+
+	<% try{ %>
+		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+		<% if("1".equals(insertFlag)){ %>
+			<H2><% out.print("登録が完了しました。"); %></H2>
+			<% }else if("0".equals(insertFlag)){ %>
+			<H2><% out.print("登録が失敗しました。"); %></H2>
+			<% } %>
+	<% }catch(NullPointerException insertException){ %>
+
+	<% try{ %>
+		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
+			<% if("1".equals(updateFlag)){ %>
+				<H2><% out.print("更新が完了しました。"); %></H2>
+				<% }else if("0".equals(updateFlag)){ %>
+				<H2><% out.print("更新が失敗しました。"); %></H2>
+				<% } %>
+		<% }catch(NullPointerException updateException){ %>
+		<% } %>
 	<% } %>
 <%-- リストの取得 --%>
 <%
@@ -109,23 +133,8 @@
 <%-- メニュー画面に戻る処理 --%>
 	<input type="button" value="メニューへ" onClick="form.action=location.href='../../hobbyManager/view/G0001View.jsp'">
 
-<% try{ %>
-		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
-		<% if("1".equals(insertFlag)){ %>
-			<H2><% out.print("登録が完了しました。"); %></H2>
-			<% }else if("0".equals(insertFlag)){ %>
-			<H2><% out.print("登録が失敗しました。"); %></H2>
-			<% } %>
-	<% }catch(NullPointerException insertException){ %>
-		<% try{ %>
-			<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
-				<% if("1".equals(updateFlag)){ %>
-					<H2><% out.print("更新が完了しました。"); %></H2>
-					<% }else if("0".equals(updateFlag)){ %>
-					<H2><% out.print("更新が失敗しました。"); %></H2>
-					<% } %>
-		<% }catch(NullPointerException updateException){ %>
-		<% } %>
-	<% } %>
+	<div id="footer">
+		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
+	</div>
 </body>
 </html>

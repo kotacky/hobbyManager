@@ -82,13 +82,12 @@ if(employeeList != null){
      disabled = "";
 }
 %>
-
 <%-- CÇ÷åüçıÇ∑ÇÈèåèÇëóÇÈ --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
 			é–àıID:
-			<input type="text" name="employeeId" placeholder="é–àıID"  style="text-align: left;">
+			<input type="text" name="employeeId" placeholder="é–àıID" style="text-align: left;">
 			ê©:
-			<input type="text" name="employeeFamilyName" placeholder="ê©"  style="text-align: left; ">
+			<input type="text" name="employeeFamilyName" placeholder="ê©" style="text-align: left; ">
 			ñº:
 			<input type="text" name="employeeFirstName" placeholder="ñº"  style="text-align: left; ">
 			<input type="button" value="åüçı" onClick="func('select');" /><br />

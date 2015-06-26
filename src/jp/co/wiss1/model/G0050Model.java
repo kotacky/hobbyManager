@@ -107,7 +107,8 @@ public class G0050Model {
 								str += "、"+preferenceList.get(i).get("contentsName");
 								break;
 							}
-							if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))){
+							if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))
+									&& preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
 								str += "、"+preferenceList.get(i).get("contentsName");
 							}else{
 								str += "、"+preferenceList.get(i).get("contentsName");
