@@ -103,12 +103,13 @@ public class G0050Model {
 						String str = preferenceList.get(i).get("contentsName");
 						employeePreference.put("contentsName", str);
 						preferList.add(employeePreference);
+						break;
 					}else if(preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
 						employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
 						String str = preferenceList.get(i).get("contentsName");
 						for(int j = 0; j < preferenceList.size(); j++){
 							i++;
-							if(i == preferenceList.size()-1){
+							if(i == preferenceList.size()){
 								str += "、"+preferenceList.get(i).get("contentsName");
 								break;
 							}else if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))
