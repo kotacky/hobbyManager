@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=Windows-31J" %>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J" />
-		<title></title>
+		<meta charset="Windows-31J" />
+		<title>新人BD - TOP</title>
 		<meta name="keywords" content="キーワード" />
 		<meta name="description" content="サイトの説明" />
 		<meta http-equiv="Content-Language" content="ja" />
@@ -23,15 +23,15 @@
 					<h1>2015年度新人研修<br />好きな女優を管理してみよう</h1>
 					<ul id="gNavi" class="clearfix">
 						<li><a href="G0050View.jsp" title="">好み一覧</a></li>
-						<li><a href="G0040View.jsp" title="">コンテンツ一覧</a></li>
 						<li><a href="G0020View.jsp" title="">女優一覧</a></li>
+						<li><a href="G0040View.jsp" title="">コンテンツ一覧</a></li>
 						<li><a href="G0030View.jsp" title="">所属会社一覧</a></li>
 						<li class="firstItem"><a href="G0010View.jsp" title="">社員一覧</a></li>
 					</ul>
 				</div>
 			</div>
 			<div id="mainImgBox">
-				<img src="./img/mainimg.jpg" alt="" />
+				<img src="./img/mainimg.jpg" alt="TOP画像" />
 			</div>
 			<div id="footer">
 				<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
