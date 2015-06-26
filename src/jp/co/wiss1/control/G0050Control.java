@@ -49,19 +49,21 @@ public class G0050Control extends HttpServlet{
 					employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
 					String str = preferenceList.get(i).get("contentsName");
 					for(int j = 0; j < preferenceList.size(); j++){
-						i++;
-						if(i == preferenceList.size()){
+						if(i == preferenceList.size()-1){
+							str += "、"+preferenceList.get(i).get("contentsName");
 							employeePreference.put("contentsName", str);
 							break;
-						}else if(preferenceList.get(i-1).get("actressId").equals(preferenceList.get(i).get("actressId"))){
+						}
+						if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))){
 							str += "、"+preferenceList.get(i).get("contentsName");
 						}else{
 							employeePreference.put("contentsName", str);
 							break;
 						}
+						i++;
 					}
-				}else{
 					preferList.add(employeePreference);
+				}else{
 					continue;
 				}
 			}
