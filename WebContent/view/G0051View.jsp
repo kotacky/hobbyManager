@@ -59,30 +59,8 @@
 	<% } %>
 </SELECT><br>
 
-<p><strong>好きなコンテンツを選んで下さい。</strong></p>
 
-<%-- チェックボックスにリストを入れて表示 --%>
 
-<%
-	List<HashMap<String, String>> columnContentsList = (List<HashMap<String, String>>)request.getAttribute("contentsList");
-	String[] check = null;
-		if (columnContentsList == null) {
-			check = new String[0];
-		} else {
-			check = new String[columnContentsList.size()];
-		}
-%>
-
-<% if(columnContentsList != null){ %>
-
-	<% for(int i = 0; i < columnContentsList.size(); i++){ %>
-		<label>
-		<input type="checkBox" name="contentsList" value="<%= columnContentsList.get(i).get("contentsId") %>" />
-		<%  out.print(columnContentsList.get(i).get("contentsName")); %>
-		</label>
-
-	<% } %>
-<% } %><br style="clear:both;">
 	<input type="submit" value="登録"  />
 </form>
 <%-- メニュー画面に戻る処理 --%>
