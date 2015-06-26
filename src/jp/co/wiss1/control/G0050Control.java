@@ -39,8 +39,8 @@ public class G0050Control extends HttpServlet{
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
 			List<HashMap<String, String>> preferenceList = G0050Model.getPreferenceList(employeeId, familyName, firstName);
 
-			List<HashMap<String, String>> prefereList = new ArrayList<HashMap<String, String>>() ;
-			for(int i = 0; i <  prefereList.size(); i++){
+			List<HashMap<String, String>> preferList = new ArrayList<HashMap<String, String>>() ;
+			for(int i = 0; i <  preferList.size(); i++){
 				HashMap<String, String> employeePreference = new HashMap<String, String>();
 				employeePreference.put("employeeId", preferenceList.get(i).get("employeeId"));
 				employeePreference.put("employeeFamilyName", preferenceList.get(i).get("employeeFamilyName"));
@@ -48,7 +48,7 @@ public class G0050Control extends HttpServlet{
 				if(preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
 					employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
 					String str = preferenceList.get(i).get("contentsName");
-					for(int j = 0; j < prefereList.size(); j++){
+					for(int j = 0; j < preferList.size(); j++){
 						if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))){
 							str += "、"+preferenceList.get(i).get("contentsName");
 						}else{
@@ -57,12 +57,12 @@ public class G0050Control extends HttpServlet{
 						}
 					}
 				}else{
-					prefereList.add(employeePreference);
+					preferList.add(employeePreference);
 					continue;
 				}
 			}
 			//結果をViewに送る
-			request.setAttribute("preferenceList", prefereList);
+			request.setAttribute("preferenceList", preferList);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 			dispatch.forward(request, response);
 		}
