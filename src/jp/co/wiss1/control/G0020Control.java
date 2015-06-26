@@ -111,9 +111,9 @@ public class G0020Control extends HttpServlet{
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName);
 
 			//画面一覧へ結果を返す
-			if(deleteFlag == 1){
+			if(deleteFlag >= 1){
 				//削除成功
-				request.setAttribute("deleteFlag",deleteFlag);
+				request.setAttribute("deleteFlag",1);
 			}
 			else{
 				//削除失敗
