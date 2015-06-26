@@ -81,7 +81,7 @@ public class G0010Control extends HttpServlet{
 				//デリートのメソッドを呼ぶ
 				int deleteFlag = G0010Model.deleteEmployee(deleteEmployeeId);
 
-				//デリート後のリストと削除完了のフラグを送る
+				//削除完了のフラグを送る
 				if(deleteFlag == 1){
 					request.setAttribute("deleteFlag",deleteFlag);
 				}else{
@@ -92,12 +92,18 @@ public class G0010Control extends HttpServlet{
 
 				request.setAttribute("deleteFlag", 0);
 			}
+
 			//デリート後のリストを検索メソッドで取り出す
 			List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId,familyName,firstName);
+
+			//削除処理後のリストを送る
+			request.setAttribute("employeeList",employeeList);
+
+			//検索条件保持のために送る
 			request.setAttribute("employeeId", employeeId);
 			request.setAttribute("familyName", familyName);
 			request.setAttribute("firstName", firstName);
-			request.setAttribute("employeeList",employeeList);
+
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 			dispatch.forward(request, response);
 		}
