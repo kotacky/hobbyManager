@@ -38,6 +38,8 @@ public class G0040Control extends HttpServlet{
 
 			//検索結果をViewに送る
 			request.setAttribute("contentsId", contentsId);
+
+			//検索条件保持のために送る
 			request.setAttribute("title", title);
 			request.setAttribute("broadCast", broadCast);
 			request.setAttribute("contentsList", contentsList);
@@ -83,30 +85,28 @@ public class G0040Control extends HttpServlet{
 				//デリートのメソッドを呼ぶ
 				int deleteFlag = G0040Model.deleteContents(deleteContentsId);
 
-				//デリート後のリストを検索メソッドで取り出す
-				List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
-
 				//デリート後のリストと削除完了のフラグを送る
-				request.setAttribute("contentsList", contentsList);
 				if(deleteFlag == 1){
 					request.setAttribute("deleteFlag",deleteFlag);
 				}else{
 					request.setAttribute("deleteFlag",deleteFlag);
 				}
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
-				dispatch.forward(request, response);
 			}else{
 				//nullのとき処理を行わずに返す
-				List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
-				int deleteFlag = 0;
-				request.setAttribute("deleteFlag",deleteFlag);
-				request.setAttribute("contentsList", contentsList);
-				request.setAttribute("contentsId", contentsId);
-				request.setAttribute("title", title);
-				request.setAttribute("broadCast", broadCast);
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
-				dispatch.forward(request, response);
+				request.setAttribute("deleteFlag",0);
 			}
+			//デリート後のリストを検索メソッドで取り出す
+			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
+
+			//削除処理後のリストを送る
+			request.setAttribute("contentsList", contentsList);
+
+			//検索条件保持のために送る
+			request.setAttribute("contentsId", contentsId);
+			request.setAttribute("title", title);
+			request.setAttribute("broadCast", broadCast);
+			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
+			dispatch.forward(request, response);
 		}
 	}
 }
