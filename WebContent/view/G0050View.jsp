@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 	<meta charset="Windows-31J">
-	<title>新人BD - 好み一覧</title>
+	<title>新人DB - 好み一覧</title>
 	<meta name="keywords" content="キーワード" />
 	<meta name="description" content="サイトの説明" />
 	<meta http-equiv="Content-Language" content="ja" />
@@ -19,14 +19,26 @@
 	<script type="text/javascript" src="./js/default.js"></script>
 	<script>
 		 function func(MyCommand){
-	//		 alert("start!:[" + MyCommand + "]");
+		//	 alert("start!:[" + MyCommand + "]");
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
-	</script>
+
+		function init() {
+			if (document.MyForm.employeeId.value == "null") {
+				document.MyForm.employeeId.value = "";
+			}
+			if (document.MyForm.employeeFamilyName.value == "null") {
+				document.MyForm.employeeFamilyName.value = "";
+			}
+			if (document.MyForm.employeeFirstName.value == "null") {
+				document.MyForm.employeeFirstName.value = "";
+			}
+		}
+	 </script>
 </head>
 
-<body>
+<body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
@@ -75,15 +87,17 @@
 		     disabled = "";
 		}
 %>
-		<% //Cへ検索する条件を送る %>
+
+
+<% //Cへ検索する条件を送る %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0050Control">
 		社員ID:
-		<input type="text" name="employeeId" placeholder="社員ID"  style="text-align: left;">
+		<input type="text" id="employeeId" name="employeeId" placeholder="社員ID" value="<%= request.getParameter("employeeId") %>" style="text-align: left;">
 		姓:
-		<input type="text" name="employeeFamilyName" placeholder="姓"  style="text-align: left;">
+		<input type="text" id="employeeFamilyName" name="employeeFamilyName" placeholder="姓" value="<%= request.getParameter("employeeFamilyName") %>" style="text-align: left; ">
 		名:
-		<input type="text" name="employeeFirstName" placeholder="名"  style="text-align: left;">
-		<input type="submit" value="検索" onClick="func('select');"><br />
+		<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="名" value="<%= request.getParameter("employeeFirstName") %>" style="text-align: left; ">
+		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="func('insert');" />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 
