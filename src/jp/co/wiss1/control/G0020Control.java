@@ -120,6 +120,8 @@ public class G0020Control extends HttpServlet{
 			//登録失敗
 			request.setAttribute("deleteFlag",deleteFlag);
 			}
+			request.setAttribute("actressId",actressId);
+			request.setAttribute("actressName",actressName);
 			request.setAttribute("actressList",actressList);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 			dispatch.forward(request, response);
