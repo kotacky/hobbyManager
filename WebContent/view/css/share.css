@@ -7,6 +7,7 @@ body{
 	line-height: 1.8;
 	font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
 	margin: 20px;
+
 }
 
 div#wrapper{
@@ -100,7 +101,8 @@ table.brwsr1 td {
     vertical-align: middle;
     text-align: left;
     border-bottom: #999 1px solid;
-    font-size: 11px;
+    font-size: 11px bold;
+    color: #fff
 }
 
 table.brwsr1 th.r0 {
@@ -150,7 +152,20 @@ table.brwsr1 td.r4 {
     width: 128px;
     border-left: #fff 1px solid;
     background: #a0c2d3;
+
 }
+
+
+/*-------------------------------------*/
+/* チェックボックス */
+/*-------------------------------------*/
+
+label {
+	float: left;
+	width: 220px;
+}
+
+
 
 /*-------------------------------------*/
 /* フッター */

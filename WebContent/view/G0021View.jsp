@@ -35,7 +35,7 @@
 <%--CÇ÷ìoò^Ç∑ÇÈèåèÇëóÇÈ --%>
 	<form method="POST" name="Myform" action="<%=request.getContextPath() %>/G0021Control">
 		èóóDID:
-		<input type="text" name="actressId"  placeholder="èóóDID" style="text-align: left;"><br>
+		<input type="text" name="actressId"  placeholder="èóóDID" style="text-align: left;">
 		ê©ÅEñº:
 		<input type="text" name="actressName"  placeholder="èóóDñº" style="text-align: left;"><br>
 
@@ -71,11 +71,12 @@
 <% if(columnContentsList != null){ %>
 
 	<% for(int i = 0; i < columnContentsList.size(); i++){ %>
-		<input type="checkBox" name="contentsList" value="<%= columnContentsList.get(i).get("contentsId") %>" />
-		<%  out.print(columnContentsList.get(i).get("contentsName")); %>
-
+		<label>
+			<input type="checkBox" name="contentsList" value="<%= columnContentsList.get(i).get("contentsId") %>" />
+			<%  out.print(columnContentsList.get(i).get("contentsName")); %>
+		</label>
 	<% } %>
-<% } %><br style="clear: both;" />
+<% } %><br style="clear: both" />
 
 		<input type="submit" value="ìoò^">
 	</form>

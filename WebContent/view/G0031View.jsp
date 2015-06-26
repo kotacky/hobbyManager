@@ -28,6 +28,8 @@
 		</ul>
 	</div>
 
+	<h1>所属会社登録</h1>
+
 <%-- メッセージの表示 --%>
 	<% try{ %>
 		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
@@ -38,7 +40,8 @@
 			<% } %>
 	<% }catch(NullPointerException insertException){ %>
 	<% } %>
-<h1>所属会社登録</h1>
+
+
 <% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0031Control">
 		所属会社ID:

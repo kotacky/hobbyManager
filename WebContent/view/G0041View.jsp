@@ -28,6 +28,10 @@
 		</ul>
 	</div>
 
+	<h1>コンテンツ登録</h1>
+
+<!-- メッセージ表示  -->
+
 	<% try{ %>
 		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
 		<% if("1".equals(insertFlag)){ %>
@@ -37,8 +41,6 @@
 			<% } %>
 	<% }catch(NullPointerException insertException){ %>
 	<% } %>
-
-	<h1>コンテンツ登録</h1>
 
 	<p><strong>コンテンツに関する情報を登録して下さい。</strong></p>
 

@@ -108,7 +108,7 @@
 						<Th class="r0"><input type="radio" name="radioButton" value="<%= companyList.get(i).get("companyId") %>"></Th>
 						<Td class="r1"><% out.print(companyList.get(i).get("companyId")); %></Td>
 						<Td class="r2"><% out.print(companyList.get(i).get("companyName")); %></Td>
-						<Td class="r3"><a href="<%= request.getContextPath() %>/view/map.html" target="_blank"><% out.print(companyList.get(i).get("companyAddress")); %></a></Td>
+						<Td class="r3"><% out.print(companyList.get(i).get("companyAddress")); %></Td>
 					</Tr>
 <% } %>
 <% } %>
@@ -116,5 +116,8 @@
 			</table>
 			<input type="hidden" name="processDiv">
 	</form>
+	<div id="footer">
+		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
+	</div>
 </body>
 </html>
