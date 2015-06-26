@@ -37,6 +37,8 @@ public class G0010Control extends HttpServlet{
 
 			//検索結果をViewに送る
 			request.setAttribute("employeeList", employeeList);
+
+			//検索条件保持のために送る
 			request.setAttribute("employeeId", employeeId);
 			request.setAttribute("familyName", familyName);
 			request.setAttribute("firstName", firstName);
@@ -89,7 +91,6 @@ public class G0010Control extends HttpServlet{
 				}
 			}else{
 				//nullのとき処理を行わずに返す
-
 				request.setAttribute("deleteFlag", 0);
 			}
 
@@ -103,7 +104,6 @@ public class G0010Control extends HttpServlet{
 			request.setAttribute("employeeId", employeeId);
 			request.setAttribute("familyName", familyName);
 			request.setAttribute("firstName", firstName);
-
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 			dispatch.forward(request, response);
 		}
