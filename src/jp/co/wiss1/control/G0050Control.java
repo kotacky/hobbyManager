@@ -51,6 +51,7 @@ public class G0050Control extends HttpServlet{
 					for(int j = 0; j < preferList.size(); j++){
 						if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))){
 							str += "、"+preferenceList.get(i).get("contentsName");
+							i++;
 						}else{
 							employeePreference.put("contentsName", str);
 							break;
