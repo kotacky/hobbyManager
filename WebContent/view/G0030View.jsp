@@ -108,7 +108,7 @@
 						<Th class="r0"><input type="radio" name="radioButton" value="<%= companyList.get(i).get("companyId") %>"></Th>
 						<Td class="r1"><% out.print(companyList.get(i).get("companyId")); %></Td>
 						<Td class="r2"><% out.print(companyList.get(i).get("companyName")); %></Td>
-						<Td class="r3"><a href="<%= request.getContextPath() %>/view/map.jsp" target="_blank"><% out.print(companyList.get(i).get("companyAddress")); %></a></Td>
+						<Td class="r3"><a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<% out.print(companyList.get(i).get("companyAddress")); %>'));return false;"><% out.print(companyList.get(i).get("companyAddress")); %></a></Td>
 					</Tr>
 <% } %>
 <% } %>
