@@ -33,7 +33,7 @@
 	<h1>D‚Ý“o˜^</h1>
 
 <% //C‚Ö“o˜^‚·‚éðŒ‚ð‘—‚é %>
-	<form method="POST"name="MyForm" action="<%=request.getContextPath() %>/G0051Control">
+	<form method="POST"name="MyForm" action="<%=request.getContextPath() %>/G0081Control">
 
 <!-- ——D–¼‚ð“o˜^‚Ì‚½‚ß‚É‘I‘ð -->
 		ŽÐˆõ–¼:
