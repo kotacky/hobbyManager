@@ -91,7 +91,7 @@
 
 
 <% //C‚ÖŒŸõ‚·‚éðŒ‚ð‘—‚é %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0050Control">
+	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0080Control">
 		ŽÐˆõID:
 		<input type="text" id="employeeId" name="employeeId" placeholder="ŽÐˆõID" value="<%= request.getParameter("employeeId") %>" style="text-align: left;">
 		©:
