@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.wiss1.common.EncodingUtils;
+import jp.co.wiss1.model.G0081Model;
 
 @WebServlet("/G0081Control")
 public class G0081Control extends HttpServlet{
