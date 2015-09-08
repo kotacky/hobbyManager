@@ -45,7 +45,7 @@ public class G0080Control extends HttpServlet{
 			request.setAttribute("employeeList", employeeId);
 			request.setAttribute("actressList", familyName);
 			request.setAttribute("contentsList", firstName);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0080View.jsp");
+			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 			dispatch.forward(request, response);
 		}
 
@@ -96,7 +96,7 @@ public class G0080Control extends HttpServlet{
 			request.setAttribute("employeeList", employeeId);
 			request.setAttribute("actressList", familyName);
 			request.setAttribute("contentsList", firstName);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0080View.jsp");
+			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 			dispatch.forward(request, response);
 		}
 	}
