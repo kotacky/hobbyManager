@@ -93,40 +93,50 @@ public class G0050Model {
 	        	   System.out.println(preferenceInfo.get("contentsName"));								//リストに入ったかの確認
 
 	            }
-				for(int i = 0; i <  preferenceList.size(); i++){
+				for(int i = 1; i <  preferenceList.size(); i++){
+					String str;
+					//HashMapを作る
 					HashMap<String, String> employeePreference = new HashMap<String, String>();
-					employeePreference.put("employeeId", preferenceList.get(i).get("employeeId"));
-					employeePreference.put("employeeFamilyName", preferenceList.get(i).get("employeeFamilyName"));
-					employeePreference.put("employeeFirstName", preferenceList.get(i).get("employeeFirstName"));
-					if(i == preferenceList.size()-1){
-						employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
-						String str = preferenceList.get(i).get("contentsName");
-						employeePreference.put("contentsName", str);
-						preferList.add(employeePreference);
+					//HashMapに情報を追加する
+					/*if(i == preferenceList.size()-1){
+						if(preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
+							employeePreference.put("employeeId", preferenceList.get(i).get("employeeId"));
+							employeePreference.put("employeeFamilyName", preferenceList.get(i).get("employeeFamilyName"));
+							employeePreference.put("employeeFirstName", preferenceList.get(i).get("employeeFirstName"));
+							employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
+							str = preferenceList.get(i-1).get("contentsName");
+							employeePreference.put("contentsName", str);
+							preferList.add(employeePreference);
+						}
 						break;
-					}else if(preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
-						employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
-						String str = preferenceList.get(i).get("contentsName");
+					}*/
+					employeePreference.put("employeeId", preferenceList.get(i-1).get("employeeId"));
+					employeePreference.put("employeeFamilyName", preferenceList.get(i-1).get("employeeFamilyName"));
+					employeePreference.put("employeeFirstName", preferenceList.get(i-1).get("employeeFirstName"));
+					employeePreference.put("actressName", preferenceList.get(i-1).get("actressName"));
+					str = preferenceList.get(i-1).get("contentsName");
+					if(preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
 						for(int j = 0; j < preferenceList.size(); j++){
-							i++;
-							if(i == preferenceList.size()-1){
+							if(preferenceList.get(i-1).get("actressId").equals(preferenceList.get(i).get("actressId"))
+									&& preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
 								str += "、"+preferenceList.get(i).get("contentsName");
-								break;
-							}else if(preferenceList.get(i).get("actressId").equals(preferenceList.get(i+1).get("actressId"))
-									&& preferenceList.get(i).get("employeeId").equals(preferenceList.get(i+1).get("employeeId"))){
-								str += "、"+preferenceList.get(i).get("contentsName");
+								i++;
 							}else{
-								str += "、"+preferenceList.get(i).get("contentsName");
+								break;
+							}
+							if(i == preferenceList.size()){
+
 								break;
 							}
 						}
 						employeePreference.put("contentsName", str);
 						preferList.add(employeePreference);
 					}else{
+						employeePreference.put("contentsName", str);
+						preferList.add(employeePreference);
 						continue;
 					}
 				}
-
 	        }
 	        catch (SQLException e) {
 	        	System.out.println("SQL failed");
