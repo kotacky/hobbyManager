@@ -17,6 +17,7 @@ public class G0041Control extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException{
 
+		//高島史裕
 		//ブラウザの文字コードで返す
 		EncodingUtils.responseEncoding(request,response);
 
