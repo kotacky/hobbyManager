@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 	<meta charset="Windows-31J">
-	<title>新人DB - 好み一覧</title>
+	<title>新人DB - ドラマ一覧</title>
 	<meta name="keywords" content="キーワード" />
 	<meta name="description" content="サイトの説明" />
 	<meta http-equiv="Content-Language" content="ja" />
@@ -16,7 +16,7 @@
 	<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
-	<script type="text/javascript" src="./js/default.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
 		 function func(MyCommand){
 		//	 alert("start!:[" + MyCommand + "]");
@@ -25,14 +25,14 @@
 		 }
 
 		function init() {
-			if (document.MyForm.employeeId.value == "null") {
-				document.MyForm.employeeId.value = "";
+			if (document.MyForm.contentsId.value == "null") {
+				document.MyForm.contentsId.value = "";
 			}
-			if (document.MyForm.employeeFamilyName.value == "null") {
-				document.MyForm.employeeFamilyName.value = "";
+			if (document.MyForm.contentsName.value == "null") {
+				document.MyForm.contentsName.value = "";
 			}
-			if (document.MyForm.employeeFirstName.value == "null") {
-				document.MyForm.employeeFirstName.value = "";
+			if (document.MyForm.broadCast.value == "null") {
+				document.MyForm.broadCast.value = "";
 			}
 		}
 	 </script>
@@ -41,97 +41,97 @@
 <body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
-			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">映画一覧</a><li>
+			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ドラマ一覧</a><li>
+			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a><li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
 
-		<h1>好み一覧</h1>
+	<h1>ドラマ一覧</h1>
 
 <%-- メッセージの表示 --%>
 
-		<% try{ %>
-			<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
+	<% try{ %>
+		<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
 			<% if("1".equals(deleteFlag)){ %>
 			<H2><% out.print("削除が完了しました。"); %></H2>
 			<% }else if("0".equals(deleteFlag)){ %>
 			<H2><% out.print("削除が失敗しました。"); %></H2>
+		<% } %>
+	<% }catch(NullPointerException deleteException){ %>
+	<% } %>
+
+	<% try{ %>
+		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
+			<% if("1".equals(updateFlag)){ %>
+			<H2><% out.print("更新が完了しました。"); %></H2>
+			<% }else if("0".equals(updateFlag)){ %>
+			<H2><% out.print("更新が失敗しました。"); %></H2>
 			<% } %>
-		<% }catch(NullPointerException deleteException){ %>
+		<% }catch(NullPointerException updateException){ %>
 		<% } %>
 
-		<% try{ %>
-			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
-			<% if("1".equals(insertFlag)){ %>
-			<H2><% out.print("登録が完了しました。"); %></H2>
-			<% }else if("0".equals(insertFlag)){ %>
-			<H2><% out.print("登録が失敗しました。"); %></H2>
-			<% } %>
-		<% }catch(NullPointerException insertException){ %>
-		<% } %>
 
 <%-- リストの取得 --%>
 <%
-		    //HashMap<String,String> preferenceList = new HashMap<String,String>();
-					//preferenceList.put("employeeId","122");
-					//preferenceList.put("employeeFamilyname", "金井");
-					//preferenceList.put("employeeFirstname", "才");
-					//preferenceList.put("actressName","綾瀬はるか");
-					//preferenceList.put("contentsName","八重の桜");
-		List<HashMap<String,String>> preferenceList = (List<HashMap<String,String>>)request.getAttribute("preferenceList");
-		String disabled = "disabled";
-		if(preferenceList != null){
-		     disabled = "";
-		}
+	//	    HashMap<String,String> contentsList = new HashMap<String,String>();
+	//			contentsList.put("contents_id", "401");
+	//			contentsList.put("contents_name", "八重の桜");
+	//			contentsList.put("summary", "大河ドラマ");
+List<HashMap<String,String>> dramaList = (List<HashMap<String,String>>)request.getAttribute("dramaList");
+String disabled = "disabled";
+if(dramaList != null){
+     disabled = "";
+}
 %>
 
 
 <% //Cへ検索する条件を送る %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0080Control">
-		社員ID:
-		<input type="text" id="employeeId" name="employeeId" placeholder="社員ID" value="<%= request.getParameter("employeeId") %>" style="text-align: left;">
-		姓:
-		<input type="text" id="employeeFamilyName" name="employeeFamilyName" placeholder="姓" value="<%= request.getParameter("employeeFamilyName") %>" style="text-align: left; ">
-		名:
-		<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="名" value="<%= request.getParameter("employeeFirstName") %>" style="text-align: left; ">
+	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0050Control">
+		ドラマID:
+		<input type="text" id="dramaId" name="dramaId" placeholder="ドラマID" value="<%= request.getParameter("dramaId") %>" style="text-align: left;">
+		ドラマ名:
+		<input type="text" id="dramaName" name="dramaName" placeholder="ドラマ名" value="<%= request.getParameter("dramaName") %>" style="text-align: left; ">
+		放送クール:
+		<input type="text" id="broadcastCool" name="broadcastCool" placeholder="放送クール" value="<%= request.getParameter("broadcastCool") %>" style="text-align: left; ">
 		<input type="button" value="検索" onClick="func('select');" /><br />
-		<input type="button" value="新規登録" onClick="func('insert');" />
+		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0051View.jsp';">
+		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
-
+		<br style="clear" />
 <%
-	//String employee_id=request.getParameter("employee_id");
-	//String employee_family_name=request.getParameter("employee_family_name");
-	//String employee_first_name=request.getParameter("employee_first_name");
+//String employee_id=request.getParameter("employee_id");
+//String employee_family_name=request.getParameter("employee_family_name");
+//String employee_first_name=request.getParameter("employee_first_name");
 %>
 
-<%-- テーブルの表示--%>
+		<%-- テーブルの表示--%>
 		<table class="brwsr1">
 			<thead class="scrollHead">
 				<tr>
 					<Th class="r0">選択</Th>
-					<Th class="r1">社員ID</Th>
-					<Th class="r2">姓</Th>
-					<Th class="r3">名</Th>
-					<Th class="r4">女優名</Th>
-					<Th class="r4">出演作品</Th>
+					<Th class="r1">ドラマID</Th>
+					<Th class="r	2">ドラマ名</Th>
+					<Th class="r3">放送クール</Th>
+
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
-<% if(preferenceList != null){ %>
-<% for(int i = 0; i < preferenceList.size(); i++){ %>
-				<Tr>
-					<Th class="r0"><input type="radio" name="radioButton" value="<%= preferenceList.get(i).get("employeeId") %>"></Th>
-					<Td class="r1"><% out.print(preferenceList.get(i).get("employeeId")); %></Td>
-					<Td class="r2"><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Td>
-					<Td class="r3"><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Td>
-					<Td class="r4"><% out.print(preferenceList.get(i).get("actressName")); %></Td>
-					<Td class="r4"><% out.print(preferenceList.get(i).get("contentsName")); %></Td>
+<% if(dramaList != null){ %>
+<% for(int i = 0; i < dramaList.size(); i++){ %>
+					<Tr>
+						<Th class="r0"><input type="radio" name="radioButton" value="<%= dramaList.get(i).get("dramaId") %>"></Th>
+						<Td class="r1"><% out.print(dramaList.get(i).get("dramaId")); %></Td>
+						<Td class="r2"><% out.print(dramaList.get(i).get("dramaName")); %></Td>
+						<Td class="r3"><% out.print(dramaList.get(i).get("broadcastCool")); %></Td>
 
-				</Tr>
+					</Tr>
 <% } %>
 <% } %>
 			</tbody>
