@@ -16,7 +16,7 @@ import jp.co.wiss1.model.G0042Model;
 public class G0042Control extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException{
-
+		//今日は寒い。
 		//ブラウザの文字コードで返す
 		EncodingUtils.responseEncoding(request,response);
 
