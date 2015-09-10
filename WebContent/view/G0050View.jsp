@@ -25,14 +25,14 @@
 		 }
 
 		function init() {
-			if (document.MyForm.contentsId.value == "null") {
-				document.MyForm.contentsId.value = "";
+			if (document.MyForm.dramaId.value == "null") {
+				document.MyForm.dramaId.value = "";
 			}
-			if (document.MyForm.contentsName.value == "null") {
-				document.MyForm.contentsName.value = "";
+			if (document.MyForm.dramaName.value == "null") {
+				document.MyForm.dramaName.value = "";
 			}
-			if (document.MyForm.broadCast.value == "null") {
-				document.MyForm.broadCast.value = "";
+			if (document.MyForm.broadcastCool.value == "null") {
+				document.MyForm.broadcastCool.value = "";
 			}
 		}
 	 </script>
@@ -117,7 +117,7 @@ if(dramaList != null){
 				<tr>
 					<Th class="r0">選択</Th>
 					<Th class="r1">ドラマID</Th>
-					<Th class="r	2">ドラマ名</Th>
+					<Th class="r2">ドラマ名</Th>
 					<Th class="r3">放送クール</Th>
 
 				</tr>
