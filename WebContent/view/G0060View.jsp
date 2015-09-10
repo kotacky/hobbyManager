@@ -25,14 +25,14 @@
 		 }
 
 		function init() {
-			if (document.MyForm.contentsId.value == "null") {
-				document.MyForm.contentsId.value = "";
+			if (document.MyForm.movieId.value == "null") {
+				document.MyForm.movieId.value = "";
 			}
-			if (document.MyForm.contentsName.value == "null") {
-				document.MyForm.contentsName.value = "";
+			if (document.MyForm.movieName.value == "null") {
+				document.MyForm.movieName.value = "";
 			}
-			if (document.MyForm.broadCast.value == "null") {
-				document.MyForm.broadCast.value = "";
+			if (document.MyForm.releaseDate.value == "null") {
+				document.MyForm.releaseDate.value = "";
 			}
 		}
 	 </script>
