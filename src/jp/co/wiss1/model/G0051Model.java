@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import jp.co.wiss1.common.DBAccessUtils;
 
-public class G0091Model {
+public class G0051Model {
 
 	public static void main(String args[])
 	{
