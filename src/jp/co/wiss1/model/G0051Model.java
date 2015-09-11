@@ -11,12 +11,12 @@ public class G0051Model {
 	public static void main(String args[])
 	{
 
-		insertdrama("" , "子ずれ狼" , "大河ドラマ");
+		insertDrama("" , "子ずれ狼" , "大河ドラマ");
 
 	}
 
 
-	public static int insertdrama(String dramaId , String dramaTitle , String  broadcastCool) { //ドラマテーブル参照
+	public static int insertDrama(String dramaId , String dramaTitle , String  broadcastCool) { //ドラマテーブル参照
 
 		//各変数を宣言、初期化
     	Connection connection = null;
