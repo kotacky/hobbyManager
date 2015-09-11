@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import jp.co.wiss1.common.DBAccessUtils;
 
-public class G0092Model {
+public class G0052Model {
 
 
 	//ドラマ・映画一覧UPDATEの実行！！！
