@@ -129,7 +129,7 @@ if(movieList != null){
 						<Th class="r0"><input type="radio" name="radioButton" value="<%= movieList.get(i).get("movieId") %>"></Th>
 						<Td class="r1"><% out.print(movieList.get(i).get("movieId")); %></Td>
 						<Td class="r2"><% out.print(movieList.get(i).get("movieName")); %></Td>
-						Å@<Td class="r3"><% out.print(movieList.get(i).get("releaseDate")); %></Td>
+						<Td class="r3"><% out.print(movieList.get(i).get("releaseDate")); %></Td>
 
 					</Tr>
 <% } %>
