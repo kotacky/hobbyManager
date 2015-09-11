@@ -46,7 +46,7 @@ public class G0060Model {
 	        		sql = sql + "movie_title like '%"+ movieTitle +"%' AND ";
 	        		System.out.println("3:" + sql);
 	        	}
-	        		sql = sql + "release_date '%"+ releaseDate +"%'";
+	        		sql = sql + "release_date like '%"+ releaseDate +"%'";
 	        		sql = sql + " ORDER BY movie_id";
 	        		System.out.println("4:" + sql);												//sql文終了
 
@@ -63,13 +63,13 @@ public class G0060Model {
 
 	        	   HashMap<String, String> movieInfo = new HashMap<String, String>();
 	        	   movieInfo.put("movieId", resultSet.getString("movie_id"));
-	        	   movieInfo.put("movieTitle", resultSet.getString("movie_title"));
+	        	   movieInfo.put("movieName", resultSet.getString("movie_title"));
 	        	   movieInfo.put("releaseDate", resultSet.getString("release_date"));
 
 	        	   movieList.add(movieInfo);
 
 	            	System.out.println(movieInfo.get("movieId"));						//リストに入ったかの確認
-	            	System.out.println(movieInfo.get("movieTitle"));
+	            	System.out.println(movieInfo.get("movieName"));
 	            	System.out.println(movieInfo.get("releaseDate"));
 	            }
 
