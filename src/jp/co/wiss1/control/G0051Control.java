@@ -15,23 +15,25 @@ import jp.co.wiss1.model.G0051Model;
 @WebServlet("/G0051Control")
 public class G0051Control extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException{
+		throws IOException, ServletException{
 
+		//高島史裕
 		//ブラウザの文字コードで返す
 		EncodingUtils.responseEncoding(request,response);
 
 		//登録に必要な情報を受け取る
-		String employeeId = request.getParameter("employeeId");
-		String actressId = request.getParameter("actressId");
+		String dramaId = request.getParameter("dramaId");
+		String title = request.getParameter("dramaName");
+		String broadcastCool = request.getParameter("broadcastCool");
 
-		//登録する項目を送る
-		int insertFlag = G0051Model.insertPreference(employeeId,actressId);
+		//登録のメソッドを呼び出す
+		int insertFlag = G0051Model.insertDrama(dramaId, title, broadcastCool);
 
-		//Viewの画面に戻す
-		//登録成功なら1、失敗なら0がViewへ
-		request.setAttribute("insertFlag",insertFlag);
+		//登録完了フラグを送る
+					request.setAttribute("insertFlag",insertFlag);
 
-		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
+		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0051View.jsp");
 		dispatch.forward(request, response);
+
 	}
 }
