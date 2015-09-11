@@ -63,7 +63,7 @@ public class G0050Model {
 
 	        	   HashMap<String, String> dramaInfo = new HashMap<String, String>();
 	        	   dramaInfo.put("dramaId", resultSet.getString("drama_id"));
-	        	   dramaInfo.put("dramaTitle", resultSet.getString("drama_title"));
+	        	   dramaInfo.put("dramaname", resultSet.getString("drama_title"));
 	        	   dramaInfo.put("broadcastCool", resultSet.getString("broadcast_cool"));
 
 	        	   dramaList.add(dramaInfo);
