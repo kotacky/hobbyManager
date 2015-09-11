@@ -37,12 +37,12 @@ public class G0040Control extends HttpServlet{
 			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
 
 			//検索結果をViewに送る
-			request.setAttribute("contentsId", contentsId);
+			request.setAttribute("contentsList", contentsList);
 
 			//検索条件保持のために送る
 			request.setAttribute("title", title);
 			request.setAttribute("broadCast", broadCast);
-			request.setAttribute("contentsList", contentsList);
+			request.setAttribute("contentsId", contentsId);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 			dispatch.forward(request, response);
 		}
