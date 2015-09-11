@@ -10,7 +10,7 @@ import java.util.List;
 
 import jp.co.wiss1.common.DBAccessUtils;
 
-public class G0090Model {
+public class G0050Model {
 
 		public static void main(String[] args)
 		{
