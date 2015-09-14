@@ -35,7 +35,7 @@ public class G0050Model {
 		        connection.setAutoCommit(false);												//自動コミットを無効にする
 
 
-	            String sql = "SELECT * FROM t_drama where ";									//sql文一覧
+	            String sql = "SELECT * FROM t_dramas where ";									//sql文一覧
 	            System.out.println("1:" + sql);
 
 	        	if(!"".equals(dramaId)) {
@@ -115,7 +115,7 @@ public class G0050Model {
 
 	            connection.setAutoCommit(true);													//自動コミットを有効にする
 
-	            String sql = "DELETE FROM t_drama where drama_id = '"+ dramaId +"'";
+	            String sql = "DELETE FROM t_dramas where drama_id = '"+ dramaId +"'";
 	            System.out.println("引数に" + dramaId + "が入力されました。");
 	            System.out.println(sql);
 
