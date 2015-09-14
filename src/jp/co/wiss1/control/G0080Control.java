@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.wiss1.common.EncodingUtils;
-import jp.co.wiss1.model.G0020Model;
 import jp.co.wiss1.model.G0080Model;
 import jp.co.wiss1.model.G0081Model;
 
@@ -55,12 +54,12 @@ public class G0080Control extends HttpServlet{
 			//登録画面に必要な要素を引き出す
 			List<HashMap<String, String>> employeeList = G0081Model.getColumnEmployeeList();
 			List<HashMap<String, String>> actressList = G0081Model.getColumnActressList();
-			List<HashMap<String, String>> contentsList = G0020Model.getColumnContentsList();
+
 
 			//登録画面にプルダウンで必要なもの送る
 			request.setAttribute("employeeList", employeeList);
 			request.setAttribute("actressList", actressList);
-			request.setAttribute("contentsList", contentsList);
+			//
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0081View.jsp");
 			dispatch.forward(request, response);
 		}
