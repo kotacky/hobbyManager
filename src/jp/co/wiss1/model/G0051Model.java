@@ -34,7 +34,7 @@ public class G0051Model {
         	connection.setAutoCommit(true);
 
         	//主キーが入力されなかったとき、SQL文を実行しない
-        	 String insertSql = "INSERT INTO t_drama";
+        	 String insertSql = "INSERT INTO t_dramas";
              System.out.println("1:" + insertSql);
 
              if(!"".equals(dramaId))
