@@ -57,26 +57,81 @@
 	<% } %>
 </SELECT>
 
+<%
+	List<HashMap<String, String>> columnMagazineList = (List<HashMap<String, String>>)request.getAttribute("columnMagazineList");
+%>
 
+<h2>表紙を飾った雑誌を一つ選んでください。</h2>
+
+<SELECT name="companyId">
+	<% for(int i = 0 ;i<columnMagazineList.size(); i++){ %>
+	<option value="<%= columnMagazineList.get(i).get("magazineId") %>">
+	<%  out.print(columnMagazineList.get(i).get("magazineName")); %>
+	<% } %>
+</SELECT>
 
 <%
-	List<HashMap<String, String>> columnContentsList = (List<HashMap<String, String>>)request.getAttribute("columnContentsList");
-	String[] check = null;
-		if (columnContentsList == null) {
+	List<HashMap<String, String>> columnDramaList = (List<HashMap<String, String>>)request.getAttribute("columnDramaList");
+		String[] check = null;
+		if (columnDramaList == null) {
 			check = new String[0];
 		} else {
-			check = new String[columnContentsList.size()];
+			check = new String[columnDramaList.size()];
 		}
 %>
 
-<h2>コンテンツを選んでください。</h2>
+<h2>出演ドラマを選んでください。</h2>
 
-<% if(columnContentsList != null){ %>
+<% if(columnDramaList != null){ %>
 
-	<% for(int i = 0; i < columnContentsList.size(); i++){ %>
+	<% for(int i = 0; i < columnDramaList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="contentsList" value="<%= columnContentsList.get(i).get("contentsId") %>" />
-			<%  out.print(columnContentsList.get(i).get("contentsName")); %>
+			<input type="checkBox" name="dramaList" value="<%= columnDramaList.get(i).get("dramaId") %>" />
+			<%  out.print(columnDramaList.get(i).get("dramaName")); %>
+		</label>
+	<% } %>
+<% } %><br style="clear: both" />
+
+<%
+	List<HashMap<String, String>> columnMovieList = (List<HashMap<String, String>>)request.getAttribute("columnMovieList");
+		check = null;
+		if (columnMovieList == null) {
+			check = new String[0];
+		} else {
+			check = new String[columnMovieList.size()];
+		}
+%>
+
+<h2>出演映画を選んでください。</h2>
+
+<% if(columnMovieList != null){ %>
+
+	<% for(int i = 0; i < columnMovieList.size(); i++){ %>
+		<label>
+			<input type="checkBox" name="movieList" value="<%= columnMovieList.get(i).get("movieId") %>" />
+			<%  out.print(columnMovieList.get(i).get("movieName")); %>
+		</label>
+	<% } %>
+<% } %><br style="clear: both" />
+
+<%
+	List<HashMap<String, String>> columnCommercialList = (List<HashMap<String, String>>)request.getAttribute("columnCommercialList");
+		check = null;
+		if (columnCommercialList == null) {
+			check = new String[0];
+		} else {
+			check = new String[columnCommercialList.size()];
+		}
+%>
+
+<h2>出演ドラマを選んでください。</h2>
+
+<% if(columnCommercialList != null){ %>
+
+	<% for(int i = 0; i < columnCommercialList.size(); i++){ %>
+		<label>
+			<input type="checkBox" name="commercialList" value="<%= columnCommercialList.get(i).get("commercialId") %>" />
+			<%  out.print(columnCommercialList.get(i).get("commercialName")); %>
 		</label>
 	<% } %>
 <% } %><br style="clear: both" />
