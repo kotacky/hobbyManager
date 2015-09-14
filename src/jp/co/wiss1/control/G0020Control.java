@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0020Model;
+import jp.co.wiss1.model.G0023Model;
 
 @WebServlet("/G0020Control")
 public class G0020Control extends HttpServlet{
@@ -50,12 +51,18 @@ public class G0020Control extends HttpServlet{
 		if ("insert".equals(processDiv)){
 
 			//会社名リストとコンテンツリストを受け取る
-			List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
-			List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
+			List <HashMap<String,String>> columnCompanyList = G0023Model.getColumnCompanyList();
+			List <HashMap<String,String>> columnMagazineList = G0023Model.getColumnMagazineList();
+			List <HashMap<String,String>> columnDramaList = G0023Model.getColumnDramaList();
+			List <HashMap<String,String>> columnMovieList = G0023Model.getColumnMovieList();
+			List <HashMap<String,String>> columnCommercialList = G0023Model.getColumnCommercialList();
 
 			// 会社名リストとコンテンツリストをViewへ送る
 			request.setAttribute("columnCompanyList",columnCompanyList);
-			request.setAttribute("columnContentsList",columnContentsList);
+			request.setAttribute("columnMagazineList",columnMagazineList);
+			request.setAttribute("columnDramaList",columnDramaList);
+			request.setAttribute("columnMovieList",columnMovieList);
+			request.setAttribute("columnCommercialList",columnCommercialList);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0021View.jsp");
 			dispatch.forward(request, response);
 
@@ -82,12 +89,18 @@ public class G0020Control extends HttpServlet{
 				List <HashMap<String,String>> actressList = G0020Model.getActressList(updateActressId,"");
 
 				//会社名リストとコンテンツリストを受け取る
-				List <HashMap<String,String>> columnCompanyList = G0020Model.getColumnCompanyList();
-				List <HashMap<String,String>> columnContentsList = G0020Model.getColumnContentsList();
+				List <HashMap<String,String>> columnCompanyList = G0023Model.getColumnCompanyList();
+				List <HashMap<String,String>> columnMagazineList = G0023Model.getColumnMagazineList();
+				List <HashMap<String,String>> columnDramaList = G0023Model.getColumnDramaList();
+				List <HashMap<String,String>> columnMovieList = G0023Model.getColumnMovieList();
+				List <HashMap<String,String>> columnCommercialList = G0023Model.getColumnCommercialList();
 
 				//会社名リストとコンテンツリストをViewへ送る
 				request.setAttribute("columnCompanyList",columnCompanyList);
-				request.setAttribute("columnContentsList",columnContentsList);
+				request.setAttribute("columnMagazineList",columnMagazineList);
+				request.setAttribute("columnDramaList",columnDramaList);
+				request.setAttribute("columnMovieList",columnMovieList);
+				request.setAttribute("columnCommercialList",columnCommercialList);
 
 				//更新するリストをView送る
 				request.setAttribute("actressList",actressList);
