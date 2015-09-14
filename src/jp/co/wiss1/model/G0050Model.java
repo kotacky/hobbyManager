@@ -63,13 +63,13 @@ public class G0050Model {
 
 	        	   HashMap<String, String> dramaInfo = new HashMap<String, String>();
 	        	   dramaInfo.put("dramaId", resultSet.getString("drama_id"));
-	        	   dramaInfo.put("dramaname", resultSet.getString("drama_title"));
+	        	   dramaInfo.put("dramaName", resultSet.getString("drama_title"));
 	        	   dramaInfo.put("broadcastCool", resultSet.getString("broadcast_cool"));
 
 	        	   dramaList.add(dramaInfo);
 
 	            	System.out.println(dramaInfo.get("dramaId"));						//リストに入ったかの確認
-	            	System.out.println(dramaInfo.get("dramaTitle"));
+	            	System.out.println(dramaInfo.get("dramaName"));
 	            	System.out.println(dramaInfo.get("broadcastCool"));
 	            }
 
