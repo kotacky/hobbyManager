@@ -35,7 +35,7 @@ public class G0052Model {
         	connection.setAutoCommit(true);
 
 
-            String sql = "UPDATE t_drama SET";
+            String sql = "UPDATE t_dramas SET";
             	if(!"". equals(dramaId)){
             		sql = sql+ " drama_title = '"+ dramaTitle +"', "
             		+ " broadcast_cool = '"+ broadcastCool +"' WHERE"
