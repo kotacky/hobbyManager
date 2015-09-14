@@ -57,18 +57,6 @@
 	<% } %>
 </SELECT>
 
-<%
-	List<HashMap<String, String>> columnMagazineList = (List<HashMap<String, String>>)request.getAttribute("columnMagazineList");
-%>
-
-<h2>表紙を飾った雑誌を一つ選んでください。</h2>
-
-<SELECT name="companyId">
-	<% for(int i = 0 ;i<columnMagazineList.size(); i++){ %>
-	<option value="<%= columnMagazineList.get(i).get("magazineId") %>">
-	<%  out.print(columnMagazineList.get(i).get("magazineName")); %>
-	<% } %>
-</SELECT>
 
 <%
 	List<HashMap<String, String>> columnDramaList = (List<HashMap<String, String>>)request.getAttribute("columnDramaList");
@@ -114,27 +102,6 @@
 	<% } %>
 <% } %><br style="clear: both" />
 
-<%
-	List<HashMap<String, String>> columnCommercialList = (List<HashMap<String, String>>)request.getAttribute("columnCommercialList");
-		check = null;
-		if (columnCommercialList == null) {
-			check = new String[0];
-		} else {
-			check = new String[columnCommercialList.size()];
-		}
-%>
-
-<h2>出演ドラマを選んでください。</h2>
-
-<% if(columnCommercialList != null){ %>
-
-	<% for(int i = 0; i < columnCommercialList.size(); i++){ %>
-		<label>
-			<input type="checkBox" name="commercialList" value="<%= columnCommercialList.get(i).get("commercialId") %>" />
-			<%  out.print(columnCommercialList.get(i).get("commercialName")); %>
-		</label>
-	<% } %>
-<% } %><br style="clear: both" />
 
 		<input type="submit" value="登録">
 	</form>
