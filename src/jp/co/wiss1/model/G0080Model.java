@@ -43,11 +43,13 @@ public class G0080Model {
 		        				+"t_employee.employee_first_name, "
 		        				+"t_actress.actress_id, "
 		        				+"t_actress.actress_name, "
-		        				+"t_dramas.drama_title "
+		        				+"t_dramas.drama_title, "
+		        				+"t_movie.movie_title "
 		        				+"FROM "
 		        				+"t_preference "
 		        				+"INNER JOIN "
 		        				+"t_actress INNER JOIN t_dramas ON t_actress.drama_id = t_dramas.drama_id "
+		        				+"INNER JOIN t_movie ON t_actress.movie_id = t_movie.movie_id "
 		        				+"ON t_preference.actress_id = t_actress.actress_id "
 		        				+"INNER JOIN t_employee ON t_preference.employee_id = t_employee.employee_id where ";
 
@@ -78,7 +80,10 @@ public class G0080Model {
 	        	   preferenceInfo.put("employeeFamilyName", resultSet.getString("employee_family_name"));
 	        	   preferenceInfo.put("employeeFirstName", resultSet.getString("employee_first_name"));
 	        	   preferenceInfo.put("actressName", resultSet.getString("actress_name"));
+	        	   //preferenceInfo.put("magazineName", resultSet.getString("magazine_name"));
 	        	   preferenceInfo.put("dramaName", resultSet.getString("drama_title"));
+	        	   preferenceInfo.put("movieName", resultSet.getString("movie_title"));
+	        	   //preferenceInfo.put("commercialName", resultSet.getString("commercial_name"));
 	        	   preferenceInfo.put("actressId", resultSet.getString("actress_id"));
 
 
@@ -90,11 +95,14 @@ public class G0080Model {
 	        	   System.out.println(preferenceInfo.get("employeeFirstName"));
 	        	   System.out.println(preferenceInfo.get("actressId"));
 	        	   System.out.println(preferenceInfo.get("actressName"));
-	        	   System.out.println(preferenceInfo.get("dramaName"));								//リストに入ったかの確認
+	        	   //System.out.println(preferenceInfo.get("magazineName"));
+	        	   System.out.println(preferenceInfo.get("dramaName"));
+	        	   System.out.println(preferenceInfo.get("movieName"));
+	        	   //System.out.println(preferenceInfo.get("commercialName"));			//リストに入ったかの確認
 
 	            }
 				for(int i = 1; i <= preferenceList.size(); i++){
-					String str;
+					String dramaTitle, movieTitle, commercialName;
 					//HashMapを作る
 					HashMap<String, String> employeePreference = new HashMap<String, String>();
 					//HashMapに情報を追加する
@@ -102,9 +110,14 @@ public class G0080Model {
 					employeePreference.put("employeeFamilyName", preferenceList.get(i-1).get("employeeFamilyName"));
 					employeePreference.put("employeeFirstName", preferenceList.get(i-1).get("employeeFirstName"));
 					employeePreference.put("actressName", preferenceList.get(i-1).get("actressName"));
-					str = preferenceList.get(i-1).get("dramaName");
+					//employeePreference.put("magazineName", preferenceList.get(i-1).get("magazineName"));
+					dramaTitle = preferenceList.get(i-1).get("dramaName");
+					movieTitle = preferenceList.get(i-1).get("movieName");
+					//commercialName = preferenceList.get(i-1).get("commercialName");
 					if(i == preferenceList.size()){
-						employeePreference.put("dramaName", str);
+						employeePreference.put("dramaName", dramaTitle);
+						employeePreference.put("movieName", movieTitle);
+						//employeePreference.put("commercialName", commercialName);
 						preferList.add(employeePreference);
 						break;
 					}
@@ -112,7 +125,9 @@ public class G0080Model {
 						for(int j = 0; j < preferenceList.size(); j++){
 							if(preferenceList.get(i-1).get("actressId").equals(preferenceList.get(i).get("actressId"))
 									&& preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
-								str += "、"+preferenceList.get(i).get("dramaName");
+								dramaTitle += "、"+preferenceList.get(i).get("dramaName");
+								movieTitle += "、"+preferenceList.get(i).get("movieName");
+								//commercialName += "、"+preferenceList.get(i).get("commercialName");
 								i++;
 							}else{
 								break;
@@ -122,10 +137,14 @@ public class G0080Model {
 								break;
 							}
 						}
-						employeePreference.put("dramaName", str);
+						employeePreference.put("dramaName", dramaTitle);
+						employeePreference.put("movieName", movieTitle);
+						//employeePreference.put("commercialName", commercialName);
 						preferList.add(employeePreference);
 					}else{
-						employeePreference.put("dramaName", str);
+						employeePreference.put("dramaName", dramaTitle);
+						employeePreference.put("movieName", movieTitle);
+						//employeePreference.put("commercialName", commercialName);
 						preferList.add(employeePreference);
 						continue;
 					}
