@@ -43,11 +43,11 @@ public class G0080Model {
 		        				+"t_employee.employee_first_name, "
 		        				+"t_actress.actress_id, "
 		        				+"t_actress.actress_name, "
-		        				+"t_contents.contents_name "
+		        				+"t_dramas.drama_title "
 		        				+"FROM "
 		        				+"t_preference "
 		        				+"INNER JOIN "
-		        				+"t_actress INNER JOIN t_contents ON t_actress.contents_id = t_contents.contents_id "
+		        				+"t_actress INNER JOIN t_dramas ON t_actress.drama_id = t_dramas.drama_id "
 		        				+"ON t_preference.actress_id = t_actress.actress_id "
 		        				+"INNER JOIN t_employee ON t_preference.employee_id = t_employee.employee_id where ";
 
@@ -78,7 +78,7 @@ public class G0080Model {
 	        	   preferenceInfo.put("employeeFamilyName", resultSet.getString("employee_family_name"));
 	        	   preferenceInfo.put("employeeFirstName", resultSet.getString("employee_first_name"));
 	        	   preferenceInfo.put("actressName", resultSet.getString("actress_name"));
-	        	   preferenceInfo.put("contentsName", resultSet.getString("contents_name"));
+	        	   preferenceInfo.put("dramaName", resultSet.getString("drama_title"));
 	        	   preferenceInfo.put("actressId", resultSet.getString("actress_id"));
 
 
@@ -90,36 +90,29 @@ public class G0080Model {
 	        	   System.out.println(preferenceInfo.get("employeeFirstName"));
 	        	   System.out.println(preferenceInfo.get("actressId"));
 	        	   System.out.println(preferenceInfo.get("actressName"));
-	        	   System.out.println(preferenceInfo.get("contentsName"));								//リストに入ったかの確認
+	        	   System.out.println(preferenceInfo.get("dramaName"));								//リストに入ったかの確認
 
 	            }
-				for(int i = 1; i <  preferenceList.size(); i++){
+				for(int i = 1; i <= preferenceList.size(); i++){
 					String str;
 					//HashMapを作る
 					HashMap<String, String> employeePreference = new HashMap<String, String>();
 					//HashMapに情報を追加する
-					/*if(i == preferenceList.size()-1){
-						if(preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
-							employeePreference.put("employeeId", preferenceList.get(i).get("employeeId"));
-							employeePreference.put("employeeFamilyName", preferenceList.get(i).get("employeeFamilyName"));
-							employeePreference.put("employeeFirstName", preferenceList.get(i).get("employeeFirstName"));
-							employeePreference.put("actressName", preferenceList.get(i).get("actressName"));
-							str = preferenceList.get(i-1).get("contentsName");
-							employeePreference.put("contentsName", str);
-							preferList.add(employeePreference);
-						}
-						break;
-					}*/
 					employeePreference.put("employeeId", preferenceList.get(i-1).get("employeeId"));
 					employeePreference.put("employeeFamilyName", preferenceList.get(i-1).get("employeeFamilyName"));
 					employeePreference.put("employeeFirstName", preferenceList.get(i-1).get("employeeFirstName"));
 					employeePreference.put("actressName", preferenceList.get(i-1).get("actressName"));
-					str = preferenceList.get(i-1).get("contentsName");
+					str = preferenceList.get(i-1).get("dramaName");
+					if(i == preferenceList.size()){
+						employeePreference.put("dramaName", str);
+						preferList.add(employeePreference);
+						break;
+					}
 					if(preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
 						for(int j = 0; j < preferenceList.size(); j++){
 							if(preferenceList.get(i-1).get("actressId").equals(preferenceList.get(i).get("actressId"))
 									&& preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
-								str += "、"+preferenceList.get(i).get("contentsName");
+								str += "、"+preferenceList.get(i).get("dramaName");
 								i++;
 							}else{
 								break;
@@ -129,10 +122,10 @@ public class G0080Model {
 								break;
 							}
 						}
-						employeePreference.put("contentsName", str);
+						employeePreference.put("dramaName", str);
 						preferList.add(employeePreference);
 					}else{
-						employeePreference.put("contentsName", str);
+						employeePreference.put("dramaName", str);
 						preferList.add(employeePreference);
 						continue;
 					}
