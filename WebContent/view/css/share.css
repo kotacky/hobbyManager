@@ -39,6 +39,15 @@ div#header h1{
 	padding: 20px 0 15px 0;
 }
 
+div#header h2{
+	font-size: 20px;
+	float: left;
+	width: 500px;
+	color: #333;
+	letter-spacing: 0.05em;
+	padding: 0px 0 0px 0;
+}
+
 /*-------------------------------------*/
 /* グローバルナビゲーション */
 /*-------------------------------------*/
