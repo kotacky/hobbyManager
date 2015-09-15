@@ -120,7 +120,8 @@
 					<Th class="r2">姓</Th>
 					<Th class="r3">名</Th>
 					<Th class="r4">女優名</Th>
-					<Th class="r4">出演作品</Th>
+					<Th class="r4">出演ドラマ</Th>
+					<Th class="r4">出演映画</Th>
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
@@ -133,6 +134,7 @@
 					<Td class="r3"><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Td>
 					<Td class="r4"><% out.print(preferenceList.get(i).get("actressName")); %></Td>
 					<Td class="r4"><% out.print(preferenceList.get(i).get("dramaName")); %></Td>
+					<Td class="r4"><% out.print(preferenceList.get(i).get("movieName")); %></Td>
 
 				</Tr>
 <% } %>
