@@ -132,7 +132,7 @@
 					<Td class="r2"><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Td>
 					<Td class="r3"><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Td>
 					<Td class="r4"><% out.print(preferenceList.get(i).get("actressName")); %></Td>
-					<Td class="r4"><% out.print(preferenceList.get(i).get("contentsName")); %></Td>
+					<Td class="r4"><% out.print(preferenceList.get(i).get("dramaName")); %></Td>
 
 				</Tr>
 <% } %>
