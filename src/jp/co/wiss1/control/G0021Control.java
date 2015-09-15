@@ -28,15 +28,15 @@ public class G0021Control extends HttpServlet{
 		String actressName =request.getParameter("actressName");
 		String companyId =request.getParameter("companyId");
 		boolean successFlag = true;
-		String[]  contentsIdList  = request.getParameterValues("contentsList") ;
-
-		if( contentsIdList == null){
+		String[]  dramaIdList  = request.getParameterValues("dramaList") ;
+		String[]  movieIdList  = request.getParameterValues("movieList") ;
+		if( dramaIdList == null){
 			successFlag = false;
 		}
 		else{
-			for(int i = 0;i < contentsIdList.length; i++){
+			for(int i = 0;i < dramaIdList.length; i++){
 				//登録する項目を送る
-				int ret = G0021Model.insertActress(companyId,actressName,actressId,contentsIdList[i]);
+				int ret = G0021Model.insertActress(companyId,actressName,actressId,dramaIdList[i],movieIdList[i]);
 				if (ret == 0) {
 					successFlag = false;
 					break;
