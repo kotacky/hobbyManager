@@ -40,13 +40,17 @@ public class G0021Model {
             	insertSql = insertSql + "(company_id"
             			+ ",actress_name"
             			+ ",actress_id"
+            			+ ",magazine_id"
             			+ ",drama_id"
-            			+ ",movie_id)"
+            			+ ",movie_id"
+            			+ ",commercial_id)"
             			+ "VALUES('" + companyId + "'"
             			+ ",'" + actressName + "'"
 						+ ",'" + actressId + "'"
+						+ ",'" + 1 + "'"
 						+ ",'" + dramaId + "'"
-						+ ",'" + movieId + "')";
+						+ ",'" + movieId + "'"
+						+ ",'" + 2 + "')";
 
             	insertCount = statement.executeUpdate(insertSql);
             }
