@@ -29,9 +29,10 @@ public class G0022Control extends HttpServlet{
 		String actressName =request.getParameter("actressName");
 		String companyId =request.getParameter("companyId");
 		boolean successFlag = true;
-		String[]  contentsIdList  = request.getParameterValues("contentsList") ;
+		String[]  dramaIdList  = request.getParameterValues("dramaList") ;
+		String[]  movieIdList  = request.getParameterValues("movieList") ;
 
-		if(contentsIdList == null){
+		if(dramaIdList == null){
 		   successFlag = false;
 		}else{
 			//delete,insertの処理
@@ -40,9 +41,9 @@ public class G0022Control extends HttpServlet{
 
 			//削除対象の主キーを送る
 			G0020Model.deleteActress(deleteActressId);
-			for(int i = 0;i < contentsIdList.length; i++){
+			for(int i = 0;i < dramaIdList.length; i++){
 				//登録する項目を送る
-				int ret = G0021Model.insertActress(companyId,actressName,actressId,contentsIdList[i]);
+				int ret = G0021Model.insertActress(companyId,actressName,actressId,dramaIdList[i],movieIdList[i]);
 				if (ret == 0) {
 					successFlag = false;
 					break;
