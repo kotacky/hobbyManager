@@ -41,7 +41,7 @@ public class G0051Model {
              {
              	insertSql = insertSql + "(drama_id"
              			+ ",drama_title"
-             			+ ",broadcasting_cool)"
+             			+ ",broadcast_cool)"
              			+ "VALUES('" + dramaId + "'"
              			+ ",'" + dramaTitle + "'"
  						+ ",'" +  broadcastCool + "')";
