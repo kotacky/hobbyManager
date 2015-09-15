@@ -10,11 +10,11 @@ public class G0021Model {
 
 	public static void main(String args[])
 	{
-		insertActress("310" , "南沢　奈央" , "210" , "425");
+		//insertActress("310" , "南沢　奈央" , "210" , "425");
 	}
 
 
-	public static int insertActress(String companyId , String actressName , String actressId , String contentsId) ////所属会社テーブルにINSERTするメソッド
+	public static int insertActress(String companyId , String actressName , String actressId , String dramaId , String movieId) ////所属会社テーブルにINSERTするメソッド
 	{
 
 		//各変数を宣言、初期化
@@ -40,11 +40,13 @@ public class G0021Model {
             	insertSql = insertSql + "(company_id"
             			+ ",actress_name"
             			+ ",actress_id"
-            			+ ",contents_id)"
+            			+ ",drama_id"
+            			+ ",movie_id)"
             			+ "VALUES('" + companyId + "'"
             			+ ",'" + actressName + "'"
 						+ ",'" + actressId + "'"
-						+ ",'" + contentsId + "')";
+						+ ",'" + dramaId + "'"
+						+ ",'" + movieId + "')";
 
             	insertCount = statement.executeUpdate(insertSql);
             }
@@ -57,7 +59,8 @@ public class G0021Model {
             System.out.println("引数に" + companyId + "が入力されました。");
             System.out.println("引数に" + actressName + "が入力されました。");
             System.out.println("引数に" + actressId + "が入力されました。");
-            System.out.println("引数に" + contentsId + "が入力されました。");
+            System.out.println("引数に" + dramaId + "が入力されました。");
+            System.out.println("引数に" + movieId + "が入力されました。");
 
             //どのようなSQL文が入っているか出力
             System.out.println(insertSql);
