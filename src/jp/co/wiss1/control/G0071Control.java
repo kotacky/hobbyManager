@@ -23,11 +23,11 @@ public class G0071Control extends HttpServlet{
 
 		//登録に必要な情報を受け取る
 		String commercialId = request.getParameter("commercialId");
-		String title = request.getParameter("commercialName");
+		String commercialName = request.getParameter("commercialName");
 		String sponserName = request.getParameter("sponserName");
 
 		//登録のメソッドを呼び出す
-		int insertFlag = G0071Model.insertCommercial(commercialId, title, sponserName);
+		int insertFlag = G0071Model.insertCommercial(commercialId, commercialName, sponserName);
 
 		//登録完了フラグを送る
 		request.setAttribute("insertFlag",insertFlag);
