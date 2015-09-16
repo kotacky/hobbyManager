@@ -22,12 +22,12 @@ public class G0042Control extends HttpServlet{
 
 		//更新②の処理
 		//更新する内容を受け取る
-		String contentsId = request.getParameter("contentsId");
-		String title = request.getParameter("contentsName");
-		String broadCast = request.getParameter("broadCast");
+		String magazineId = request.getParameter("magazineId");
+		String magazineName = request.getParameter("magazineName");
+		String publisherName = request.getParameter("publisherName");
 
 		//更新するメソッドを呼び出す
-		int updateFlag = G0042Model.updateContents(contentsId, title, broadCast);
+		int updateFlag = G0042Model.updateMagazine(magazineId, magazineName, publisherName);
 
 		//更新完了フラグを送る
 		if(updateFlag == 1){
