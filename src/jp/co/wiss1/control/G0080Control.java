@@ -41,9 +41,9 @@ public class G0080Control extends HttpServlet{
 			request.setAttribute("preferenceList", preferenceList);
 
 			//検索条件保持のために送る
-			request.setAttribute("employeeList", employeeId);
-			request.setAttribute("actressList", familyName);
-			request.setAttribute("contentsList", firstName);
+			request.setAttribute("employeeId", employeeId);
+			request.setAttribute("employeeFamilyName", familyName);
+			request.setAttribute("employeeFirstName", firstName);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0080View.jsp");
 			dispatch.forward(request, response);
 		}
