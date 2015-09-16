@@ -43,13 +43,17 @@ public class G0080Model {
 		        				+"t_employee.employee_first_name, "
 		        				+"t_actress.actress_id, "
 		        				+"t_actress.actress_name, "
+		        				+"t_magazine.magazine_name, "
 		        				+"t_dramas.drama_title, "
-		        				+"t_movie.movie_title "
+		        				+"t_movie.movie_title, "
+		        				+"t_commercial.commercial_name "
 		        				+"FROM "
 		        				+"t_preference "
 		        				+"INNER JOIN "
 		        				+"t_actress INNER JOIN t_dramas ON t_actress.drama_id = t_dramas.drama_id "
 		        				+"INNER JOIN t_movie ON t_actress.movie_id = t_movie.movie_id "
+		        				+"INNER JOIN t_magazine ON t_actress.magazine_id = t_magazine.magazine_id "
+		        				+"INNER JOIN t_commercial ON t_actress.commercial_id = t_commercial.commercial_id "
 		        				+"ON t_preference.actress_id = t_actress.actress_id "
 		        				+"INNER JOIN t_employee ON t_preference.employee_id = t_employee.employee_id where ";
 
