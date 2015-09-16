@@ -157,7 +157,7 @@ public class G0023Model {
 	    }
 	    return columnMovieList;
 	}
-/*
+
 	public static List<HashMap<String,String>> getColumnCommercialList() //チェックボックスに必要な雑誌データを送るメソッド
 	{
 		List<HashMap<String,String>> columnCommercialList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
@@ -226,7 +226,7 @@ public class G0023Model {
 	    	System.out.println("一覧取得処理終了");
 	    }
 	    return columnCommercialList;
-	}*/
+	}
 
 //クラス0020に入れる予定のメソッド
 
@@ -305,7 +305,7 @@ public class G0023Model {
         }
         return columnCompanyList;
 	}
-/*
+
 	public static List<HashMap<String,String>> getColumnMagazineList() //プルダウン表示に必要な会社データを送るメソッド
 	{
 		List<HashMap<String,String>> columnMagazineList = new ArrayList<HashMap<String,String>>() ;//DBから取得したデータを詰める
@@ -381,5 +381,5 @@ public class G0023Model {
         }
         return columnMagazineList;
 	}
-*/
+
 }
