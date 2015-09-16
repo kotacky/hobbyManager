@@ -80,10 +80,10 @@ public class G0080Model {
 	        	   preferenceInfo.put("employeeFamilyName", resultSet.getString("employee_family_name"));
 	        	   preferenceInfo.put("employeeFirstName", resultSet.getString("employee_first_name"));
 	        	   preferenceInfo.put("actressName", resultSet.getString("actress_name"));
-	        	   //preferenceInfo.put("magazineName", resultSet.getString("magazine_name"));
+	        	   preferenceInfo.put("magazineName", resultSet.getString("magazine_name"));
 	        	   preferenceInfo.put("dramaName", resultSet.getString("drama_title"));
 	        	   preferenceInfo.put("movieName", resultSet.getString("movie_title"));
-	        	   //preferenceInfo.put("commercialName", resultSet.getString("commercial_name"));
+	        	   preferenceInfo.put("commercialName", resultSet.getString("commercial_name"));
 	        	   preferenceInfo.put("actressId", resultSet.getString("actress_id"));
 
 
@@ -95,10 +95,10 @@ public class G0080Model {
 	        	   System.out.println(preferenceInfo.get("employeeFirstName"));
 	        	   System.out.println(preferenceInfo.get("actressId"));
 	        	   System.out.println(preferenceInfo.get("actressName"));
-	        	   //System.out.println(preferenceInfo.get("magazineName"));
+	        	   System.out.println(preferenceInfo.get("magazineName"));
 	        	   System.out.println(preferenceInfo.get("dramaName"));
 	        	   System.out.println(preferenceInfo.get("movieName"));
-	        	   //System.out.println(preferenceInfo.get("commercialName"));			//リストに入ったかの確認
+	        	   System.out.println(preferenceInfo.get("commercialName"));			//リストに入ったかの確認
 
 	            }
 				for(int i = 1; i <= preferenceList.size(); i++){
@@ -110,14 +110,14 @@ public class G0080Model {
 					employeePreference.put("employeeFamilyName", preferenceList.get(i-1).get("employeeFamilyName"));
 					employeePreference.put("employeeFirstName", preferenceList.get(i-1).get("employeeFirstName"));
 					employeePreference.put("actressName", preferenceList.get(i-1).get("actressName"));
-					//employeePreference.put("magazineName", preferenceList.get(i-1).get("magazineName"));
+					employeePreference.put("magazineName", preferenceList.get(i-1).get("magazineName"));
 					dramaTitle = preferenceList.get(i-1).get("dramaName");
 					movieTitle = preferenceList.get(i-1).get("movieName");
-					//commercialName = preferenceList.get(i-1).get("commercialName");
+					commercialName = preferenceList.get(i-1).get("commercialName");
 					if(i == preferenceList.size()){
 						employeePreference.put("dramaName", dramaTitle);
 						employeePreference.put("movieName", movieTitle);
-						//employeePreference.put("commercialName", commercialName);
+						employeePreference.put("commercialName", commercialName);
 						preferList.add(employeePreference);
 						break;
 					}
@@ -127,7 +127,7 @@ public class G0080Model {
 									&& preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
 								dramaTitle += "、"+preferenceList.get(i).get("dramaName");
 								movieTitle += "、"+preferenceList.get(i).get("movieName");
-								//commercialName += "、"+preferenceList.get(i).get("commercialName");
+								commercialName += "、"+preferenceList.get(i).get("commercialName");
 								i++;
 							}else{
 								break;
@@ -139,12 +139,12 @@ public class G0080Model {
 						}
 						employeePreference.put("dramaName", dramaTitle);
 						employeePreference.put("movieName", movieTitle);
-						//employeePreference.put("commercialName", commercialName);
+						employeePreference.put("commercialName", commercialName);
 						preferList.add(employeePreference);
 					}else{
 						employeePreference.put("dramaName", dramaTitle);
 						employeePreference.put("movieName", movieTitle);
-						//employeePreference.put("commercialName", commercialName);
+						employeePreference.put("commercialName", commercialName);
 						preferList.add(employeePreference);
 						continue;
 					}
