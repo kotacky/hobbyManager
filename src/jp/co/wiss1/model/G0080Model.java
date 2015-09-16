@@ -106,7 +106,7 @@ public class G0080Model {
 
 	            }
 				for(int i = 1; i <= preferenceList.size(); i++){
-					String dramaTitle, movieTitle, commercialName;
+					String magazineName, dramaTitle, movieTitle, commercialName;
 					//HashMapを作る
 					HashMap<String, String> employeePreference = new HashMap<String, String>();
 					//HashMapに情報を追加する
@@ -114,11 +114,12 @@ public class G0080Model {
 					employeePreference.put("employeeFamilyName", preferenceList.get(i-1).get("employeeFamilyName"));
 					employeePreference.put("employeeFirstName", preferenceList.get(i-1).get("employeeFirstName"));
 					employeePreference.put("actressName", preferenceList.get(i-1).get("actressName"));
-					employeePreference.put("magazineName", preferenceList.get(i-1).get("magazineName"));
+					magazineName = preferenceList.get(i-1).get("magazineName");
 					dramaTitle = preferenceList.get(i-1).get("dramaName");
 					movieTitle = preferenceList.get(i-1).get("movieName");
 					commercialName = preferenceList.get(i-1).get("commercialName");
 					if(i == preferenceList.size()){
+						employeePreference.put("magazineName", magazineName);
 						employeePreference.put("dramaName", dramaTitle);
 						employeePreference.put("movieName", movieTitle);
 						employeePreference.put("commercialName", commercialName);
@@ -129,9 +130,18 @@ public class G0080Model {
 						for(int j = 0; j < preferenceList.size(); j++){
 							if(preferenceList.get(i-1).get("actressId").equals(preferenceList.get(i).get("actressId"))
 									&& preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
-								dramaTitle += "、"+preferenceList.get(i).get("dramaName");
-								movieTitle += "、"+preferenceList.get(i).get("movieName");
-								commercialName += "、"+preferenceList.get(i).get("commercialName");
+								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
+									magazineName += "、"+preferenceList.get(i).get("magazineName");
+								}
+								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
+									dramaTitle += "、"+preferenceList.get(i).get("dramaName");
+								}
+								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
+									movieTitle += "、"+preferenceList.get(i).get("movieName");
+								}
+								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
+									commercialName += "、"+preferenceList.get(i).get("commercialName");
+								}
 								i++;
 							}else{
 								break;
@@ -141,11 +151,13 @@ public class G0080Model {
 								break;
 							}
 						}
+						employeePreference.put("magazineName", magazineName);
 						employeePreference.put("dramaName", dramaTitle);
 						employeePreference.put("movieName", movieTitle);
 						employeePreference.put("commercialName", commercialName);
 						preferList.add(employeePreference);
 					}else{
+						employeePreference.put("magazineName", magazineName);
 						employeePreference.put("dramaName", dramaTitle);
 						employeePreference.put("movieName", movieTitle);
 						employeePreference.put("commercialName", commercialName);
