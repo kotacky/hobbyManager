@@ -47,7 +47,7 @@ public class G0040Model {
 	        		System.out.println("3:" + sql);
 	        	}
 	        		sql = sql + "publisher_name like '%"+ publisherName +"%'";
-	        		sql = sql + " ORDER BY contents_id";
+	        		sql = sql + " ORDER BY magazine_id";
 	        		System.out.println("4:" + sql);												//sql文終了
 
 	            System.out.println("引数に" + magazineId + "が入力されました。");
@@ -69,7 +69,7 @@ public class G0040Model {
 	        	   magazineList.add(magazineInfo);
 
 	            	System.out.println(magazineInfo.get("magazineId"));						//リストに入ったかの確認
-	            	System.out.println(magazineInfo.get("contentsName"));
+	            	System.out.println(magazineInfo.get("magazineName"));
 	            	System.out.println(magazineInfo.get("broadCast"));
 	            }
 
