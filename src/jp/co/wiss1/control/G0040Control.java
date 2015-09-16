@@ -26,23 +26,23 @@ public class G0040Control extends HttpServlet{
 		String processDiv = request.getParameter("processDiv");
 
 		//処理に必要な情報を受け取る
-		String contentsId = request.getParameter("contentsId");
-		String title = request.getParameter("contentsName");
-		String broadCast = request.getParameter("broadCast");
+		String magazineId = request.getParameter("magazineId");
+		String magazineName = request.getParameter("magazineName");
+		String publisherName = request.getParameter("publisherName");
 
 		//検索の処理
 		if("select".equals(processDiv)){
 
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
-			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
+			List<HashMap<String, String>> magazineList = G0040Model.getMagazineList(magazineId, magazineName, publisherName);
 
 			//検索結果をViewに送る
-			request.setAttribute("contentsList", contentsList);
+			request.setAttribute("magazineList", magazineList);
 
 			//検索条件保持のために送る
-			request.setAttribute("title", title);
-			request.setAttribute("broadCast", broadCast);
-			request.setAttribute("contentsId", contentsId);
+			request.setAttribute("magazineName", magazineName);
+			request.setAttribute("publisherName", publisherName);
+			request.setAttribute("magazineId", magazineId);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -51,16 +51,16 @@ public class G0040Control extends HttpServlet{
 		if("update".equals(processDiv)){
 
 			//更新前の情報を引き出すための主キーを受け取る
-			String updateContentsId = request.getParameter("radioButton");
+			String updateMagazineId = request.getParameter("radioButton");
 
 			//radioButtoがnullでないならば処理を行う
-			if(updateContentsId != null){
+			if(updateMagazineId != null){
 
 				//更新前の情報を検索メソッドで受け取る
-				List<HashMap<String, String>> contentsList = G0040Model.getContentsList(updateContentsId, "", "");
+				List<HashMap<String, String>> magazineList = G0040Model.getMagazineList(updateMagazineId, "", "");
 
 				//更新前の情報を更新ページに飛ばす
-				request.setAttribute("contentsList", contentsList);
+				request.setAttribute("magazineList", magazineList);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0042View.jsp");
 				dispatch.forward(request, response);
 			}else{
@@ -77,13 +77,13 @@ public class G0040Control extends HttpServlet{
 		if("delete".equals(processDiv)){
 
 			//削除に必要な情報を受け取る
-			String deleteContentsId = request.getParameter("radioButton");
+			String deleteMagazineId = request.getParameter("radioButton");
 
 			//radioButtoがnullでないならば処理を行う
-			if(deleteContentsId != null){
+			if(deleteMagazineId != null){
 
 				//デリートのメソッドを呼ぶ
-				int deleteFlag = G0040Model.deleteContents(deleteContentsId);
+				int deleteFlag = G0040Model.deleteMagazine(deleteMagazineId);
 
 				//デリート後のリストと削除完了のフラグを送る
 				if(deleteFlag == 1){
@@ -96,15 +96,15 @@ public class G0040Control extends HttpServlet{
 				request.setAttribute("deleteFlag",0);
 			}
 			//デリート後のリストを検索メソッドで取り出す
-			List<HashMap<String, String>> contentsList = G0040Model.getContentsList(contentsId, title, broadCast);
+			List<HashMap<String, String>> magazineList = G0040Model.getMagazineList(magazineId, magazineName,publisherName);
 
 			//削除処理後のリストを送る
-			request.setAttribute("contentsList", contentsList);
+			request.setAttribute("magazineList", magazineList);
 
 			//検索条件保持のために送る
-			request.setAttribute("contentsId", contentsId);
-			request.setAttribute("title", title);
-			request.setAttribute("broadCast", broadCast);
+			request.setAttribute("magazineId", magazineId);
+			request.setAttribute("magazineName", magazineName);
+			request.setAttribute("publisherName", publisherName);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 			dispatch.forward(request, response);
 		}
