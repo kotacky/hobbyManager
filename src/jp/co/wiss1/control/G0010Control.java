@@ -40,8 +40,8 @@ public class G0010Control extends HttpServlet{
 
 			//検索条件保持のために送る
 			request.setAttribute("employeeId", employeeId);
-			request.setAttribute("familyName", familyName);
-			request.setAttribute("firstName", firstName);
+			request.setAttribute("employeeFamilyName", familyName);
+			request.setAttribute("employeeFirstName", firstName);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -102,8 +102,8 @@ public class G0010Control extends HttpServlet{
 
 			//検索条件保持のために送る
 			request.setAttribute("employeeId", employeeId);
-			request.setAttribute("familyName", familyName);
-			request.setAttribute("firstName", firstName);
+			request.setAttribute("employeeFamilyName", familyName);
+			request.setAttribute("employeeFirstName", firstName);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 			dispatch.forward(request, response);
 		}
