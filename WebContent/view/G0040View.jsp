@@ -101,7 +101,7 @@ if(magazineList != null){
 		èoî≈é–:
 		<input type="text" id="publisherName" name="publisherName" placeholder="èoî≈é–" value="<%= request.getParameter("publisherName") %>" style="text-align: left; ">
 		<input type="button" value="åüçı" onClick="func('select');" /><br />
-		<input type="button" value="êVãKìoò^" onClick="form.action=location.href='../../hobbyManager/view/G0051View.jsp';">
+		<input type="button" value="êVãKìoò^" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';">
 		<input type="button" value="çXêV" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="çÌèú" onClick="func('delete');" <%= disabled %> />
 		<br style="clear" />
