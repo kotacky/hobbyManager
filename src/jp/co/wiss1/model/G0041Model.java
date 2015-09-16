@@ -11,12 +11,12 @@ public class G0041Model {
 	public static void main(String args[])
 	{
 
-		insertContents("" , "子ずれ狼" , "大河ドラマ");
+		insertMagazine("" , "子ずれ狼" , "大河ドラマ");
 
 	}
 
 
-	public static int insertContents(String contentsId , String contentsName , String  broadCast) { //女優テーブル参照
+	public static int insertMagazine(String magazineId , String magazineName , String  publisherName) { //女優テーブル参照
 
 		//各変数を宣言、初期化
     	Connection connection = null;
@@ -37,14 +37,14 @@ public class G0041Model {
         	 String insertSql = "INSERT INTO t_contents";
              System.out.println("1:" + insertSql);
 
-             if(!"".equals(contentsId))
+             if(!"".equals(magazineId))
              {
-             	insertSql = insertSql + "(contents_id"
-             			+ ",contents_name"
-             			+ ",broadcasting_office)"
-             			+ "VALUES('" + contentsId + "'"
-             			+ ",'" + contentsName + "'"
- 						+ ",'" +  broadCast + "')";
+             	insertSql = insertSql + "(magazine_id"
+             			+ ",magazine_name"
+             			+ ",publisher_name)"
+             			+ "VALUES('" + magazineId + "'"
+             			+ ",'" + magazineName + "'"
+ 						+ ",'" +  publisherName + "')";
 
              	insertCount = statement.executeUpdate(insertSql);
              }
@@ -56,9 +56,9 @@ public class G0041Model {
              //String sql0 = "INSERT INTO t_actress (company_id , actress_name , actress_id)"
              //+ " VALUES ('" + cid + "', '" + n + "','" + aid + "')";
 
-             System.out.println("引数に" + contentsId + "が入力されました。");
-             System.out.println("引数に" + contentsName + "が入力されました。");
-             System.out.println("引数に" + broadCast + "が入力されました。");
+             System.out.println("引数に" + magazineId + "が入力されました。");
+             System.out.println("引数に" + magazineName + "が入力されました。");
+             System.out.println("引数に" + publisherName + "が入力されました。");
 
              System.out.println(insertSql);
 
