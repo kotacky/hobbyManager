@@ -85,7 +85,7 @@
 	</label>
 	<% } %>
 	<% } %>
-	<br>
+	<br style="clear: both" />
 
 <h2>出演映画を選んでください。</h2>
 	<%
@@ -107,7 +107,7 @@
 	</label>
 	<% } %>
 	<% } %>
-	<br>
+	<br style="clear: both" />
 
 		<input type="submit" value="更新">
 	</form>
