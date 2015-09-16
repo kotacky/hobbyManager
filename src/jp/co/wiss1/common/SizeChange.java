@@ -20,4 +20,18 @@ public class SizeChange {
 		return size;
 	}
 
+	public static String[] ListChager(int size, String[] changeList){
+		String[] changedList = new String[size];
+		int i = 0;
+		do{
+			if(changeList[i] != null){
+				changedList[i] = changeList[i];
+			}else{
+				changedList[i] = changedList[i-1];
+			}
+			i++;
+		}while(i < size);
+
+		return changedList;
+	}
 }
