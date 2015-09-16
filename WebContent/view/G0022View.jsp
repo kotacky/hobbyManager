@@ -68,21 +68,31 @@
 
 <%
 	List<HashMap<String, String>> columnMagazineList = (List<HashMap<String, String>>)request.getAttribute("columnMagazineList");
+String[] check = null;
+if (columnMagazineList == null) {
+	check = new String[0];
+} else {
+	check = new String[columnMagazineList.size()];
+}
 %>
 
-<h2>表紙を飾った雑誌を一つ選んでください。</h2>
+<h2>表紙を飾った雑誌を選んでください。</h2>
 
-<SELECT name="magazineId">
-	<% for(int i = 0 ;i<columnMagazineList.size(); i++){ %>
-	<option value="<%= columnMagazineList.get(i).get("magazineId") %>">
-	<%  out.print(columnMagazineList.get(i).get("magazineName")); %>
+<% if(columnMagazineList != null){ %>
+
+	<% for(int i = 0; i < columnMagazineList.size(); i++){ %>
+		<label>
+			<input type="checkBox" name="magazineList" value="<%= columnMagazineList.get(i).get("magazineId") %>" />
+			<%  out.print(columnMagazineList.get(i).get("magazineName")); %>
+		</label>
 	<% } %>
-</SELECT>
+<% } %><br style="clear: both" />
+
 
 	<h2>出演ドラマを選んでください。</h2>
 	<%
 		List<HashMap<String, String>> columnDramaList = (List<HashMap<String, String>>)request.getAttribute("columnDramaList");
-		String[] check = null;
+			check = null;
 			if (columnDramaList == null) {
 				check = new String[0];
 			} else {
