@@ -79,11 +79,11 @@
 	<% //C‚ÖŒŸõ‚·‚éðŒ‚ð‘—‚é %>
 	<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0030Control">
 		‰ïŽÐID:
-		<input type="text" name="companyId" placeholder="‰ïŽÐID"  style="text-align: left;">
+		<input type="text" id="companyId" name="companyId" placeholder="‰ïŽÐID"  style="text-align: left;">
 		‰ïŽÐ–¼:
-		<input type="text" name="companyName" placeholder="‰ïŽÐ–¼"  style="text-align: left;">
+		<input type="text" id="companyName" name="companyName" placeholder="‰ïŽÐ–¼"  style="text-align: left;">
 		‰ïŽÐZŠ:
-		<input type="text" name="companyAddress" placeholder="‰ïŽÐZŠ"  style="text-align: left;">
+		<input type="text" id="companyAddress" name="companyAddress" placeholder="‰ïŽÐZŠ"  style="text-align: left;">
 		<input type="submit" value="ŒŸõ" onClick="func('select');"><br />
 		<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0031View.jsp';">
 		<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
