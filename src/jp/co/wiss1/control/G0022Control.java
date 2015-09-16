@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.wiss1.common.EncodingUtils;
+import jp.co.wiss1.common.SizeChange;
 import jp.co.wiss1.model.G0020Model;
 import jp.co.wiss1.model.G0021Model;
 
@@ -29,10 +30,11 @@ public class G0022Control extends HttpServlet{
 		String actressName =request.getParameter("actressName");
 		String companyId =request.getParameter("companyId");
 		boolean successFlag = true;
-		String magazineId =request.getParameter("magazineId");
+		String[]  magazineIdList =request.getParameterValues("magazineId");
 		String[]  dramaIdList  = request.getParameterValues("dramaList") ;
 		String[]  movieIdList  = request.getParameterValues("movieList") ;
 		String[]  commercialIdList  = request.getParameterValues("commercialList") ;
+		int size = 0;
 
 		if(dramaIdList == null){
 		   successFlag = false;
@@ -43,9 +45,14 @@ public class G0022Control extends HttpServlet{
 
 			//削除対象の主キーを送る
 			G0020Model.deleteActress(deleteActressId);
-			for(int i = 0;i < dramaIdList.length; i++){
+			size = SizeChange.SizeChanger(magazineIdList.length, dramaIdList.length, movieIdList.length, commercialIdList.length);
+			magazineIdList = SizeChange.ListChager(size, magazineIdList);
+			dramaIdList = SizeChange.ListChager(size, dramaIdList);
+			movieIdList = SizeChange.ListChager(size, movieIdList);
+			commercialIdList = SizeChange.ListChager(size, commercialIdList);
+			for(int i = 0;i < size; i++){
 				//登録する項目を送る
-				int ret = G0021Model.insertActress(companyId,actressName,actressId,magazineId,dramaIdList[i],movieIdList[i],commercialIdList[i]);
+				int ret = G0021Model.insertActress(companyId,actressName,actressId,magazineIdList[i],dramaIdList[i],movieIdList[i],commercialIdList[i]);
 				if (ret == 0) {
 					successFlag = false;
 					break;
