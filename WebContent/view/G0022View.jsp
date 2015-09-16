@@ -72,7 +72,7 @@
 
 <h2>•\Ž†‚ðü‚Á‚½ŽGŽ‚ðˆê‚Â‘I‚ñ‚Å‚­‚¾‚³‚¢B</h2>
 
-<SELECT name="companyId">
+<SELECT name="magazineId">
 	<% for(int i = 0 ;i<columnMagazineList.size(); i++){ %>
 	<option value="<%= columnMagazineList.get(i).get("magazineId") %>">
 	<%  out.print(columnMagazineList.get(i).get("magazineName")); %>
