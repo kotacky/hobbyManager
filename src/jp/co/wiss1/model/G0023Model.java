@@ -192,15 +192,15 @@ public class G0023Model {
 	       {
 	        	//社員情報を作成する
 	        	HashMap<String, String> commercialInfo = new HashMap<String, String>();
-	        	commercialInfo.put("magazineId", resultSet.getString("commercial_id"));
-	        	commercialInfo.put("magazineName", resultSet.getString("commercial_name"));
+	        	commercialInfo.put("commercialId", resultSet.getString("commercial_id"));
+	        	commercialInfo.put("commercialName", resultSet.getString("commercial_name"));
 
 	        	//社員情報をリストに追加する
 	        	columnCommercialList.add(commercialInfo);
 
 	        	//リストに入ったかの確認
-	        	System.out.println(commercialInfo.get("magazineId"));
-	        	System.out.println(commercialInfo.get("magazineName"));
+	        	System.out.println(commercialInfo.get("commercialId"));
+	        	System.out.println(commercialInfo.get("commercialName"));
 
 			}
 
@@ -353,8 +353,8 @@ public class G0023Model {
             	columnMagazineList.add(magazineInfo);
 
             	//リストに入ったかの確認
-            	System.out.println(magazineInfo.get("companyId"));
-            	System.out.println(magazineInfo.get("companyName"));
+            	System.out.println(magazineInfo.get("magazineId"));
+            	System.out.println(magazineInfo.get("magazineName"));
 
 			}
 
