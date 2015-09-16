@@ -21,9 +21,12 @@
 <body>
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
-			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">映画一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ドラマ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
@@ -44,16 +47,16 @@
 
 	<%-- リストの取得 --%>
 
-<% List<HashMap<String, String>> contentsList = (List<HashMap<String, String>>)request.getAttribute("contentsList"); %>
+<% List<HashMap<String, String>> magazineList = (List<HashMap<String, String>>)request.getAttribute("magazineList"); %>
 
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0042Control">
-		コンテンツID:
-		<input type="text" name="contentsId" readonly value=<% out.print(contentsList.get(0).get("contentsId")); %>><br>
-		コンテンツ名:
-		<input type="text" name=contentsName value=<% out.print(contentsList.get(0).get("contentsName")); %>><br>
-		放送局:
-		<input type="text" name="broadCast" value=<% out.print(contentsList.get(0).get("broadCast")); %>><br>
+		雑誌ID:
+		<input type="text" name="magazineId" readonly value=<% out.print(magazineList.get(0).get("magazineId")); %>><br>
+		雑誌名:
+		<input type="text" name="magazineName" value=<% out.print(magazineList.get(0).get("magazineName")); %>><br>
+		出版社:
+		<input type="text" name="publisherName" value=<% out.print(magazineList.get(0).get("publisherName")); %>><br>
 		<input type="submit" value="更新">
 	</form>
 </body>
