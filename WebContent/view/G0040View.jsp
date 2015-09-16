@@ -6,7 +6,7 @@
 <html lang="ja">
 <head>
 	<meta charset="Windows-31J">
-	<title>新人DB - コンテンツ一覧</title>
+	<title>新人DB - 雑誌一覧</title>
 	<meta name="keywords" content="キーワード" />
 	<meta name="description" content="サイトの説明" />
 	<meta http-equiv="Content-Language" content="ja" />
@@ -25,14 +25,14 @@
 		 }
 
 		function init() {
-			if (document.MyForm.contentsId.value == "null") {
-				document.MyForm.contentsId.value = "";
+			if (document.MyForm.magazineId.value == "null") {
+				document.MyForm.magazineId.value = "";
 			}
-			if (document.MyForm.contentsName.value == "null") {
-				document.MyForm.contentsName.value = "";
+			if (document.MyForm.magazineName.value == "null") {
+				document.MyForm.magazineName.value = "";
 			}
-			if (document.MyForm.broadCast.value == "null") {
-				document.MyForm.broadCast.value = "";
+			if (document.MyForm.publisherName.value == "null") {
+				document.MyForm.publisherName.value = "";
 			}
 		}
 	 </script>
@@ -41,16 +41,19 @@
 <body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
-			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">好み一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">コンテンツ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">映画一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ドラマ一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
 
-	<h1>コンテンツ一覧</h1>
+	<h1>雑誌一覧</h1>
 
 <%-- メッセージの表示 --%>
 
@@ -81,9 +84,9 @@
 	//			contentsList.put("contents_id", "401");
 	//			contentsList.put("contents_name", "八重の桜");
 	//			contentsList.put("summary", "大河ドラマ");
-List<HashMap<String,String>> contentsList = (List<HashMap<String,String>>)request.getAttribute("contentsList");
+List<HashMap<String,String>> magazineList = (List<HashMap<String,String>>)request.getAttribute("magazineList");
 String disabled = "disabled";
-if(contentsList != null){
+if(magazineList != null){
      disabled = "";
 }
 %>
@@ -91,14 +94,14 @@ if(contentsList != null){
 
 <% //Cへ検索する条件を送る %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
-		コンテンツID:
-		<input type="text" id="contentsId" name="contentsId" placeholder="コンテンツID" value="<%= request.getParameter("contentsId") %>" style="text-align: left;">
-		コンテンツ名:
-		<input type="text" id="contentsName" name="contentsName" placeholder="コンテンツ名" value="<%= request.getParameter("contentsName") %>" style="text-align: left; ">
-		放送局:
-		<input type="text" id="broadCast" name="broadCast" placeholder="放送局" value="<%= request.getParameter("broadCast") %>" style="text-align: left; ">
+		雑誌ID:
+		<input type="text" id="magazineId" name="magazineId" placeholder="雑誌ID" value="<%= request.getParameter("magazineId") %>" style="text-align: left;">
+		雑誌名:
+		<input type="text" id="magazineName" name="magazineName" placeholder="雑誌名" value="<%= request.getParameter("magazineName") %>" style="text-align: left; ">
+		出版社:
+		<input type="text" id="publisherName" name="publisherName" placeholder="出版社" value="<%= request.getParameter("publisherName") %>" style="text-align: left; ">
 		<input type="button" value="検索" onClick="func('select');" /><br />
-		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';">
+		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0051View.jsp';">
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 		<br style="clear" />
@@ -113,20 +116,20 @@ if(contentsList != null){
 			<thead class="scrollHead">
 				<tr>
 					<Th class="r0">選択</Th>
-					<Th class="r1">コンテンツID</Th>
-					<Th class="r2">コンテンツ名</Th>
-					<Th class="r3">放送局</Th>
+					<Th class="r1">雑誌ID</Th>
+					<Th class="r2">雑誌名</Th>
+					<Th class="r3">出版社</Th>
 
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
-<% if(contentsList != null){ %>
-<% for(int i = 0; i < contentsList.size(); i++){ %>
+<% if(magazineList != null){ %>
+<% for(int i = 0; i < magazineList.size(); i++){ %>
 					<Tr>
-						<Th class="r0"><input type="radio" name="radioButton" value="<%= contentsList.get(i).get("contentsId") %>"></Th>
-						<Td class="r1"><% out.print(contentsList.get(i).get("contentsId")); %></Td>
-						<Td class="r2"><% out.print(contentsList.get(i).get("contentsName")); %></Td>
-						<Td class="r3"><% out.print(contentsList.get(i).get("broadCast")); %></Td>
+						<Th class="r0"><input type="radio" name="radioButton" value="<%= magazineList.get(i).get("magazineId") %>"></Th>
+						<Td class="r1"><% out.print(magazineList.get(i).get("magazineId")); %></Td>
+						<Td class="r2"><% out.print(magazineList.get(i).get("magazineName")); %></Td>
+						<Td class="r3"><% out.print(magazineList.get(i).get("publisherName")); %></Td>
 
 					</Tr>
 <% } %>
