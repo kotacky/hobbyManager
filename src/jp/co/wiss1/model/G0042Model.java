@@ -13,12 +13,12 @@ public class G0042Model {
 	public static void main(String[] args)
 	{
 		// TODO 自動生成されたメソッド・スタブ
-		updateContents("","","");
+		updateMagazine("","","");
 	}
 
 
 	//ドラマ・映画一覧UPDATE文の実行！！！
-	public static int updateContents(String contentsId , String contentsName , String broadCast) { //社員テーブル参照
+	public static int updateMagazine(String magazineId , String magazineName , String publisherName) { //社員テーブル参照
 
 		Connection connection = null;
     	Statement statement = null;
@@ -35,18 +35,18 @@ public class G0042Model {
         	connection.setAutoCommit(true);
 
 
-            String sql = "UPDATE t_contents SET";
-            	if(!"". equals(contentsId)){
-            		sql = sql+ " contents_name = '"+ contentsName +"', "
-            		+ " broadcasting_office = '"+ broadCast +"' WHERE"
-            		+ " contents_id = '"+ contentsId +"'";
+            String sql = "UPDATE t_magazine SET";
+            	if(!"". equals(magazineId)){
+            		sql = sql+ " magazine_name = '"+ magazineName +"', "
+            		+ " publisher_name = '"+ publisherName +"' WHERE"
+            		+ " magazine_id = '"+ magazineId +"'";
 
                     upDateCount = statement.executeUpdate (sql);
             	}
 
-            System.out.println("引数に" + contentsId + "が入力されました。");
-            System.out.println("引数に" + contentsName + "が入力されました。");
-            System.out.println("引数に" + broadCast + "が入力されました。");
+            System.out.println("引数に" + magazineId + "が入力されました。");
+            System.out.println("引数に" + magazineName + "が入力されました。");
+            System.out.println("引数に" + publisherName + "が入力されました。");
             System.out.println(sql);
 
 
