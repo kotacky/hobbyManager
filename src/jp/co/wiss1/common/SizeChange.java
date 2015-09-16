@@ -24,7 +24,7 @@ public class SizeChange {
 		String[] changedList = new String[size];
 		int i = 0;
 		do{
-			if(changeList[i] != null){
+			if(i < changeList.length){
 				changedList[i] = changeList[i];
 			}else{
 				changedList[i] = changedList[i-1];
