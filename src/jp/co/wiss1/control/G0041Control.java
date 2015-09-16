@@ -22,12 +22,12 @@ public class G0041Control extends HttpServlet{
 		EncodingUtils.responseEncoding(request,response);
 
 		//登録に必要な情報を受け取る
-		String contentsId = request.getParameter("contentsId");
-		String title = request.getParameter("contentsName");
-		String broadCast = request.getParameter("broadCast");
+		String magazineId = request.getParameter("magazineId");
+		String magazineName = request.getParameter("magazineName");
+		String publisherName = request.getParameter("publisherName");
 
 		//登録のメソッドを呼び出す
-		int insertFlag = G0041Model.insertContents(contentsId, title, broadCast);
+		int insertFlag = G0041Model.insertMagazine(magazineId, magazineName, publisherName);
 
 		//登録完了フラグを送る
 		if(insertFlag == 1){
