@@ -23,16 +23,16 @@ public class G0072Control extends HttpServlet{
 		//更新②の処理
 		//更新する内容を受け取る
 		String commercialId = request.getParameter("commercialId");
-		String title = request.getParameter("commercialName");
+		String commercialName = request.getParameter("commercialName");
 		String sponserName = request.getParameter("sponserName");
 
 		//更新するメソッドを呼び出す
-		int updateFlag = G0072Model.updateCommercial(commercialId, title, sponserName);
+		int updateFlag = G0072Model.updateCommercial(commercialId, commercialName, sponserName);
 
 		//更新完了フラグを送る
 		request.setAttribute("updateFlag",updateFlag);
 
-		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0072View.jsp");
+		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0070View.jsp");
 		dispatch.forward(request, response);
 	}
 }
