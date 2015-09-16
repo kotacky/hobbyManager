@@ -133,13 +133,13 @@ public class G0080Model {
 								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
 									magazineName += "、"+preferenceList.get(i).get("magazineName");
 								}
-								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
+								if(!preferenceList.get(i-1).get("dramaTitle").equals(preferenceList.get(i).get("dramaTitle"))){
 									dramaTitle += "、"+preferenceList.get(i).get("dramaName");
 								}
-								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
+								if(!preferenceList.get(i-1).get("movieTitle").equals(preferenceList.get(i).get("movieTitle"))){
 									movieTitle += "、"+preferenceList.get(i).get("movieName");
 								}
-								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
+								if(!preferenceList.get(i-1).get("commercialName").equals(preferenceList.get(i).get("commercialName"))){
 									commercialName += "、"+preferenceList.get(i).get("commercialName");
 								}
 								i++;
