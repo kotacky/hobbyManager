@@ -29,8 +29,10 @@ public class G0022Control extends HttpServlet{
 		String actressName =request.getParameter("actressName");
 		String companyId =request.getParameter("companyId");
 		boolean successFlag = true;
+		String magazineId =request.getParameter("magazineId");
 		String[]  dramaIdList  = request.getParameterValues("dramaList") ;
 		String[]  movieIdList  = request.getParameterValues("movieList") ;
+		String[]  commercialIdList  = request.getParameterValues("commercialList") ;
 
 		if(dramaIdList == null){
 		   successFlag = false;
@@ -43,7 +45,7 @@ public class G0022Control extends HttpServlet{
 			G0020Model.deleteActress(deleteActressId);
 			for(int i = 0;i < dramaIdList.length; i++){
 				//登録する項目を送る
-				int ret = G0021Model.insertActress(companyId,actressName,actressId,dramaIdList[i],movieIdList[i]);
+				int ret = G0021Model.insertActress(companyId,actressName,actressId,magazineId,dramaIdList[i],movieIdList[i],commercialIdList[i]);
 				if (ret == 0) {
 					successFlag = false;
 					break;
