@@ -30,7 +30,7 @@ public class G0022Control extends HttpServlet{
 		String actressName =request.getParameter("actressName");
 		String companyId =request.getParameter("companyId");
 		boolean successFlag = true;
-		String[]  magazineIdList =request.getParameterValues("magazineId");
+		String[]  magazineIdList =request.getParameterValues("magazineList");
 		String[]  dramaIdList  = request.getParameterValues("dramaList") ;
 		String[]  movieIdList  = request.getParameterValues("movieList") ;
 		String[]  commercialIdList  = request.getParameterValues("commercialList") ;
