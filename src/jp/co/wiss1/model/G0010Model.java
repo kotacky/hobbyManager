@@ -17,11 +17,9 @@ public class G0010Model//git
 	 * 社員一覧取得メソッド
 	 * @return List 社員情報
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		getEmployeeList("119" , "" , "");
 		deleteEmployee("0");
-
 	}
 
 
