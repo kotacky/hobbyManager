@@ -23,11 +23,12 @@ public class G0010Control extends HttpServlet{
 
 		//Viewから処理命令を受け取る
 		String processDiv = request.getParameter("processDiv");
-
+		String employeeAuthority = request.getParameter("employeeAuthority");
 		//処理に必要な情報を受け取る
 		String employeeId = request.getParameter("employeeId");
 		String familyName = request.getParameter("employeeFamilyName");
 		String firstName = request.getParameter("employeeFirstName");
+
 
 		//検索の処理
 		if("select".equals(processDiv)){
@@ -37,6 +38,7 @@ public class G0010Control extends HttpServlet{
 
 			//検索結果をViewに送る
 			request.setAttribute("employeeList", employeeList);
+			request.setAttribute("employeeAuthority", employeeAuthority);
 
 			//検索条件保持のために送る
 			request.setAttribute("employeeId", employeeId);
@@ -59,12 +61,14 @@ public class G0010Control extends HttpServlet{
 				List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(updateEmployeeId, "", "");
 
 				//更新前の情報を更新ページに飛ばす
+				request.setAttribute("employeeAuthority", employeeAuthority);
 				request.setAttribute("employeeList", employeeList);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0012View.jsp");
 				dispatch.forward(request, response);
 			}else{
 				//nullのとき処理を行わずに返す
 				int updateFlag = 0;
+				request.setAttribute("employeeAuthority", employeeAuthority);
 				request.setAttribute("updateFlag",updateFlag);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 				dispatch.forward(request, response);
@@ -95,10 +99,11 @@ public class G0010Control extends HttpServlet{
 			}
 
 			//デリート後のリストを検索メソッドで取り出す
-			List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId,familyName,firstName);
+			List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId, familyName, firstName);
 
 			//削除処理後のリストを送る
 			request.setAttribute("employeeList",employeeList);
+			request.setAttribute("employeeAuthority", employeeAuthority);
 
 			//検索条件保持のために送る
 			request.setAttribute("employeeId", employeeId);
