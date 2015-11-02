@@ -25,10 +25,15 @@ public class G0011Control extends HttpServlet{
 		String employeeFamilyName = request.getParameter("employeeFamilyName");
 		String employeeFirstName = request.getParameter("employeeFirstName");
 		String employeeBirth = request.getParameter("birthDate");
+		String employeeFrom = request.getParameter("employeeFrom");
+		String employeeBloodType = request.getParameter("employeeBloodType");
+		String employeeAuthority = request.getParameter("employeeAuthority");
+		String employeePassword = request.getParameter("employeePassword");
+
 
 		//Modelに引数を渡しinsert処理を実行させる
 		int insertFlag =
-		G0011Model.insertEmployee(employeeId, employeeFamilyName, employeeFirstName, employeeBirth);
+		G0011Model.insertEmployee(employeeId, employeeFamilyName, employeeFirstName, employeeBirth,employeeFrom,employeeBloodType,employeeAuthority,employeePassword);
 
 		//Viewに渡すフラグを設定
 		if(insertFlag == 1){
