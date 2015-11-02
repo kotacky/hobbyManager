@@ -25,9 +25,11 @@ public class G0052Control extends HttpServlet{
 		String dramaId = request.getParameter("dramaId");
 		String title = request.getParameter("dramaName");
 		String broadcastCool = request.getParameter("broadcastCool");
+		String television = request.getParameter("television");
+		String genre = request.getParameter("genre");
 
 		//更新するメソッドを呼び出す
-		int updateFlag = G0052Model.updateDrama(dramaId, title, broadcastCool);
+		int updateFlag = G0052Model.updateDrama(dramaId, title, broadcastCool,television ,genre );
 
 		//更新完了フラグを送る
 

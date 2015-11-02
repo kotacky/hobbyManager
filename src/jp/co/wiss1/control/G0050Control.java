@@ -29,12 +29,14 @@ public class G0050Control extends HttpServlet{
 		String dramaId = request.getParameter("dramaId");
 		String title = request.getParameter("dramaName");
 		String broadcastCool = request.getParameter("broadcastCool");
+		String television = request.getParameter("television");
+		String genre = request.getParameter("genre");
 
 		//検索の処理
 		if("select".equals(processDiv)){
 
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
-			List<HashMap<String, String>> dramaList = G0050Model.getDramaList(dramaId, title, broadcastCool);
+			List<HashMap<String, String>> dramaList = G0050Model.getDramaList(dramaId, title, broadcastCool,television ,genre );
 
 			//検索結果をViewに送る
 			request.setAttribute("dramaList", dramaList);
@@ -43,6 +45,8 @@ public class G0050Control extends HttpServlet{
 			request.setAttribute("dramaName", title);
 			request.setAttribute("broadcastCool", broadcastCool);
 			request.setAttribute("dramaId", dramaId);
+			request.setAttribute("television", television);
+			request.setAttribute("genre", genre);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -50,27 +54,28 @@ public class G0050Control extends HttpServlet{
 		//更新①の処理
 		if("update".equals(processDiv)){
 
-			//更新前の情報を引き出すための主キーを受け取る
+			//更新前の情報を引き出すためのラジオボタン入力を受け取る
+			//idを受け取る
 			String updateDramaId = request.getParameter("radioButton");
 
-			//radioButtoがnullでないならば処理を行う
-			if(updateDramaId != null){
-
-				//更新前の情報を検索メソッドで受け取る
-				List<HashMap<String, String>> dramaList = G0050Model.getDramaList(updateDramaId, "", "");
-
-				//更新前の情報を更新ページに飛ばす
-				request.setAttribute("dramaList", dramaList);
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0052View.jsp");
-				dispatch.forward(request, response);
-			}else{
-				//nullのとき処理を行わずに返す
-				int updateFlag = 0;
-				request.setAttribute("updateFlag",updateFlag);
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
+			//radioButtoがnullならば処理を行う
+			if(updateDramaId == null){
+				request.setAttribute("updateFlag", 0);
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0050View.jsp");
+				System.out.println(dispatch);
 				dispatch.forward(request, response);
 			}
+			else{
+				//Modelに引数を渡し、検索結果をリストに入れる
+				List<HashMap<String,String>> dramaList = G0050Model.getDramaList(updateDramaId, "", "", "", "");
 
+				//Viewに渡すリストを設定
+				request.setAttribute("dramaList", dramaList);
+
+				//Viewにリストを渡す
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0052View.jsp");
+				dispatch.forward(request, response);
+			}
 		}
 
 		//削除の処理
@@ -94,7 +99,7 @@ public class G0050Control extends HttpServlet{
 				request.setAttribute("deleteFlag",0);
 			}
 			//デリート後のリストを検索メソッドで取り出す
-			List<HashMap<String, String>> dramaList = G0050Model.getDramaList(dramaId, title, broadcastCool);
+			List<HashMap<String, String>> dramaList = G0050Model.getDramaList(dramaId, title, broadcastCool,television ,genre );
 
 			//削除処理後のリストを送る
 			request.setAttribute("dramaList", dramaList);
@@ -103,6 +108,8 @@ public class G0050Control extends HttpServlet{
 			request.setAttribute("dramaId", dramaId);
 			request.setAttribute("dramaName", title);
 			request.setAttribute("broadCast", broadcastCool);
+			request.setAttribute("television", television);
+			request.setAttribute("genre", genre);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0050View.jsp");
 			dispatch.forward(request, response);
 		}

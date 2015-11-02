@@ -57,6 +57,10 @@
 		<input type="text" name="dramaName" value=<% out.print(dramaList.get(0).get("dramaName")); %>><br>
 		放送クール:
 		<input type="text" name="broadcastCool" value=<% out.print(dramaList.get(0).get("broadcastCool")); %>><br>
+		放送局:
+		<input type="text" name="television" value=<% out.print(dramaList.get(0).get("television")); %>><br>
+		ジャンル:
+		<input type="text" name="genre" value=<% out.print(dramaList.get(0).get("genre")); %>><br>
 		<input type="submit" value="更新">
 	</form>
 </body>

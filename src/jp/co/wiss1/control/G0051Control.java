@@ -25,9 +25,11 @@ public class G0051Control extends HttpServlet{
 		String dramaId = request.getParameter("dramaId");
 		String title = request.getParameter("dramaName");
 		String broadcastCool = request.getParameter("broadcastCool");
+		String television = request.getParameter("television");
+		String genre = request.getParameter("genre");
 
 		//登録のメソッドを呼び出す
-		int insertFlag = G0051Model.insertDrama(dramaId, title, broadcastCool);
+		int insertFlag = G0051Model.insertDrama(dramaId, title, broadcastCool,television ,genre );
 
 		//登録完了フラグを送る
 					request.setAttribute("insertFlag",insertFlag);

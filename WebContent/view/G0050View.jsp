@@ -23,22 +23,10 @@
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
-
-		function init() {
-			if (document.MyForm.dramaId.value == "null") {
-				document.MyForm.dramaId.value = "";
-			}
-			if (document.MyForm.dramaName.value == "null") {
-				document.MyForm.dramaName.value = "";
-			}
-			if (document.MyForm.broadcastCool.value == "null") {
-				document.MyForm.broadcastCool.value = "";
-			}
-		}
 	 </script>
 </head>
 
-<body onload="init();">
+<body>
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
@@ -95,11 +83,15 @@ if(dramaList != null){
 <% //Cへ検索する条件を送る %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0050Control">
 		ドラマID:
-		<input type="text" id="dramaId" name="dramaId" placeholder="ドラマID" value="<%= request.getParameter("dramaId") %>" style="text-align: left;">
+		<input type="text" id="dramaId" name="dramaId" placeholder="ドラマID" style="text-align: left;">
 		ドラマ名:
-		<input type="text" id="dramaName" name="dramaName" placeholder="ドラマ名" value="<%= request.getParameter("dramaName") %>" style="text-align: left; ">
+		<input type="text" id="dramaName" name="dramaName" placeholder="ドラマ名" style="text-align: left; ">
 		放送クール:
-		<input type="text" id="broadcastCool" name="broadcastCool" placeholder="放送クール" value="<%= request.getParameter("broadcastCool") %>" style="text-align: left; ">
+		<input type="text" id="broadcastCool" name="broadcastCool" placeholder="放送クール" style="text-align: left; ">
+		放送局:
+		<input type="text" id="television" name="television" placeholder="放送局" style="text-align: left; ">
+		ジャンル:
+		<input type="text" id="genre" name="genre" placeholder="ジャンル" style="text-align: left; ">
 		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0051View.jsp';">
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
@@ -119,21 +111,28 @@ if(dramaList != null){
 					<Th class="r1">ドラマID</Th>
 					<Th class="r2">ドラマ名</Th>
 					<Th class="r3">放送クール</Th>
-
+					<Th class="r4">放送局</Th>
+					<Th class="r5">ジャンル</Th>
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
 <% if(dramaList != null){ %>
-<% for(int i = 0; i < dramaList.size(); i++){ %>
-					<Tr>
-						<Th class="r0"><input type="radio" name="radioButton" value="<%= dramaList.get(i).get("dramaId") %>"></Th>
-						<Td class="r1"><% out.print(dramaList.get(i).get("dramaId")); %></Td>
-						<Td class="r2"><% out.print(dramaList.get(i).get("dramaName")); %></Td>
-						<Td class="r3"><% out.print(dramaList.get(i).get("broadcastCool")); %></Td>
+	<% for(int i = 0; i < dramaList.size(); i++){ %>
+		<Tr>
+			<Th class="r0"><input type="radio" name="radioButton" value="<%= dramaList.get(i).get("dramaId") %>"></Th>
+			<Td class="r1"><% out.print(dramaList.get(i).get("dramaId")); %></Td>
+			<Td class="r2"><% out.print(dramaList.get(i).get("dramaName")); %></Td>
+			<Td class="r3"><% out.print(dramaList.get(i).get("broadcastCool")); %></Td>
+			<Td class="r4"><% out.print(dramaList.get(i).get("television")); %></Td>
+			<Td class="r5"><% out.print(dramaList.get(i).get("genre")); %></Td>
+		</Tr>
+	<% } %>
 
-					</Tr>
+			<H2><% out.print("ないよ。"); %></H2>
+
 <% } %>
-<% } %>
+
+
 			</tbody>
 		</table>
 		<input type="hidden" name="processDiv">

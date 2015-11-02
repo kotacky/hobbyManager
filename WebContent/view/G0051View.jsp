@@ -40,7 +40,7 @@
 		<% if("1".equals(insertFlag)){ %>
 			<H2><% out.print("登録が完了しました。"); %></H2>
 			<% }else if("0".equals(insertFlag)){ %>
-			<H2><% out.print("登録が失敗しました。"); %></H2>
+			<H2><% out.print("既に登録されています。"); %></H2>
 			<% } %>
 	<% }catch(NullPointerException insertException){ %>
 	<% } %>
@@ -55,6 +55,10 @@
 		<input type="text" name="dramaName" placeholder="ドラマ名" style="text-align:left;"><br>
 		放送クール:
 		<input type="text" name="broadcastCool" placeholder="放送クール" style="text-align:left;"><br>
+		放送局:
+		<input type="text" name="television" placeholder="放送局" style="text-align:left;"><br>
+		ジャンル:
+		<input type="text" name="genre" placeholder="ジャンル" style="text-align:left;"><br>
 		<input type="submit" value="登録">
 		</form>
 	<input type="button" value="ドラマ一覧" onClick="form.action=location.href='../../hobbyManager/view/G0050View.jsp'">

@@ -14,11 +14,12 @@ public class G0050Model {
 
 		public static void main(String[] args)
 		{
-			getDramaList("", "", "");
+			getDramaList("", "", "","","");
 			deleteDrama("0");
 		}
-
-		public static List<HashMap<String, String>> getDramaList(String dramaId , String dramaTitle , String broadcastCool)	//コンテンツテーブル参照
+		//コンテンツテーブル参照
+		public static List<HashMap<String, String>>
+		getDramaList(String dramaId , String dramaTitle , String broadcastCool, String television, String genre)
 		{
 
 			List<HashMap<String, String>> dramaList = new ArrayList<HashMap<String, String>>() ;
@@ -29,13 +30,15 @@ public class G0050Model {
 
 	        try{
 	            // テーブル照会実行
-		    	connection = DBAccessUtils.getConnection(); 									//データベースへ接続
-		    	statement = connection.createStatement();										//Statementを取得するためのコード
+	        	//データベースへ接続
+		    	connection = DBAccessUtils.getConnection();
+		    	//Statementを取得するためのコード
+		    	statement = connection.createStatement();
+		    	//自動コミットを無効にする
+		        connection.setAutoCommit(false);
 
-		        connection.setAutoCommit(false);												//自動コミットを無効にする
-
-
-	            String sql = "SELECT * FROM t_dramas where ";									//sql文一覧
+		      //sql文一覧
+	            String sql = "SELECT * FROM t_dramas where ";
 	            System.out.println("1:" + sql);
 
 	        	if(!"".equals(dramaId)) {
@@ -46,31 +49,47 @@ public class G0050Model {
 	        		sql = sql + "drama_title like '%"+ dramaTitle +"%' AND ";
 	        		System.out.println("3:" + sql);
 	        	}
-	        		sql = sql + "broadcast_cool like '%"+ broadcastCool +"%'";
+	        	if(!"".equals(broadcastCool)) {
+	        		sql = sql + "broadcast_cool like '%"+ dramaTitle +"%' AND ";
+	        		System.out.println("3:" + sql);
+	        	}
+	        	if(!"".equals(television)) {
+	        		sql = sql + "television_name like '%"+ television +"%' AND ";
+	        		System.out.println("3:" + sql);
+	        	}
+	        		sql = sql + "dramas_genre like '%"+ genre +"%'";
 	        		sql = sql + " ORDER BY drama_id";
 	        		System.out.println("4:" + sql);												//sql文終了
 
 	            System.out.println("引数に" + dramaId + "が入力されました。");
 	            System.out.println("引数に" + dramaTitle + "が入力されました。");
 	            System.out.println("引数に" + broadcastCool + "が入力されました。");
+	            System.out.println("引数に" + television + "が入力されました。");
+	            System.out.println("引数に" + genre + "が入力されました。");
+
 	            System.out.println(sql);
 
 	            resultSet = statement.executeQuery(sql);										//SELECT文を実行するコード
 
 
+	          //SELECT文の結果を参照
+	            while(resultSet.next()) {
 
-	            while(resultSet.next()) {														//SELECT文の結果を参照
+	            	HashMap<String, String> dramaInfo = new HashMap<String, String>();
 
-	        	   HashMap<String, String> dramaInfo = new HashMap<String, String>();
-	        	   dramaInfo.put("dramaId", resultSet.getString("drama_id"));
-	        	   dramaInfo.put("dramaName", resultSet.getString("drama_title"));
-	        	   dramaInfo.put("broadcastCool", resultSet.getString("broadcast_cool"));
+	            	dramaInfo.put("dramaId", resultSet.getString("drama_id"));
+	            	dramaInfo.put("dramaName", resultSet.getString("drama_title"));
+	            	dramaInfo.put("broadcastCool", resultSet.getString("broadcast_cool"));
+	        	   	dramaInfo.put("television", resultSet.getString("television_name"));
+	        	   	dramaInfo.put("genre", resultSet.getString("dramas_genre"));
 
-	        	   dramaList.add(dramaInfo);
+	        	   	dramaList.add(dramaInfo);
 
 	            	System.out.println(dramaInfo.get("dramaId"));						//リストに入ったかの確認
 	            	System.out.println(dramaInfo.get("dramaName"));
 	            	System.out.println(dramaInfo.get("broadcastCool"));
+	            	System.out.println(dramaInfo.get("television"));
+	            	System.out.println(dramaInfo.get("genre"));
 	            }
 
 	        }
@@ -81,7 +100,8 @@ public class G0050Model {
 	        finally{
 
 	        	try {
-	        		resultSet.close();															//データベースのクローズ
+	        		//データベースのクローズ
+	        		resultSet.close();
 	        		statement.close();
 	        		connection.close();
 	        	}

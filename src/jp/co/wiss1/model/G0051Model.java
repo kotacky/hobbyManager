@@ -11,12 +11,12 @@ public class G0051Model {
 	public static void main(String args[])
 	{
 
-		insertDrama("" , "子ずれ狼" , "大河ドラマ");
+		insertDrama("" , "子ずれ狼" , "大河ドラマ","" ,"");
 
 	}
 
-
-	public static int insertDrama(String dramaId , String dramaTitle , String  broadcastCool) { //ドラマテーブル参照
+	 //ドラマテーブル参照
+	public static int insertDrama(String dramaId , String dramaTitle , String  broadcastCool, String television, String genre) {
 
 		//各変数を宣言、初期化
     	Connection connection = null;
@@ -41,10 +41,14 @@ public class G0051Model {
              {
              	insertSql = insertSql + "(drama_id"
              			+ ",drama_title"
-             			+ ",broadcast_cool)"
+             			+ ",broadcast_cool"
+             			+ ",television_name"
+             			+ ",dramas_genre)"
              			+ "VALUES('" + dramaId + "'"
              			+ ",'" + dramaTitle + "'"
- 						+ ",'" +  broadcastCool + "')";
+ 						+ ",'" +  broadcastCool + "'"
+ 						+ ",'" + television  + "'"
+ 						+ ",'" + genre  + "')";
 
              	insertCount = statement.executeUpdate(insertSql);
              }
