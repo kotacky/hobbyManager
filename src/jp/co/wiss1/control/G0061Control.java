@@ -25,9 +25,10 @@ public class G0061Control extends HttpServlet{
 		String movieId = request.getParameter("movieId");
 		String title = request.getParameter("movieName");
 		String releaseDate = request.getParameter("releaseDate");
+		String movieGenre = request.getParameter("movieGenre");
 
 		//登録のメソッドを呼び出す
-		int insertFlag = G0061Model.insertMovie(movieId, title, releaseDate);
+		int insertFlag = G0061Model.insertMovie(movieId, title, releaseDate, movieGenre);
 
 		//登録完了フラグを送る
 		request.setAttribute("insertFlag",insertFlag);

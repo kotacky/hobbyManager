@@ -11,12 +11,12 @@ public class G0061Model {
 	public static void main(String args[])
 	{
 
-		insertMovie("" , "子ずれ狼" , "大河ドラマ");
+		insertMovie("" , "子ずれ狼" , "大河ドラマ","");
 
 	}
 
-
-	public static int insertMovie(String movieId , String movieTitle , String releaseDate) { //映画テーブル参照
+	//映画テーブル参照
+	public static int insertMovie(String movieId , String movieTitle , String releaseDate , String movieGenre) {
 
 		//各変数を宣言、初期化
     	Connection connection = null;
@@ -41,10 +41,12 @@ public class G0061Model {
              {
              	insertSql = insertSql + "(movie_id"
              			+ ",movie_title"
-             			+ ",release_date)"
+             			+ ",release_date"
+             			+ ",movie_genre)"
              			+ "VALUES('" + movieId + "'"
              			+ ",'" + movieTitle + "'"
- 						+ ",'" +  releaseDate + "')";
+ 						+ ",'" + releaseDate + "'"
+ 						+ ",'" + movieGenre + "')";
 
              	insertCount = statement.executeUpdate(insertSql);
              }
@@ -59,6 +61,7 @@ public class G0061Model {
              System.out.println("引数に" + movieId + "が入力されました。");
              System.out.println("引数に" + movieTitle + "が入力されました。");
              System.out.println("引数に" + releaseDate + "が入力されました。");
+             System.out.println("引数に" + movieGenre + "が入力されました。");
 
              System.out.println(insertSql);
 

@@ -29,12 +29,12 @@ public class G0060Control extends HttpServlet{
 		String movieId = request.getParameter("movieId");
 		String title = request.getParameter("movieName");
 		String releaseDate = request.getParameter("releaseDate");
-
+		String movieGenre = request.getParameter("movieGenre");
 		//検索の処理
 		if("select".equals(processDiv)){
 
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
-			List<HashMap<String, String>> movieList = G0060Model.getMovieList(movieId, title, releaseDate);
+			List<HashMap<String, String>> movieList = G0060Model.getMovieList(movieId, title, releaseDate, movieGenre);
 
 			//検索結果をViewに送る
 			request.setAttribute("movieList", movieList);
@@ -43,6 +43,7 @@ public class G0060Control extends HttpServlet{
 			request.setAttribute("moviename", title);
 			request.setAttribute("releaseDate", releaseDate);
 			request.setAttribute("movieId", movieId);
+			request.setAttribute("movieGenre", movieGenre);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0060View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -50,27 +51,28 @@ public class G0060Control extends HttpServlet{
 		//更新①の処理
 		if("update".equals(processDiv)){
 
-			//更新前の情報を引き出すための主キーを受け取る
+			//更新前の情報を引き出すためのラジオボタン入力を受け取る
+			//idを受け取る
 			String updateMovieId = request.getParameter("radioButton");
 
-			//radioButtoがnullでないならば処理を行う
-			if(updateMovieId != null){
-
-				//更新前の情報を検索メソッドで受け取る
-				List<HashMap<String, String>> movieList = G0060Model.getMovieList(updateMovieId, "", "");
-
-				//更新前の情報を更新ページに飛ばす
-				request.setAttribute("movieList", movieList);
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0062View.jsp");
-				dispatch.forward(request, response);
-			}else{
-				//nullのとき処理を行わずに返す
-				int updateFlag = 0;
-				request.setAttribute("updateFlag",updateFlag);
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0060View.jsp");
+			//radioButtoがnullならば処理を行う
+			if(updateMovieId == null){
+				request.setAttribute("updateFlag", 0);
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0060View.jsp");
+				System.out.println(dispatch);
 				dispatch.forward(request, response);
 			}
+			else{
+				//Modelに引数を渡し、検索結果をリストに入れる
+				List<HashMap<String,String>> movieList = G0060Model.getMovieList(updateMovieId, title, releaseDate, movieGenre);
 
+				//Viewに渡すリストを設定
+				request.setAttribute("movieList", movieList);
+
+				//Viewにリストを渡す
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0062View.jsp");
+				dispatch.forward(request, response);
+			}
 		}
 
 		//削除の処理
@@ -94,7 +96,7 @@ public class G0060Control extends HttpServlet{
 				request.setAttribute("deleteFlag",0);
 			}
 			//デリート後のリストを検索メソッドで取り出す
-			List<HashMap<String, String>> movieList = G0060Model.getMovieList(movieId, title, releaseDate);
+			List<HashMap<String, String>> movieList = G0060Model.getMovieList(movieId, title, releaseDate, movieGenre);
 
 			//削除処理後のリストを送る
 			request.setAttribute("movieList", movieList);
@@ -103,6 +105,7 @@ public class G0060Control extends HttpServlet{
 			request.setAttribute("movieId", movieId);
 			request.setAttribute("movieName", title);
 			request.setAttribute("releaseDate", releaseDate);
+			request.setAttribute("movieGenre", movieGenre);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0060View.jsp");
 			dispatch.forward(request, response);
 		}

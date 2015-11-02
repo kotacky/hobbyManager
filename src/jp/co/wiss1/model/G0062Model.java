@@ -13,12 +13,12 @@ public class G0062Model {
 	public static void main(String[] args)
 	{
 		// TODO 自動生成されたメソッド・スタブ
-		updateMovie("","","");
+		updateMovie("","","","");
 	}
 
 
 	//映画一覧UPDATE文の実行！！！
-	public static int updateMovie(String movieId , String movieTitle , String releaseDate) { //映画テーブル参照
+	public static int updateMovie(String movieId , String movieTitle , String releaseDate , String movieGenre) { //映画テーブル参照
 
 		Connection connection = null;
     	Statement statement = null;
@@ -38,7 +38,8 @@ public class G0062Model {
             String sql = "UPDATE t_movie SET";
             	if(!"". equals(movieId)){
             		sql = sql+ " movie_title = '"+ movieTitle +"', "
-            		+ " release_date = '"+ releaseDate +"' WHERE"
+            		+ " release_date = '"+ releaseDate +"', "
+            		+ " movie_genre = '"+ movieGenre +"' WHERE"
             		+ " movie_id = '"+ movieId +"'";
 
                     upDateCount = statement.executeUpdate (sql);
@@ -47,6 +48,7 @@ public class G0062Model {
             System.out.println("引数に" + movieId + "が入力されました。");
             System.out.println("引数に" + movieTitle + "が入力されました。");
             System.out.println("引数に" + releaseDate + "が入力されました。");
+            System.out.println("引数に" + movieGenre + "が入力されました。");
             System.out.println(sql);
 
 

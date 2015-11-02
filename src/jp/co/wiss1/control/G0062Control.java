@@ -25,9 +25,10 @@ public class G0062Control extends HttpServlet{
 		String movieId = request.getParameter("movieId");
 		String title = request.getParameter("movieName");
 		String releaseDate = request.getParameter("releaseDate");
+		String movieGenre = request.getParameter("movieGenre");
 
 		//更新するメソッドを呼び出す
-		int updateFlag = G0062Model.updateMovie(movieId, title, releaseDate);
+		int updateFlag = G0062Model.updateMovie(movieId, title, releaseDate, movieGenre);
 
 		//更新完了フラグを送る
 		request.setAttribute("updateFlag",updateFlag);

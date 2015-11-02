@@ -23,22 +23,10 @@
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
-
-		function init() {
-			if (document.MyForm.movieId.value == "null") {
-				document.MyForm.movieId.value = "";
-			}
-			if (document.MyForm.movieName.value == "null") {
-				document.MyForm.movieName.value = "";
-			}
-			if (document.MyForm.releaseDate.value == "null") {
-				document.MyForm.releaseDate.value = "";
-			}
-		}
 	 </script>
 </head>
 
-<body onload="init();">
+<body >
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">D‚İˆê——</a></li>
@@ -95,11 +83,13 @@ if(movieList != null){
 <% //C‚ÖŒŸõ‚·‚éğŒ‚ğ‘—‚é %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0060Control">
 		‰f‰æID:
-		<input type="text" id="movieId" name="movieId" placeholder="‰f‰æID" value="<%= request.getParameter("movieId") %>" style="text-align: left;">
+		<input type="text" id="movieId" name="movieId" placeholder="‰f‰æID" style="text-align: left;">
 		‰f‰æ–¼:
-		<input type="text" id="movieName" name="movieName" placeholder="‰f‰æ–¼" value="<%= request.getParameter("movieName") %>" style="text-align: left; ">
+		<input type="text" id="movieName" name="movieName" placeholder="‰f‰æ–¼" style="text-align: left; ">
 		ŒöŠJ“ú:
-		<input type="text" id="releaseDate" name="releaseDate" placeholder="ŒöŠJ“ú" value="<%= request.getParameter("releaseDate") %>" style="text-align: left; ">
+		<input type="text" id="releaseDate" name="releaseDate" placeholder="ŒöŠJ“ú" style="text-align: left; ">
+		ƒWƒƒƒ“ƒ‹:
+		<input type="text" id="movieGenre" name="movieGenre" placeholder="ƒWƒƒƒ“ƒ‹–¼" style="text-align: left; ">
 		<input type="button" value="ŒŸõ" onClick="func('select');" /><br />
 		<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0061View.jsp';">
 		<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
@@ -119,7 +109,7 @@ if(movieList != null){
 					<Th class="r1">‰f‰æID</Th>
 					<Th class="r2">‰f‰æ–¼</Th>
 					<Th class="r3">ŒöŠJ“ú</Th>
-
+					<Th class="r4">ƒWƒƒƒ“ƒ‹</Th>
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
@@ -130,6 +120,7 @@ if(movieList != null){
 						<Td class="r1"><% out.print(movieList.get(i).get("movieId")); %></Td>
 						<Td class="r2"><% out.print(movieList.get(i).get("movieName")); %></Td>
 						<Td class="r3"><% out.print(movieList.get(i).get("releaseDate")); %></Td>
+						<Td class="r4"><% out.print(movieList.get(i).get("movieGenre")); %></Td>
 
 					</Tr>
 <% } %>

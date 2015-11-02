@@ -14,11 +14,11 @@ public class G0060Model {
 
 		public static void main(String[] args)
 		{
-			getMovieList("", "", "");
+			getMovieList("", "", "","");
 			deleteMovie("0");
 		}
-
-		public static List<HashMap<String, String>> getMovieList(String movieId , String movieTitle , String releaseDate)	//映画テーブル参照
+		//映画テーブル参照
+		public static List<HashMap<String, String>> getMovieList(String movieId , String movieTitle , String releaseDate , String movieGenre)
 		{
 
 			List<HashMap<String, String>> movieList = new ArrayList<HashMap<String, String>>() ;
@@ -29,14 +29,14 @@ public class G0060Model {
 
 	        try{
 	            // テーブル照会実行
-		    	connection = DBAccessUtils.getConnection(); 									//データベースへ接続
-		    	statement = connection.createStatement();										//Statementを取得するためのコード
+	        	connection = DBAccessUtils.getConnection(); 									//データベースへ接続
+	        	statement = connection.createStatement();										//Statementを取得するためのコード
 
-		        connection.setAutoCommit(false);												//自動コミットを無効にする
+	        	connection.setAutoCommit(false);												//自動コミットを無効にする
 
 
-	            String sql = "SELECT * FROM t_movie where ";									//sql文一覧
-	            System.out.println("1:" + sql);
+	        	String sql = "SELECT * FROM t_movie where ";									//sql文一覧
+	        	System.out.println("1:" + sql);
 
 	        	if(!"".equals(movieId)) {
 	        		sql = sql + "movie_id = '"+ movieId +"' AND ";
@@ -46,13 +46,18 @@ public class G0060Model {
 	        		sql = sql + "movie_title like '%"+ movieTitle +"%' AND ";
 	        		System.out.println("3:" + sql);
 	        	}
-	        		sql = sql + "release_date like '%"+ releaseDate +"%'";
-	        		sql = sql + " ORDER BY movie_id";
-	        		System.out.println("4:" + sql);												//sql文終了
+	        	if(!"".equals(movieTitle)) {
+	        		sql = sql + "release_date like '%"+ releaseDate +"%' AND ";
+	        		System.out.println("4:" + sql);
+	        	}
+	        	sql = sql + "movie_genre like '%"+ movieGenre +"%'";
+	        	sql = sql + " ORDER BY movie_id";
+	        	System.out.println("5:" + sql);												//sql文終了
 
 	            System.out.println("引数に" + movieId + "が入力されました。");
 	            System.out.println("引数に" + movieTitle + "が入力されました。");
 	            System.out.println("引数に" + releaseDate + "が入力されました。");
+	            System.out.println("引数に" + movieGenre + "が入力されました。");
 	            System.out.println(sql);
 
 	            resultSet = statement.executeQuery(sql);										//SELECT文を実行するコード
@@ -61,16 +66,19 @@ public class G0060Model {
 
 	            while(resultSet.next()) {														//SELECT文の結果を参照
 
-	        	   HashMap<String, String> movieInfo = new HashMap<String, String>();
-	        	   movieInfo.put("movieId", resultSet.getString("movie_id"));
-	        	   movieInfo.put("movieName", resultSet.getString("movie_title"));
-	        	   movieInfo.put("releaseDate", resultSet.getString("release_date"));
+					HashMap<String, String> movieInfo = new HashMap<String, String>();
+					movieInfo.put("movieId", resultSet.getString("movie_id"));
+					movieInfo.put("movieName", resultSet.getString("movie_title"));
+					movieInfo.put("releaseDate", resultSet.getString("release_date"));
+					movieInfo.put("movieGenre", resultSet.getString("movie_genre"));
 
-	        	   movieList.add(movieInfo);
+					movieList.add(movieInfo);
 
-	            	System.out.println(movieInfo.get("movieId"));						//リストに入ったかの確認
-	            	System.out.println(movieInfo.get("movieName"));
-	            	System.out.println(movieInfo.get("releaseDate"));
+					System.out.println(movieInfo.get("movieId"));						//リストに入ったかの確認
+					System.out.println(movieInfo.get("movieName"));
+					System.out.println(movieInfo.get("releaseDate"));
+					System.out.println(movieInfo.get("movieGenre"));
+
 	            }
 
 	        }
@@ -81,7 +89,8 @@ public class G0060Model {
 	        finally{
 
 	        	try {
-	        		resultSet.close();															//データベースのクローズ
+	        		//データベースのクローズ
+	        		resultSet.close();
 	        		statement.close();
 	        		connection.close();
 	        	}
