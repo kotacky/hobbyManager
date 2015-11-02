@@ -25,10 +25,14 @@ public class G0012Control extends HttpServlet{
 		String employeeId = request.getParameter("employeeId");
 		String familyName = request.getParameter("employeeFamilyName");
 		String firstName = request.getParameter("employeeFirstName");
-		String birthDay = request.getParameter("birthDate");
+		String birthDate = request.getParameter("birthDate");
+		String from = request.getParameter("employeeFrom");
+		String bloodType = request.getParameter("employeeBloodType");
+		String authority = request.getParameter("employeeAuthority");
+		String password = request.getParameter("employeePassword");
 
 		//更新するメソッドを呼び出す
-		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDay);
+		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDate, from, bloodType, authority, password);
 
 		//更新フラグを送る
 		if(updateFlag == 1){
