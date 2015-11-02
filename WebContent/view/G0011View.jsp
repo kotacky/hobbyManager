@@ -33,6 +33,7 @@ pageEncoding="Windows-31J"%>
 
 	<h1>社員新規登録</h1>
 
+
 <%-- Cへ登録する条件を送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0011Control">
 		社員ID:
@@ -43,6 +44,14 @@ pageEncoding="Windows-31J"%>
 		<input type="text" name="employeeFirstName" placeholder="名"><br>
 		生年月日:
 		<input type="text" name="birthDate" placeholder="生年月日"><br>
+		出身地:
+		<input type="text" name="employeeFrom" placeholder="出身地"><br>
+		血液型:
+		<input type="text" name="employeeBloodType" placeholder="血液型"><br>
+		権限:
+		<input type="text" name="employeeAuthority" placeholder="権限"><br>
+		パスワード:
+		<input type="password" name="employeePassword" placeholder="パスワード"><br>
 		<input type="submit" value="登録" >
 	</form>
 </body>

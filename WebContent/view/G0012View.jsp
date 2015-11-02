@@ -43,7 +43,8 @@
 		//EmployeeList.put("employeeFamilyname", "金井");
 		//EmployeeList.put("employeeFirstname", "才");
 		//EmployeeList.put("birthDate", "19920811");
-%>
+		//EmployeeList.put("employeeFrom", "東京都");
+		//EmployeeList.put("employeeBloodType", "A型");%>
 
 <%
 	List<HashMap<String, String>> employeeList = (List<HashMap<String, String>>)request.getAttribute("employeeList");
@@ -59,7 +60,15 @@
 		名:
 		<input type="text" name="employeeFirstName" value=<% out.print(employeeList.get(0).get("employeeFirstName")); %>><br>
 		生年月日:
-		<input type="text" name="birthDate" value=<% out.print(employeeList.get(0).get("birthDate")); %>><br>
+		<input type="text" name="birthDate" value=<% out.print(employeeList.get(0).get("employeeBirthDate")); %>><br>
+		出身地:
+		<input type="text" name="employeeFrom" value=<% out.print(employeeList.get(0).get("employeeFrom")); %>><br>
+		血液型:
+		<input type="text" name="employeeBloodType" value=<% out.print(employeeList.get(0).get("employeeBloodType")); %>><br>
+		権限:
+		<input type="text" name="employeeAuthority" value=<% out.print(employeeList.get(0).get("employeeAuthority")); %>><br>
+		パスワード:
+		<input type="password" name="employeePassword" value=<% out.print(employeeList.get(0).get("employeePassword")); %>><br>
 		<input type="submit" value="更新">
 	</form>
 </body>

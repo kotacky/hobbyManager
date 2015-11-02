@@ -15,12 +15,12 @@ public class G0011Model {
 	public static void main(String args[])
 	{
 
-		insertEmployee("128" , "大伝馬" , "太郎" , "19910823");
+		insertEmployee("128" , "大伝馬" , "太郎" , "19910823" , "神奈川県" , "O型" , "社長" , "password");
 
 	}
 
 	//List<HashMap<String,String>>⇒void
-	public static int insertEmployee(String employeeId , String familyName , String firstName , String birthDate) { //社員テーブルにINSERTするメソッド
+	public static int insertEmployee(String employeeId , String familyName , String firstName , String birthDate , String from , String bloodType , String authority, String password) { //社員テーブルにINSERTするメソッド
 
 		//List<HashMap<String,String>> insertEmployee = new ArrayList<HashMap<String,String>>() ;
 
@@ -51,11 +51,19 @@ public class G0011Model {
             	insertSql = insertSql + "(employee_id"
             			+ ",employee_family_name"
             			+ ",employee_first_name"
-            			+ ",birth_date)"
+            			+ ",birth_date"
+            			+ ",employee_from"
+            			+ ",employee_blood_type"
+            			+ ",employee_authority"
+            			+ ",employee_password)"
             			+ "VALUES('" + employeeId + "'"
             			+ ",'" + familyName + "'"
 						+ ",'" + firstName + "'"
-						+ ",'" + birthDate + "')";
+						+ ",'" + birthDate + "'"
+						+ ",'" + from + "'"
+		            	+ ",'" + bloodType + "'"
+		            	+ ",'" + authority + "'"
+		            	+ ",'" + password + "')";
             	System.out.println(insertSql);
             	insertCount = statement.executeUpdate(insertSql);
             }
@@ -69,6 +77,10 @@ public class G0011Model {
             System.out.println("引数に" + familyName + "が入力されました。");
             System.out.println("引数に" + firstName + "が入力されました。");
             System.out.println("引数に" + birthDate + "が入力されました。");
+            System.out.println("引数に" + from + "が入力されました。");
+            System.out.println("引数に" + bloodType + "が入力されました。");
+            System.out.println("引数に" + authority + "が入力されました。");
+            System.out.println("引数に" + password + "が入力されました。");
             System.out.println(insertSql);
 
             //String selectSql = "SELECT * FROM t_employee where employee_id like '119' ORDER BY employee_id";

@@ -52,7 +52,7 @@ public class G0010Model//git
         		sql = sql + "employee_family_name like '%"+ familyName +"%' AND ";
         		System.out.println("3:" + sql);
         	}
-        		sql = sql + "employee_first_name like '%"+ firstName +"%'";
+        		sql = sql + "employee_first_name like '%"+ firstName +"%' ";
         		sql = sql + " ORDER BY employee_id";
         		System.out.println("4:" + sql);												//sql文終了
 
@@ -71,14 +71,21 @@ public class G0010Model//git
         	   employeeInfo.put("employeeId", resultSet.getString("employee_id"));
         	   employeeInfo.put("employeeFamilyName", resultSet.getString("employee_family_name"));
         	   employeeInfo.put("employeeFirstName", resultSet.getString("employee_first_name"));
-        	   employeeInfo.put("birthDate", resultSet.getString("birth_date"));
-
+        	   employeeInfo.put("employeeBirthDate", resultSet.getString("birth_date"));
+        	   employeeInfo.put("employeeFrom", resultSet.getString("employee_from"));
+        	   employeeInfo.put("employeeBloodType", resultSet.getString("employee_blood_type"));
+        	   employeeInfo.put("employeeAuthority", resultSet.getString("employee_authority"));
+        	   employeeInfo.put("employeePassword", resultSet.getString("employee_password"));
         	   employeeList.add(employeeInfo);
 
             	System.out.println(employeeInfo.get("employeeId"));								//リストに入ったかの確認
             	System.out.println(employeeInfo.get("employeeFamilyName"));
             	System.out.println(employeeInfo.get("employeeFirstName"));
-            	System.out.println(employeeInfo.get("birthDate"));
+            	System.out.println(employeeInfo.get("employeeBirthDate"));
+            	System.out.println(employeeInfo.get("employeeFrom"));
+            	System.out.println(employeeInfo.get("employeeBloodType"));
+            	System.out.println(employeeInfo.get("employeeAuthority"));
+            	System.out.println(employeeInfo.get("employeePassword"));
             }
 
         }

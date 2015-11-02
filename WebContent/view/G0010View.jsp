@@ -35,6 +35,13 @@
 				document.MyForm.employeeFirstName.value = "";
 			}
 		}
+		function init() {
+			if(request.getAttribute("employeeAuthority".equals(employeeAuthority))){
+				if(employeeAuthority == 00 || employeeAuthority == 02){
+					     disabled = "";
+				}
+			}
+		}
 	 </script>
 </head>
 
@@ -68,6 +75,7 @@
 		<% }catch(NullPointerException deleteException){ %>
 		<% } %>
 
+
 		<% try{ %>
 			<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
 			<% if("1".equals(insertFlag)){ %>
@@ -76,6 +84,7 @@
 			<H2><% out.print("ìoò^Ç™é∏îsÇµÇ‹ÇµÇΩÅB"); %></H2>
 			<% } %>
 		<% }catch(NullPointerException insertException){ %>
+		<% } %>
 
 		<% try{ %>
 			<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
@@ -84,8 +93,7 @@
 			<% }else if("0".equals(updateFlag)){ %>
 			<H2><% out.print("çXêVÇ™é∏îsÇµÇ‹ÇµÇΩÅB"); %></H2>
 			<% } %>
-			<% }catch(NullPointerException updateException){ %>
-			<% } %>
+		<% }catch(NullPointerException updateException){ %>
 		<% } %>
 
 <%-- ÉäÉXÉgÇÃéÊìæ --%>
@@ -94,19 +102,18 @@
 List<HashMap<String,String>> employeeList = (List<HashMap<String,String>>)request.getAttribute("employeeList");
 String disabled = "disabled";
 if(employeeList != null){
-     disabled = "";
-}
-%>
+	disabled = "";
+}%>
 <%-- CÇ÷åüçıÇ∑ÇÈèåèÇëóÇÈ --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
 			é–àıID:
-			<input type="text" id="employeeId" name="employeeId" placeholder="é–àıID" value="<%= request.getParameter("employeeId") %>" style="text-align: left;">
+			<input type="text" id="employeeId" name="employeeId" placeholder="é–àıID"  style="text-align: left;">
 			ê©:
-			<input type="text" id="employeeFamilyName" name="employeeFamilyName" placeholder="ê©" value="<%= request.getParameter("employeeFamilyName") %>" style="text-align: left; ">
+			<input type="text" id="employeeFamilyName" name="employeeFamilyName" placeholder="ê©"  style="text-align: left; ">
 			ñº:
-			<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="ñº" value="<%= request.getParameter("employeeFirstName") %>" style="text-align: left; ">
+			<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="ñº"  style="text-align: left; ">
 			<input type="button" value="åüçı" onClick="func('select');" /><br />
-			<input type="button" value="êVãKìoò^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'" />
+			<input type="button" value="êVãKìoò^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'" <%= disabled %>/>
 			<input type="button" value="çXêV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="çÌèú" onClick="func('delete');" <%= disabled %> />
 			<br style="clear" />
@@ -130,13 +137,14 @@ if(employeeList != null){
 							<Td class="r1"><% out.print(employeeList.get(i).get("employeeId")); %></Td>
 							<Td class="r2"><% out.print(employeeList.get(i).get("employeeFamilyName")); %></Td>
 							<Td class="r3"><% out.print(employeeList.get(i).get("employeeFirstName")); %></Td>
-							<Td class="r4"><% out.print(employeeList.get(i).get("birthDate")); %></Td>
+							<Td class="r4"><% out.print(employeeList.get(i).get("employeeBirthDate")); %></Td>
 						</Tr>
 	<% } %>
 <% } %>
 				</tbody>
 			</table>
 			<input type="hidden" name="processDiv">
+			<input type="hidden" name="employeeAuthority">
 		</form>
 		<div id="footer">
 			<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
