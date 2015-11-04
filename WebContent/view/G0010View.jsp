@@ -93,10 +93,15 @@
 
 <%
 List<HashMap<String,String>> employeeList = (List<HashMap<String,String>>)request.getAttribute("employeeList");
-String disabled = "disabled";
-if(employeeList != null){
-	disabled = "";
-}%>
+String disabled = "disabled";%>
+<% try{ %>
+<% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
+<% if((employeeList != null) && ("00".equals(employeeAuthority))){%>
+	<% disabled = "";%>
+<% } %>
+<% }catch(NullPointerException deleteException){ %>
+<% } %>
+
 <%-- C‚ÖŒŸõ‚·‚éðŒ‚ð‘—‚é --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
 			ŽÐˆõID:
@@ -137,7 +142,7 @@ if(employeeList != null){
 				</tbody>
 			</table>
 			<input type="hidden" name="processDiv">
-			<input type="hidden" name="employeeAuthority">
+			<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 		</form>
 		<div id="footer">
 			<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
