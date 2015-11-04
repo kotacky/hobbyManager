@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.realm.RealmBase;
+
 import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0011Model;
 @WebServlet("/G0011Control")
@@ -22,18 +24,21 @@ public class G0011Control extends HttpServlet{
 		//insert処理
 		//フォーム入力を受け取る
 		String employeeId = request.getParameter("employeeId");
-		String employeeFamilyName = request.getParameter("employeeFamilyName");
-		String employeeFirstName = request.getParameter("employeeFirstName");
-		String employeeBirth = request.getParameter("birthDate");
-		String employeeFrom = request.getParameter("employeeFrom");
-		String employeeBloodType = request.getParameter("employeeBloodType");
-		String employeeAuthority = request.getParameter("employeeAuthority");
-		String employeePassword = request.getParameter("employeePassword");
+		String familyName = request.getParameter("employeeFamilyName");
+		String firstName = request.getParameter("employeeFirstName");
+		String birthDate = request.getParameter("birthDate");
+		String from = request.getParameter("employeeFrom");
+		String bloodType = request.getParameter("employeeBloodType");
+		String authority = request.getParameter("employeeAuthority");
+		String password = request.getParameter("employeePassword");
 
+		String hashedPassword = RealmBase.Digest(password, "MD5", "Windows-31J");
+
+		System.out.println(hashedPassword);
 
 		//Modelに引数を渡しinsert処理を実行させる
 		int insertFlag =
-		G0011Model.insertEmployee(employeeId, employeeFamilyName, employeeFirstName, employeeBirth,employeeFrom,employeeBloodType,employeeAuthority,employeePassword);
+		G0011Model.insertEmployee(employeeId, familyName, firstName, birthDate, from, bloodType, authority, hashedPassword);
 
 		//Viewに渡すフラグを設定
 		if(insertFlag == 1){

@@ -9,7 +9,7 @@ import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0000Model{
 
-	public static int getLogin(String employeeId, String employeePassword){
+	public static int getLogin(String employeeId, String hashedPassword){
 
     	int loginFlag =0 ;
 		ResultSet resultSet = null;
@@ -33,7 +33,7 @@ public class G0000Model{
 			/*SQL文構築*/
 
 			String sql = "SELECT * FROM t_employee where employee_id = '"
-				+ employeeId + "' AND " +  "employee_password ='"+ employeePassword +"'";
+				+ employeeId + "' AND " +  "employee_password ='"+ hashedPassword +"'";
 //			System.out.println(sql);
 			/*SQL文終了*/
 
@@ -46,7 +46,7 @@ public class G0000Model{
 
             //SELECT文の結果を参照
             while(resultSet.next()) {														//SELECT文の結果を参照
-				if(employeePassword.equals(resultSet.getString("employee_password"))){
+				if(hashedPassword.equals(resultSet.getString("employee_password"))){
 					loginFlag = 1;
 				}
 				else{

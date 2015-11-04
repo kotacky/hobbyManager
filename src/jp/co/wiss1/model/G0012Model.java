@@ -16,7 +16,7 @@ public class G0012Model {
 
 
 	//社員一覧UPDATEの実行！！！
-	public static int updateEmployee(String employeeId , String familyName , String firstName ,String birthDate, String from , String bloodType, String authority, String password) { //社員テーブル参照
+	public static int updateEmployee(String employeeId , String familyName , String firstName ,String birthDate, String from , String bloodType, String authority, String hashedPassword) { //社員テーブル参照
 
 		Connection connection = null;
     	Statement statement = null;
@@ -40,7 +40,7 @@ public class G0012Model {
             		+ "birth_date = '"+ birthDate +"',"
             		+ "employee_from = '"+ from +"',"
             		+ "employee_authority = '"+ authority +"',"
-            		+ "employee_password = '"+ password +"',"
+            		+ "employee_password = '"+ hashedPassword +"',"
                     + "employee_blood_type = '"+ bloodType +"' WHERE "
             		+ "employee_id = '"+ employeeId +"'";
             		System.out.println(sql);
@@ -55,7 +55,7 @@ public class G0012Model {
             System.out.println("引数に" + from + "が入力されました。");
             System.out.println("引数に" + bloodType + "が入力されました。");
             System.out.println("引数に" + authority + "が入力されました。");
-            System.out.println("引数に" + password + "が入力されました。");
+            System.out.println("引数に" + hashedPassword + "が入力されました。");
             System.out.println(sql);
 
 

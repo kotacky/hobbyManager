@@ -20,7 +20,7 @@ public class G0011Model {
 	}
 
 	//List<HashMap<String,String>>⇒void
-	public static int insertEmployee(String employeeId , String familyName , String firstName , String birthDate , String from , String bloodType , String authority, String password) { //社員テーブルにINSERTするメソッド
+	public static int insertEmployee(String employeeId , String familyName , String firstName , String birthDate , String from , String bloodType , String authority, String hashedPassword) { //社員テーブルにINSERTするメソッド
 
 		//List<HashMap<String,String>> insertEmployee = new ArrayList<HashMap<String,String>>() ;
 
@@ -63,7 +63,7 @@ public class G0011Model {
 						+ ",'" + from + "'"
 		            	+ ",'" + bloodType + "'"
 		            	+ ",'" + authority + "'"
-		            	+ ",'" + password + "')";
+		            	+ ",'" + hashedPassword + "')";
             	System.out.println(insertSql);
             	insertCount = statement.executeUpdate(insertSql);
             }
@@ -80,7 +80,7 @@ public class G0011Model {
             System.out.println("引数に" + from + "が入力されました。");
             System.out.println("引数に" + bloodType + "が入力されました。");
             System.out.println("引数に" + authority + "が入力されました。");
-            System.out.println("引数に" + password + "が入力されました。");
+            System.out.println("引数に" + hashedPassword + "が入力されました。");
             System.out.println(insertSql);
 
             //String selectSql = "SELECT * FROM t_employee where employee_id like '119' ORDER BY employee_id";

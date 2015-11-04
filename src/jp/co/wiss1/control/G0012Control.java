@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.realm.RealmBase;
+
 import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0012Model;
 
@@ -31,8 +33,10 @@ public class G0012Control extends HttpServlet{
 		String authority = request.getParameter("employeeAuthority");
 		String password = request.getParameter("employeePassword");
 
+		String hashedPassword = RealmBase.Digest(password, "MD5", "Windows-31J");
+
 		//更新するメソッドを呼び出す
-		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDate, from, bloodType, authority, password);
+		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDate, from, bloodType, authority, hashedPassword);
 
 		//更新フラグを送る
 		if(updateFlag == 1){

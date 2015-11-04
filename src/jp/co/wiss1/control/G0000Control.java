@@ -25,14 +25,16 @@ public class G0000Control extends HttpServlet{
 		String employeeId = request.getParameter("employeeId");
 		String employeePassword = request.getParameter("employeePassword");
 
-		String hashedPassword = RealmBase.Digest(employeePassword, "MD5", "UTF-8");
+		/*暗号化。RealmbaseクラスのDigestメソッドを使用。
+		引数に（"getParameterした値","アルゴリズム","文字コード"）*/
+		String hashedPassword = RealmBase.Digest(employeePassword, "MD5", "Windows-31J");
 
-		System.out.println(hashedPassword);
+//		System.out.println(hashedPassword);
 
 		//Viewから処理命令を受け取る
 		String processDiv = request.getParameter("processDiv");
 
-		int loginFlag = G0000Model.getLogin(employeeId, employeePassword);
+		int loginFlag = G0000Model.getLogin(employeeId, hashedPassword);
 
 		if("login".equals(processDiv)){
 
@@ -45,7 +47,7 @@ public class G0000Control extends HttpServlet{
 				//nullのとき処理を行わずに返す
 				request.setAttribute("loginFlag", loginFlag);
 				request.setAttribute("message", "ログイン出来ませんでした。");
-				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/LoginView.jsp");
+				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0000View.jsp");
 				dispatch.forward(request, response);
 			}
 		}

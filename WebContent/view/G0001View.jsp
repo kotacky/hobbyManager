@@ -36,7 +36,7 @@
 				</div>
 			</div>
 			<div id="mainImgBox">
-				<img src="./img/mainimg.jpg" alt="TOP‰æ‘œ" />
+				<img src="<%= request.getContextPath() %>/view/img/mainimg.jpg" alt="TOP‰æ‘œ" />
 			</div>
 			<div id="footer">
 				<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
