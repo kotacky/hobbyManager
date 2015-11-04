@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.realm.RealmBase;
 
@@ -22,6 +23,12 @@ public class G0000Control extends HttpServlet{
 		/*ブラウザの文字コードの設定 忘れずに*/
 		EncodingUtils.responseEncoding(request,response);
 
+		/*httpsessionで権限を持たせる*/
+		HttpSession session = request.getSession(true);
+		//session値の取得
+		String sessionAuthority = (String)session.getAttribute("employeeAuthority");
+		System.out.println(sessionAuthority);
+
 		String employeeId = request.getParameter("employeeId");
 		String employeePassword = request.getParameter("employeePassword");
 
@@ -35,6 +42,9 @@ public class G0000Control extends HttpServlet{
 		String processDiv = request.getParameter("processDiv");
 
 		int loginFlag = G0000Model.getLogin(employeeId, hashedPassword);
+		String employeeAuthority = G0000Model.authority(employeeId);
+		//session値の保存
+		session.setAttribute("employeeAuthority", employeeAuthority);
 
 		if("login".equals(processDiv)){
 

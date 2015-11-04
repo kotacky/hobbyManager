@@ -70,7 +70,7 @@ public class G0040Model {
 
 	            	System.out.println(magazineInfo.get("magazineId"));						//リストに入ったかの確認
 	            	System.out.println(magazineInfo.get("magazineName"));
-	            	System.out.println(magazineInfo.get("broadCast"));
+	            	System.out.println(magazineInfo.get("publisherName"));
 	            }
 
 	        }

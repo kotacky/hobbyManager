@@ -69,14 +69,17 @@
 <%
 		List<HashMap<String,String>> televisionList = (List<HashMap<String,String>>)request.getAttribute("televisionList");
 		String disabled = "disabled";
-		String message = (String)request.getAttribute("message");
-		if(televisionList != null){
-		     disabled = "";
-		}
-		if (message == null) {
+		String message = (String)request.getAttribute("message");%>
+		<% try{ %>
+		<% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
+		<% if((televisionList != null) && ("00".equals(employeeAuthority))){%>
+			<% disabled = "";%>
+		<% } %>
+		<% }catch(NullPointerException deleteException){ %>
+		<% } %>
+		<%if (message == null) {
 			message = "";
-		}
-%>
+		}%>
 
 		<h1>ƒeƒŒƒr‹Çˆê——</h1>
 		<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0100Control">
@@ -90,7 +93,7 @@
 				<input type="text" id="televisionAddress" name="televisionAddress" placeholder="ƒeƒŒƒr‹ÇZŠ"  style="text-align: left;"/>
 
 				<input type="submit" value="ŒŸõ" onClick="func('select');"><br />
-				<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0101View.jsp';">
+				<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0101View.jsp';" <%= disabled %> />
 				<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 				<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 				<%-- ŠY“–‚ª‚È‚¢ê‡‚ÌƒƒbƒZ[ƒW‚ð•\Ž¦ --%>
@@ -123,6 +126,7 @@
 				</tbody>
 			</table>
 			<input type="hidden" name="processDiv">
+			<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 		</form>
 		<div id="footer">
 		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>

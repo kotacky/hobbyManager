@@ -72,14 +72,17 @@
 	List<HashMap<String,String>> companyList = (List<HashMap<String,String>>)request.getAttribute("companyList");
 	//controlからメッセージを受け取る
 	String message = (String)request.getAttribute("message");
-	String disabled = "disabled";
-	if(companyList != null){
-	     disabled = "";
-	}
-	if (message == null) {
+	String disabled = "disabled";%>
+	<% try{ %>
+	<% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
+	<% if((companyList != null) && ("00".equals(employeeAuthority))){%>
+		<% disabled = "";%>
+	<% } %>
+	<% }catch(NullPointerException deleteException){ %>
+	<% } %>
+	<%if (message == null) {
 		message = "";
-	}
-%>
+	}%>
 	<h1>所属会社一覧</h1>
 	<% //Cへ検索する条件を送る %>
 	<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0030Control">
@@ -90,7 +93,7 @@
 		会社住所:
 		<input type="text" id="companyAddress" name="companyAddress" placeholder="会社住所"  style="text-align: left;">
 		<input type="submit" value="検索" onClick="func('select');"><br />
-		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0031View.jsp';">
+		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0031View.jsp';" <%= disabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 		<%-- 該当がない場合のメッセージを表示 --%>
@@ -125,6 +128,8 @@
 				</tbody>
 			</table>
 			<input type="hidden" name="processDiv">
+			<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
+
 	</form>
 	<div id="footer">
 		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>

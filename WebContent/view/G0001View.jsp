@@ -42,5 +42,6 @@
 				<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
 			</div>
 		</div>
+	<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</body>
 </html>

@@ -35,13 +35,6 @@
 				document.MyForm.employeeFirstName.value = "";
 			}
 		}
-		function init() {
-			if(request.getAttribute("employeeAuthority".equals(employeeAuthority))){
-				if(employeeAuthority == 00 || employeeAuthority == 02){
-					     disabled = "";
-				}
-			}
-		}
 	 </script>
 </head>
 

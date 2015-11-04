@@ -92,12 +92,14 @@
 		//actressList.put("companyName", "ƒzƒŠƒvƒ");
 		//actressList.put("companyAddress", "“Œ‹");
 	List<HashMap<String,String>> actressList = (List<HashMap<String,String>>)request.getAttribute("actressList");
-	String disabled = "disabled";
-	if(actressList != null){
-	     disabled = "";
-}
-%>
-
+	String disabled = "disabled";%>
+	<% try{ %>
+	<% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
+	<% if((actressList != null) && ("00".equals(employeeAuthority))){%>
+		<% disabled = "";%>
+	<% } %>
+	<% }catch(NullPointerException deleteException){ %>
+	<% } %>
 
 
 <%-- C‚ÖŒŸõ‚·‚éğŒ‚ğ‘—‚é --%>
@@ -107,7 +109,7 @@
 			——D–¼:
 			<input type="text" id="actressName" name="actressName" placeholder="——D–¼" style="text-align: left; ">
 			<input type="button" value="ŒŸõ" onClick="func('select');" /><br />
-		<input type="button" value="V‹K“o˜^" onClick="func('insert');" />
+		<input type="button" value="V‹K“o˜^" onClick="func('insert');" <%= disabled %> />
 		<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 
@@ -134,8 +136,8 @@
 						<Th class="r0"><input type="radio" name="radioButton" value="<%= actressList.get(i).get("actressId") %>"></Th>
 						<Td class="r1"><% out.print(actressList.get(i).get("actressId")); %></Td>
 						<Td class="r2"><% out.print(actressList.get(i).get("actressName")); %></Td>
-						
-						
+
+
 						<Td class="r3"><% out.print(actressList.get(i).get("companyName")); %></Td>
 					</Tr>
 <% } %>
@@ -143,6 +145,8 @@
 				</tbody>
 			</table>
 			<input type="hidden" name="processDiv">
+			<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
+
 	</form>
 	<div id="footer">
 		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
