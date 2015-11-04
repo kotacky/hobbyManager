@@ -39,6 +39,10 @@ public class G0050Control extends HttpServlet{
 			List<HashMap<String, String>> dramaList = G0050Model.getDramaList(dramaId, title, broadcastCool,television ,genre );
 
 			//検索結果をViewに送る
+			if (dramaList.size() < 1) {
+				//Viewに渡すメッセージを設定
+				request.setAttribute("message", "該当データがありません。");
+			}
 			request.setAttribute("dramaList", dramaList);
 
 			//検索条件保持のために送る

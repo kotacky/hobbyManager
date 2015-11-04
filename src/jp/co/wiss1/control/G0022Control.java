@@ -29,16 +29,21 @@ public class G0022Control extends HttpServlet{
 		String actressId = request.getParameter("actressId");
 		String actressName =request.getParameter("actressName");
 		String companyId =request.getParameter("companyId");
+		String birthDate =request.getParameter("birthDate");
+		String bloodType =request.getParameter("bloodType");
+		String birthPlace =request.getParameter("birthPlace");
 		boolean successFlag = true;
 		String[]  magazineIdList =request.getParameterValues("magazineList");
 		String[]  dramaIdList  = request.getParameterValues("dramaList") ;
 		String[]  movieIdList  = request.getParameterValues("movieList") ;
 		String[]  commercialIdList  = request.getParameterValues("commercialList") ;
+
 		int size = 0;
 
 		if(dramaIdList == null){
 		   successFlag = false;
 		}else{
+
 			//delete,insertの処理
 			//削除対象の主キーを受け取る
 			String deleteActressId = request.getParameter("actressId");
@@ -52,7 +57,7 @@ public class G0022Control extends HttpServlet{
 			commercialIdList = SizeChange.ListChager(size, commercialIdList);
 			for(int i = 0;i < size; i++){
 				//登録する項目を送る
-				int ret = G0021Model.insertActress(companyId,actressName,actressId,magazineIdList[i],dramaIdList[i],movieIdList[i],commercialIdList[i]);
+				int ret = G0021Model.insertActress(companyId,actressName,actressId,magazineIdList[i],dramaIdList[i],movieIdList[i],commercialIdList[i],birthDate,bloodType,birthPlace);
 				if (ret == 0) {
 					successFlag = false;
 					break;

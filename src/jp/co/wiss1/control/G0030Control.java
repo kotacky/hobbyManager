@@ -24,8 +24,27 @@ public class G0030Control extends HttpServlet{
 
 		//フォーム入力を受け取る
 		String companyId = request.getParameter("companyId");
+		//a-z, A-Zは入力受け付けない
+//		if(companyId.matches("[0-9]+")){
+//
+//		}
+//		else{
+//			request.setAttribute("message", "入力が間違っています。");
+//			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0030View.jsp");
+//			dispatch.forward(request, response);
+//		}
 		String companyName = request.getParameter("companyName");
+		//記号は受け付けない
+//		if(companyName.matches("[/[!-/:-@[-`{-~]/g, '']+")){
+//			request.setAttribute("message", "入力が間違っています。");
+//			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0030View.jsp");
+//			dispatch.forward(request, response);
+//		}
+//		else{
+//
+//		}
 		String companyAddress = request.getParameter("companyAddress");
+		//
 
 		//どのボタンからの入力かを受け取る
 		String processDiv = request.getParameter("processDiv");
@@ -36,6 +55,13 @@ public class G0030Control extends HttpServlet{
 			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAddress);
 
 			//Viewに渡すリストを設定
+			if (companyList.size() < 1) {
+				//Viewに渡すメッセージを設定
+				request.setAttribute("message", "該当データがありません。");
+			}
+//			else if(companyId.matches("[^0-9]+")){
+//				request.setAttribute("message", "入力が間違っています。");
+//			}
 			request.setAttribute("companyList", companyList);
 
 			//Viewにリストを渡す

@@ -30,7 +30,9 @@ public class G0020Control extends HttpServlet{
 		//処理に必要となる情報を受け取る
 		String actressId = request.getParameter("actressId");
 		String actressName = request.getParameter("actressName");
-
+//		String birthDate = request.getParameter("birthDate");
+//		String bloodType = request.getParameter("bloodType");
+//		String birthPlace = request.getParameter("birthPlace");
 
 		//検索(SELECT)の処理
 		if ("select".equals(processDiv)){
@@ -41,6 +43,9 @@ public class G0020Control extends HttpServlet{
 			// 画面一覧へ結果を返す
 			request.setAttribute("actressId",actressId);
 			request.setAttribute("actressName",actressName);
+//			request.setAttribute("birthDate",birthDate);
+//			request.setAttribute("bloodType",bloodType);
+//			request.setAttribute("actressName",birthPlace);
 			request.setAttribute("actressList",actressList);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 			dispatch.forward(request, response);

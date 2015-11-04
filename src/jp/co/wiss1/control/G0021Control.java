@@ -33,6 +33,10 @@ public class G0021Control extends HttpServlet{
 		String[]  dramaIdList  = request.getParameterValues("dramaList") ;
 		String[]  movieIdList  = request.getParameterValues("movieList") ;
 		String[]  commercialIdList  = request.getParameterValues("commercialList") ;
+		String birthDate =request.getParameter("birthDate");
+		String bloodType =request.getParameter("bloodType");
+		String birthPlace =request.getParameter("birthPlace");
+		
 		int size = 0;
 
 		if( dramaIdList == null){
@@ -46,7 +50,8 @@ public class G0021Control extends HttpServlet{
 			commercialIdList = SizeChange.ListChager(size, commercialIdList);
 			for(int i = 0;i < size; i++){
 				//登録する項目を送る
-				int ret = G0021Model.insertActress(companyId,actressName,actressId,magazineIdList[i],dramaIdList[i],movieIdList[i],commercialIdList[i]);
+				int ret = G0021Model.insertActress
+						(companyId,actressName,actressId,magazineIdList[i],dramaIdList[i],movieIdList[i],commercialIdList[i],birthDate,bloodType,birthPlace);
 				if (ret == 0) {
 					successFlag = false;
 					break;
