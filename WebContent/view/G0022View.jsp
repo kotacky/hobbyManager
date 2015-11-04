@@ -54,6 +54,12 @@
 		<input type="text" name="actressId" readonly value=<% out.print(actressList.get(0).get("actressId")); %> style="text-align: left;"><br>
 		女優名:
 		<input type="text" name="actressName" value=<% out.print(actressList.get(0).get("actressName")); %> style="text-align: left;"><br>
+		生年月日:
+		<input type="text" name="birthDate" value=<% out.print(actressList.get(0).get("birthDate")); %> style="text-align: left;"><br>
+		血液型:
+		<input type="text" name="bloodType" value=<% out.print(actressList.get(0).get("bloodType")); %> style="text-align: left;"><br>
+		出身地:
+		<input type="text" name="birthPlace" value=<% out.print(actressList.get(0).get("birthPlace")); %> style="text-align: left;"><br>
 
 		<h2>会社を選んでください。</h2>
 	<%

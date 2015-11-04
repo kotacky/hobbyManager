@@ -74,8 +74,12 @@
 	//			contentsList.put("summary", "大河ドラマ");
 List<HashMap<String,String>> dramaList = (List<HashMap<String,String>>)request.getAttribute("dramaList");
 String disabled = "disabled";
+String message = (String)request.getAttribute("message");
 if(dramaList != null){
      disabled = "";
+}
+if (message == null) {
+	message = "";
 }
 %>
 
@@ -86,8 +90,6 @@ if(dramaList != null){
 		<input type="text" id="dramaId" name="dramaId" placeholder="ドラマID" style="text-align: left;">
 		ドラマ名:
 		<input type="text" id="dramaName" name="dramaName" placeholder="ドラマ名" style="text-align: left; ">
-		放送クール:
-		<input type="text" id="broadcastCool" name="broadcastCool" placeholder="放送クール" style="text-align: left; ">
 		放送局:
 		<input type="text" id="television" name="television" placeholder="放送局" style="text-align: left; ">
 		ジャンル:
@@ -96,6 +98,8 @@ if(dramaList != null){
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0051View.jsp';">
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+		<%-- 該当がない場合のメッセージを表示 --%>
+		<div style="color:red;"><%= message %></div>
 		<br style="clear" />
 <%
 //String employee_id=request.getParameter("employee_id");
@@ -127,9 +131,6 @@ if(dramaList != null){
 			<Td class="r5"><% out.print(dramaList.get(i).get("genre")); %></Td>
 		</Tr>
 	<% } %>
-
-			<H2><% out.print("ないよ。"); %></H2>
-
 <% } %>
 
 

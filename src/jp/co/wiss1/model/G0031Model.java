@@ -33,11 +33,11 @@ public class G0031Model {
         	//自動コミットを有効にする
         	connection.setAutoCommit(true);
 
-        	//主キーが入力されなかったとき、SQL文を実行しない
+        	//主キーが入力されなかったとき、かつ半角数字でなかったときにSQL文を実行しない
         	 String insertSql = "INSERT INTO t_company";
              System.out.println("1:" + insertSql);
 
-             if(!"".equals(companyId))
+             if(!"".equals(companyId) && companyId.matches("[0-9]{4}"))
              {
              	insertSql = insertSql + "(company_id"
              			+ ",company_name"

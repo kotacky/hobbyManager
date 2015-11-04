@@ -103,9 +103,9 @@
 <%-- C‚ÖŒŸõ‚·‚éðŒ‚ð‘—‚é --%>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0020Control">
 			——DID:
-			<input type="text" id="actressId" name="actressId" placeholder="——DID" value="<%= request.getParameter("actressId") %>" style="text-align: left;">
+			<input type="text" id="actressId" name="actressId" placeholder="——DID" style="text-align: left;">
 			——D–¼:
-			<input type="text" id="actressName" name="actressName" placeholder="——D–¼" value="<%= request.getParameter("actressName") %>" style="text-align: left; ">
+			<input type="text" id="actressName" name="actressName" placeholder="——D–¼" style="text-align: left; ">
 			<input type="button" value="ŒŸõ" onClick="func('select');" /><br />
 		<input type="button" value="V‹K“o˜^" onClick="func('insert');" />
 		<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
@@ -134,6 +134,8 @@
 						<Th class="r0"><input type="radio" name="radioButton" value="<%= actressList.get(i).get("actressId") %>"></Th>
 						<Td class="r1"><% out.print(actressList.get(i).get("actressId")); %></Td>
 						<Td class="r2"><% out.print(actressList.get(i).get("actressName")); %></Td>
+						
+						
 						<Td class="r3"><% out.print(actressList.get(i).get("companyName")); %></Td>
 					</Tr>
 <% } %>

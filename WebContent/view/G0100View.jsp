@@ -69,8 +69,12 @@
 <%
 		List<HashMap<String,String>> televisionList = (List<HashMap<String,String>>)request.getAttribute("televisionList");
 		String disabled = "disabled";
+		String message = (String)request.getAttribute("message");
 		if(televisionList != null){
 		     disabled = "";
+		}
+		if (message == null) {
+			message = "";
 		}
 %>
 
@@ -89,6 +93,8 @@
 				<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0101View.jsp';">
 				<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 				<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+				<%-- 該当がない場合のメッセージを表示 --%>
+				<div style="color:red;"><%= message %></div>
 			</div>
 
 			<%-- テーブルの表示--%>

@@ -57,22 +57,22 @@ public class G0030Model {
             System.out.println(sql);
 
             resultSet = statement.executeQuery(sql);										//SELECT文を実行するコード
+            System.out.println(resultSet);
 
+//            if(resultSet.equals(statement)){
 
+            	while(resultSet.next()) {														//SELECT文の結果を参照
 
-            while(resultSet.next()) {														//SELECT文の結果を参照
+             	   HashMap<String, String> companyInfo = new HashMap<String, String>();
+             	   companyInfo.put("companyId", resultSet.getString("company_id"));
+             	   companyInfo.put("companyName", resultSet.getString("company_name"));
+             	   companyInfo.put("companyAddress", resultSet.getString("company_address"));
+             	   companyList.add(companyInfo);
 
-        	   HashMap<String, String> companyInfo = new HashMap<String, String>();
-        	   companyInfo.put("companyId", resultSet.getString("company_id"));
-        	   companyInfo.put("companyName", resultSet.getString("company_name"));
-        	   companyInfo.put("companyAddress", resultSet.getString("company_address"));
-
-        	   companyList.add(companyInfo);
-
-            	System.out.println(companyInfo.get("companyId"));							//リストに入ったかの確認
-            	System.out.println(companyInfo.get("companyName"));
-            	System.out.println(companyInfo.get("companyAddress"));
-            }
+                 	System.out.println(companyInfo.get("companyId"));							//リストに入ったかの確認
+                 	System.out.println(companyInfo.get("companyName"));
+                 	System.out.println(companyInfo.get("companyAddress"));
+                 }
 
         }
         catch (SQLException e) {
@@ -93,6 +93,7 @@ public class G0030Model {
         	finally {
         	}
         }
+        System.out.println(companyList);
         return companyList;
 	}
 

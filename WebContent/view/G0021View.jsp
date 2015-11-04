@@ -41,6 +41,12 @@
 		<input type="text" name="actressId"  placeholder="女優ID" style="text-align: left;">
 		姓・名:
 		<input type="text" name="actressName"  placeholder="女優名" style="text-align: left;"><br>
+		生年月日:
+		<input type="text" name="birthDate"  placeholder="生年月日" style="text-align: left;"><br>
+		血液型:
+		<input type="text" name="bloodType"  placeholder="血液型" style="text-align: left;"><br>
+		出身地:
+		<input type="text" name="birthPlace"  placeholder="出身地" style="text-align: left;"><br>
 
 <!-- 会社を登録のために選択 -->
 

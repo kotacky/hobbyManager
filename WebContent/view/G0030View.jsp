@@ -70,9 +70,14 @@
 		//companyList.put("companyName", "ホリプロ");
 		//companyList.put("companyAddress", "東京");
 	List<HashMap<String,String>> companyList = (List<HashMap<String,String>>)request.getAttribute("companyList");
+	//controlからメッセージを受け取る
+	String message = (String)request.getAttribute("message");
 	String disabled = "disabled";
 	if(companyList != null){
 	     disabled = "";
+	}
+	if (message == null) {
+		message = "";
 	}
 %>
 	<h1>所属会社一覧</h1>
@@ -88,6 +93,8 @@
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0031View.jsp';">
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+		<%-- 該当がない場合のメッセージを表示 --%>
+		<div style="color:red;"><%= message %></div>
 <%
 	//String employee_id=request.getParameter("employee_id");
 	//String employee_family_name=request.getParameter("employee_family_name");
@@ -113,7 +120,7 @@
 						<Td class="r2"><% out.print(companyList.get(i).get("companyName")); %></Td>
 						<Td class="r3"><a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<% out.print(companyList.get(i).get("companyAddress")); %>'));return false;"><% out.print(companyList.get(i).get("companyAddress")); %></a></Td>
 					</Tr>
-<% } %>
+	<% } %>
 <% } %>
 				</tbody>
 			</table>

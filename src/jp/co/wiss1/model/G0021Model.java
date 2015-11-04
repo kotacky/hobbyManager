@@ -13,8 +13,9 @@ public class G0021Model {
 		//insertActress("310" , "南沢　奈央" , "210" , "425");
 	}
 
-
-	public static int insertActress(String companyId , String actressName , String actressId , String magazineId , String dramaId , String movieId , String commercialId) ////所属会社テーブルにINSERTするメソッド
+	//所属会社テーブルにINSERTするメソッド
+	public static int insertActress
+	(String companyId , String actressName , String actressId , String magazineId , String dramaId , String movieId , String commercialId , String birthDate , String bloodType , String birthPlace )
 	{
 
 		//各変数を宣言、初期化
@@ -34,7 +35,8 @@ public class G0021Model {
         	//主キーが入力されなかったとき、SQL文を実行しない
             String insertSql = "INSERT INTO t_actress";//変数insertSqlにSQL文を代入
 
-            if(!"".equals(actressId))//変数companyId(主キー)に値が入力されているとき、if文内のSQL文を実行する
+            //変数companyId(主キー)に値が入力されているとき、かつ半角数字でなかったときにSQL文を実行しない
+            if(!"".equals(actressId) && companyId.matches("[0-9]{4}"))
             {
             	//SQL文
             	insertSql = insertSql + "(company_id"
@@ -43,14 +45,20 @@ public class G0021Model {
             			+ ",magazine_id"
             			+ ",drama_id"
             			+ ",movie_id"
-            			+ ",commercial_id)"
+            			+ ",commercial_id"
+            			+ ",birth_date"
+            			+ ",blood_type"
+            			+ ",birth_place)"
             			+ "VALUES('" + companyId + "'"
             			+ ",'" + actressName + "'"
 						+ ",'" + actressId + "'"
 						+ ",'" + magazineId + "'"
 						+ ",'" + dramaId + "'"
 						+ ",'" + movieId + "'"
-						+ ",'" + commercialId + "')";
+						+ ",'" + commercialId + "'"
+            			+ ",'" + birthDate + "'"
+            			+ ",'" + bloodType + "'"
+            			+ ",'" + birthPlace + "')";
 
             	insertCount = statement.executeUpdate(insertSql);
             }
@@ -67,6 +75,9 @@ public class G0021Model {
             System.out.println("引数に" + dramaId + "が入力されました。");
             System.out.println("引数に" + movieId + "が入力されました。");
             System.out.println("引数に" + commercialId + "が入力されました。");
+            System.out.println("引数に" + birthDate + "が入力されました。");
+            System.out.println("引数に" + bloodType + "が入力されました。");
+            System.out.println("引数に" + birthPlace + "が入力されました。");
 
             //どのようなSQL文が入っているか出力
             System.out.println(insertSql);

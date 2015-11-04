@@ -44,7 +44,6 @@
 	<% }catch(NullPointerException insertException){ %>
 	<% } %>
 
-
 <% //C‚Ö“o˜^‚·‚éðŒ‚ð‘—‚é %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0031Control">
 		Š‘®‰ïŽÐID:

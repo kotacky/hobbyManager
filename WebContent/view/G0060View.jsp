@@ -74,8 +74,12 @@
 	//			contentsList.put("summary", "大河ドラマ");
 List<HashMap<String,String>> movieList = (List<HashMap<String,String>>)request.getAttribute("movieList");
 String disabled = "disabled";
+String message = (String)request.getAttribute("message");
 if(movieList != null){
      disabled = "";
+}
+if (message == null) {
+	message = "";
 }
 %>
 
@@ -86,14 +90,14 @@ if(movieList != null){
 		<input type="text" id="movieId" name="movieId" placeholder="映画ID" style="text-align: left;">
 		映画名:
 		<input type="text" id="movieName" name="movieName" placeholder="映画名" style="text-align: left; ">
-		公開日:
-		<input type="text" id="releaseDate" name="releaseDate" placeholder="公開日" style="text-align: left; ">
 		ジャンル:
 		<input type="text" id="movieGenre" name="movieGenre" placeholder="ジャンル名" style="text-align: left; ">
 		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0061View.jsp';">
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+		<%-- 該当がない場合のメッセージを表示 --%>
+		<div style="color:red;"><%= message %></div>
 		<br style="clear" />
 <%
 //String employee_id=request.getParameter("employee_id");
