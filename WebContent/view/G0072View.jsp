@@ -54,9 +54,9 @@
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0072Control">
 		コマーシャルID:
-		<input type="text" name="commercialId" readonly value=<% out.print(commercialList.get(0).get("commercialId")); %>><br>
+		<input type="text" name="commercialId" readonly value=<% out.print(commercialList.get(0).get("commercialId")); %> required>（必須）<br>
 		ＣＭ名:
-		<input type="text" name="commercialName" value=<% out.print(commercialList.get(0).get("commercialName")); %>><br>
+		<input type="text" name="commercialName" value=<% out.print(commercialList.get(0).get("commercialName")); %> required>（必須）<br>
 		広告会社名:
 		<input type="text" name="sponserName" value=<% out.print(commercialList.get(0).get("sponserName")); %>><br>
 		<input type="submit" value="更新">

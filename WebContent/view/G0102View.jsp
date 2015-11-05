@@ -46,11 +46,11 @@
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0102Control">
 		テレビ局ID:
-		<input type="text" name="televisionId" readonly value=<% out.print(televisionList.get(0).get("televisionId")); %>><br>
+		<input type="text" name="televisionId" readonly value=<% out.print(televisionList.get(0).get("televisionId")); %> style="text-align:left;" required>（必須）<br>
 		テレビ局名:
-		<input type="text" name="televisionName" value=<% out.print(televisionList.get(0).get("televisionName")); %>><br>
+		<input type="text" name="televisionName" value=<% out.print(televisionList.get(0).get("televisionName")); %> style="text-align:left;" required>（必須）<br>
 		住所:
-		<input type="text" name="televisionAddress" value=<% out.print(televisionList.get(0).get("televisionAddress")); %>><br>
+		<input type="text" name="televisionAddress" value=<% out.print(televisionList.get(0).get("televisionAddress")); %> style="text-align:left;"><br>
 		<input type="submit" value="更新">
 	</form>
 </body>

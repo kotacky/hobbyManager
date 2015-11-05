@@ -54,9 +54,9 @@
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0042Control">
 		雑誌ID:
-		<input type="text" name="magazineId" readonly value=<% out.print(magazineList.get(0).get("magazineId")); %>><br>
+		<input type="text" name="magazineId" readonly value=<% out.print(magazineList.get(0).get("magazineId")); %> required>（必須）<br>
 		雑誌名:
-		<input type="text" name="magazineName" value=<% out.print(magazineList.get(0).get("magazineName")); %>><br>
+		<input type="text" name="magazineName" value=<% out.print(magazineList.get(0).get("magazineName")); %> required>（必須）<br>
 		出版社:
 		<input type="text" name="publisherName" value=<% out.print(magazineList.get(0).get("publisherName")); %>><br>
 		<input type="submit" value="更新">

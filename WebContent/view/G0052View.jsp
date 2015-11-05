@@ -54,9 +54,9 @@
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0052Control">
 		ドラマID:
-		<input type="text" name="dramaId" readonly value=<% out.print(dramaList.get(0).get("dramaId")); %>><br>
+		<input type="text" name="dramaId" readonly value=<% out.print(dramaList.get(0).get("dramaId")); %> required>（必須）<br>
 		ドラマ名:
-		<input type="text" name="dramaName" value=<% out.print(dramaList.get(0).get("dramaName")); %>><br>
+		<input type="text" name="dramaName" value=<% out.print(dramaList.get(0).get("dramaName")); %> required>（必須）<br>
 		放送クール:
 		<input type="text" name="broadcastCool" value=<% out.print(dramaList.get(0).get("broadcastCool")); %>><br>
 		放送局:

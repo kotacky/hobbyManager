@@ -52,9 +52,9 @@
 	<% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0061Control">
 		映画ID:
-		<input type="text" name="movieId" placeholder="映画ID" style="text-align:left;"><br>
+		<input type="text" name="movieId" placeholder="映画ID" style="text-align:left;" required>（必須）<br>
 		映画名:
-		<input type="text" name="movieName" placeholder="映画名" style="text-align:left;"><br>
+		<input type="text" name="movieName" placeholder="映画名" style="text-align:left;" required>（必須）<br>
 		公開日:
 		<input type="text" name="releaseDate" placeholder="公開日" style="text-align:left;"><br>
 		ジャンル:

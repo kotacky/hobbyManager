@@ -54,9 +54,9 @@
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0062Control">
 		映画ID:
-		<input type="text" name="movieId" readonly value=<% out.print(movieList.get(0).get("movieId")); %>><br>
+		<input type="text" name="movieId" readonly value=<% out.print(movieList.get(0).get("movieId")); %> required>（必須）<br>
 		映画名:
-		<input type="text" name="movieName" value=<% out.print(movieList.get(0).get("movieName")); %>><br>
+		<input type="text" name="movieName" value=<% out.print(movieList.get(0).get("movieName")); %> required>（必須）<br>
 		公開日:
 		<input type="text" name="releaseDate" value=<% out.print(movieList.get(0).get("releaseDate")); %>><br>
 		ジャンル:

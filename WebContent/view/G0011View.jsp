@@ -15,6 +15,7 @@ pageEncoding="Windows-31J"%>
 	<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="./js/default.js"></script>
+
 </head>
 <body>
 		<div id="header">
@@ -27,6 +28,8 @@ pageEncoding="Windows-31J"%>
 				<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 				<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 				<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+				<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+				<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 				<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 			</ul>
 		</div>
@@ -37,21 +40,24 @@ pageEncoding="Windows-31J"%>
 <%-- Cへ登録する条件を送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0011Control">
 		社員ID:
-		<input type="text" name="employeeId" placeholder="社員ID"><br>
+		<input type="text" name="employeeId" placeholder="社員ID" required>（必須）<br>
 		姓:
-		<input type="text" name="employeeFamilyName" placeholder="姓"><br>
+		<input type="text" name="employeeFamilyName" placeholder="姓" required>（必須）<br>
 		名:
-		<input type="text" name="employeeFirstName" placeholder="名"><br>
+		<input type="text" name="employeeFirstName" placeholder="名" required>（必須）<br>
 		生年月日:
-		<input type="text" name="birthDate" placeholder="生年月日"><br>
+		<input type="date" name="birthDate" placeholder="生年月日"><br>
 		出身地:
 		<input type="text" name="employeeFrom" placeholder="出身地"><br>
 		血液型:
 		<input type="text" name="employeeBloodType" placeholder="血液型"><br>
 		権限:
-		<input type="text" name="employeeAuthority" placeholder="権限"><br>
+		<select name="employeeAuthority">
+			<option value="00">00:管理者
+			<option value="01" selected>01:一般職
+		</select><br>
 		パスワード:
-		<input type="password" name="employeePassword" placeholder="パスワード"><br>
+		<input type="password" name="employeePassword" placeholder="パスワード" required>（必須）<br>
 		<input type="submit" value="登録" >
 	</form>
 </body>

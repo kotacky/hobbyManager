@@ -52,9 +52,9 @@
 	<% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0091Control">
 		ジャンルID:
-		<input type="text" name="genreId" placeholder="ジャンルID" ><br>
+		<input type="text" name="genreId" placeholder="ジャンルID" style="text-align:left;" required>（必須）<br>
 		ジャンル名:
-		<input type="text" name="genreName" placeholder="ジャンル名" ><br>
+		<input type="text" name="genreName" placeholder="ジャンル名" style="text-align:left;" required>（必須）<br>
 		<input type="submit" value="登録">
 	</form>
 	<input type="button" value="ジャンル一覧" onClick="form.action=location.href='../../hobbyManager/view/G0090View.jsp'">

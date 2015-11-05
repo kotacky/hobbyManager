@@ -52,9 +52,9 @@
 	<% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0041Control">
 		雑誌ID:
-		<input type="text" name="magazineId" placeholder="magazineID" style="text-align:left;"><br>
+		<input type="text" name="magazineId" placeholder="magazineID" style="text-align:left;" required>（必須）<br>
 		雑誌名:
-		<input type="text" name="magazineName" placeholder="雑誌名" style="text-align:left;"><br>
+		<input type="text" name="magazineName" placeholder="雑誌名" style="text-align:left;" required>（必須）<br>
 		出版社:
 		<input type="text" name="publisherName" placeholder="出版社" style="text-align:left;"><br>
 		<input type="submit" value="登録">

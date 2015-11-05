@@ -30,6 +30,8 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 				<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 			</ul>
 		</div>
@@ -54,21 +56,24 @@
 
 	<form method="POST" action="<%=request.getContextPath() %>/G0012Control">
 		社員ID:
-		<input type="text" name="employeeId" readonly value=<% out.print(employeeList.get(0).get("employeeId")); %>><br>
+		<input type="text" name="employeeId" readonly value=<% out.print(employeeList.get(0).get("employeeId")); %> required>（必須）<br>
 		姓:
-		<input type="text" name="employeeFamilyName" value=<% out.print(employeeList.get(0).get("employeeFamilyName")); %>><br>
+		<input type="text" name="employeeFamilyName" value=<% out.print(employeeList.get(0).get("employeeFamilyName")); %> required>（必須）<br>
 		名:
-		<input type="text" name="employeeFirstName" value=<% out.print(employeeList.get(0).get("employeeFirstName")); %>><br>
+		<input type="text" name="employeeFirstName" value=<% out.print(employeeList.get(0).get("employeeFirstName")); %> required>（必須）<br>
 		生年月日:
-		<input type="text" name="birthDate" value=<% out.print(employeeList.get(0).get("employeeBirthDate")); %>><br>
+		<input type="date" name="birthDate" value=<% out.print(employeeList.get(0).get("employeeBirthDate")); %>><br>
 		出身地:
 		<input type="text" name="employeeFrom" value=<% out.print(employeeList.get(0).get("employeeFrom")); %>><br>
 		血液型:
 		<input type="text" name="employeeBloodType" value=<% out.print(employeeList.get(0).get("employeeBloodType")); %>><br>
 		権限:
-		<input type="text" name="employeeAuthority" value=<% out.print(employeeList.get(0).get("employeeAuthority")); %>><br>
+		<select name="employeeAuthority">
+			<option value="00">00:管理者
+			<option value="01" selected>01:一般職
+		</select><br>
 		パスワード:
-		<input type="password" name="employeePassword" value=<% out.print(employeeList.get(0).get("employeePassword")); %>><br>
+		<input type="password" name="employeePassword" required>（必須）<br>
 		<input type="submit" value="更新">
 	</form>
 </body>

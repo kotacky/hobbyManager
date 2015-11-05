@@ -52,9 +52,9 @@
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0032Control">
 		所属会社ID:
-		<input type="text" name="companyId" readonly value=<% out.print(companyList.get(0).get("companyId")); %>><br>
+		<input type="text" name="companyId" readonly value=<% out.print(companyList.get(0).get("companyId")); %> required>（必須）<br>
 		会社名:
-		<input type="text" name="companyName" value=<% out.print(companyList.get(0).get("companyName")); %>><br>
+		<input type="text" name="companyName" value=<% out.print(companyList.get(0).get("companyName")); %> required>（必須）<br>
 		住所:
 		<input type="text" name="companyAddress" value=<% out.print(companyList.get(0).get("companyAddress")); %>><br>
 		<input type="submit" value="更新">

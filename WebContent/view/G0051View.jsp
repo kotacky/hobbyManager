@@ -52,9 +52,9 @@
 	<% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0051Control">
 		ドラマID:
-		<input type="text" name="dramaId" placeholder="dramaID" style="text-align:left;"><br>
+		<input type="text" name="dramaId" placeholder="dramaID" style="text-align:left;" required>（必須）<br>
 		ドラマ名:
-		<input type="text" name="dramaName" placeholder="ドラマ名" style="text-align:left;"><br>
+		<input type="text" name="dramaName" placeholder="ドラマ名" style="text-align:left;" required>（必須）<br>
 		放送クール:
 		<input type="text" name="broadcastCool" placeholder="放送クール" style="text-align:left;"><br>
 		放送局:

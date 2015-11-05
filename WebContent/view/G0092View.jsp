@@ -52,9 +52,9 @@
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0092Control">
 		ジャンルID:
-		<input type="text" name="genreId" readonly value=<% out.print(genreList.get(0).get("genreId")); %>><br>
+		<input type="text" name="genreId" readonly value=<% out.print(genreList.get(0).get("genreId")); %> style="text-align:left;" required><br>
 		ジャンル名:
-		<input type="text" name="genreName" value=<% out.print(genreList.get(0).get("genreName")); %>><br>
+		<input type="text" name="genreName" value=<% out.print(genreList.get(0).get("genreName")); %> style="text-align:left;" required><br>
 		<input type="submit" value="更新">
 	</form>
 </body>

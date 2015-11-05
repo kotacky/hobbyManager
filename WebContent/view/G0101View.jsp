@@ -50,11 +50,11 @@
 <% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0101Control">
 		テレビ局ID:
-		<input type="text" name="televisionId" placeholder="テレビ局ID"><br>
+		<input type="text" name="televisionId" placeholder="テレビ局ID" style="text-align:left;" required>（必須）<br>
 		テレビ局名:
-		<input type="text" name="televisionName" placeholder="テレビ局名"><br>
+		<input type="text" name="televisionName" placeholder="テレビ局名" style="text-align:left;" required>（必須）<br>
 		住所:
-		<input type="text" name="televisionAddress" placeholder="住所"><br>
+		<input type="text" name="televisionAddress" placeholder="住所" style="text-align:left;"><br>
 		<input type="submit" value="登録">
 	</form>
 	<input type="button" value="テレビ局一覧" onClick="form.action=location.href='../../hobbyManager/view/G0100View.jsp'">
