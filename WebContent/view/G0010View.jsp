@@ -111,7 +111,7 @@ String disabled = "disabled";%>
 			–¼:
 			<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="–¼"  style="text-align: left; ">
 			<input type="button" value="ŒŸõ" onClick="func('select');" /><br />
-			<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp'" <%= disabled %>/>
+			<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp';" <%= disabled %>/>
 			<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 			<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 			<br style="clear" />
