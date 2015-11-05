@@ -41,12 +41,13 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">映画一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ドラマ一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
@@ -82,6 +83,7 @@
 	//			genreList.put("genre_id", "401");
 	//			genreList.put("genre_name", "八重の桜");
 List<HashMap<String,String>> genreList = (List<HashMap<String,String>>)request.getAttribute("genreList");
+String message = (String)request.getAttribute("message");
 String disabled = "disabled";%>
 <% try{ %>
 <% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
@@ -90,6 +92,9 @@ String disabled = "disabled";%>
 <% } %>
 <% }catch(NullPointerException deleteException){ %>
 <% } %>
+<%if (message == null) {
+		message = "";
+}%>
 
 <br/>
 <% //Cへ検索する条件を送る %>
@@ -102,6 +107,7 @@ String disabled = "disabled";%>
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0091View.jsp';" <%= disabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+		<div style="color:red;"><%= message %></div>
 		<br style="clear" />
 <%
 //String テーブル_id=request.getParameter("テーブル_id");

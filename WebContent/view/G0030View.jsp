@@ -37,6 +37,8 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
@@ -70,7 +72,7 @@
 		//companyList.put("companyName", "ホリプロ");
 		//companyList.put("companyAddress", "東京");
 	List<HashMap<String,String>> companyList = (List<HashMap<String,String>>)request.getAttribute("companyList");
-	//controlからメッセージを受け取る
+	//該当データがないメッセージを受け取る
 	String message = (String)request.getAttribute("message");
 	String disabled = "disabled";%>
 	<% try{ %>

@@ -36,6 +36,10 @@ public class G0010Control extends HttpServlet{
 			List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId, familyName, firstName);
 
 			//検索結果をViewに送る
+			if (employeeList.size() < 1) {
+				//Viewに渡すメッセージを設定
+				request.setAttribute("message", "該当データがありません。");
+			}
 			request.setAttribute("employeeList", employeeList);
 
 			//検索条件保持のために送る

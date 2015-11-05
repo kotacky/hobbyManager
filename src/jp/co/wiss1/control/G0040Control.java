@@ -37,6 +37,10 @@ public class G0040Control extends HttpServlet{
 			List<HashMap<String, String>> magazineList = G0040Model.getMagazineList(magazineId, magazineName, publisherName);
 
 			//検索結果をViewに送る
+			if (magazineList.size() < 1) {
+				//Viewに渡すメッセージを設定
+				request.setAttribute("message", "該当データがありません。");
+			}
 			request.setAttribute("magazineList", magazineList);
 
 			//検索条件保持のために送る

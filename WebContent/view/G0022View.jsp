@@ -29,6 +29,8 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">ŽGŽˆê——</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">Š‘®‰ïŽÐˆê——</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">ŽÐˆõˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ƒWƒƒƒ“ƒ‹ˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">ƒeƒŒƒr‹Çˆê——</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>

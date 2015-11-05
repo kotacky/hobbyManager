@@ -35,6 +35,10 @@ public class G0090Control extends HttpServlet{
 		//()をあげたら、HashMapのリストをモデルからもらう
 
 		//Viewに渡すリストを設定
+		if (genreList.size() < 1) {
+			//Viewに渡すメッセージを設定
+			request.setAttribute("message", "該当データがありません。");
+		}
 		request.setAttribute("genreList", genreList);
 
 		//Viewにリストを渡す

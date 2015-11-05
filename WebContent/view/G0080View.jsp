@@ -49,6 +49,8 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
@@ -86,25 +88,34 @@
 					//preferenceList.put("actressName","綾瀬はるか");
 					//preferenceList.put("contentsName","八重の桜");
 		List<HashMap<String,String>> preferenceList = (List<HashMap<String,String>>)request.getAttribute("preferenceList");
-		String disabled = "disabled";
-		if(preferenceList != null){
-		     disabled = "";
-		}
-%>
+		String message = (String)request.getAttribute("message");
+		String disabled = "disabled"; %>
+		<% try{ %>
+		<% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
+		<% if((preferenceList != null) && ("00".equals(employeeAuthority))){%>
+			<% disabled = "";%>
+		<% } %>
+		<% }catch(NullPointerException deleteException){ %>
+		<% } %>
+		<% if (message == null) {
+			message = "";
+		} %>
+
 
 
 <% //Cへ検索する条件を送る %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0080Control">
 		社員ID:
-		<input type="text" id="employeeId" name="employeeId" placeholder="社員ID" value="<%= request.getParameter("employeeId") %>" style="text-align: left;">
+		<input type="text" id="employeeId" name="employeeId" placeholder="社員ID" style="text-align: left;">
 		姓:
-		<input type="text" id="employeeFamilyName" name="employeeFamilyName" placeholder="姓" value="<%= request.getParameter("employeeFamilyName") %>" style="text-align: left; ">
+		<input type="text" id="employeeFamilyName" name="employeeFamilyName" placeholder="姓" style="text-align: left; ">
 		名:
-		<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="名" value="<%= request.getParameter("employeeFirstName") %>" style="text-align: left; ">
+		<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="名" style="text-align: left; ">
 		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="func('insert');" />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
-
+		<%-- 該当がない場合のメッセージを表示 --%>
+		<div style="color:red;"><%= message %></div>
 <%
 	//String employee_id=request.getParameter("employee_id");
 	//String employee_family_name=request.getParameter("employee_family_name");
@@ -127,25 +138,26 @@
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
-<% if(preferenceList != null){ %>
-<% for(int i = 0; i < preferenceList.size(); i++){ %>
-				<Tr>
-					<Th class="r0"><input type="radio" name="radioButton" value="<%= preferenceList.get(i).get("employeeId") %>"></Th>
-					<Td class="r1"><% out.print(preferenceList.get(i).get("employeeId")); %></Td>
-					<Td class="r2"><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Td>
-					<Td class="r3"><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Td>
-					<Td class="r4"><% out.print(preferenceList.get(i).get("actressName")); %></Td>
-					<Td class="r4"><% out.print(preferenceList.get(i).get("magazineName")); %></Td>
-					<Td class="r4"><% out.print(preferenceList.get(i).get("dramaName")); %></Td>
-					<Td class="r4"><% out.print(preferenceList.get(i).get("movieName")); %></Td>
-					<Td class="r4"><% out.print(preferenceList.get(i).get("commercialName")); %></Td>
+			<% if(preferenceList != null){ %>
+				<% for(int i = 0; i < preferenceList.size(); i++){ %>
+						<Tr>
+							<Th class="r0"><input type="radio" name="radioButton" value="<%= preferenceList.get(i).get("employeeId") %>"></Th>
+							<Td class="r1"><% out.print(preferenceList.get(i).get("employeeId")); %></Td>
+							<Td class="r2"><% out.print(preferenceList.get(i).get("employeeFamilyName")); %></Td>
+							<Td class="r3"><% out.print(preferenceList.get(i).get("employeeFirstName")); %></Td>
+							<Td class="r4"><% out.print(preferenceList.get(i).get("actressName")); %></Td>
+							<Td class="r4"><% out.print(preferenceList.get(i).get("magazineName")); %></Td>
+							<Td class="r4"><% out.print(preferenceList.get(i).get("dramaName")); %></Td>
+							<Td class="r4"><% out.print(preferenceList.get(i).get("movieName")); %></Td>
+							<Td class="r4"><% out.print(preferenceList.get(i).get("commercialName")); %></Td>
 
-				</Tr>
-<% } %>
-<% } %>
+						</Tr>
+				<% } %>
+			<% } %>
 			</tbody>
 		</table>
 		<input type="hidden" name="processDiv">
+		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 	<div id="footer">
 		<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>

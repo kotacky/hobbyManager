@@ -39,6 +39,11 @@ public class G0020Control extends HttpServlet{
 
 			//検索項目を渡し、リストを受け取る
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName);
+			//Viewに渡すリストを設定
+			if (actressList.size() < 1) {
+				//Viewに渡すメッセージを設定
+				request.setAttribute("message", "該当データがありません。");
+			}
 
 			// 画面一覧へ結果を返す
 			request.setAttribute("actressId",actressId);

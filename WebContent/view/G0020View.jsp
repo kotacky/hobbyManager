@@ -47,6 +47,8 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
@@ -92,6 +94,8 @@
 		//actressList.put("companyName", "ホリプロ");
 		//actressList.put("companyAddress", "東京");
 	List<HashMap<String,String>> actressList = (List<HashMap<String,String>>)request.getAttribute("actressList");
+	//該当データがないメッセージを受け取る
+	String message = (String)request.getAttribute("message");
 	String disabled = "disabled";%>
 	<% try{ %>
 	<% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
@@ -100,7 +104,9 @@
 	<% } %>
 	<% }catch(NullPointerException deleteException){ %>
 	<% } %>
-
+	<%if (message == null) {
+		message = "";
+	}%>
 
 <%-- Cへ検索する条件を送る --%>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0020Control">
@@ -112,6 +118,7 @@
 		<input type="button" value="新規登録" onClick="func('insert');" <%= disabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+		<div style="color:red;"><%= message %></div>
 
 <%
 	//String employee_id=request.getParameter("employee_id");

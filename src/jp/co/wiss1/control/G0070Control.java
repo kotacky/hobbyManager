@@ -37,6 +37,10 @@ public class G0070Control extends HttpServlet{
 			List<HashMap<String, String>> commercialList = G0070Model.getCommercialList(commercialId, title, sponserName);
 
 			//検索結果をViewに送る
+			if (commercialList.size() < 1) {
+				//Viewに渡すメッセージを設定
+				request.setAttribute("message", "該当データがありません。");
+			}
 			request.setAttribute("commercialList", commercialList);
 
 			//検索条件保持のために送る
