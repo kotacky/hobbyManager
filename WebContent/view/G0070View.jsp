@@ -98,11 +98,11 @@ String disabled = "disabled";%>
 <% //Cへ検索する条件を送る %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0070Control">
 		コマーシャルID:
-		<input type="text" id="commercialId" name="commercialId" placeholder="コマーシャルID" value="<%= request.getParameter("commercialId") %>" style="text-align: left;">
+		<input type="text" id="commercialId" name="commercialId" placeholder="コマーシャルID" style="text-align: left;">
 		ＣＭ名:
-		<input type="text" id="commercialName" name="commercialName" placeholder="ＣＭ名" value="<%= request.getParameter("commercialName") %>" style="text-align: left; ">
+		<input type="text" id="commercialName" name="commercialName" placeholder="ＣＭ名" style="text-align: left; ">
 		広告会社名:
-		<input type="text" id="sponserName" name="sponserName" placeholder="広告会社名" value="<%= request.getParameter("sponserName") %>" style="text-align: left; ">
+		<input type="text" id="sponserName" name="sponserName" placeholder="広告会社名" style="text-align: left; ">
 		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0071View.jsp';" <%= disabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
