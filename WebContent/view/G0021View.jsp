@@ -40,9 +40,9 @@
 <%--Cへ登録する条件を送る --%>
 	<form method="POST" name="Myform" action="<%=request.getContextPath() %>/G0021Control">
 		女優ID:
-		<input type="text" name="actressId"  placeholder="女優ID" style="text-align: left;">
-		姓・名:
-		<input type="text" name="actressName"  placeholder="女優名" style="text-align: left;"><br>
+		<input type="text" name="actressId"  placeholder="女優ID" style="text-align: left;" required>（必須）<br>
+		女優名:
+		<input type="text" name="actressName"  placeholder="女優名" style="text-align: left;" required>（必須）<br>
 		生年月日:
 		<input type="text" name="birthDate"  placeholder="生年月日" style="text-align: left;"><br>
 		血液型:
@@ -75,13 +75,13 @@ if (columnMagazineList == null) {
 }
 %>
 
-<h2>表紙を飾った雑誌を選んでください。</h2>
+<h2>表紙を飾った雑誌を選んでください。（必須）</h2>
 
 <% if(columnMagazineList != null){ %>
 
 	<% for(int i = 0; i < columnMagazineList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="magazineList" value="<%= columnMagazineList.get(i).get("magazineId") %>" />
+			<input type="checkBox" name="magazineList" value="<%= columnMagazineList.get(i).get("magazineId") %>" required/>
 			<%  out.print(columnMagazineList.get(i).get("magazineName")); %>
 		</label>
 	<% } %>
@@ -97,13 +97,13 @@ if (columnMagazineList == null) {
 		}
 %>
 
-<h2>出演ドラマを選んでください。</h2>
+<h2>出演ドラマを選んでください。（必須）</h2>
 
 <% if(columnDramaList != null){ %>
 
 	<% for(int i = 0; i < columnDramaList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="dramaList" value="<%= columnDramaList.get(i).get("dramaId") %>" />
+			<input type="checkBox" name="dramaList" value="<%= columnDramaList.get(i).get("dramaId") %>" required/>
 			<%  out.print(columnDramaList.get(i).get("dramaName")); %>
 		</label>
 	<% } %>
@@ -119,13 +119,13 @@ if (columnMagazineList == null) {
 		}
 %>
 
-<h2>出演映画を選んでください。</h2>
+<h2>出演映画を選んでください。（必須）</h2>
 
 <% if(columnMovieList != null){ %>
 
 	<% for(int i = 0; i < columnMovieList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="movieList" value="<%= columnMovieList.get(i).get("movieId") %>" />
+			<input type="checkBox" name="movieList" value="<%= columnMovieList.get(i).get("movieId") %>" required/>
 			<%  out.print(columnMovieList.get(i).get("movieName")); %>
 		</label>
 	<% } %>
@@ -141,13 +141,13 @@ if (columnMagazineList == null) {
 		}
 %>
 
-<h2>出演ＣＭを選んでください。</h2>
+<h2>出演ＣＭを選んでください。（必須）</h2>
 
 <% if(columnCommercialList != null){ %>
 
 	<% for(int i = 0; i < columnCommercialList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="commercialList" value="<%= columnCommercialList.get(i).get("commercialId") %>" />
+			<input type="checkBox" name="commercialList" value="<%= columnCommercialList.get(i).get("commercialId") %>" required/>
 			<%  out.print(columnCommercialList.get(i).get("commercialName")); %>
 		</label>
 	<% } %>
