@@ -75,13 +75,13 @@ if (columnMagazineList == null) {
 }
 %>
 
-<h2>表紙を飾った雑誌を選んでください。（必須）</h2>
+<h2>表紙を飾った雑誌を選んでください。</h2>
 
 <% if(columnMagazineList != null){ %>
 
 	<% for(int i = 0; i < columnMagazineList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="magazineList" value="<%= columnMagazineList.get(i).get("magazineId") %>" required/>
+			<input type="checkBox" name="magazineList" value="<%= columnMagazineList.get(i).get("magazineId") %>" />
 			<%  out.print(columnMagazineList.get(i).get("magazineName")); %>
 		</label>
 	<% } %>
@@ -97,13 +97,13 @@ if (columnMagazineList == null) {
 		}
 %>
 
-<h2>出演ドラマを選んでください。（必須）</h2>
+<h2>出演ドラマを選んでください。</h2>
 
 <% if(columnDramaList != null){ %>
 
 	<% for(int i = 0; i < columnDramaList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="dramaList" value="<%= columnDramaList.get(i).get("dramaId") %>" required/>
+			<input type="checkBox" name="dramaList" value="<%= columnDramaList.get(i).get("dramaId") %>" />
 			<%  out.print(columnDramaList.get(i).get("dramaName")); %>
 		</label>
 	<% } %>
@@ -119,13 +119,13 @@ if (columnMagazineList == null) {
 		}
 %>
 
-<h2>出演映画を選んでください。（必須）</h2>
+<h2>出演映画を選んでください。</h2>
 
 <% if(columnMovieList != null){ %>
 
 	<% for(int i = 0; i < columnMovieList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="movieList" value="<%= columnMovieList.get(i).get("movieId") %>" required/>
+			<input type="checkBox" name="movieList" value="<%= columnMovieList.get(i).get("movieId") %>" />
 			<%  out.print(columnMovieList.get(i).get("movieName")); %>
 		</label>
 	<% } %>
@@ -141,13 +141,13 @@ if (columnMagazineList == null) {
 		}
 %>
 
-<h2>出演ＣＭを選んでください。（必須）</h2>
+<h2>出演ＣＭを選んでください。</h2>
 
 <% if(columnCommercialList != null){ %>
 
 	<% for(int i = 0; i < columnCommercialList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="commercialList" value="<%= columnCommercialList.get(i).get("commercialId") %>" required/>
+			<input type="checkBox" name="commercialList" value="<%= columnCommercialList.get(i).get("commercialId") %>" />
 			<%  out.print(columnCommercialList.get(i).get("commercialName")); %>
 		</label>
 	<% } %>

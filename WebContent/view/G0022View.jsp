@@ -84,20 +84,20 @@ if (columnMagazineList == null) {
 }
 %>
 
-<h2>表紙を飾った雑誌を選んでください。（必須）</h2>
+<h2>表紙を飾った雑誌を選んでください。</h2>
 
 <% if(columnMagazineList != null){ %>
 
 	<% for(int i = 0; i < columnMagazineList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="magazineList" value="<%= columnMagazineList.get(i).get("magazineId") %>" required/>
+			<input type="checkBox" name="magazineList" value="<%= columnMagazineList.get(i).get("magazineId") %>" />
 			<%  out.print(columnMagazineList.get(i).get("magazineName")); %>
 		</label>
 	<% } %>
 <% } %><br style="clear: both" />
 
 
-	<h2>出演ドラマを選んでください。（必須）</h2>
+	<h2>出演ドラマを選んでください。</h2>
 	<%
 		List<HashMap<String, String>> columnDramaList = (List<HashMap<String, String>>)request.getAttribute("columnDramaList");
 			check = null;
@@ -119,7 +119,7 @@ if (columnMagazineList == null) {
 	<% } %>
 	<br style="clear: both" />
 
-<h2>出演映画を選んでください。（必須）</h2>
+<h2>出演映画を選んでください。</h2>
 	<%
 		List<HashMap<String, String>> columnMovieList = (List<HashMap<String, String>>)request.getAttribute("columnMovieList");
 		check = null;
@@ -134,7 +134,7 @@ if (columnMagazineList == null) {
 
 	<% for(int i = 0; i < columnMovieList.size(); i++){ %>
 	<label>
-		<input type="checkBox" name="movieList" value="<%= columnMovieList.get(i).get("movieId") %>" required/>
+		<input type="checkBox" name="movieList" value="<%= columnMovieList.get(i).get("movieId") %>" />
 		<%  out.print(columnMovieList.get(i).get("movieName")); %>
 	</label>
 	<% } %>
@@ -151,13 +151,13 @@ if (columnMagazineList == null) {
 		}
 %>
 
-<h2>出演ＣＭを選んでください。（必須）</h2>
+<h2>出演ＣＭを選んでください。</h2>
 
 <% if(columnCommercialList != null){ %>
 
 	<% for(int i = 0; i < columnCommercialList.size(); i++){ %>
 		<label>
-			<input type="checkBox" name="commercialList" value="<%= columnCommercialList.get(i).get("commercialId") %>" required/>
+			<input type="checkBox" name="commercialList" value="<%= columnCommercialList.get(i).get("commercialId") %>" />
 			<%  out.print(columnCommercialList.get(i).get("commercialName")); %>
 		</label>
 	<% } %>

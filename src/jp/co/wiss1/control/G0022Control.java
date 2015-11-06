@@ -40,7 +40,7 @@ public class G0022Control extends HttpServlet{
 
 		int size = 0;
 
-		if(dramaIdList == null){
+		if((magazineIdList == null) || (dramaIdList == null) || (movieIdList == null) || (commercialIdList == null)){
 		   successFlag = false;
 		}else{
 
