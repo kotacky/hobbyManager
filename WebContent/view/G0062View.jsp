@@ -58,7 +58,7 @@
 		映画名:
 		<input type="text" name="movieName" value=<% out.print(movieList.get(0).get("movieName")); %> required>（必須）<br>
 		公開日:
-		<input type="text" name="releaseDate" value=<% out.print(movieList.get(0).get("releaseDate")); %>><br>
+		<input type="date" name="releaseDate" value=<% out.print(movieList.get(0).get("releaseDate")); %>><br>
 		ジャンル:
 		<input type="text" name="movieGenre" value=<% out.print(movieList.get(0).get("movieGenre")); %>><br>
 		<input type="submit" value="更新">

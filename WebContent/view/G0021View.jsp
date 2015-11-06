@@ -44,7 +44,7 @@
 		女優名:
 		<input type="text" name="actressName"  placeholder="女優名" style="text-align: left;" required>（必須）<br>
 		生年月日:
-		<input type="text" name="birthDate"  placeholder="生年月日" style="text-align: left;"><br>
+		<input type="date" name="birthDate"  placeholder="生年月日" style="text-align: left;"><br>
 		血液型:
 		<input type="text" name="bloodType"  placeholder="血液型" style="text-align: left;"><br>
 		出身地:

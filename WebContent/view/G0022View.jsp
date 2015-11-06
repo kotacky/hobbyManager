@@ -57,7 +57,7 @@
 		女優名:
 		<input type="text" name="actressName" value=<% out.print(actressList.get(0).get("actressName")); %> style="text-align: left;" required>（必須）<br>
 		生年月日:
-		<input type="text" name="birthDate" value=<% out.print(actressList.get(0).get("birthDate")); %> style="text-align: left;"><br>
+		<input type="date" name="birthDate" value=<% out.print(actressList.get(0).get("birthDate")); %> style="text-align: left;"><br>
 		血液型:
 		<input type="text" name="bloodType" value=<% out.print(actressList.get(0).get("bloodType")); %> style="text-align: left;"><br>
 		出身地:

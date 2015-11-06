@@ -66,10 +66,6 @@ public class G0020Model
         	   actressInfo.put("actressId", resultSet.getString("actress_id"));
         	   actressInfo.put("actressName", resultSet.getString("actress_name"));
         	   actressInfo.put("companyName", resultSet.getString("company_name"));
-           	   //所属会社IDがなかったら
-//        	   if(companyName == "null"){
-//        		    actressInfo.put("未所属", resultSet.getString("actress_name"));
-//        	   }
         	   actressInfo.put("birthDate", resultSet.getString("birth_date"));
         	   actressInfo.put("bloodType", resultSet.getString("blood_type"));
         	   actressInfo.put("birthPlace", resultSet.getString("birth_place"));
@@ -138,8 +134,7 @@ public class G0020Model
 
             deleteCount = statement.executeUpdate (sql);
 
-//            if(deleteCount != 1){
-            if(deleteCount == 1){																		//削除が成功しているかどうかの確認
+            if(deleteCount != 0 ){																		//削除が成功しているかどうかの確認
             	System.out.println("削除成功");
             }
             else{
