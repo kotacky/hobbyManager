@@ -34,8 +34,8 @@ public class G0030Control extends HttpServlet{
 //			dispatch.forward(request, response);
 //		}
 		String companyName = request.getParameter("companyName");
-		//記号は受け付けない
-//		if(companyName.matches("[/[!-/:-@[-`{-~]/g, '']+")){
+//		//記号は受け付けない
+//		if(companyName.matches("[^0-9a-zA-Zぁ-んァ-ヶ一-龠々ー]")){
 //			request.setAttribute("message", "入力が間違っています。");
 //			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0030View.jsp");
 //			dispatch.forward(request, response);

@@ -48,24 +48,12 @@ public class G0020Model
 	        if(!"".equals(actressId)) {
 	        	sql = sql + "t_actress.actress_id = '"+ actressId +"' AND ";
 	        }
-//	        if(!"".equals(actressName)) {
-//	        	sql = sql + "t_actress.actress_name = '"+ actressName +"' AND ";
-//	        }
-//	        if(!"".equals(birthDate)) {
-//	        	sql = sql + "t_actress.birth_date = '"+ birthDate +"' AND ";
-//	        }
-//	        if(!"".equals(bloodType)) {
-//	        	sql = sql + "t_actress.blood_type = '"+ bloodType +"' AND ";
-//	        }
-//	        sql = sql + "birth_place like '%"+ birthPlace +"%'";
+
 	        sql = sql + "actress_name like '%"+ actressName +"%'";
 	        sql = sql +  "ORDER BY actress_id ";
 
             System.out.println("引数に" + actressId + "が入力されました。");
             System.out.println("引数に" + actressName + "が入力されました。");
-//            System.out.println("引数に" + birthDate + "が入力されました。");
-//            System.out.println("引数に" + bloodType + "が入力されました。");
-//            System.out.println("引数に" + birthPlace + "が入力されました。");
             System.out.println(sql);
 
             //SELECT文を実行するコード
@@ -77,11 +65,11 @@ public class G0020Model
         	   HashMap<String, String> actressInfo = new HashMap<String, String>();
         	   actressInfo.put("actressId", resultSet.getString("actress_id"));
         	   actressInfo.put("actressName", resultSet.getString("actress_name"));
-        	   //所属会社IDがなかったら
+        	   actressInfo.put("companyName", resultSet.getString("company_name"));
+           	   //所属会社IDがなかったら
 //        	   if(companyName == "null"){
 //        		    actressInfo.put("未所属", resultSet.getString("actress_name"));
 //        	   }
-        	   actressInfo.put("companyName", resultSet.getString("company_name"));
         	   actressInfo.put("birthDate", resultSet.getString("birth_date"));
         	   actressInfo.put("bloodType", resultSet.getString("blood_type"));
         	   actressInfo.put("birthPlace", resultSet.getString("birth_place"));

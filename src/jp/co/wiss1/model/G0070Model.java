@@ -100,7 +100,7 @@ public class G0070Model {
 
 
 
-		public static int deleteCommercial(String commercialId) {	 								//映画テーブル削除
+		public static int deleteCommercial(String commercialId) {	 								//CMテーブル削除
 
 
 			Connection connection = null;
