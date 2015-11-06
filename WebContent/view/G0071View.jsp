@@ -37,15 +37,6 @@
 
 <!-- メッセージ表示  -->
 
-	<% try{ %>
-		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
-		<% if("1".equals(insertFlag)){ %>
-			<H2><% out.print("登録が完了しました。"); %></H2>
-			<% }else if("0".equals(insertFlag)){ %>
-			<H2><% out.print("登録が失敗しました。"); %></H2>
-			<% } %>
-	<% }catch(NullPointerException insertException){ %>
-	<% } %>
 
 	<p><strong>ＣＭに関する情報を登録して下さい。</strong></p>
 

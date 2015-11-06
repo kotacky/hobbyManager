@@ -44,27 +44,8 @@
 		</ul>
 	</div>
 
-	<%-- メッセージの表示 --%>
+		<h1>テレビ局一覧</h1>
 
-	<% try{ %>
-		<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
-		<% if("1".equals(deleteFlag)){ %>
-		<H2><% out.print("削除が完了しました。"); %></H2>
-		<% }else if("0".equals(deleteFlag)){ %>
-		<H2><% out.print("削除が失敗しました。"); %></H2>
-		<% } %>
-	<% }catch(NullPointerException deleteException){ %>
-	<% } %>
-
-	<% try{ %>
-		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
-		<% if("1".equals(updateFlag)){ %>
-		<H2><% out.print("更新が完了しました。"); %></H2>
-		<% }else if("0".equals(updateFlag)){ %>
-		<H2><% out.print("更新が失敗しました。"); %></H2>
-		<% } %>
-		<% }catch(NullPointerException updateException){ %>
-		<% } %>
 
 	<%-- リストの取得 --%>
 <%
@@ -86,7 +67,40 @@
 			message = "";
 		}%>
 
-		<h1>テレビ局一覧</h1>
+			<%-- メッセージの表示 --%>
+
+	<% try{ %>
+		<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
+		<% if("1".equals(deleteFlag)){ %>
+		<H2><% out.print("削除が完了しました。"); %></H2>
+		<% }else if("0".equals(deleteFlag)){ %>
+		<H2><% out.print("削除が失敗しました。"); %></H2>
+		<% } %>
+	<% }catch(NullPointerException deleteException){ %>
+	<% } %>
+
+	<% try{ %>
+		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+		<% if("1".equals(insertFlag)){ %>
+			<H2><% out.print("登録が完了しました。"); %></H2>
+			<% }else if("0".equals(insertFlag)){ %>
+			<H2><% out.print("登録が失敗しました。"); %></H2>
+			<% } %>
+	<% }catch(NullPointerException insertException){ %>
+	<% } %>
+
+
+	<% try{ %>
+		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
+		<% if("1".equals(updateFlag)){ %>
+		<H2><% out.print("更新が完了しました。"); %></H2>
+		<% }else if("0".equals(updateFlag)){ %>
+		<H2><% out.print("更新が失敗しました。"); %></H2>
+		<% } %>
+		<% }catch(NullPointerException updateException){ %>
+		<% } %>
+
+
 		<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0100Control">
 			<div>
 			<br>

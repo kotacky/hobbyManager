@@ -23,10 +23,22 @@
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
+		function init() {
+			if (document.MyForm.movieId.value == "null") {
+				document.MyForm.movieId.value = "";
+			}
+			if (document.MyForm.movieName.value == "null") {
+				document.MyForm.movieName.value = "";
+			}
+			if (document.MyForm.movieGenre.value == "null") {
+				document.MyForm.movieGenre.value = "";
+			}
+		}
+
 	 </script>
 </head>
 
-<body >
+<body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">çDÇ›àÍóó</a></li>
@@ -55,6 +67,16 @@
 			<H2><% out.print("çÌèúÇ™é∏îsÇµÇ‹ÇµÇΩÅB"); %></H2>
 		<% } %>
 	<% }catch(NullPointerException deleteException){ %>
+	<% } %>
+
+	<% try{ %>
+		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+		<% if("1".equals(insertFlag)){ %>
+			<H2><% out.print("ìoò^Ç™äÆóπÇµÇ‹ÇµÇΩÅB"); %></H2>
+			<% }else if("0".equals(insertFlag)){ %>
+			<H2><% out.print("ìoò^Ç™é∏îsÇµÇ‹ÇµÇΩÅB"); %></H2>
+			<% } %>
+	<% }catch(NullPointerException insertException){ %>
 	<% } %>
 
 	<% try{ %>

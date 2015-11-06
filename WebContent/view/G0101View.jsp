@@ -35,17 +35,6 @@
 
 	<h1>ƒeƒŒƒr‹Ç“o˜^</h1>
 
-<%-- ƒƒbƒZ[ƒW‚Ì•\Ž¦ --%>
-	<% try{ %>
-		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
-		<% if("1".equals(insertFlag)){ %>
-			<H2><% out.print("“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
-			<% }else if("0".equals(insertFlag)){ %>
-			<H2><% out.print("“o˜^‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
-			<% } %>
-	<% }catch(NullPointerException insertException){ %>
-	<% } %>
-
 
 <% //C‚Ö“o˜^‚·‚éðŒ‚ð‘—‚é %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0101Control">

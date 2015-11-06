@@ -57,11 +57,11 @@
 		女優名:
 		<input type="text" name="actressName" value=<% out.print(actressList.get(0).get("actressName")); %> style="text-align: left;" required>（必須）<br>
 		生年月日:
-		<input type="date" name="birthDate" value=<% out.print(actressList.get(0).get("birthDate")); %> style="text-align: left;"><br>
+		<input type="date" name="birthDate" style="text-align: left;" value=<% out.print(actressList.get(0).get("birthDate")); %>><br>
 		血液型:
-		<input type="text" name="bloodType" value=<% out.print(actressList.get(0).get("bloodType")); %> style="text-align: left;"><br>
+		<input type="text" name="bloodType" style="text-align: left;" value=<% out.print(actressList.get(0).get("bloodType")); %>><br>
 		出身地:
-		<input type="text" name="birthPlace" value=<% out.print(actressList.get(0).get("birthPlace")); %> style="text-align: left;"><br>
+		<input type="text" name="birthPlace" style="text-align: left;" value=<% out.print(actressList.get(0).get("birthPlace")); %> ><br>
 
 		<h2>会社を選んでください。</h2>
 	<%

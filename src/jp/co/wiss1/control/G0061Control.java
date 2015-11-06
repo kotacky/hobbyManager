@@ -33,7 +33,7 @@ public class G0061Control extends HttpServlet{
 		//登録完了フラグを送る
 		request.setAttribute("insertFlag",insertFlag);
 
-		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0061View.jsp");
+		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0060View.jsp");
 		dispatch.forward(request, response);
 
 	}
