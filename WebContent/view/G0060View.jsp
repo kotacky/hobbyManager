@@ -75,12 +75,16 @@
 	//			contentsList.put("contents_name", "八重の桜");
 	//			contentsList.put("summary", "大河ドラマ");
 List<HashMap<String,String>> movieList = (List<HashMap<String,String>>)request.getAttribute("movieList");
+String createDisabled = "disabled";
 String disabled = "disabled";
 String message = (String)request.getAttribute("message");%>
 <% try{ %>
 <% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
 <% if((movieList != null) && ("00".equals(employeeAuthority))){%>
 	<% disabled = "";%>
+<% } %>
+<% if("00".equals(employeeAuthority)){%>
+	<% createDisabled = "";%>
 <% } %>
 <% }catch(NullPointerException deleteException){ %>
 <% } %>
@@ -99,7 +103,7 @@ String message = (String)request.getAttribute("message");%>
 		ジャンル:
 		<input type="text" id="movieGenre" name="movieGenre" placeholder="ジャンル名" style="text-align: left; ">
 		<input type="button" value="検索" onClick="func('select');" /><br />
-		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0061View.jsp';" <%= disabled %> />
+		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0061View.jsp';" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 		<%-- 該当がない場合のメッセージを表示 --%>

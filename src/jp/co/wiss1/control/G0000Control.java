@@ -44,8 +44,8 @@ public class G0000Control extends HttpServlet{
 		String employeeAuthority = G0000Model.authority(employeeId);
 		//session値の保存
 		session.setAttribute("employeeAuthority", employeeAuthority);
-//		System.out.println(sessionAuthority);
-//		System.out.println(employeeAuthority);
+		System.out.println(sessionAuthority);
+		System.out.println(employeeAuthority);
 
 		if("login".equals(processDiv)){
 

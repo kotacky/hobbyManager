@@ -36,10 +36,10 @@ public class G0021Control extends HttpServlet{
 		String birthDate =request.getParameter("birthDate");
 		String bloodType =request.getParameter("bloodType");
 		String birthPlace =request.getParameter("birthPlace");
-		
+
 		int size = 0;
 
-		if( dramaIdList == null){
+		if((magazineIdList == null) || (dramaIdList == null) || (movieIdList == null) || (commercialIdList == null)){
 			successFlag = false;
 		}
 		else{

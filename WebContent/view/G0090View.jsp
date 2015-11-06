@@ -84,11 +84,15 @@
 	//			genreList.put("genre_name", "”ªd‚Ì÷");
 List<HashMap<String,String>> genreList = (List<HashMap<String,String>>)request.getAttribute("genreList");
 String message = (String)request.getAttribute("message");
+String createDisabled = "disabled";
 String disabled = "disabled";%>
 <% try{ %>
 <% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
 <% if((genreList != null) && ("00".equals(employeeAuthority))){%>
 	<% disabled = "";%>
+<% } %>
+<% if("00".equals(employeeAuthority)){%>
+	<% createDisabled = "";%>
 <% } %>
 <% }catch(NullPointerException deleteException){ %>
 <% } %>
@@ -104,7 +108,7 @@ String disabled = "disabled";%>
 		ƒWƒƒƒ“ƒ‹–¼:
 		<input type="text" id="genreName" name="genreName" placeholder="ƒWƒƒƒ“ƒ‹–¼" style="text-align: left; ">
 		<input type="button" value="ŒŸõ" onClick="func('select');" /><br />
-		<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0091View.jsp';" <%= disabled %> />
+		<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0091View.jsp';" <%= createDisabled %> />
 		<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 		<div style="color:red;"><%= message %></div>

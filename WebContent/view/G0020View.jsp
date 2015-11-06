@@ -75,6 +75,8 @@
 			<H2><% out.print("“o˜^‚ª¸”s‚µ‚Ü‚µ‚½B"); %></H2>
 			<% } %>
 	<% }catch(NullPointerException insertException){ %>
+	<% } %>
+
 
 	<% try{ %>
 		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
@@ -83,8 +85,7 @@
 				<% }else if("0".equals(updateFlag)){ %>
 				<H2><% out.print("XV‚ª¸”s‚µ‚Ü‚µ‚½B"); %></H2>
 				<% } %>
-		<% }catch(NullPointerException updateException){ %>
-		<% } %>
+	<% }catch(NullPointerException updateException){ %>
 	<% } %>
 <%-- ƒŠƒXƒg‚Ìæ“¾ --%>
 <%
@@ -96,11 +97,15 @@
 	List<HashMap<String,String>> actressList = (List<HashMap<String,String>>)request.getAttribute("actressList");
 	//ŠY“–ƒf[ƒ^‚ª‚È‚¢ƒƒbƒZ[ƒW‚ğó‚¯æ‚é
 	String message = (String)request.getAttribute("message");
+	String createDisabled = "disabled";
 	String disabled = "disabled";%>
 	<% try{ %>
 	<% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
 	<% if((actressList != null) && ("00".equals(employeeAuthority))){%>
 		<% disabled = "";%>
+	<% } %>
+	<% if("00".equals(employeeAuthority)){%>
+		<% createDisabled = "";%>
 	<% } %>
 	<% }catch(NullPointerException deleteException){ %>
 	<% } %>
@@ -115,7 +120,7 @@
 			——D–¼:
 			<input type="text" id="actressName" name="actressName" placeholder="——D–¼" style="text-align: left; ">
 			<input type="button" value="ŒŸõ" onClick="func('select');" /><br />
-		<input type="button" value="V‹K“o˜^" onClick="func('insert');" <%= disabled %> />
+		<input type="button" value="V‹K“o˜^" onClick="func('insert');" <%= createDisabled %> />
 		<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 		<div style="color:red;"><%= message %></div>
