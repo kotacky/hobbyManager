@@ -97,6 +97,7 @@
 
 <%
 List<HashMap<String,String>> employeeList = (List<HashMap<String,String>>)request.getAttribute("employeeList");
+String message = (String)request.getAttribute("message");
 String updateDisabled = "disabled";
 String createDisabled = "disabled";
 String disabled = "disabled";%>
@@ -113,6 +114,9 @@ String disabled = "disabled";%>
 <% } %>
 <% }catch(NullPointerException deleteException){ %>
 <% } %>
+<%if (message == null) {
+		message = "";
+	}%>
 
 <%-- Cへ検索する条件を送る --%>
 		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
@@ -126,6 +130,7 @@ String disabled = "disabled";%>
 			<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp';" <%= createDisabled %>/>
 			<input type="button" value="更新" onClick="func('update');" <%= updateDisabled %> />
 			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+			<div style="color:red;"><%= message %></div>
 			<br style="clear" />
 
 			<%-- テーブルの表示--%>
