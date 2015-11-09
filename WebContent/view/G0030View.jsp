@@ -23,10 +23,22 @@
 		 document.MyForm.processDiv.value=MyCommand;
 		 document.MyForm.submit();
 	 }
+
+	 function init() {
+			if (document.MyForm.companyId.value == "null") {
+				document.MyForm.companyId.value = "";
+			}
+			if (document.MyForm.companyName.value == "null") {
+				document.MyForm.companyName.value = "";
+			}
+			if (document.MyForm.companyAddress.value == "null") {
+				document.MyForm.companyAddress.value = "";
+			}
+		}
 	</script>
 </head>
 
-<body>
+<body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">çDÇ›àÍóó</a></li>
@@ -54,6 +66,19 @@
 		<% } %>
 	<% }catch(NullPointerException deleteException){ %>
 	<% } %>
+
+	<% try{ %>
+		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+		<% if("1".equals(insertFlag)){ %>
+			<H2><% out.print("ìoò^Ç™äÆóπÇµÇ‹ÇµÇΩÅB"); %></H2>
+			<% }else if("0".equals(insertFlag)){ %>
+			<H2><% out.print("ìoò^Ç™é∏îsÇµÇ‹ÇµÇΩÅB"); %></H2>
+			<% }else if("2".equals(insertFlag)){ %>
+			<H2><% out.print("ä˘Ç…ìoò^Ç≥ÇÍÇƒÇ¢Ç‹Ç∑ÅB"); %></H2>
+			<% } %>
+	<% }catch(NullPointerException insertException){ %>
+	<% } %>
+
 
 	<% try{ %>
 		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>

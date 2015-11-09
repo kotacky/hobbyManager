@@ -40,7 +40,7 @@ public class G0020Model
 	    	//自動コミットを無効にする
 	        connection.setAutoCommit(false);
 
-//t_actress.birth_date ,t_actress.blood_type, t_actress.birth_place
+
 	        String sql = "SELECT distinct t_actress.actress_id, t_actress.actress_name, t_company.company_name ,t_actress.birth_date ,t_actress.blood_type, t_actress.birth_place "
         		     +"FROM "
         	         +"t_actress LEFT OUTER JOIN t_company ON t_actress.company_id = t_company.company_id where ";

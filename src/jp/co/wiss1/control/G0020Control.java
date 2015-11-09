@@ -30,9 +30,7 @@ public class G0020Control extends HttpServlet{
 		//処理に必要となる情報を受け取る
 		String actressId = request.getParameter("actressId");
 		String actressName = request.getParameter("actressName");
-//		String birthDate = request.getParameter("birthDate");
-//		String bloodType = request.getParameter("bloodType");
-//		String birthPlace = request.getParameter("birthPlace");
+
 
 		//検索(SELECT)の処理
 		if ("select".equals(processDiv)){

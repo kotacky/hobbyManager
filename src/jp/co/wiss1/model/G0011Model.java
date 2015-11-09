@@ -1,6 +1,7 @@
 package jp.co.wiss1.model;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -30,6 +31,7 @@ public class G0011Model {
     	Connection connection = null;
     	Statement statement = null;
     	int insertCount = 0;
+    	ResultSet resultSet = null;
     	//String columnName = null;
     	//String value = null;
 
@@ -42,12 +44,27 @@ public class G0011Model {
             //自動コミットを有効にする
         	connection.setAutoCommit(true);
 
-        	//主キーが入力されなかったとき、SQL文を実行しない
-            String insertSql = "INSERT INTO t_employee ";
-            System.out.println("1:" + insertSql);
+        	//employeeIdをt_employeeから取得
+        	String sql = "SELECT * FROM t_employee where employee_id = '"+ employeeId + "'";
 
-            if(!"".equals(employeeId))
+        	//このセレクト文でDBに「 Query(質問、問い合わせ) execute(実行する。)」
+        	//resultSet 結果をテーブル形式で保持し、色々出来るクラス
+        	resultSet = statement.executeQuery(sql);
+
+        	//SELECT文の結果を参照
+            while(resultSet.next()) {
+	             //入力されたcompanyIdとテーブルのcompanyIdを比較。同じだったらcontrolに返す。
+           	 	if(employeeId.equals(resultSet.getString("employee_id"))){
+	            	 insertCount = 2;
+	            	 return insertCount;
+           	 	}
+            }
+
+        	//主キーが入力されなかったとき、SQL文を実行しない
+            if(!"".equals(employeeId) && employeeId.matches("^(01)[0-9]{2}") && familyName.matches("[ぁ-んァ-ンa-zA-Z一-龠]+") && firstName.matches("[ぁ-んァ-ンa-zA-Z一-龠]+"))
             {
+            	String insertSql = "INSERT INTO t_employee ";
+                System.out.println("1:" + insertSql);
             	insertSql = insertSql + "(employee_id"
             			+ ",employee_family_name"
             			+ ",employee_first_name"
@@ -64,8 +81,9 @@ public class G0011Model {
 		            	+ ",'" + bloodType + "'"
 		            	+ ",'" + authority + "'"
 		            	+ ",'" + hashedPassword + "')";
-            	System.out.println(insertSql);
+
             	insertCount = statement.executeUpdate(insertSql);
+                System.out.println(insertSql);
             }
             else
             {
@@ -81,7 +99,7 @@ public class G0011Model {
             System.out.println("引数に" + bloodType + "が入力されました。");
             System.out.println("引数に" + authority + "が入力されました。");
             System.out.println("引数に" + hashedPassword + "が入力されました。");
-            System.out.println(insertSql);
+
 
             //String selectSql = "SELECT * FROM t_employee where employee_id like '119' ORDER BY employee_id";
             //System.out.println(selectSql);

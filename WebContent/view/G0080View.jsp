@@ -75,6 +75,8 @@
 			<H2><% out.print("“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
 			<% }else if("0".equals(insertFlag)){ %>
 			<H2><% out.print("“o˜^‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
+			<% }else if("2".equals(insertFlag)){ %>
+			<H2><% out.print("Šù‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B"); %></H2>
 			<% } %>
 		<% }catch(NullPointerException insertException){ %>
 		<% } %>
@@ -112,7 +114,7 @@
 		–¼:
 		<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="–¼" style="text-align: left; ">
 		<input type="button" value="ŒŸõ" onClick="func('select');" /><br />
-		<input type="button" value="V‹K“o˜^" onClick="func('insert');" />
+		<input type="button" value="V‹K“o˜^" onClick="func('insert');" <%= disabled %>/>
 		<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 		<%-- ŠY“–‚ª‚È‚¢ê‡‚ÌƒƒbƒZ[ƒW‚ð•\Ž¦ --%>
 		<div style="color:red;"><%= message %></div>

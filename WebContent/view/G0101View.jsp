@@ -39,7 +39,7 @@
 <% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0101Control">
 		テレビ局ID:
-		<input type="text" name="televisionId" placeholder="テレビ局ID" style="text-align:left;" required>（必須）<br>
+		<input type="text" name="televisionId" placeholder="09XX" style="text-align:left;" required>（必須）<br>
 		テレビ局名:
 		<input type="text" name="televisionName" placeholder="テレビ局名" style="text-align:left;" required>（必須）<br>
 		住所:

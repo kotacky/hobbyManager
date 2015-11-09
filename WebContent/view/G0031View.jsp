@@ -35,21 +35,10 @@
 
 	<h1>所属会社登録</h1>
 
-<%-- メッセージの表示 --%>
-	<% try{ %>
-		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
-		<% if("1".equals(insertFlag)){ %>
-			<H2><% out.print("登録が完了しました。"); %></H2>
-			<% }else if("0".equals(insertFlag)){ %>
-			<H2><% out.print("登録が失敗しました。"); %></H2>
-			<% } %>
-	<% }catch(NullPointerException insertException){ %>
-	<% } %>
-
 <% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0031Control">
 		所属会社ID:
-		<input type="text" name="companyId" placeholder="所属会社ID" required>（必須）<br>
+		<input type="text" name="companyId" placeholder="03XX" required>（必須）<br>
 		会社名:
 		<input type="text" name="companyName" placeholder="会社名" required>（必須）<br>
 		住所:

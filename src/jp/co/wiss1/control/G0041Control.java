@@ -35,7 +35,7 @@ public class G0041Control extends HttpServlet{
 		}else{
 			request.setAttribute("insertFlag",insertFlag);
 		}
-		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0041View.jsp");
+		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0040View.jsp");
 		dispatch.forward(request, response);
 
 	}

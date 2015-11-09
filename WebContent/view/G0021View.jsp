@@ -40,7 +40,7 @@
 <%--Cへ登録する条件を送る --%>
 	<form method="POST" name="Myform" action="<%=request.getContextPath() %>/G0021Control">
 		女優ID:
-		<input type="text" name="actressId"  placeholder="女優ID" style="text-align: left;" required>（必須）<br>
+		<input type="text" name="actressId"  placeholder="02XX" style="text-align: left;" required>（必須）<br>
 		女優名:
 		<input type="text" name="actressName"  placeholder="女優名" style="text-align: left;" required>（必須）<br>
 		生年月日:

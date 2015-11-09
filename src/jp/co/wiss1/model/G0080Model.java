@@ -19,23 +19,25 @@ public class G0080Model {
 			getPreferenceList("", "", "");
 			deletePreference("0");
 		}
-
-		public static List<HashMap<String, String>> getPreferenceList(String employeeId , String familyName, String firstName )	//好みテーブル参照
+		//好みテーブル参照
+		public static List<HashMap<String, String>> getPreferenceList(String employeeId , String familyName, String firstName )
 		{
 
 			List<HashMap<String, String>> preferenceList = new ArrayList<HashMap<String, String>>() ;
-			ResultSet resultSet = null;																	//初期化
+			//初期化
+			ResultSet resultSet = null;
 			Connection connection = null;
 			Statement statement = null;
 			List<HashMap<String, String>> preferList = new ArrayList<HashMap<String, String>>() ;
 
-
+			// テーブル照会実行
 	        try{
-	            // テーブル照会実行
-		    	connection = DBAccessUtils.getConnection(); 											//データベースへ接続
-		    	statement = connection.createStatement();												//Statementを取得するためのコード
-
-		        connection.setAutoCommit(false);														//自動コミットを無効にする
+	        	//データベースへ接続
+		    	connection = DBAccessUtils.getConnection();
+		    	//Statementを取得するためのコード
+		    	statement = connection.createStatement();
+		    	//自動コミットを無効にする
+		        connection.setAutoCommit(false);
 
 
 		        String sql = "SELECT distinct t_employee.employee_id,"
@@ -43,19 +45,20 @@ public class G0080Model {
 		        				+"t_employee.employee_first_name, "
 		        				+"t_actress.actress_id, "
 		        				+"t_actress.actress_name, "
-		        				+"t_magazine.magazine_name, "
-		        				+"t_dramas.drama_title, "
-		        				+"t_movie.movie_title, "
-		        				+"t_commercial.commercial_name "
+		        				+"COALESCE(magazine_name,'未登録') AS magazine_name, "
+		        				+"COALESCE(drama_title,'未登録') AS drama_title, "
+		        				+"COALESCE(movie_title,'未登録') AS movie_title, "
+		        				+"COALESCE(commercial_name,'未登録') AS commercial_name "
 		        				+"FROM "
 		        				+"t_preference "
-		        				+"INNER JOIN "
-		        				+"t_actress INNER JOIN t_dramas ON t_actress.drama_id = t_dramas.drama_id "
-		        				+"INNER JOIN t_movie ON t_actress.movie_id = t_movie.movie_id "
-		        				+"INNER JOIN t_magazine ON t_actress.magazine_id = t_magazine.magazine_id "
-		        				+"INNER JOIN t_commercial ON t_actress.commercial_id = t_commercial.commercial_id "
-		        				+"ON t_preference.actress_id = t_actress.actress_id "
-		        				+"INNER JOIN t_employee ON t_preference.employee_id = t_employee.employee_id where ";
+		        				+"LEFT OUTER JOIN t_actress ON t_preference.actress_id = t_actress.actress_id "
+		        				+"LEFT OUTER JOIN t_dramas ON t_actress.drama_id = t_dramas.drama_id "
+		        				+"LEFT OUTER JOIN t_movie ON t_actress.movie_id = t_movie.movie_id "
+		        				+"LEFT OUTER JOIN t_magazine ON t_actress.magazine_id = t_magazine.magazine_id "
+		        				+"LEFT OUTER JOIN t_commercial ON t_actress.commercial_id = t_commercial.commercial_id "
+		        				+"LEFT OUTER JOIN t_employee ON t_preference.employee_id = t_employee.employee_id where ";
+
+		        System.out.println(sql);
 
 		        if(!"".equals(employeeId)) {
 		        	sql = sql + "t_employee.employee_id = '"+ employeeId +"' AND ";
@@ -63,9 +66,9 @@ public class G0080Model {
 		        if(!"".equals(familyName)) {
 		        	sql = sql + "t_employee.employee_family_name like '%"+ familyName +"%' AND ";
 		        }
-		        	sql = sql + "t_employee.employee_first_name like '%"+ firstName +"%'";
-		        	sql = sql + "ORDER BY employee_id";												     //sql文終了
-
+	        	sql = sql + "t_employee.employee_first_name like '%"+ firstName +"%'";
+	        	//sql文終了
+	        	sql = sql + "ORDER BY employee_id";
 
 
 	            System.out.println("引数に" + employeeId + "が入力されました。");
@@ -73,11 +76,12 @@ public class G0080Model {
 	            System.out.println("引数に" + firstName + "が入力されました。");
 	            System.out.println(sql);
 
-	            resultSet = statement.executeQuery(sql);												//SELECT文を実行するコード
+	          //SELECT文を実行するコード
+	            resultSet = statement.executeQuery(sql);
+	            System.out.println(resultSet);
 
-
-
-	            while(resultSet.next()) {																//SELECT文の結果を参照
+	          //SELECT文の結果を参照
+	            while(resultSet.next()) {
 
 	        	   HashMap<String, String> preferenceInfo = new HashMap<String, String>();
 	        	   preferenceInfo.put("employeeId", resultSet.getString("employee_id"));
@@ -91,9 +95,9 @@ public class G0080Model {
 	        	   preferenceInfo.put("actressId", resultSet.getString("actress_id"));
 
 
-
 	        	   preferenceList.add(preferenceInfo);
 
+	        	   //リストに入ったかの確認
 	        	   System.out.println(preferenceInfo.get("employeeId"));
 	        	   System.out.println(preferenceInfo.get("employeeFamilyName"));
 	        	   System.out.println(preferenceInfo.get("employeeFirstName"));
@@ -102,7 +106,7 @@ public class G0080Model {
 	        	   System.out.println(preferenceInfo.get("magazineName"));
 	        	   System.out.println(preferenceInfo.get("dramaName"));
 	        	   System.out.println(preferenceInfo.get("movieName"));
-	        	   System.out.println(preferenceInfo.get("commercialName"));			//リストに入ったかの確認
+	        	   System.out.println(preferenceInfo.get("commercialName"));
 
 	            }
 				for(int i = 1; i <= preferenceList.size(); i++){
@@ -126,16 +130,21 @@ public class G0080Model {
 						preferList.add(employeePreference);
 						break;
 					}
+//					ひとつ前の社員IDと比較してる
 					if(preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
+						//社員IDに登録されている女優のレコード分回す
 						for(int j = 0; j < preferenceList.size(); j++){
+							//社員が登録した女優とをひもづけて、あってたら処理していく
 							if(preferenceList.get(i-1).get("actressId").equals(preferenceList.get(i).get("actressId"))
 									&& preferenceList.get(i-1).get("employeeId").equals(preferenceList.get(i).get("employeeId"))){
 								if(!preferenceList.get(i-1).get("magazineName").equals(preferenceList.get(i).get("magazineName"))){
 									magazineName += "、"+preferenceList.get(i).get("magazineName");
 								}
 								if(!preferenceList.get(i-1).get("dramaName").equals(preferenceList.get(i).get("dramaName"))){
-									dramaTitle += "、"+preferenceList.get(i).get("dramaName");
+									movieTitle += "、"+preferenceList.get(i).get("dramaName");
 								}
+
+
 								if(!preferenceList.get(i-1).get("movieName").equals(preferenceList.get(i).get("movieName"))){
 									movieTitle += "、"+preferenceList.get(i).get("movieName");
 								}
@@ -173,7 +182,8 @@ public class G0080Model {
 	        finally{
 
 	        	try {
-	        		resultSet.close();																	//データベースのクローズ
+	        		//データベースのクローズ
+	        		resultSet.close();
 	        		statement.close();
 	        		connection.close();
 	        	}
@@ -188,32 +198,33 @@ public class G0080Model {
 		}
 
 
-
-
-
-
-		public static int deletePreference(String employeeId) {	 										//好みテーブル削除
+		//好みテーブル削除
+		public static int deletePreference(String employeeId) {
 
 
 			Connection connection = null;
 			Statement statement = null;
 			int deleteCount = 0;
 
+			// テーブル照会実行
 			try
 	        {
-	            // テーブル照会実行
-	        	connection = DBAccessUtils.getConnection();												//DBへ接続
-	        	statement = connection.createStatement();												//Statementを取得するためのコード
+				//DBへ接続
+	        	connection = DBAccessUtils.getConnection();
+	        	//Statementを取得するためのコード
+	        	statement = connection.createStatement();
+	        	//自動コミットを有効にする
+	            connection.setAutoCommit(true);
 
-	            connection.setAutoCommit(true);															//自動コミットを有効にする
-
-	            String sql = "DELETE FROM t_preference where employee_id = '"+ employeeId +"'";			//sql文
+	            //sql文
+	            String sql = "DELETE FROM t_preference where employee_id = '"+ employeeId +"'";
 	            System.out.println("引数に" + employeeId + "が入力されました。");
 	            System.out.println(sql);
 
 	            deleteCount = statement.executeUpdate (sql);
 
-	            if(deleteCount == 1){																	//削除が成功しているかどうかの確認
+	            //削除が成功しているかどうかの確認
+	            if(deleteCount == 1){
 	            	System.out.println("削除成功");
 	            }
 	            else{
@@ -222,7 +233,8 @@ public class G0080Model {
 	        }
 			catch (SQLException e){
 			System.err.println("SQL failed.");
-			e.printStackTrace ();																		//エラーの情報
+			//エラーの情報
+			e.printStackTrace ();
 			}
 			finally{
 			}

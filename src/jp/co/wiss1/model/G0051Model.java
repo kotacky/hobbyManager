@@ -1,6 +1,7 @@
 package jp.co.wiss1.model;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,7 +23,7 @@ public class G0051Model {
     	Connection connection = null;
     	Statement statement = null;
     	int insertCount = 0;
-
+    	ResultSet resultSet = null;
 
         try
         {
@@ -33,13 +34,30 @@ public class G0051Model {
         	//自動コミットを有効にする
         	connection.setAutoCommit(true);
 
-        	//主キーが入力されなかったとき、、かつ半角数字でなかったときにSQL文を実行しない
-        	 String insertSql = "INSERT INTO t_dramas";
-             System.out.println("1:" + insertSql);
+        	//SQL文構築
+        	//company_idをt_companyから取得
+        	 String sql = "SELECT * FROM t_dramas where drama_id = '"+ dramaId + "'";
 
-             if(!"".equals(dramaId) && dramaId.matches("[0-9]{4}"))
+			// SELECT文を実行するためのメソッド
+			// このセレクト文でDBに「 Query(質問、問い合わせ) execute(実行する。)」
+			//resultSet 結果をテーブル形式で保持し、色々出来るクラス
+             resultSet = statement.executeQuery(sql);
+
+             //SELECT文の結果を参照
+             while(resultSet.next()) {
+	             //入力されたcompanyIdとテーブルのcompanyIdを比較。同じだったらcontrolに返す。
+            	 if(dramaId.equals(resultSet.getString("drama_id"))){
+	            	 insertCount = 2;
+	            	 return insertCount;
+	             }
+             }
+
+        	//主キーが入力されなかったとき、、かつ半角数字でなかったときにSQL文を実行しない
+
+             if(!"".equals(dramaId) && dramaId.matches("^(05)[0-9]{2}"))
              {
-             	insertSql = insertSql + "(drama_id"
+            	 String insertSql = "INSERT INTO t_dramas";
+            	 insertSql = insertSql + "(drama_id"
              			+ ",drama_title"
              			+ ",broadcast_cool"
              			+ ",television_name"
@@ -63,8 +81,6 @@ public class G0051Model {
              System.out.println("引数に" + dramaId + "が入力されました。");
              System.out.println("引数に" + dramaTitle + "が入力されました。");
              System.out.println("引数に" + broadcastCool + "が入力されました。");
-
-             System.out.println(insertSql);
 
              //rs0 = stmt0.executeQuery (sql0);
 

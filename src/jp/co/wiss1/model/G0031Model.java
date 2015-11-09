@@ -1,6 +1,7 @@
 package jp.co.wiss1.model;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,6 +23,7 @@ public class G0031Model {
     	Connection connection = null;
     	Statement statement = null;
     	int insertCount = 0;
+    	ResultSet resultSet = null;
 
 
         try
@@ -33,25 +35,44 @@ public class G0031Model {
         	//自動コミットを有効にする
         	connection.setAutoCommit(true);
 
-        	//主キーが入力されなかったとき、かつ半角数字でなかったときにSQL文を実行しない
-        	 String insertSql = "INSERT INTO t_company";
-             System.out.println("1:" + insertSql);
+        	//SQL文構築
+        	//company_idをt_companyから取得
+        	 String sql = "SELECT * FROM t_company where company_id = '"+ companyId + "'";
 
-             if(!"".equals(companyId) && companyId.matches("[0-9]{4}"))
-             {
-             	insertSql = insertSql + "(company_id"
-             			+ ",company_name"
-             			+ ",company_address)"
-             			+ "VALUES('" + companyId + "'"
-             			+ ",'" + companyName + "'"
- 						+ ",'" + companyAddress + "')";
+			// SELECT文を実行するためのメソッド
+			// このセレクト文でDBに「 Query(質問、問い合わせ) execute(実行する。)」
+			//resultSet 結果をテーブル形式で保持し、色々出来るクラス
+             resultSet = statement.executeQuery(sql);
 
-             	insertCount = statement.executeUpdate(insertSql);
+             //SELECT文の結果を参照
+             while(resultSet.next()) {
+	             //入力されたcompanyIdとテーブルのcompanyIdを比較。同じだったらcontrolに返す。
+            	 if(companyId.equals(resultSet.getString("company_id"))){
+	            	 insertCount = 2;
+	            	 return insertCount;
+	             }
+             }
+             //companyIdが空じゃなく、かつ03始まりの半角数字だった場合
+	         if(!"".equals(companyId) && companyId.matches("^(03)[0-9]{2}"))
+	         {
+	        	//t_companyの
+	        	String insertSql = "INSERT INTO t_company";
+         		insertSql = insertSql + "(company_id"
+         			+ ",company_name"
+         			+ ",company_address)"
+         			+ "VALUES('" + companyId + "'"
+         			+ ",'" + companyName + "'"
+					+ ",'" + companyAddress + "')";
+
+         		insertCount = statement.executeUpdate(insertSql);
+         		System.out.println(insertSql);
              }
              else
              {
              	System.out.println("主キーが入力されていないのでINSERT文を実行しません。");
+
              }
+
 
              //String sql0 = "INSERT INTO t_actress (company_id , actress_name , actress_id)"
              //+ " VALUES ('" + cid + "', '" + n + "','" + aid + "')";
@@ -60,14 +81,12 @@ public class G0031Model {
              System.out.println("引数に" + companyName + "が入力されました。");
              System.out.println("引数に" + companyAddress + "が入力されました。");
 
-             System.out.println(insertSql);
-
              //rs0 = stmt0.executeQuery (sql0);
 
              //影響のあった行数を出力
-
              System.out.println(insertCount + " 行挿入しました。");
-         }
+
+        }
          catch (SQLException e)
          {
              System.err.println("SQL failed.");

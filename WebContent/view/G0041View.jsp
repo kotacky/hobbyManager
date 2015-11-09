@@ -35,24 +35,12 @@
 
 	<h1>雑誌登録</h1>
 
-<!-- メッセージ表示  -->
-
-	<% try{ %>
-		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
-		<% if("1".equals(insertFlag)){ %>
-			<H2><% out.print("登録が完了しました。"); %></H2>
-			<% }else if("0".equals(insertFlag)){ %>
-			<H2><% out.print("登録が失敗しました。"); %></H2>
-			<% } %>
-	<% }catch(NullPointerException insertException){ %>
-	<% } %>
-
 	<p><strong>雑誌に関する情報を登録して下さい。</strong></p>
 
 	<% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0041Control">
 		雑誌ID:
-		<input type="text" name="magazineId" placeholder="magazineID" style="text-align:left;" required>（必須）<br>
+		<input type="text" name="magazineId" placeholder="04XX" style="text-align:left;" required>（必須）<br>
 		雑誌名:
 		<input type="text" name="magazineName" placeholder="雑誌名" style="text-align:left;" required>（必須）<br>
 		出版社:

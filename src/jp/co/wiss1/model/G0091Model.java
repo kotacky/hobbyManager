@@ -1,6 +1,7 @@
 package jp.co.wiss1.model;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,7 +23,7 @@ public class G0091Model {
     	Connection connection = null;
     	Statement statement = null;
     	int insertCount = 0;
-
+    	ResultSet resultSet = null;
 
         try
         {
@@ -33,17 +34,37 @@ public class G0091Model {
         	//自動コミットを有効にする
         	connection.setAutoCommit(true);
 
-        	//主キーが入力されなかったとき、SQL文を実行しない
-        	 String insertSql = "INSERT INTO t_genre";
-             System.out.println("1:" + insertSql);
+        	//SQL文構築
+        	//company_idをt_companyから取得
+        	 String sql = "SELECT * FROM t_genre where genre_id = '"+ genreId + "'";
 
-             if(!"".equals(genreId))
+			// SELECT文を実行するためのメソッド
+			// このセレクト文でDBに「 Query(質問、問い合わせ) execute(実行する。)」
+			//resultSet 結果をテーブル形式で保持し、色々出来るクラス
+             resultSet = statement.executeQuery(sql);
+
+             //SELECT文の結果を参照
+             while(resultSet.next()) {
+	             //入力されたcompanyIdとテーブルのcompanyIdを比較。同じだったらcontrolに返す。
+            	 if(genreId.equals(resultSet.getString("genre_id"))){
+	            	 insertCount = 2;
+	            	 return insertCount;
+	             }
+             }
+
+        	//主キーが入力されなかったとき、SQL文を実行しない
+
+             if(!"".equals(genreId) && genreId.matches("^(08)[0-9]{2}"))
              {
-             	insertSql = insertSql + "(genre_id"
+            	 String insertSql = "INSERT INTO t_genre";
+                 System.out.println("1:" + insertSql);
+            	 insertSql = insertSql + "(genre_id"
              			+ ",genre_name)"
              			+ "VALUES('" + genreId + "','" + genreName + "')";
 
              	insertCount = statement.executeUpdate(insertSql);
+                System.out.println(insertSql);
+
              }
              else
              {
@@ -55,8 +76,6 @@ public class G0091Model {
 
              System.out.println("引数に" + genreId + "が入力されました。");
              System.out.println("引数に" + genreName + "が入力されました。");
-
-             System.out.println(insertSql);
 
              //rs0 = stmt0.executeQuery (sql0);
 

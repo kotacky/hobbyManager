@@ -43,7 +43,7 @@
 	<% //Cへ登録する条件を送る %>
 	<form method="POST" action="<%=request.getContextPath() %>/G0071Control">
 		コマーシャルID:
-		<input type="text" name="commercialId" placeholder="コマーシャルID" style="text-align:left;" required>（必須）<br>
+		<input type="text" name="commercialId" placeholder="07XX" style="text-align:left;" required>（必須）<br>
 		ＣＭ名:
 		<input type="text" name="commercialName" placeholder="ＣＭ名" style="text-align:left;" required>（必須）<br>
 		広告会社名:

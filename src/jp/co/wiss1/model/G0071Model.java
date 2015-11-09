@@ -1,6 +1,7 @@
 package jp.co.wiss1.model;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,7 +23,7 @@ public class G0071Model {
     	Connection connection = null;
     	Statement statement = null;
     	int insertCount = 0;
-
+    	ResultSet resultSet = null;
 
         try
         {
@@ -33,13 +34,31 @@ public class G0071Model {
         	//自動コミットを有効にする
         	connection.setAutoCommit(true);
 
-        	//主キーが入力されなかったとき、SQL文を実行しない
-        	 String insertSql = "INSERT INTO t_commercial";
-             System.out.println("1:" + insertSql);
+        	//SQL文構築
+        	//company_idをt_companyから取得
+        	 String sql = "SELECT * FROM t_commercial where commercial_id = '"+ commercialId + "'";
 
-             if(!"".equals(commercialId))
+			// SELECT文を実行するためのメソッド
+			// このセレクト文でDBに「 Query(質問、問い合わせ) execute(実行する。)」
+			//resultSet 結果をテーブル形式で保持し、色々出来るクラス
+             resultSet = statement.executeQuery(sql);
+
+             //SELECT文の結果を参照
+             while(resultSet.next()) {
+	             //入力されたcommercialIdとテーブルのcommercialIdを比較。同じだったらcontrolに返す。
+            	 if(commercialId.equals(resultSet.getString("commercial_id"))){
+	            	 insertCount = 2;
+	            	 return insertCount;
+	             }
+             }
+
+        	//主キーが入力されなかったとき、SQL文を実行しない
+
+             if(!"".equals(commercialId) && commercialId.matches("^(07)[0-9]{2}"))
              {
-             	insertSql = insertSql + "(commercial_id"
+            	 String insertSql = "INSERT INTO t_commercial";
+                 System.out.println("1:" + insertSql);
+            	 insertSql = insertSql + "(commercial_id"
              			+ ",commercial_name"
              			+ ",sponser_name)"
              			+ "VALUES('" + commercialId + "'"
@@ -47,6 +66,7 @@ public class G0071Model {
  						+ ",'" +  sponserName + "')";
 
              	insertCount = statement.executeUpdate(insertSql);
+             	System.out.println(insertSql);
              }
              else
              {
@@ -60,7 +80,7 @@ public class G0071Model {
              System.out.println("引数に" + commercialName + "が入力されました。");
              System.out.println("引数に" + sponserName + "が入力されました。");
 
-             System.out.println(insertSql);
+
 
              //rs0 = stmt0.executeQuery (sql0);
 

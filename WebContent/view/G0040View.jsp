@@ -70,6 +70,19 @@
 	<% } %>
 
 	<% try{ %>
+		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
+		<% if("1".equals(insertFlag)){ %>
+			<H2><% out.print("“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
+			<% }else if("0".equals(insertFlag)){ %>
+			<H2><% out.print("“o˜^‚ªŽ¸”s‚µ‚Ü‚µ‚½B"); %></H2>
+			<% }else if("2".equals(insertFlag)){ %>
+			<H2><% out.print("Šù‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B"); %></H2>
+			<% } %>
+	<% }catch(NullPointerException insertException){ %>
+	<% } %>
+
+
+	<% try{ %>
 		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
 			<% if("1".equals(updateFlag)){ %>
 			<H2><% out.print("XV‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>

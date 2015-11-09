@@ -1,6 +1,7 @@
 package jp.co.wiss1.model;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,6 +23,7 @@ public class G0021Model {
     	Connection connection = null;//DBにアクセス、ログインするメソッドの値を格納する変数
     	Statement statement = null;//SQL文をDBに送るための変数
     	int insertCount = 0;//変更があった行数を格納
+    	ResultSet resultSet = null;
 
         try
         {
@@ -32,13 +34,31 @@ public class G0021Model {
             //自動コミットを有効にする
         	connection.setAutoCommit(true);
 
-        	//主キーが入力されなかったとき、SQL文を実行しない
-            String insertSql = "INSERT INTO t_actress";//変数insertSqlにSQL文を代入
+        	//SQL文構築
+        	//actress_idをt_actressから取得
+        	 String sql = "SELECT * FROM t_actress where actress_id = '"+ actressId + "'";
 
-            //変数companyId(主キー)に値が入力されているとき、かつ半角数字でなかったときにSQL文を実行しない
-            if(!"".equals(actressId) && companyId.matches("[0-9]{4}"))
+			// SELECT文を実行するためのメソッド
+			// このセレクト文でDBに「 Query(質問、問い合わせ) execute(実行する。)」
+			//resultSet 結果をテーブル形式で保持し、色々出来るクラス
+             resultSet = statement.executeQuery(sql);
+
+             //SELECT文の結果を参照
+             while(resultSet.next()) {
+	             //入力されたactressIdとテーブルのactressIdを比較。同じだったらcontrolに返す。
+            	 if(actressId.equals(resultSet.getString("actress_id"))){
+	            	 insertCount = 2;
+	            	 return insertCount;
+	             }
+             }
+
+            //変数actressId(主キー)に値が入力されているとき、かつ半角数字でなかったときにSQL文を実行しない
+            if(!"".equals(actressId) && actressId.matches("^(02)[0-9]{2}") && actressName.matches("[ぁ-んァ-ンa-zA-Z一-龠]+"))
             {
             	//SQL文
+            	//変数insertSqlにSQL文を代入
+            	String insertSql = "INSERT INTO t_actress";
+
             	insertSql = insertSql + "(company_id"
             			+ ",actress_name"
             			+ ",actress_id"
@@ -61,6 +81,9 @@ public class G0021Model {
             			+ ",'" + birthPlace + "')";
 
             	insertCount = statement.executeUpdate(insertSql);
+                //どのようなSQL文が入っているか出力
+                System.out.println(insertSql);
+
             }
             else
             {
@@ -79,8 +102,6 @@ public class G0021Model {
             System.out.println("引数に" + bloodType + "が入力されました。");
             System.out.println("引数に" + birthPlace + "が入力されました。");
 
-            //どのようなSQL文が入っているか出力
-            System.out.println(insertSql);
 
             //影響のあった行数を出力
 

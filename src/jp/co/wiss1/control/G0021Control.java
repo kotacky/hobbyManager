@@ -21,7 +21,7 @@ public class G0021Control extends HttpServlet{
 
 		//ブラウザの文字コードの調整
 		EncodingUtils.responseEncoding(request,response);
-
+		String same = null;
 		//登録(INSERT)②の処理
 
 		//登録する項目を受け取る
@@ -52,22 +52,35 @@ public class G0021Control extends HttpServlet{
 				//登録する項目を送る
 				int ret = G0021Model.insertActress
 						(companyId,actressName,actressId,magazineIdList[i],dramaIdList[i],movieIdList[i],commercialIdList[i],birthDate,bloodType,birthPlace);
-				if (ret == 0) {
-					successFlag = false;
-					break;
+				//登録するで失敗している情報を受け取る
+				if (ret == 0 || ret == 2) {
+					if(ret == 0){
+						successFlag = false;
+						break;
+					}
+					if(ret == 2){
+						same = "fl";
+						break;
+					}
+
 				}
 			}
 		}
 		//Viewの画面に戻す
-		if(successFlag == true){
-			// 登録成功
-			request.setAttribute("insertFlag",1);
-	    }
-		else{
-			// 登録失敗
-			request.setAttribute("insertFlag",0);
+		if(same == "fl"){
+			//登録が重複
+			request.setAttribute("insertFlag",2);
 		}
-
+		else{
+			if(successFlag == true){
+				// 登録成功
+				request.setAttribute("insertFlag",1);
+		    }
+			else{
+				// 登録失敗
+				request.setAttribute("insertFlag",0);
+			}
+		}
 		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 		dispatch.forward(request, response);
 	}

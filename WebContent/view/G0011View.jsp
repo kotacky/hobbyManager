@@ -40,7 +40,7 @@ pageEncoding="Windows-31J"%>
 <%-- Cへ登録する条件を送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0011Control">
 		社員ID:
-		<input type="text" name="employeeId" placeholder="社員ID" required>（必須）<br>
+		<input type="text" name="employeeId" placeholder="01XX" required>（必須）<br>
 		姓:
 		<input type="text" name="employeeFamilyName" placeholder="姓" required>（必須）<br>
 		名:
