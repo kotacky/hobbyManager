@@ -47,7 +47,7 @@
 		映画名:
 		<input type="text" name="movieName" placeholder="映画名" style="text-align:left;" required>（必須）<br>
 		公開日:
-		<input type="date" name="releaseDate" placeholder="公開日" style="text-align:left;"><br>
+		<input type="date" name="releaseDate"  style="text-align:left;"><br>
 		ジャンル:
 		<input type="text" name="movieGenre" placeholder="ジャンル名" style="text-align: left; "><br>
 		<input type="submit" value="登録">

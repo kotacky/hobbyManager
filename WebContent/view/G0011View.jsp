@@ -46,7 +46,7 @@ pageEncoding="Windows-31J"%>
 		名:
 		<input type="text" name="employeeFirstName" placeholder="名" required>（必須）<br>
 		生年月日:
-		<input type="date" name="birthDate" placeholder="生年月日"><br>
+		<input type="date" name="birthDate" ><br>
 		出身地:
 		<input type="text" name="employeeFrom" placeholder="出身地"><br>
 		血液型:
