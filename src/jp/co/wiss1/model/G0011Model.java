@@ -61,7 +61,7 @@ public class G0011Model {
             }
 
         	//主キーが入力されなかったとき、SQL文を実行しない
-            if(!"".equals(employeeId) && employeeId.matches("^(01)[0-9]{2}") && familyName.matches("[ぁ-んァ-ンa-zA-Z一-龠]+") && firstName.matches("[ぁ-んァ-ンa-zA-Z一-龠]+"))
+            if(!"".equals(employeeId) && employeeId.matches("[0-9]{4}") && familyName.matches("[ぁ-んァ-ンa-zA-Z一-龠]+") && firstName.matches("[ぁ-んァ-ンa-zA-Z一-龠]+"))
             {
             	String insertSql = "INSERT INTO t_employee ";
                 System.out.println("1:" + insertSql);
