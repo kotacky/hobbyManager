@@ -57,9 +57,6 @@ public class G0030Model {
             System.out.println(sql);
 
             resultSet = statement.executeQuery(sql);										//SELECT文を実行するコード
-            System.out.println(resultSet);
-
-//            if(resultSet.equals(statement)){
 
             	while(resultSet.next()) {														//SELECT文の結果を参照
 
