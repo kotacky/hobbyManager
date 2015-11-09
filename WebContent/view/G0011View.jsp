@@ -48,9 +48,9 @@ pageEncoding="Windows-31J"%>
 		生年月日:
 		<input type="date" name="birthDate" ><br>
 		出身地:
-		<input type="text" name="employeeFrom" placeholder="出身地"><br>
+		<input type="text" name="employeeFrom" placeholder="○○県"><br>
 		血液型:
-		<input type="text" name="employeeBloodType" placeholder="血液型"><br>
+		<input type="text" name="employeeBloodType" placeholder="××型"><br>
 		権限:
 		<select name="employeeAuthority">
 			<option value="00">00:管理者

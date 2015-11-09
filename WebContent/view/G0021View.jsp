@@ -46,9 +46,9 @@
 		生年月日:
 		<input type="date" name="birthDate"  style="text-align: left;"><br>
 		血液型:
-		<input type="text" name="bloodType"  placeholder="血液型" style="text-align: left;"><br>
+		<input type="text" name="bloodType"  placeholder="××型" style="text-align: left;"><br>
 		出身地:
-		<input type="text" name="birthPlace"  placeholder="出身地" style="text-align: left;"><br>
+		<input type="text" name="birthPlace"  placeholder="○○県" style="text-align: left;"><br>
 
 <!-- 会社を登録のために選択 -->
 
