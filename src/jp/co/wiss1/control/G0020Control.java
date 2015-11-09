@@ -46,9 +46,6 @@ public class G0020Control extends HttpServlet{
 			// 画面一覧へ結果を返す
 			request.setAttribute("actressId",actressId);
 			request.setAttribute("actressName",actressName);
-//			request.setAttribute("birthDate",birthDate);
-//			request.setAttribute("bloodType",bloodType);
-//			request.setAttribute("actressName",birthPlace);
 			request.setAttribute("actressList",actressList);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0020View.jsp");
 			dispatch.forward(request, response);

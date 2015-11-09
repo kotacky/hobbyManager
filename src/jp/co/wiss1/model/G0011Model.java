@@ -101,35 +101,10 @@ public class G0011Model {
             System.out.println("引数に" + hashedPassword + "が入力されました。");
 
 
-            //String selectSql = "SELECT * FROM t_employee where employee_id like '119' ORDER BY employee_id";
-            //System.out.println(selectSql);
-
-            //resultSet = statement.executeQuery (selectSql);
-
             //影響のあった行数を出力
 
             System.out.println(insertCount + " 行挿入しました。");
 
-
-           // テーブル照会結果を出力
-           /*while(resultSet.next())
-           {
-            	//社員情報を作成する
-            	HashMap<String, String> employeeInfo = new HashMap<String, String>();
-            	employeeInfo.put("社員ID", resultSet.getString("employee_ID"));
-            	employeeInfo.put("姓", resultSet.getString("employee_family_name"));
-            	employeeInfo.put("名", resultSet.getString("employee_first_name"));
-            	employeeInfo.put("生年月日", resultSet.getString("birth_date"));
-
-            	//社員情報をリストに追加する
-            	insertEmployee.add(employeeInfo);
-
-            	//リストに入ったかの確認
-            	System.out.println(employeeInfo.get("社員ID"));
-    			System.out.println(employeeInfo.get("姓"));
-    			System.out.println(employeeInfo.get("名"));
-    			System.out.println(employeeInfo.get("生年月日"));
-            }*/
 
         }
         catch (SQLException e)

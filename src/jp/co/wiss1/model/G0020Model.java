@@ -150,33 +150,4 @@ public class G0020Model
 	return deleteCount;
 	}
 
-
-
-
-
 }
-
-
-
-/*
-String sql = "SELECT * FROM t_actress where ";					//sql文開始
-System.out.println("1:" + sql);
-
-if(!"".equals(actressId)) {
-	sql = sql + "actress_id = '"+ actressId +"'";
-	System.out.println("2:" + sql);
-}
-if(!"".equals(companyId)) {
-	sql = sql + "company_id = '"+ companyId +"' AND ";
-	System.out.println("3:" + sql);
-}
-	sql = sql + "actress_name like '%"+ actressName +"%'";
-	sql = sql + " ORDER BY actress_id";
-	System.out.println("4:" + sql);						*/		//sql文終了
-
-/*
-"SELECT t_actress.actress_id, t_actress.actress_name, t_company.company_name "
-+ "FROM t_contents INNER JOIN"
-+ "(t_actress INNER JOIN t_company ON t_actress.company_id = t_company.company_id)"
-+ "ON t_actress.contents_id = t_contents.contents_id where ";
-				*/

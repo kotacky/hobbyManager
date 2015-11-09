@@ -41,9 +41,6 @@ public class G0030Control extends HttpServlet{
 				//Viewに渡すメッセージを設定
 				request.setAttribute("message", "該当データがありません。");
 			}
-//			else if(companyId.matches("[^0-9]+")){
-//				request.setAttribute("message", "入力が間違っています。");
-//			}
 			request.setAttribute("companyList", companyList);
 
 			//Viewにリストを渡す
