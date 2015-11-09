@@ -75,6 +75,7 @@
 		パスワード:
 		<input type="password" name="employeePassword" required>（必須）<br>
 		<input type="submit" value="更新">
+		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 </body>
 </html>
