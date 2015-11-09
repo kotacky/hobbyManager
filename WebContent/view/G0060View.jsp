@@ -24,13 +24,13 @@
 			 document.MyForm.submit();
 		 }
 		function init() {
-			if (document.MyForm.movieId.value == "null") {
+			if (document.MyForm.movieId.value == null) {
 				document.MyForm.movieId.value = "";
 			}
-			if (document.MyForm.movieName.value == "null") {
+			if (document.MyForm.movieName.value == null) {
 				document.MyForm.movieName.value = "";
 			}
-			if (document.MyForm.movieGenre.value == "null") {
+			if (document.MyForm.movieGenre.value == null) {
 				document.MyForm.movieGenre.value = "";
 			}
 		}

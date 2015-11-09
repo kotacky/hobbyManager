@@ -24,9 +24,21 @@
 				document.MyForm.processDiv.value=MyCommand;
 				document.MyForm.submit();
 		}
+		function init() {
+			if (document.MyForm.televisionId.value == null) {
+				document.MyForm.televisionId.value = "";
+			}
+			if (document.MyForm.televisionName.value == null) {
+				document.MyForm.televisionName.value = "";
+			}
+			if (document.MyForm.televisionAddress.value == null) {
+				document.MyForm.televisionAddress.value = "";
+			}
+		}
+
 		</script>
 	</head>
-	<body>
+	<body onload="init();">
 
 	<div id="header">
 		<ul id="gNavi" class="clearfix">

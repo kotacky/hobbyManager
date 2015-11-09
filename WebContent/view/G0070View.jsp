@@ -25,13 +25,13 @@
 		 }
 
 		function init() {
-			if (document.MyForm.commercialId.value == "null") {
+			if (document.MyForm.commercialId.value == null) {
 				document.MyForm.commercialId.value = "";
 			}
-			if (document.MyForm.commercialName.value == "null") {
+			if (document.MyForm.commercialName.value == null) {
 				document.MyForm.commercialName.value = "";
 			}
-			if (document.MyForm.sponserName.value == "null") {
+			if (document.MyForm.sponserName.value == null) {
 				document.MyForm.sponserName.value = "";
 			}
 		}

@@ -25,10 +25,10 @@
 		 }
 
 		function init() {
-			if (document.MyForm.genreId.value == "null") {
+			if (document.MyForm.genreId.value == null) {
 				document.MyForm.genreId.value = "";
 			}
-			if (document.MyForm.genreName.value == "null") {
+			if (document.MyForm.genreName.value == null) {
 				document.MyForm.genreName.value = "";
 			}
 		}

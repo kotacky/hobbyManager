@@ -25,13 +25,13 @@
 		 }
 
 		function init() {
-			if (document.MyForm.employeeId.value == "null") {
+			if (document.MyForm.employeeId.value == null) {
 				document.MyForm.employeeId.value = "";
 			}
-			if (document.MyForm.employeeFamilyName.value == "null") {
+			if (document.MyForm.employeeFamilyName.value == null) {
 				document.MyForm.employeeFamilyName.value = "";
 			}
-			if (document.MyForm.employeeFirstName.value == "null") {
+			if (document.MyForm.employeeFirstName.value == null) {
 				document.MyForm.employeeFirstName.value = "";
 			}
 		}

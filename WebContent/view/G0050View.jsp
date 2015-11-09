@@ -23,10 +23,25 @@
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
+		function init() {
+			if (document.MyForm.dramaId.value == null) {
+				document.MyForm.dramaId.value = "";
+			}
+			if (document.MyForm.dramaName.value == null) {
+				document.MyForm.dramaName.value = "";
+			}
+			if (document.MyForm.television.value == null) {
+				document.MyForm.television.value = "";
+			}
+			if (document.MyForm.genre.value == null) {
+				document.MyForm.genre.value = "";
+			}
+		}
+
 	 </script>
 </head>
 
-<body>
+<body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
 			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">çDÇ›àÍóó</a></li>

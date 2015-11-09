@@ -25,13 +25,13 @@
 	 }
 
 	 function init() {
-			if (document.MyForm.companyId.value == "null") {
+			if (document.MyForm.companyId.value == null) {
 				document.MyForm.companyId.value = "";
 			}
-			if (document.MyForm.companyName.value == "null") {
+			if (document.MyForm.companyName.value == null) {
 				document.MyForm.companyName.value = "";
 			}
-			if (document.MyForm.companyAddress.value == "null") {
+			if (document.MyForm.companyAddress.value == null) {
 				document.MyForm.companyAddress.value = "";
 			}
 		}

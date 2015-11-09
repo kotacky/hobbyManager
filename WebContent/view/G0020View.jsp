@@ -25,10 +25,10 @@
 		 }
 
 		function init() {
-			if (document.MyForm.actressId.value == "null") {
+			if (document.MyForm.actressId.value == null) {
 				document.MyForm.actressId.value = "";
 			}
-			if (document.MyForm.actressName.value == "null") {
+			if (document.MyForm.actressName.value == null) {
 				document.MyForm.actressName.value = "";
 			}
 

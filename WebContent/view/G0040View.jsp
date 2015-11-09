@@ -25,13 +25,13 @@
 		 }
 
 		function init() {
-			if (document.MyForm.magazineId.value == "null") {
+			if (document.MyForm.magazineId.value == null) {
 				document.MyForm.magazineId.value = "";
 			}
-			if (document.MyForm.magazineName.value == "null") {
+			if (document.MyForm.magazineName.value == null) {
 				document.MyForm.magazineName.value = "";
 			}
-			if (document.MyForm.publisherName.value == "null") {
+			if (document.MyForm.publisherName.value == null) {
 				document.MyForm.publisherName.value = "";
 			}
 		}
