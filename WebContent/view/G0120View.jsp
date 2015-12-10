@@ -29,6 +29,10 @@
 			}
 			if (document.MyForm.musicName.value == null) {
 				document.MyForm.musicName.value = "";
+			}
+			if (document.MyForm.musicArtist.value == null) {
+				document.MyForm.musicArtist.value = "";
+			}
 		}
 
 	 </script>
@@ -116,15 +120,14 @@ String message = (String)request.getAttribute("message");%>
 
 
 <% //Cへ検索する条件を送る %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0Control">
+	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0120Control">
 		楽曲ID:
 		<input type="text" id="musicId" name="musicId" placeholder="楽曲ID" style="text-align: left;">
 		楽曲名:
 		<input type="text" id="musicName" name="musicName" placeholder="楽曲名" style="text-align: left; ">
+		</br>
 		アーティスト:
-		<input type="text" id="television" name="television" placeholder="アーティスト" style="text-align: left; ">
-		ドラマ・映画:
-		<input type="text" id="genre" name="genre" placeholder="ドラマ・映画" style="text-align: left; ">
+		<input type="text" id="musicArtist" name="musicArtist" placeholder="アーティスト" style="text-align: left; ">
 		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0121View.jsp';" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
@@ -146,7 +149,6 @@ String message = (String)request.getAttribute("message");%>
 					<Th class="r1">楽曲ID</Th>
 					<Th class="r2">楽曲名</Th>
 					<Th class="r3">アーティスト</Th>
-					<Th class="r4">ドラマ・映画</Th>
 					</tr>
 			</thead>
 			<tbody class="scrollBody">
@@ -156,7 +158,7 @@ String message = (String)request.getAttribute("message");%>
 			<Th class="r0"><input type="radio" name="radioButton" value="<%= musicList.get(i).get("musicId") %>"></Th>
 			<Td class="r1"><% out.print(musicList.get(i).get("musicId")); %></Td>
 			<Td class="r2"><% out.print(musicList.get(i).get("musicName")); %></Td>
-			<Td class="r3"><% out.print(musicList.get(i).get("musicartist")); %></Td>
+			<Td class="r3"><% out.print(musicList.get(i).get("musicArtist")); %></Td>
 		</Tr>
 	<% } %>
 <% } %>
