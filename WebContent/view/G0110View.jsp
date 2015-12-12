@@ -27,14 +27,14 @@
 		 }
 
 		function init() {
-			if (document.MyForm.magazineId.value == null) {
-				document.MyForm.magazineId.value = "";
+			//if (document.MyForm.artistId.value == null) {
+			//	document.MyForm.artistId.value = "";
+			//}
+			if (document.MyForm.artistName.value == null) {
+				document.MyForm.artistName.value = "";
 			}
-			if (document.MyForm.magazineName.value == null) {
-				document.MyForm.magazineName.value = "";
-			}
-			if (document.MyForm.publisherName.value == null) {
-				document.MyForm.publisherName.value = "";
+			if (document.MyForm.companyName.value == null) {
+				document.MyForm.companyName.value = "";
 			}
 		}
 	 </script>
@@ -53,11 +53,12 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
 
-	<h1>雑誌一覧</h1>
+	<h1>アーティスト一覧</h1>
 
 <%-- メッセージの表示 --%>
 
@@ -101,14 +102,14 @@
 	//			contentsList.put("contents_id", "401");
 	//			contentsList.put("contents_name", "八重の桜");
 	//			contentsList.put("summary", "大河ドラマ");
-List<HashMap<String,String>> magazineList = (List<HashMap<String,String>>)request.getAttribute("magazineList");
+List<HashMap<String,String>> artistList = (List<HashMap<String,String>>)request.getAttribute("artistList");
 //該当データがないメッセージを受け取る
 String message = (String)request.getAttribute("message");
 String createDisabled = "disabled";
 String disabled = "disabled";%>
 	<% try{ %>
 	<% String employeeAuthority = session.getAttribute("employeeAuthority").toString(); %>
-	<% if((magazineList != null) && ("00".equals(employeeAuthority))){%>
+	<% if((artistList != null) && ("00".equals(employeeAuthority))){%>
 		<% disabled = "";%>
 	<% } %>
 	<% if("00".equals(employeeAuthority)){%>
@@ -122,15 +123,24 @@ String disabled = "disabled";%>
 
 
 <% //Cへ検索する条件を送る %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
-		雑誌ID:
-		<input type="text" id="magazineId" name="magazineId" placeholder="雑誌ID" style="text-align: left;">
-		雑誌名:
-		<input type="text" id="magazineName" name="magazineName" placeholder="雑誌名" style="text-align: left; ">
-		出版社:
-		<input type="text" id="publisherName" name="publisherName" placeholder="出版社" style="text-align: left; ">
+	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0110Control">
+		アーティスト名:
+		<input type="text" id="artistName" name="artistName" placeholder="アーティスト名" style="text-align: left; ">
+
+		所属会社:
+		<input type="text" id="companyName" name="companyName" placeholder="所属会社" style="text-align: left; ">
+
+		<!--<select name="example1">
+		<option value="サンプル1">選択肢のサンプル1</option>
+		<option value="サンプル2">選択肢のサンプル2</option>
+		<option value="サンプル3">選択肢のサンプル3</option>
+		<option value="サンプル4">選択肢のサンプル4</option>
+		<option value="サンプル5">選択肢のサンプル5</option>
+		</select>
+		-->
+
 		<input type="button" value="検索" onClick="func('select');" /><br />
-		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';" <%= createDisabled %> />
+		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0111View.jsp';" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 		<div style="color:red;"><%= message %></div>
@@ -146,21 +156,18 @@ String disabled = "disabled";%>
 			<thead class="scrollHead">
 				<tr>
 					<Th class="r0">選択</Th>
-					<Th class="r1">雑誌ID</Th>
-					<Th class="r2">雑誌名</Th>
-					<Th class="r3">出版社</Th>
+					<Th class="r1">アーティスト名</Th>
+					<Th class="r2">所属会社</Th>
 
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
-<% if(magazineList != null){ %>
-<% for(int i = 0; i < magazineList.size(); i++){ %>
+<% if(artistList != null){ %>
+<% for(int i = 0; i < artistList.size(); i++){ %>
 					<Tr>
-						<Th class="r0"><input type="radio" name="radioButton" value="<%= magazineList.get(i).get("magazineId") %>"></Th>
-						<Td class="r1"><% out.print(magazineList.get(i).get("magazineId")); %></Td>
-						<Td class="r2"><% out.print(magazineList.get(i).get("magazineName")); %></Td>
-						<Td class="r3"><% out.print(magazineList.get(i).get("publisherName")); %></Td>
-
+						<Th class="r0"><input type="radio" name="radioButton" value="<%= artistList.get(i).get("artistId") %>"></Th>
+						<Td class="r1"><% out.print(artistList.get(i).get("artistName")); %></Td>
+						<Td class="r2"><% out.print(artistList.get(i).get("companyName")); %></Td>
 					</Tr>
 <% } %>
 <% } %>
