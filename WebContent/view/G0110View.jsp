@@ -165,7 +165,7 @@ String disabled = "disabled";%>
 <% if(artistList != null){ %>
 <% for(int i = 0; i < artistList.size(); i++){ %>
 					<Tr>
-						<Th class="r0"><input type="radio" name="radioButton" value="<%= artistList.get(i).get("artistId") %>"></Th>
+						<Th class="r0"><input type="radio" name="radioButton" value="<%= artistList.get(i).get("artistName") %>"></Th>
 						<Td class="r1"><% out.print(artistList.get(i).get("artistName")); %></Td>
 						<Td class="r2"><% out.print(artistList.get(i).get("companyName")); %></Td>
 					</Tr>
