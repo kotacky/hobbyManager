@@ -27,9 +27,9 @@
 		 }
 
 		function init() {
-			//if (document.MyForm.artistId.value == null) {
-			//	document.MyForm.artistId.value = "";
-			//}
+			if (document.MyForm.artistId.value == null) {
+				document.MyForm.artistId.value = "";
+			}
 			if (document.MyForm.artistName.value == null) {
 				document.MyForm.artistName.value = "";
 			}
@@ -124,11 +124,13 @@ String disabled = "disabled";%>
 
 <% //Cへ検索する条件を送る %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0110Control">
+
 		アーティスト名:
 		<input type="text" id="artistName" name="artistName" placeholder="アーティスト名" style="text-align: left; ">
 
 		所属会社:
 		<input type="text" id="companyName" name="companyName" placeholder="所属会社" style="text-align: left; ">
+
 
 		<!--<select name="example1">
 		<option value="サンプル1">選択肢のサンプル1</option>
@@ -140,7 +142,7 @@ String disabled = "disabled";%>
 		-->
 
 		<input type="button" value="検索" onClick="func('select');" /><br />
-		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0111View.jsp';" <%= createDisabled %> />
+		<input type="button" value="新規登録" onClick="func('insert');" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 		<div style="color:red;"><%= message %></div>
@@ -156,18 +158,19 @@ String disabled = "disabled";%>
 			<thead class="scrollHead">
 				<tr>
 					<Th class="r0">選択</Th>
-					<Th class="r1">アーティスト名</Th>
-					<Th class="r2">所属会社</Th>
-
+					<Th class="r1">アーティストID</Th>
+					<Th class="r2">アーティスト名</Th>
+					<Th class="r3">所属会社</Th>
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
 <% if(artistList != null){ %>
 <% for(int i = 0; i < artistList.size(); i++){ %>
 					<Tr>
-						<Th class="r0"><input type="radio" name="radioButton" value="<%= artistList.get(i).get("artistName") %>"></Th>
-						<Td class="r1"><% out.print(artistList.get(i).get("artistName")); %></Td>
-						<Td class="r2"><% out.print(artistList.get(i).get("companyName")); %></Td>
+						<Th class="r0"><input type="radio" name="radioButton" value="<%= artistList.get(i).get("artistId") %>"></Th>
+						<Td class="r1"><% out.print(artistList.get(i).get("artistId")); %></Td>
+						<Td class="r2"><% out.print(artistList.get(i).get("artistName")); %></Td>
+						<Td class="r3"><% out.print(artistList.get(i).get("companyName")); %></Td>
 					</Tr>
 <% } %>
 <% } %>
