@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
 	<meta charset="Windows-31J">
 	<title>新人DB - 楽曲一覧</title>
 	<meta name="keywords" content="キーワード" />
@@ -16,13 +17,14 @@
 	<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
-	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
+	<script type="text/javascript" src="./js/default.js"></script>
 	<script>
 		 function func(MyCommand){
 		//	 alert("start!:[" + MyCommand + "]");
 			 document.MyForm.processDiv.value=MyCommand;
 			 document.MyForm.submit();
 		 }
+
 		function init() {
 			if (document.MyForm.musicId.value == null) {
 				document.MyForm.musicId.value = "";
@@ -30,9 +32,9 @@
 			if (document.MyForm.musicName.value == null) {
 				document.MyForm.musicName.value = "";
 			}
-			if (document.MyForm.musicArtist.value == null) {
-				document.MyForm.musicArtist.value = "";
-			}
+		if (document.MyForm.artistName.value == null) {
+			document.MyForm.artistName.value = "";
+		}
 		}
 
 	 </script>
@@ -52,7 +54,7 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">アーティスト</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">アーティスト</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
@@ -63,10 +65,10 @@
 
 	<% try{ %>
 		<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
-			<% if("1".equals(deleteFlag)){ %>
-			<H2><% out.print("削除が完了しました。"); %></H2>
-			<% }else if("0".equals(deleteFlag)){ %>
-			<H2><% out.print("削除が失敗しました。"); %></H2>
+		<% if("1".equals(deleteFlag)){ %>
+		<H2><% out.print("削除が完了しました。"); %></H2>
+		<% }else if("0".equals(deleteFlag)){ %>
+		<H2><% out.print("削除が失敗しました。"); %></H2>
 		<% } %>
 	<% }catch(NullPointerException deleteException){ %>
 	<% } %>
@@ -83,16 +85,16 @@
 	<% }catch(NullPointerException insertException){ %>
 	<% } %>
 
+
 	<% try{ %>
 		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
 			<% if("1".equals(updateFlag)){ %>
-			<H2><% out.print("更新が完了しました。"); %></H2>
-			<% }else if("0".equals(updateFlag)){ %>
-			<H2><% out.print("更新が失敗しました。"); %></H2>
-			<% } %>
-		<% }catch(NullPointerException updateException){ %>
-		<% } %>
-
+				<H2><% out.print("更新が完了しました。"); %></H2>
+				<% }else if("0".equals(updateFlag)){ %>
+				<H2><% out.print("更新が失敗しました。"); %></H2>
+				<% } %>
+	<% }catch(NullPointerException updateException){ %>
+	<% } %>
 
 <%-- リストの取得 --%>
 <%
@@ -119,20 +121,20 @@ String message = (String)request.getAttribute("message");%>
 }%>
 
 
-<% //Cへ検索する条件を送る %>
+<% // Cへ検索する条件を送る --%>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0120Control">
-		楽曲ID:
-		<input type="text" id="musicId" name="musicId" placeholder="楽曲ID" style="text-align: left;">
-		楽曲名:
-		<input type="text" id="musicName" name="musicName" placeholder="楽曲名" style="text-align: left; ">
-		</br>
-		アーティスト:
-		<input type="text" id="musicArtist" name="musicArtist" placeholder="アーティスト" style="text-align: left; ">
-		<input type="button" value="検索" onClick="func('select');" /><br />
-		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0121View.jsp';" <%= createDisabled %> />
+			楽曲ID:
+			<input type="text" id="musicId" name="musicId" placeholder="楽曲ID" style="text-align: left;">
+			楽曲名:
+			<input type="text" id="musicName" name="musicName" placeholder="楽曲名" style="text-align: left;">
+			<div>
+			アーティスト名:
+			<input type="text" id="artistName" name="artistName" placeholder="アーティスト名" style="text-align: left; ">
+			<input type="button" value="検索" onClick="func('select');" /><br />
+			</div>
+		<input type="button" value="新規登録" onClick="func('insert');" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
-		<%-- 該当がない場合のメッセージを表示 --%>
 		<div style="color:red;"><%= message %></div>
 		<br style="clear" />
 <%
@@ -148,7 +150,7 @@ String message = (String)request.getAttribute("message");%>
 					<Th class="r0">選択</Th>
 					<Th class="r1">楽曲ID</Th>
 					<Th class="r2">楽曲名</Th>
-					<Th class="r3">アーティスト</Th>
+					<Th class="r3">アーティスト名</Th>
 					</tr>
 			</thead>
 			<tbody class="scrollBody">
@@ -158,7 +160,7 @@ String message = (String)request.getAttribute("message");%>
 			<Th class="r0"><input type="radio" name="radioButton" value="<%= musicList.get(i).get("musicId") %>"></Th>
 			<Td class="r1"><% out.print(musicList.get(i).get("musicId")); %></Td>
 			<Td class="r2"><% out.print(musicList.get(i).get("musicName")); %></Td>
-			<Td class="r3"><% out.print(musicList.get(i).get("musicArtist")); %></Td>
+			<Td class="r3"><% out.print(musicList.get(i).get("artistName")); %></Td>
 		</Tr>
 	<% } %>
 <% } %>

@@ -13,100 +13,118 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.wiss1.common.EncodingUtils;
 import jp.co.wiss1.model.G0120Model;
+import jp.co.wiss1.model.G0123Model;
 
 @WebServlet("/G0120Control")
 public class G0120Control extends HttpServlet{
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException{
 
-		//ブラウザの文字コードで返す
+		//ブラウザの文字コードの調整
 		EncodingUtils.responseEncoding(request,response);
 
-		//Viewから処理命令を受け取る
+		//どの処理を行うかの命令を受け取る
 		String processDiv = request.getParameter("processDiv");
 
-		//処理に必要な情報を受け取る
+		//処理に必要となる情報を受け取る
 		String musicId = request.getParameter("musicId");
-		String name = request.getParameter("musicName");
+		String musicName = request.getParameter("musicName");
+		String artistName = request.getParameter("artistName");
 
-		//検索の処理
-		if("select".equals(processDiv)){
+		//検索(SELECT)の処理
+		System.out.println("check1"+processDiv);
+		if ("select".equals(processDiv)){
 
-			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
-			List<HashMap<String, String>> musicList = G0120Model.getMusicList(musicId, name );
-
-			//検索結果をViewに送る
+			//検索項目を渡し、リストを受け取る
+			List <HashMap<String,String>> musicList = G0120Model.getMusicList(musicId,musicName,artistName);
+			//Viewに渡すリストを設定
 			if (musicList.size() < 1) {
 				//Viewに渡すメッセージを設定
 				request.setAttribute("message", "該当データがありません。");
 			}
-			request.setAttribute("musicList", musicList);
 
-			//検索条件保持のために送る
-			request.setAttribute("musicName", name);
-			request.setAttribute("musicId", musicId);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0120View.jsp");
+			// 画面一覧へ結果を返す
+			request.setAttribute("musicId",musicId);
+			request.setAttribute("musicName",musicName);
+			request.setAttribute("artistName",artistName);
+			request.setAttribute("musicList",musicList);
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0120View.jsp");
 			dispatch.forward(request, response);
-		}
+		 }
 
-		//更新①の処理
-		if("update".equals(processDiv)){
 
-			//更新前の情報を引き出すためのラジオボタン入力を受け取る
-			//idを受け取る
-			String updatemusicId = request.getParameter("radioButton");
+		//登録(INSERT)①の処理
+		if ("insert".equals(processDiv)){
 
-			//radioButtoがnullならば処理を行う
-			if(updatemusicId == null){
+
+			//会社名リストとコンテンツリストを受け取る
+			List <HashMap<String,String>> columnArtistList = G0123Model.getColumnArtistList();
+
+			// 会社名リストとコンテンツリストをViewへ送る
+			request.setAttribute("columnArtistList",columnArtistList);
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0121View.jsp");
+			dispatch.forward(request, response);
+
+			//G0021Controlへ
+		 }
+
+
+		 //更新(UPDATE)①の処理
+		 if ("update".equals(processDiv)){
+
+
+			//更新対象の主キーを受け取る
+			String updateMusicId = request.getParameter("radioButton");
+
+			//ラジオボタンに印がついていない時の処理
+			if(updateMusicId == null){
 				request.setAttribute("updateFlag", 0);
 				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0120View.jsp");
-				System.out.println(dispatch);
 				dispatch.forward(request, response);
+			}
+			//ラジオボタンに印がついている時の処理
+			else{
+				//更新対象の主キーを送り、リストを受け取る
+				List <HashMap<String,String>> musicList = G0120Model.getMusicList(updateMusicId,"","");
+
+				//会社名リストとコンテンツリストを受け取る
+				List <HashMap<String,String>> columnArtistList = G0123Model.getColumnArtistList();
+				//会社名リストとコンテンツリストをViewへ送る
+				request.setAttribute("columnArtistList",columnArtistList);
+				//更新するリストをView送る
+				request.setAttribute("musicList",musicList);
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0122View.jsp");
+				dispatch.forward(request, response);
+				//G0022Controlへ
+			}
+		 }
+
+
+		 //削除(DELETE)の処理
+		 if ("delete".equals(processDiv)){
+
+			//削除対象の主キーを受け取る
+			String deleteMusicId = request.getParameter("radioButton");
+
+			//削除対象の主キーを送る
+			int deleteFlag = G0120Model.deleteMusic(deleteMusicId);
+
+			//削除の項目を送り、削除後のリストを受け取る
+			List <HashMap<String,String>> musicList = G0120Model.getMusicList(musicId,musicName,artistName);
+
+			//画面一覧へ結果を返す
+			if(deleteFlag != 0){
+				//削除成功
+				request.setAttribute("deleteFlag",1);
 			}
 			else{
-				//Modelに引数を渡し、検索結果をリストに入れる
-				List<HashMap<String,String>> musicList = G0120Model.getMusicList(updatemusicId, "");
-
-				//Viewに渡すリストを設定
-				request.setAttribute("musicList", musicList);
-
-				//Viewにリストを渡す
-				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0120View.jsp");
-				dispatch.forward(request, response);
+				//削除失敗
+				request.setAttribute("deleteFlag",deleteFlag);
 			}
-		}
-
-		//削除の処理
-		if("delete".equals(processDiv)){
-
-			//削除に必要な情報を受け取る
-			String deletemusicId = request.getParameter("radioButton");
-
-			//radioButtoがnullでないならば処理を行う
-			if(deletemusicId != null){
-
-				//デリートのメソッドを呼ぶ
-				int deleteFlag = G0120Model.deletemusic(deletemusicId);
-
-				//デリート後のリストと削除完了のフラグを送る
-
-					request.setAttribute("deleteFlag",deleteFlag);
-
-			}else{
-				//nullのとき処理を行わずに返す
-				request.setAttribute("deleteFlag",0);
-			}
-			//デリート後のリストを検索メソッドで取り出す
-			List<HashMap<String, String>> musicList = G0120Model.getMusicList(musicId, name);
-
-			//削除処理後のリストを送る
-			request.setAttribute("musicList", musicList);
-
-			//検索条件保持のために送る
-			request.setAttribute("musicId", musicId);
-			request.setAttribute("musicName", name);
-			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0120View.jsp");
+			request.setAttribute("musicList",musicList);
+			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0120View.jsp");
 			dispatch.forward(request, response);
-		}
+		 }
 	}
 }

@@ -14,12 +14,12 @@ public class G0120Model {
 
 		public static void main(String[] args)
 		{
-			getMusicList("", "");
+			getMusicList("", "","");
 			deleteMusic("0");
 		}
 		//コンテンツテーブル参照
 		public static List<HashMap<String, String>>
-		getMusicList(String musicId , String musicName)
+		getMusicList(String musicId , String musicName, String artistName)
 		{
 
 			List<HashMap<String, String>> musicList = new ArrayList<HashMap<String, String>>() ;
@@ -38,41 +38,46 @@ public class G0120Model {
 		        connection.setAutoCommit(false);
 
 		      //sql文一覧
-	            String sql = "SELECT distinct t_music.music_id, t_artist.artist_id, "
-	            	 +"COALESCE(music_name,'未登録') AS music_name, "
-	            	 +"COALESCE(artist_name,'未登録') AS artist_name "
-	        		 +"FROM "
-        	         +"t_music LEFT OUTER JOIN t_artist ON t_music.artist_id = t_artist.artist_id where ";
+	            String sql = "SELECT distinct "
+	            		+  "t_music.music_id, "
+	            		+ " t_music.music_name, "
+	            		+ "COALESCE(artist_name,'未登録') AS artist_name, "
+	            	    + " t_artist.artist_id"
+	        		 +" FROM "+" t_music "
+	            	 +" LEFT OUTER JOIN t_artist "
+	        		 +" ON t_music.artist_id = t_artist.artist_id where ";
 
 
 	            if(!"".equals(musicId)) {
-		        	sql = sql + "t_music.music_id = '"+ musicId +"' AND ";
-		        }
+	            	sql = sql + " t_music.music_id = '"+ musicId +"' AND ";
+	            }
+		        	sql = sql + " music_name like '%" + musicName + "%' ";
 
-		        sql = sql + "music_name like '%"+ musicName +"%'";
-		        sql = sql +  "ORDER BY music_id ";
+		        	if (artistName != null && !"".equals(artistName)) {
+			        	sql = sql + "AND artist_name like '%"+ artistName +"%' ";
+		        	}
+
+
 
 	            System.out.println("引数に" + musicId + "が入力されました。");
 	            System.out.println("引数に" + musicName + "が入力されました。");
+	            System.out.println("引数に" + artistName + "が入力されました。");
 	            System.out.println(sql);
 
-	            resultSet = statement.executeQuery(sql);										//SELECT文を実行するコード
-	            System.out.println(resultSet);
+	            resultSet = statement.executeQuery(sql);
 
 	          //SELECT文の結果を参照
 	            while(resultSet.next()) {
 
 	            	HashMap<String, String> musicInfo = new HashMap<String, String>();
-
 	            	musicInfo.put("musicId", resultSet.getString("music_id"));
 	            	musicInfo.put("musicName", resultSet.getString("music_name"));
-	            	musicInfo.put("musicArtist", resultSet.getString("artist_name"));
-
+	            	musicInfo.put("artistName", resultSet.getString("artist_name"));
 	        	   	musicList.add(musicInfo);
 
 	            	System.out.println(musicInfo.get("musicId"));						//リストに入ったかの確認
 	            	System.out.println(musicInfo.get("musicName"));
-	            	System.out.println(musicInfo.get("musicArtist"));
+	            	System.out.println(musicInfo.get("artistName"));
 	            }
 
 	        }
@@ -105,7 +110,8 @@ public class G0120Model {
 
 		public static int deleteMusic(String musicId) {	 								//ドラマテーブル削除
 
-
+			List<HashMap<String, String>> musicList = new ArrayList<HashMap<String, String>>() ;
+			ResultSet resultSet = null;
 			Connection connection = null;
 			Statement statement = null;
 			int deleteCount = 0;
@@ -124,7 +130,7 @@ public class G0120Model {
 
 	            deleteCount = statement.executeUpdate (sql);
 
-	            if(deleteCount == 1){															//削除が成功しているかどうかの確認
+	            if(deleteCount == 0){															//削除が成功しているかどうかの確認
 	            	System.out.println("削除成功");
 	            }
 	            else{
