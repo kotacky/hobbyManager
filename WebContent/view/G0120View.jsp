@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-
 	<meta charset="Windows-31J">
 	<title>新人DB - 楽曲一覧</title>
 	<meta name="keywords" content="キーワード" />
