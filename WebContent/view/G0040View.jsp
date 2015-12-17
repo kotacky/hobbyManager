@@ -122,7 +122,7 @@ String disabled = "disabled";%>
 
 
 <% //Cへ検索する条件を送る %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
+	<form onreset="return confirm('入力内容を削除してもよろしいですか？')" method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
 		雑誌ID:
 		<input type="text" id="magazineId" name="magazineId" placeholder="雑誌ID" style="text-align: left;">
 		雑誌名:
@@ -133,6 +133,7 @@ String disabled = "disabled";%>
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+		<input type="reset" value="クリア"><br>
 		<div style="color:red;"><%= message %></div>
 		<br style="clear" />
 <%
