@@ -42,10 +42,10 @@ public class G0040Model {
 	        		sql = sql + "magazine_id = '"+ magazineId +"' AND ";
 	        		System.out.println("2:" + sql);
 	        	}
-	        	if(!"".equals(magazineName)) {
+
 	        		sql = sql + "magazine_name like '%"+ magazineName +"%' AND ";
 	        		System.out.println("3:" + sql);
-	        	}
+
 	        		sql = sql + "publisher_name like '%"+ publisherName +"%'";
 	        		sql = sql + " ORDER BY magazine_id";
 	        		System.out.println("4:" + sql);												//sql文終了
