@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import jp.co.wiss1.common.ChangeCharacter;
 
 import jp.co.wiss1.common.DBAccessUtils;
 
@@ -37,6 +38,9 @@ public class G0120Model {
 		    	//自動コミットを無効にする
 		        connection.setAutoCommit(false);
 
+	        	//エスケープ文字に置き換え
+	        	 musicName = ChangeCharacter.CC(musicName);
+	        	 artistName = ChangeCharacter.CC(artistName);
 		      //sql文一覧
 	            String sql = "SELECT distinct "
 	            		+  "t_music.music_id, "

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0122Model {
@@ -35,6 +36,9 @@ public class G0122Model {
 
             /* 自動コミットを無効にする */
         	connection.setAutoCommit(true);
+         	//エスケープ文字に置き換え
+        	//エスケープ文字に置き換え
+       	 musicName = ChangeCharacter.CC(musicName);
 
         	//－－－－－－－－－－sql文構築－－－－－－－－－－//
 			//－－－－－－－－－－String型のsqlにposgreのIDが同じ女優テーブルの情報を入れている//

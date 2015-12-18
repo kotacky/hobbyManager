@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0121Model {
@@ -33,6 +34,11 @@ public class G0121Model {
 
             //自動コミットを有効にする
         	connection.setAutoCommit(true);
+
+
+        	//エスケープ文字に置き換え
+        	 musicName = ChangeCharacter.CC(musicName);
+
 
         	//SQL文構築
         	//actress_idをt_actressから取得

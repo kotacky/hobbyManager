@@ -154,7 +154,7 @@ String message = (String)request.getAttribute("message");%>
 					<Th class="r2">ドラマ名</Th>
 					<Th class="r3">放送クール</Th>
 					<Th class="r4">放送局</Th>
-					<Th class="r5">ジャンル</Th>
+					<Th class="r4">ジャンル</Th>
 				</tr>
 			</thead>
 			<tbody class="scrollBody">
@@ -166,7 +166,7 @@ String message = (String)request.getAttribute("message");%>
 			<Td class="r2"><% out.print(dramaList.get(i).get("dramaName")); %></Td>
 			<Td class="r3"><% out.print(dramaList.get(i).get("broadcastCool")); %></Td>
 			<Td class="r4"><% out.print(dramaList.get(i).get("television")); %></Td>
-			<Td class="r5"><% out.print(dramaList.get(i).get("genre")); %></Td>
+			<Td class="r4"><% out.print(dramaList.get(i).get("genre")); %></Td>
 		</Tr>
 	<% } %>
 <% } %>

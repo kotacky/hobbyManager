@@ -148,7 +148,7 @@ String message = (String)request.getAttribute("message");%>
 				<tr>
 					<Th class="r0">選択</Th>
 					<Th class="r1">楽曲ID</Th>
-					<Th class="r2">楽曲名(歌詞検索)</Th>
+					<Th class="r2">楽曲名</Th>
 					<Th class="r3">アーティスト名</Th>
 					</tr>
 			</thead>
@@ -158,7 +158,7 @@ String message = (String)request.getAttribute("message");%>
 		<Tr>
 			<Th class="r0"><input type="radio" name="radioButton" value="<%= musicList.get(i).get("musicId") %>"></Th>
 			<Td class="r1"><% out.print(musicList.get(i).get("musicId")); %></Td>
-			<Td class="r2"><a href="javascript:;" onclick="window.open('http://www.kget.jp/search/index.php?c=0&r=&t='+encodeURI('<% out.print(musicList.get(i).get("musicName")); %>'));return false;"><% out.print(musicList.get(i).get("musicName")); %></a></Td>
+			<Td class="r2"><% out.print(musicList.get(i).get("musicName")); %></Td>
 			<Td class="r3"><% out.print(musicList.get(i).get("artistName")); %></Td>
 		</Tr>
 	<% } %>

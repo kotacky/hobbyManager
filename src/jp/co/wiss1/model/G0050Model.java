@@ -49,10 +49,6 @@ public class G0050Model {
 	        		sql = sql + "drama_title like '%"+ dramaTitle +"%' AND ";
 	        		System.out.println("3:" + sql);
 	        	}
-	        	if(!"".equals(broadcastCool)) {
-	        		sql = sql + "broadcast_cool like '%"+ dramaTitle +"%' AND ";
-	        		System.out.println("3:" + sql);
-	        	}
 	        	if(!"".equals(television)) {
 	        		sql = sql + "television_name like '%"+ television +"%' AND ";
 	        		System.out.println("3:" + sql);
