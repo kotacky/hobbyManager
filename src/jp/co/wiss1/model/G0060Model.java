@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import jp.co.wiss1.common.ChangeCharacter;
 
 import jp.co.wiss1.common.DBAccessUtils;
 
@@ -26,6 +27,9 @@ public class G0060Model {
 			Connection connection = null;
 			Statement statement = null;
 
+        	//エスケープ文字に置き換え
+//        	 movieTitle = ChangeCharacter.CC(movieTitle);
+//        	 releaseDate = ChangeCharacter.CC(releaseDate);
 
 	        try{
 	            // テーブル照会実行
@@ -46,13 +50,9 @@ public class G0060Model {
 	        		sql = sql + "movie_title like '%"+ movieTitle +"%' AND ";
 	        		System.out.println("3:" + sql);
 	        	}
-	        	if(!"".equals(movieTitle)) {
-	        		sql = sql + "release_date like '%"+ releaseDate +"%' AND ";
-	        		System.out.println("4:" + sql);
-	        	}
 	        	sql = sql + "movie_genre like '%"+ movieGenre +"%'";
 	        	sql = sql + " ORDER BY movie_id";
-	        	System.out.println("5:" + sql);												//sql文終了
+	        	System.out.println("4:" + sql);												//sql文終了
 
 	            System.out.println("引数に" + movieId + "が入力されました。");
 	            System.out.println("引数に" + movieTitle + "が入力されました。");

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0062Model {
@@ -34,6 +35,10 @@ public class G0062Model {
             /* 自動コミットを無効にする */
         	connection.setAutoCommit(true);
 
+        	//エスケープ文字に置き換え
+        	 movieGenre = ChangeCharacter.CC(movieGenre);
+        	 releaseDate = ChangeCharacter.CC(releaseDate);
+        	 movieTitle = ChangeCharacter.CC(movieTitle);
 
             String sql = "UPDATE t_movie SET";
             	if(!"". equals(movieId)){

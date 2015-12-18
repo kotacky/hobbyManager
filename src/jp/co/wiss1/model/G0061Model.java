@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0061Model {
@@ -33,6 +34,11 @@ public class G0061Model {
 
         	//自動コミットを有効にする
         	connection.setAutoCommit(true);
+
+        	//エスケープ文字に置き換え
+        	 movieGenre = ChangeCharacter.CC(movieGenre);
+        	 releaseDate = ChangeCharacter.CC(releaseDate);
+        	 movieTitle = ChangeCharacter.CC(movieTitle);
 
         	//SQL文構築
         	//company_idをt_companyから取得
