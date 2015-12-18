@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; Windows-31J"
+    pageEncoding="Windows-31J"%>
 <%@ page import = "java.util.HashMap"%>
 <%@ page import = "java.util.List" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 	<meta charset="Windows-31J">
-	<title>æ–°äººDB - é›‘èªŒä¸€è¦§</title>
-	<meta name="keywords" content="ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰" />
-	<meta name="description" content="ã‚µã‚¤ãƒˆã®èª¬æ˜" />
+	<title>VlDB - Gˆê——</title>
+	<meta name="keywords" content="ƒL[ƒ[ƒh" />
+	<meta name="description" content="ƒTƒCƒg‚Ìà–¾" />
 	<meta http-equiv="Content-Language" content="ja" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
@@ -41,32 +41,32 @@
 <body onload="init();">
 	<div id="header">
 		<ul id="gNavi" class="clearfix">
-			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">å¥½ã¿ä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">å¥³å„ªä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ï¼£ï¼­ä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">æ˜ ç”»ä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ãƒ‰ãƒ©ãƒä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">é›‘èªŒä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">æ‰€å±ä¼šç¤¾ä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">ç¤¾å“¡ä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ã‚¸ãƒ£ãƒ³ãƒ«ä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">ãƒ†ãƒ¬ãƒ“å±€ä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">æ¥½æ›²ä¸€è¦§</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">ã‚¢ãƒ¼ãƒ†ã‚£ã‚¹ãƒˆä¸€è¦§</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">D‚İˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">——Dˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">‚b‚lˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">‰f‰æˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ƒhƒ‰ƒ}ˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">Gˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">Š‘®‰ïĞˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">Ğˆõˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ƒWƒƒƒ“ƒ‹ˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">ƒeƒŒƒr‹Çˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">Šy‹Èˆê——</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">ƒA[ƒeƒBƒXƒgˆê——</a></li>
 			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
 		</ul>
 	</div>
 
-	<h1>é›‘èªŒä¸€è¦§</h1>
+	<h1>Gˆê——</h1>
 
-<%-- ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¡¨ç¤º --%>
+<%-- ƒƒbƒZ[ƒW‚Ì•\¦ --%>
 
 	<% try{ %>
 		<% String deleteFlag = request.getAttribute("deleteFlag").toString(); %>
 			<% if("1".equals(deleteFlag)){ %>
-			<H2><% out.print("å‰Šé™¤ãŒå®Œäº†ã—ã¾ã—ãŸã€‚"); %></H2>
+			<H2><% out.print("íœ‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
 			<% }else if("0".equals(deleteFlag)){ %>
-			<H2><% out.print("å‰Šé™¤ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚"); %></H2>
+			<H2><% out.print("íœ‚ª¸”s‚µ‚Ü‚µ‚½B"); %></H2>
 		<% } %>
 	<% }catch(NullPointerException deleteException){ %>
 	<% } %>
@@ -74,11 +74,11 @@
 	<% try{ %>
 		<% String insertFlag = request.getAttribute("insertFlag").toString(); %>
 		<% if("1".equals(insertFlag)){ %>
-			<H2><% out.print("ç™»éŒ²ãŒå®Œäº†ã—ã¾ã—ãŸã€‚"); %></H2>
+			<H2><% out.print("“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
 			<% }else if("0".equals(insertFlag)){ %>
-			<H2><% out.print("ç™»éŒ²ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚"); %></H2>
+			<H2><% out.print("“o˜^‚ª¸”s‚µ‚Ü‚µ‚½B"); %></H2>
 			<% }else if("2".equals(insertFlag)){ %>
-			<H2><% out.print("æ—¢ã«ç™»éŒ²ã•ã‚Œã¦ã„ã¾ã™ã€‚"); %></H2>
+			<H2><% out.print("Šù‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B"); %></H2>
 			<% } %>
 	<% }catch(NullPointerException insertException){ %>
 	<% } %>
@@ -87,22 +87,22 @@
 	<% try{ %>
 		<% String updateFlag = request.getAttribute("updateFlag").toString(); %>
 			<% if("1".equals(updateFlag)){ %>
-			<H2><% out.print("æ›´æ–°ãŒå®Œäº†ã—ã¾ã—ãŸã€‚"); %></H2>
+			<H2><% out.print("XV‚ªŠ®—¹‚µ‚Ü‚µ‚½B"); %></H2>
 			<% }else if("0".equals(updateFlag)){ %>
-			<H2><% out.print("æ›´æ–°ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚"); %></H2>
+			<H2><% out.print("XV‚ª¸”s‚µ‚Ü‚µ‚½B"); %></H2>
 			<% } %>
 		<% }catch(NullPointerException updateException){ %>
 		<% } %>
 
 
-<%-- ãƒªã‚¹ãƒˆã®å–å¾— --%>
+<%-- ƒŠƒXƒg‚Ìæ“¾ --%>
 <%
 	//	    HashMap<String,String> contentsList = new HashMap<String,String>();
 	//			contentsList.put("contents_id", "401");
-	//			contentsList.put("contents_name", "å…«é‡ã®æ¡œ");
-	//			contentsList.put("summary", "å¤§æ²³ãƒ‰ãƒ©ãƒ");
+	//			contentsList.put("contents_name", "”ªd‚Ì÷");
+	//			contentsList.put("summary", "‘å‰Íƒhƒ‰ƒ}");
 List<HashMap<String,String>> magazineList = (List<HashMap<String,String>>)request.getAttribute("magazineList");
-//è©²å½“ãƒ‡ãƒ¼ã‚¿ãŒãªã„ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å—ã‘å–ã‚‹
+//ŠY“–ƒf[ƒ^‚ª‚È‚¢ƒƒbƒZ[ƒW‚ğó‚¯æ‚é
 String message = (String)request.getAttribute("message");
 String createDisabled = "disabled";
 String disabled = "disabled";%>
@@ -121,20 +121,20 @@ String disabled = "disabled";%>
 	}%>
 
 
-<% //Cã¸æ¤œç´¢ã™ã‚‹æ¡ä»¶ã‚’é€ã‚‹ %>
-	<form onreset="return confirm('å…¥åŠ›å†…å®¹ã‚’å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ')" method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
-		é›‘èªŒID:
-		<input type="text" id="magazineId" name="magazineId" placeholder="é›‘èªŒID" style="text-align: left;">
-		é›‘èªŒå:
-		<input type="text" id="magazineName" name="magazineName" placeholder="é›‘èªŒå" style="text-align: left; ">
+<% //C‚ÖŒŸõ‚·‚éğŒ‚ğ‘—‚é %>
+	<form onreset="return confirm('“ü—Í“à—e‚ğíœ‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H')" method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
+		GID:
+		<input type="text" id="magazineId" name="magazineId" placeholder="GID" style="text-align: left;">
+		G–¼:
+		<input type="text" id="magazineName" name="magazineName" placeholder="G–¼" style="text-align: left; ">
 		<div>
-		å‡ºç‰ˆç¤¾:
-		<input type="text" id="publisherName" name="publisherName" placeholder="å‡ºç‰ˆç¤¾" style="text-align: left; ">
-		<input type="button" value="æ¤œç´¢" onClick="func('select');" />
-		<input type="reset" value="ã‚¯ãƒªã‚¢"><br/></div>
-		<input type="button" value="æ–°è¦ç™»éŒ²" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';" <%= createDisabled %> />
-		<input type="button" value="æ›´æ–°" onClick="func('update');" <%= disabled %> />
-		<input type="button" value="å‰Šé™¤" onClick="func('delete');" <%= disabled %> />
+		o”ÅĞ:
+		<input type="text" id="publisherName" name="publisherName" placeholder="o”ÅĞ" style="text-align: left; ">
+		<input type="button" value="ŒŸõ" onClick="func('select');" />
+		<input type="reset" value="ƒNƒŠƒA"><br/></div>
+		<input type="button" value="V‹K“o˜^" onClick="form.action=location.href='../../hobbyManager/view/G0041View.jsp';" <%= createDisabled %> />
+		<input type="button" value="XV" onClick="func('update');" <%= disabled %> />
+		<input type="button" value="íœ" onClick="func('delete');" <%= disabled %> />
 		<div style="color:red;"><%= message %></div>
 		<br style="clear" />
 <%
@@ -143,14 +143,14 @@ String disabled = "disabled";%>
 //String employee_first_name=request.getParameter("employee_first_name");
 %>
 
-		<%-- ãƒ†ãƒ¼ãƒ–ãƒ«ã®è¡¨ç¤º--%>
+		<%-- ƒe[ƒuƒ‹‚Ì•\¦--%>
 		<table class="brwsr1">
 			<thead class="scrollHead">
 				<tr>
-					<Th class="r0">é¸æŠ</Th>
-					<Th class="r1">é›‘èªŒID</Th>
-					<Th class="r2">é›‘èªŒå</Th>
-					<Th class="r3">å‡ºç‰ˆç¤¾</Th>
+					<Th class="r0">‘I‘ğ</Th>
+					<Th class="r1">GID</Th>
+					<Th class="r2">G–¼</Th>
+					<Th class="r3">o”ÅĞ</Th>
 
 				</tr>
 			</thead>
