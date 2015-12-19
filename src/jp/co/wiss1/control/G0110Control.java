@@ -31,6 +31,8 @@ public class G0110Control extends HttpServlet{
 		String artistId = request.getParameter("artistId");
 		String artistName = request.getParameter("artistName");
 		String companyName = request.getParameter("companyName");
+		String companyId = request.getParameter("companyId");
+
 
 		//検索(SELECT)の処理
 		System.out.println("check1"+processDiv);
@@ -58,17 +60,11 @@ public class G0110Control extends HttpServlet{
 
 			//会社名リストとコンテンツリストを受け取る
 			List <HashMap<String,String>> columnCompanyList = G0113Model.getColumnCompanyList();
-/*			List <HashMap<String,String>> columnMagazineList = G0023Model.getColumnMagazineList();
-			List <HashMap<String,String>> columnDramaList = G0023Model.getColumnDramaList();
-			List <HashMap<String,String>> columnMovieList = G0023Model.getColumnMovieList();
-			List <HashMap<String,String>> columnCommercialList = G0023Model.getColumnCommercialList();*/
+			List <HashMap<String,String>> artistList = G0110Model.getArtistList(artistId,artistName,companyName);
 
 			// 会社名リストとコンテンツリストをViewへ送る
 			request.setAttribute("columnCompanyList",columnCompanyList);
-			/*request.setAttribute("columnMagazineList",columnMagazineList);
-			request.setAttribute("columnDramaList",columnDramaList);
-			request.setAttribute("columnMovieList",columnMovieList);
-			//request.setAttribute("columnCommercialList",columnCommercialList);*/
+			request.setAttribute("artistList",artistList);
 			RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/view/G0111View.jsp");
 			dispatch.forward(request, response);
 
@@ -86,10 +82,11 @@ public class G0110Control extends HttpServlet{
 					if(updateArtistId != null){
 
 						//更新前の情報を検索メソッドで受け取る
-						List<HashMap<String, String>> artistList = G0110Model.getArtistList(updateArtistId, "","");
-
+						List<HashMap<String,String>> artistList = G0110Model.getArtistList(updateArtistId, "","");
+						List<HashMap<String,String>> columnCompanyList = G0113Model.getColumnCompanyList();
 						//更新前の情報を更新ページに飛ばす
 						request.setAttribute("artistList", artistList);
+						request.setAttribute("columnCompanyList",columnCompanyList);
 						RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0112View.jsp");
 						dispatch.forward(request, response);
 					}else{

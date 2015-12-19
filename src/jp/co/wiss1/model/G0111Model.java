@@ -6,11 +6,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import jp.co.wiss1.common.DBAccessUtils;
+import jp.co.wiss1.common. ChangeCharacter;
 
 public class G0111Model {
 
 	public static void main(String args[])
 	{
+
+
 		insertArtist("1999", "大西ライオン","0399");
 	}
 
@@ -18,11 +21,20 @@ public class G0111Model {
 	public static int insertArtist(String artistId ,String artistName, String companyId) {
 
 		//各変数を宣言、初期化
-    	Connection connection = null;
+		Connection connection = null;
     	Statement statement = null;
     	int insertCount = 0;
     	ResultSet resultSet = null;
 
+
+    	artistName = ChangeCharacter.CC(artistName);
+
+
+    	//artistName = artistName.replaceAll("&", "&amp;");
+   // 	artistName = artistName.replaceAll("<", "&lt;");
+    //	artistName = artistName.replaceAll(">", "&gt;");
+    	//artistName = artistName.replaceAll("\"", "&quot;");
+//    	artistName = artistName.replaceAll("'", "&apos;");
 
         try
         {
@@ -34,7 +46,6 @@ public class G0111Model {
         	connection.setAutoCommit(true);
 
         	//SQL文構築
-        	//company_idをt_companyから取得
         	 String sql = "SELECT * FROM t_artist where artist_id = '"+ artistId + "'";
 
 			// SELECT文を実行するためのメソッド

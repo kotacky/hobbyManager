@@ -22,7 +22,7 @@ public class G0110Model
 
 	//アーティストテーブル参照
 	public static List<HashMap<String, String>> getArtistList
-	(String artistId,String artistName, String companyName)
+	(String artistId,String artistName, String companyId)
 	{
 		List<HashMap<String, String>> artistList = new ArrayList<HashMap<String, String>>() ;
 		//初期化
@@ -44,44 +44,27 @@ public class G0110Model
 	        String sql = "SELECT distinct "
 	        		+ " t_artist.artist_id, "
 	        		+ " t_artist.artist_name, "
-	        		+ " t_company.company_name, "
-	        		+ "COALESCE(artist_id,'未登録') AS artist_id,"
-	        		+ "COALESCE(artist_name,'未登録') AS artist_name,"
-	        		+ "COALESCE(company_name,'未登録') AS company_name,"
-	        		+ " t_company.company_id"
-	        		//+ " t_artist.birth_date,"
-	        		//+ " t_artist.blood_type,"
-	        		//+ " t_artist.birth_place"
-	        		 +" FROM "+"t_artist "
-        	         +" LEFT OUTER JOIN t_company "
-        	         +" ON t_artist.company_id = t_company.company_id  ";
+	        		+ " COALESCE(company_name,'未登録') AS company_name"
+	        		+ " FROM "+"t_artist "
+        	        + " LEFT OUTER JOIN t_company "
+        	        + " ON t_artist.company_id = t_company.company_id  ";
 
-	        //排他的論理和を使いましょう(^^)
+	        if(!"".equals(artistId)) {
+	        	sql = sql + "where artist_id like '" + artistId + "' ";
+	        }
 	        if(!"".equals(artistName)) {
 	        	sql = sql + "where artist_name like '%" + artistName + "%' ";
-		        if(!"".equals(companyName)) {
-		        	sql = sql + "AND company_name like '%"+ companyName +"%' ";
-		        }
 	        }
-	        if(!"".equals(companyName) && "".equals(artistName)) {
-	        	sql = sql + "where company_name like '%"+ companyName +"%' ";
+	        if(!"".equals(companyId)) {
+	        	sql = sql + "where company_id like '%" + companyId + "%' ";
 	        }
+	        sql = sql + "ORDER BY artist_id ";
 
 
-
-
-	        //if(!"".equals(Name)) {
-	        //	sql = sql + "t_artist.artist_name = '"+ artistName +"' AND ";
-	        //}
-
-
-	        //sql = sql + "artist_name like '%"+ artistName +"%'";
-
-	        sql = sql + "ORDER BY company_id ";
 
 	        System.out.println("引数に" + artistId + "が入力されました。");
 	        System.out.println("引数に" + artistName + "が入力されました。");
-	        System.out.println("引数に" + companyName + "が入力されました。");
+	        System.out.println("引数に" + companyId + "が入力されました。");
 	        System.out.println(sql);
 
             //SELECT文を実行するコード
@@ -94,19 +77,12 @@ public class G0110Model
         	   artistInfo.put("artistId", resultSet.getString("artist_id"));
         	   artistInfo.put("artistName", resultSet.getString("artist_name"));
         	   artistInfo.put("companyName", resultSet.getString("company_name"));
-//        	   artistInfo.put("birthDate", resultSet.getString("birth_date"));
-//        	   artistInfo.put("bloodType", resultSet.getString("blood_type"));
-//        	   artistInfo.put("birthPlace", resultSet.getString("birth_place"));
         	   artistList.add(artistInfo);
 
         	   //リストに入ったかの確認
-        	   //System.out.println(artistInfo.get("アーティスト一覧カラム"));
         	   System.out.println(artistInfo.get("artistId"));
         	   System.out.println(artistInfo.get("artistName"));
         	   System.out.println(artistInfo.get("companyName"));
-//        	   System.out.println(artistInfo.get("birthDate"));
-//        	   System.out.println(artistInfo.get("bloodType"));
-//        	   System.out.println(artistInfo.get("birthPlace"));
             }
 
         }

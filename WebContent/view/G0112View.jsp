@@ -36,14 +36,7 @@
 	</div>
 
 <h1>更新情報入力</h1>
-<%
-//	ダミー用データ
-//	HashMap<String,String> contentsList = new HashMap<String,String>();
-//		contentsList.put("contentsId", "601");
-//		contentsList.put("contentsName", "八重の桜");
-//		contentsList.put("summary", "大河ドラマ");
 
-	%>
 
 	<p><strong>更新する情報を入力してください。</strong></p>
 
@@ -53,12 +46,28 @@
 
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0112Control">
+		アーティストID:
+		<input type="text" name="artistId" readonly value="<% out.print(artistList.get(0).get("artistId")); %>" style="text-align:left;"  required>（必須）<br>
 		アーティスト名:
-		<input type="text" name="artistName"  placeholder=<% out.print(artistList.get(0).get("artistName")); %> required><br>
+		<input type="text" name="artistName"  placeholder=<% out.print(artistList.get(0).get("artistName")); %> required>（必須）<br>
 
 		所属会社名:
-		<input type="text" name="companyName" placeholder=<% out.print(artistList.get(0).get("companyName")); %> required><br>
-		<input type="submit" value="更新">
+		<h2>会社を選んでください。</h2>
+		<%
+			List<HashMap<String, String>> columnCompanyList = (List<HashMap<String, String>>)request.getAttribute("columnCompanyList");
+		%>
+		<SELECT name="companyId">
+			<% for(int i = 0 ;i<columnCompanyList.size(); i++){ %>
+			<option value="<%= columnCompanyList.get(i).get("companyId") %>">
+			<%  out.print(columnCompanyList.get(i).get("companyName")); %>
+			<% } %>
+		</SELECT>
+
+
+
+		<input type="submit" value="登録">
+
+
 	</form>
 </body>
 </html>

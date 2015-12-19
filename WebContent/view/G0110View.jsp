@@ -98,10 +98,6 @@
 
 <%-- リストの取得 --%>
 <%
-	//	    HashMap<String,String> contentsList = new HashMap<String,String>();
-	//			contentsList.put("contents_id", "401");
-	//			contentsList.put("contents_name", "八重の桜");
-	//			contentsList.put("summary", "大河ドラマ");
 List<HashMap<String,String>> artistList = (List<HashMap<String,String>>)request.getAttribute("artistList");
 //該当データがないメッセージを受け取る
 String message = (String)request.getAttribute("message");
@@ -125,33 +121,18 @@ String disabled = "disabled";%>
 <% //Cへ検索する条件を送る %>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0110Control">
 
+		アーティストID:
+		<input type="text" id="artstId" name="artistId" placeholder="アーティストID"  style="text-align: left;">
 		アーティスト名:
 		<input type="text" id="artistName" name="artistName" placeholder="アーティスト名" style="text-align: left; ">
-
 		所属会社:
 		<input type="text" id="companyName" name="companyName" placeholder="所属会社" style="text-align: left; ">
-
-
-		<!--<select name="example1">
-		<option value="サンプル1">選択肢のサンプル1</option>
-		<option value="サンプル2">選択肢のサンプル2</option>
-		<option value="サンプル3">選択肢のサンプル3</option>
-		<option value="サンプル4">選択肢のサンプル4</option>
-		<option value="サンプル5">選択肢のサンプル5</option>
-		</select>
-		-->
-
 		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="func('insert');" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 		<div style="color:red;"><%= message %></div>
 		<br style="clear" />
-<%
-//String employee_id=request.getParameter("employee_id");
-//String employee_family_name=request.getParameter("employee_family_name");
-//String employee_first_name=request.getParameter("employee_first_name");
-%>
 
 		<%-- テーブルの表示--%>
 		<table class="brwsr1">

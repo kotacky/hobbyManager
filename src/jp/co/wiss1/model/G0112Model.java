@@ -8,7 +8,6 @@ import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0112Model {
 
-
 	//アーティスト一覧UPDATEの実行！！！
 	public static void main(String[] args)
 	{
@@ -17,45 +16,47 @@ public class G0112Model {
 	}
 
 
-	//映画一覧UPDATE文の実行！！！
-	public static int updateArtist(String artistName , String companyName ,String companyId) { //参照
+	//UPDATE文の実行
+	public static int updateArtist(String artistId , String artistName ,String companyId) { //参照
 
 		Connection connection = null;
     	Statement statement = null;
     	int upDateCount = 0;
-
+    	System.out.println("引数に" + artistId + "が入力されました。");
+        System.out.println("引数に" + artistName + "が入力されました。");
+        System.out.println("引数に" + companyId + "が入力されました。");
 
         try
         {
-            // 映画テーブル照会実行
+            // テーブル照会実行
         	connection = DBAccessUtils.getConnection();
         	statement = connection.createStatement();
 
-            /* 自動コミットを無効にする */
+        	//自動コミットを有効にする
         	connection.setAutoCommit(true);
 
+        	//SQL文構築
+        	String sql = "UPDATE t_artist SET ";
 
-        	String sql = "UPDATE t_magazine SET";
-        	/*
-        	if(!"". equals(magazineId)){
-        		sql = sql+ " magazine_name = '"+ magazineName +"', "
-        		+ " publisher_name = '"+ publisherName +"' WHERE"
-        		+ " magazine_id = '"+ magazineId +"'";
+        	if(!"".equals(artistId)){
+        		sql = sql
+        		+ " artist_name = '"+ artistName + "', "
+        		+ " company_id = '"+ companyId +"'"
+        		+ " WHERE "
+        		+ " artist_id = '"+ artistId +"';";
 
                 upDateCount = statement.executeUpdate (sql);
         	}
 
+        	System.out.println("引数に" + artistId + "が入力されました。");
             System.out.println("引数に" + artistName + "が入力されました。");
-            System.out.println("引数に" + companyName + "が入力されました。");
-            //System.out.println("引数に" + releaseDate + "が入力されました。");
-            //System.out.println("引数に" + movieGenre + "が入力されました。");
+            System.out.println("引数に" + companyId + "が入力されました。");
             System.out.println(sql);
-
 
             System.out.println(upDateCount + "行を更新しました。");
 
 
-*/        }
+        }
         catch (SQLException e)
         {
             System.err.println("SQL failed.");

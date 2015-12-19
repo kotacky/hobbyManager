@@ -35,7 +35,7 @@
 		</ul>
 	</div>
 
-	<h1>所属会社登録</h1>
+	<h1>アーティスト登録</h1>
 
 <%-- Cへ登録する条件を送る --%>
 	<form method="POST" action="<%=request.getContextPath() %>/G0111Control">
