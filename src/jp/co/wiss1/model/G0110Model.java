@@ -22,7 +22,7 @@ public class G0110Model
 
 	//アーティストテーブル参照
 	public static List<HashMap<String, String>> getArtistList
-	(String artistId,String artistName, String companyId)
+	(String artistId,String artistName, String companyName)
 	{
 		List<HashMap<String, String>> artistList = new ArrayList<HashMap<String, String>>() ;
 		//初期化
@@ -51,20 +51,29 @@ public class G0110Model
 
 	        if(!"".equals(artistId)) {
 	        	sql = sql + "where artist_id like '" + artistId + "' ";
+	        	if(!"".equals(artistName)) {
+	        		sql=sql+"AND artist_name like '%" + artistName + "%' ";
+	        		if(!"".equals(companyName)){
+	    	        	sql = sql + "AND company_name like '%" + companyName + "%' ";
+	        		}
+	        	}
 	        }
-	        if(!"".equals(artistName)) {
-	        	sql = sql + "where artist_name like '%" + artistName + "%' ";
+	        if(!"".equals(artistName) && "".equals(artistId)) {
+	        	sql=sql+"where artist_name like '%" + artistName + "%' ";
+	        	if(!"".equals(companyName)){
+	        		sql = sql + "AND company_name like '%" + companyName + "%' ";
+	        	}
 	        }
-	        if(!"".equals(companyId)) {
-	        	sql = sql + "where company_id like '%" + companyId + "%' ";
-	        }
+	        if(!"".equals(companyName) && "".equals(artistId) && "".equals(artistName)){
+        		sql = sql + "where company_name like '%" + companyName + "%' ";
+        	}
 	        sql = sql + "ORDER BY artist_id ";
 
 
 
 	        System.out.println("引数に" + artistId + "が入力されました。");
 	        System.out.println("引数に" + artistName + "が入力されました。");
-	        System.out.println("引数に" + companyId + "が入力されました。");
+	        System.out.println("引数に" + companyName + "が入力されました。");
 	        System.out.println(sql);
 
             //SELECT文を実行するコード
