@@ -34,7 +34,6 @@
 			if (document.MyForm.publisherName.value == null) {
 				document.MyForm.publisherName.value = "";
 			}
-			public static
 
 
 		}
@@ -52,11 +51,12 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">ログアウト</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">アーティスト一覧</a></li>
-			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">ログアウト</a></li>
+			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+
 		</ul>
 	</div>
 
