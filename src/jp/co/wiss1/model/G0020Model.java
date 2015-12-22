@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import jp.co.wiss1.common.DBAccessUtils;
+import jp.co.wiss1.common.ChangeCharacter;
 
 public class G0020Model
 {
@@ -17,7 +18,6 @@ public class G0020Model
 	{
 		getActressList("202", "");
 		deleteActress("0");
-
 	}
 
 	//女優テーブル参照
@@ -30,6 +30,9 @@ public class G0020Model
 		Connection connection = null;
 		Statement statement = null;
 
+		//特殊文字をエスケープ文字に置き換える
+		actressId = ChangeCharacter.CC(actressId);
+		actressName = ChangeCharacter.CC(actressName);
 
         try{
 
@@ -41,9 +44,20 @@ public class G0020Model
 	        connection.setAutoCommit(false);
 
 
-	        String sql = "SELECT distinct t_actress.actress_id, t_actress.actress_name, t_company.company_name ,t_actress.birth_date ,t_actress.blood_type, t_actress.birth_place "
-	        		 +"FROM "
-        	         +"t_actress LEFT OUTER JOIN t_company ON t_actress.company_id = t_company.company_id where ";
+	        String sql =
+	        	"SELECT distinct "
+	        	+ "t_actress.actress_id, "
+	        	+ "t_actress.actress_name, "
+	        	+ " COALESCE(company_name,'未登録') AS company_name, "
+	        	//+ "t_company.company_name, "
+	        	+ "t_actress.birth_date, "
+	        	+ "t_actress.blood_type, "
+	        	+ "t_actress.birth_place "
+	        	+ "FROM "
+	        	+ "t_actress "
+	        	+ "LEFT OUTER JOIN t_company "
+	        	+ "ON t_actress.company_id = t_company.company_id "
+	        	+ "where ";
 
 	        if(!"".equals(actressId)) {
 	        	sql = sql + "t_actress.actress_id = '"+ actressId +"' AND ";

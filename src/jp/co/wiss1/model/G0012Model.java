@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0012Model {
@@ -22,6 +23,15 @@ public class G0012Model {
     	Statement statement = null;
     	int upDateCount = 0;
 
+		//特殊文字をエスケープ文字に置き換える
+		employeeId = ChangeCharacter.CC(employeeId);
+		familyName = ChangeCharacter.CC(familyName);
+		firstName = ChangeCharacter.CC(firstName);
+		birthDate = ChangeCharacter.CC(birthDate);
+		from = ChangeCharacter.CC(from);
+		bloodType = ChangeCharacter.CC(bloodType);
+		authority = ChangeCharacter.CC(authority);
+		hashedPassword = ChangeCharacter.CC(hashedPassword);
 
         try
         {

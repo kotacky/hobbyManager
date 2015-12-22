@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import jp.co.wiss1.common.DBAccessUtils;
+import jp.co.wiss1.common.ChangeCharacter;
 
 public class G0010Model//git
 {
@@ -31,6 +32,10 @@ public class G0010Model//git
 		Connection connection = null;
 		Statement statement = null;
 
+		//特殊文字をエスケープ文字に置き換える
+		employeeId = ChangeCharacter.CC(employeeId);
+		familyName = ChangeCharacter.CC(familyName);
+		firstName = ChangeCharacter.CC(firstName);
 
         try
         {

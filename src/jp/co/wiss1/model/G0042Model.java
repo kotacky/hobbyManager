@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0042Model {
@@ -24,6 +25,10 @@ public class G0042Model {
     	Statement statement = null;
     	int upDateCount = 0;
 
+		//特殊文字をエスケープ文字に置き換える
+		magazineId = ChangeCharacter.CC(magazineId);
+		magazineName = ChangeCharacter.CC(magazineName);
+		publisherName = ChangeCharacter.CC(publisherName);
 
         try
         {

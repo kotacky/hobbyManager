@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import jp.co.wiss1.common.DBAccessUtils;
+import jp.co.wiss1.common.ChangeCharacter;
 
 public class G0021Model {
 
@@ -24,6 +25,18 @@ public class G0021Model {
     	Statement statement = null;//SQL文をDBに送るための変数
     	int insertCount = 0;//変更があった行数を格納
     	ResultSet resultSet = null;
+
+		//特殊文字をエスケープ文字に置き換える
+    	companyId = ChangeCharacter.CC(companyId);
+		actressId = ChangeCharacter.CC(actressId);
+		actressName = ChangeCharacter.CC(actressName);
+		magazineId = ChangeCharacter.CC(magazineId);
+		dramaId = ChangeCharacter.CC(dramaId);
+		movieId = ChangeCharacter.CC(movieId);
+		commercialId = ChangeCharacter.CC(commercialId);
+		birthDate = ChangeCharacter.CC(birthDate);
+		bloodType = ChangeCharacter.CC(bloodType);
+		birthPlace = ChangeCharacter.CC(birthPlace);
 
         try
         {

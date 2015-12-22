@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0112Model {
@@ -20,11 +21,16 @@ public class G0112Model {
 	public static int updateArtist(String artistId , String artistName ,String companyId) { //参照
 
 		Connection connection = null;
-    	Statement statement = null;
-    	int upDateCount = 0;
-    	System.out.println("引数に" + artistId + "が入力されました。");
-        System.out.println("引数に" + artistName + "が入力されました。");
-        System.out.println("引数に" + companyId + "が入力されました。");
+		Statement statement = null;
+		int upDateCount = 0;
+		System.out.println("引数に" + artistId + "が入力されました。");
+		System.out.println("引数に" + artistName + "が入力されました。");
+		System.out.println("引数に" + companyId + "が入力されました。");
+
+		//特殊文字をエスケープ文字に置き換える
+		artistId = ChangeCharacter.CC(artistId);
+		artistName = ChangeCharacter.CC(artistName);
+		companyId = ChangeCharacter.CC(companyId);
 
         try
         {

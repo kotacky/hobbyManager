@@ -36,9 +36,8 @@ public class G0122Model {
 
             /* 自動コミットを無効にする */
         	connection.setAutoCommit(true);
-         	//エスケープ文字に置き換え
         	//エスケープ文字に置き換え
-       	 musicName = ChangeCharacter.CC(musicName);
+        	musicName = ChangeCharacter.CC(musicName);
 
         	//－－－－－－－－－－sql文構築－－－－－－－－－－//
 			//－－－－－－－－－－String型のsqlにposgreのIDが同じ女優テーブルの情報を入れている//

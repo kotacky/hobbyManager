@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0081Model {
@@ -28,6 +29,9 @@ public class G0081Model {
     	Statement statement = null;
     	int insertCount = 0;
 
+		//特殊文字をエスケープ文字に置き換える
+		employeeId = ChangeCharacter.CC(employeeId);
+		actressId = ChangeCharacter.CC(actressId);
 
         try
         {

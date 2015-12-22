@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0080Model {
@@ -29,6 +30,11 @@ public class G0080Model {
 			Connection connection = null;
 			Statement statement = null;
 			List<HashMap<String, String>> preferList = new ArrayList<HashMap<String, String>>() ;
+
+			//特殊文字をエスケープ文字に置き換える
+			employeeId = ChangeCharacter.CC(employeeId);
+			familyName = ChangeCharacter.CC(familyName);
+			firstName = ChangeCharacter.CC(firstName);
 
 			// テーブル照会実行
 			try{

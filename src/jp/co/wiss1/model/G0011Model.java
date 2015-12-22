@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0011Model {
@@ -35,7 +36,17 @@ public class G0011Model {
     	//String columnName = null;
     	//String value = null;
 
-        try
+		//特殊文字をエスケープ文字に置き換える
+		employeeId = ChangeCharacter.CC(employeeId);
+		familyName = ChangeCharacter.CC(familyName);
+		firstName = ChangeCharacter.CC(firstName);
+		birthDate = ChangeCharacter.CC(birthDate);
+		from = ChangeCharacter.CC(from);
+		bloodType = ChangeCharacter.CC(bloodType);
+		authority = ChangeCharacter.CC(authority);
+		hashedPassword = ChangeCharacter.CC(hashedPassword);
+
+		try
         {
             // テーブル照会実行
         	connection = DBAccessUtils.getConnection();

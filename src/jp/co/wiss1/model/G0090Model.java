@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import jp.co.wiss1.common.DBAccessUtils;
+import jp.co.wiss1.common.ChangeCharacter;
 
 public class G0090Model// git
 {
@@ -23,6 +24,11 @@ public class G0090Model// git
 		ResultSet resultSet = null;
 		Connection connection = null;
 		Statement statement = null;
+
+		//特殊文字をエスケープ文字に置き換える
+		genreId = ChangeCharacter.CC(genreId);
+		genreName = ChangeCharacter.CC(genreName);
+
 		try {
 
 			/* ここから下記括りまでがDBへのアクセスするお約束*/

@@ -39,8 +39,9 @@ public class G0120Model {
 		        connection.setAutoCommit(false);
 
 	        	//エスケープ文字に置き換え
-	        	 musicName = ChangeCharacter.CC(musicName);
-	        	 artistName = ChangeCharacter.CC(artistName);
+		        musicId = ChangeCharacter.CC(musicId);
+		        musicName = ChangeCharacter.CC(musicName);
+		        artistName = ChangeCharacter.CC(artistName);
 		      //sql文一覧
 	            String sql = "SELECT distinct "
 	            		+  "t_music.music_id, "

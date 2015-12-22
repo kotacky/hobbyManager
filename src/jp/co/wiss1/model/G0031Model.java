@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0031Model {
@@ -25,6 +26,10 @@ public class G0031Model {
     	int insertCount = 0;
     	ResultSet resultSet = null;
 
+		//特殊文字をエスケープ文字に置き換える
+    	companyId = ChangeCharacter.CC(companyId);
+    	companyName = ChangeCharacter.CC(companyName);
+    	companyAddress = ChangeCharacter.CC(companyAddress);
 
         try
         {

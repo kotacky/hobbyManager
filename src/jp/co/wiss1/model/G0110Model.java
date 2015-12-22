@@ -9,20 +9,20 @@ import java.util.HashMap;
 import java.util.List;
 
 import jp.co.wiss1.common.DBAccessUtils;
+import jp.co.wiss1.common.ChangeCharacter;
 
 public class G0110Model
 {
 
 	public static void main(String[] args)
 	{
-		getArtistList("", "","");
+		getArtistList("" , "" , "");
 		deleteArtist("0");
-
 	}
 
 	//アーティストテーブル参照
 	public static List<HashMap<String, String>> getArtistList
-	(String artistId,String artistName, String companyName)
+	(String artistId , String artistName , String companyName)
 	{
 		List<HashMap<String, String>> artistList = new ArrayList<HashMap<String, String>>() ;
 		//初期化
@@ -30,6 +30,10 @@ public class G0110Model
 		Connection connection = null;
 		Statement statement = null;
 
+		//特殊文字をエスケープ文字に置き換える
+		artistId = ChangeCharacter.CC(artistId);
+		artistName = ChangeCharacter.CC(artistName);
+		companyName = ChangeCharacter.CC(companyName);
 
         try{
 
@@ -47,27 +51,19 @@ public class G0110Model
 	        		+ " COALESCE(company_name,'未登録') AS company_name"
 	        		+ " FROM "+"t_artist "
         	        + " LEFT OUTER JOIN t_company "
-        	        + " ON t_artist.company_id = t_company.company_id  ";
+        	        + " ON t_artist.company_id = t_company.company_id where ";
 
-	        if(!"".equals(artistId)) {
-	        	sql = sql + "where artist_id like '" + artistId + "' ";
-	        	if(!"".equals(artistName)) {
-	        		sql=sql+"AND artist_name like '%" + artistName + "%' ";
-	        		if(!"".equals(companyName)){
-	    	        	sql = sql + "AND company_name like '%" + companyName + "%' ";
-	        		}
-	        	}
-	        }
-	        if(!"".equals(artistName) && "".equals(artistId)) {
-	        	sql=sql+"where artist_name like '%" + artistName + "%' ";
-	        	if(!"".equals(companyName)){
-	        		sql = sql + "AND company_name like '%" + companyName + "%' ";
-	        	}
-	        }
-	        if(!"".equals(companyName) && "".equals(artistId) && "".equals(artistName)){
-        		sql = sql + "where company_name like '%" + companyName + "%' ";
+        	if(!"".equals(artistId)) {
+        		sql = sql + "artist_id = '"+ artistId +"' AND ";
+        		System.out.println("2:" + sql);
         	}
-	        sql = sql + "ORDER BY artist_id ";
+        	if(!"".equals(artistName)) {
+        		sql = sql + "artist_name like '%"+ artistName +"%' AND ";
+        		System.out.println("3:" + sql);
+        	}
+        	sql = sql + " company_name like '%"+ companyName +"%'";
+
+	        sql = sql + " ORDER BY artist_id ";
 
 
 

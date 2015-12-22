@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0100Model
@@ -36,6 +37,10 @@ public class G0100Model
 		Connection connection = null;
 		Statement statement = null;
 
+		//特殊文字をエスケープ文字に置き換える
+    	televisionId = ChangeCharacter.CC(televisionId);
+    	televisionName = ChangeCharacter.CC(televisionName);
+    	televisionAddress = ChangeCharacter.CC(televisionAddress);
 
 		try {
 

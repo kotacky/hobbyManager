@@ -6,17 +6,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import jp.co.wiss1.common.DBAccessUtils;
-import jp.co.wiss1.common. ChangeCharacter;
+import jp.co.wiss1.common.ChangeCharacter;
 
 public class G0111Model {
 
 	public static void main(String args[])
 	{
-
-
 		insertArtist("1999", "大西ライオン","0399");
 	}
-
 
 	public static int insertArtist(String artistId ,String artistName, String companyId) {
 
@@ -26,15 +23,10 @@ public class G0111Model {
     	int insertCount = 0;
     	ResultSet resultSet = null;
 
-
-    	artistName = ChangeCharacter.CC(artistName);
-
-
-    	//artistName = artistName.replaceAll("&", "&amp;");
-   // 	artistName = artistName.replaceAll("<", "&lt;");
-    //	artistName = artistName.replaceAll(">", "&gt;");
-    	//artistName = artistName.replaceAll("\"", "&quot;");
-//    	artistName = artistName.replaceAll("'", "&apos;");
+    	//特殊文字をエスケープ文字に置き換える
+		artistId = ChangeCharacter.CC(artistId);
+		artistName = ChangeCharacter.CC(artistName);
+		companyId = ChangeCharacter.CC(companyId);
 
         try
         {

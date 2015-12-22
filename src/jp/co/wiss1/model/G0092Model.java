@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import jp.co.wiss1.common.DBAccessUtils;
+import jp.co.wiss1.common.ChangeCharacter;
 
 public class G0092Model {
 
@@ -22,6 +23,9 @@ public class G0092Model {
 		Connection connection = null;
     	Statement statement = null;
     	int upDateCount = 0;
+
+		//特殊文字をエスケープ文字に置き換える
+		genreName = ChangeCharacter.CC(genreName);
 
 
         try

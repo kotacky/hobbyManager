@@ -27,9 +27,11 @@ public class G0060Model {
 			Connection connection = null;
 			Statement statement = null;
 
-        	//エスケープ文字に置き換え
-//        	 movieTitle = ChangeCharacter.CC(movieTitle);
-//        	 releaseDate = ChangeCharacter.CC(releaseDate);
+			//特殊文字をエスケープ文字に置き換える
+			movieId = ChangeCharacter.CC(movieId);
+			movieTitle = ChangeCharacter.CC(movieTitle);
+			releaseDate = ChangeCharacter.CC(releaseDate);
+			movieGenre = ChangeCharacter.CC(movieGenre);
 
 	        try{
 	            // テーブル照会実行

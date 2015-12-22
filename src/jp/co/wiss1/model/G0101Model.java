@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0101Model {
@@ -18,11 +19,17 @@ public class G0101Model {
 
 	//テレビ局テーブル参照
 	public static int insertTelevision(String televisionId , String televisionName , String televisionAddress) {
+
 		//各変数を宣言、初期化
     	Connection connection = null;
     	Statement statement = null;
     	int insertCount = 0;
     	ResultSet resultSet = null;
+
+		//特殊文字をエスケープ文字に置き換える
+    	televisionId = ChangeCharacter.CC(televisionId);
+    	televisionName = ChangeCharacter.CC(televisionName);
+    	televisionAddress = ChangeCharacter.CC(televisionAddress);
 
         try
         {

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0022Model {
@@ -13,6 +14,7 @@ public class G0022Model {
 		// TODO 自動生成されたメソッド・スタブ
 		updateActress("0301","あああ","0201","0401","","","");
 	}
+
 	//女優一覧UPDATE実行！！！
 	//女優テーブル参照
 	public static int updateActress
@@ -22,6 +24,16 @@ public class G0022Model {
 		Connection connection = null;
     	Statement statement = null;
     	int upDateCount = 0;
+
+		//特殊文字をエスケープ文字に置き換える
+    	companyId = ChangeCharacter.CC(companyId);
+		actressId = ChangeCharacter.CC(actressId);
+		actressName = ChangeCharacter.CC(actressName);
+		contentsId = ChangeCharacter.CC(contentsId);
+		birthDate = ChangeCharacter.CC(birthDate);
+		bloodType = ChangeCharacter.CC(bloodType);
+		birthPlace = ChangeCharacter.CC(birthPlace);
+
 
         try
         {

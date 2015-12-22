@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import jp.co.wiss1.common.ChangeCharacter;
 import jp.co.wiss1.common.DBAccessUtils;
 
 public class G0040Model {
@@ -25,6 +26,11 @@ public class G0040Model {
 			ResultSet resultSet = null;															//初期化
 			Connection connection = null;
 			Statement statement = null;
+
+			//特殊文字をエスケープ文字に置き換える
+			magazineId = ChangeCharacter.CC(magazineId);
+			magazineName = ChangeCharacter.CC(magazineName);
+			publisherName = ChangeCharacter.CC(publisherName);
 
 
 	        try{
