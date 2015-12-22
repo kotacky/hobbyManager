@@ -34,7 +34,7 @@
 						<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 						<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
 						<li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">アーティスト一覧</a></li>
-						<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0000View.jsp" title="">ログイン</a></li>
+						<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0002View.jsp" title="">ログアウト</a></li>
 					</ul>
 				</div>
 			</div>
