@@ -49,11 +49,12 @@
 			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0002View.jsp" title="">ログアウト</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
 			<li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">アーティスト一覧</a></li>
-			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">TOP</a></li>
+
 		</ul>
 	</div>
 
@@ -126,8 +127,10 @@ String disabled = "disabled";%>
 			<input type="text" id="employeeId" name="employeeId" placeholder="社員ID"  style="text-align: left;">
 			姓:
 			<input type="text" id="employeeFamilyName" name="employeeFamilyName" placeholder="姓"  style="text-align: left; ">
+			<div>
 			名:
 			<input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="名"  style="text-align: left; ">
+			</div>
 			<input type="button" value="検索" onClick="func('select');" /><br />
 			<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp';" <%= createDisabled %>/>
 			<input type="button" value="更新" onClick="func('update');" <%= updateDisabled %> />
