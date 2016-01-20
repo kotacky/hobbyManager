@@ -49,8 +49,7 @@
 		èoî≈é–:
 		<input type="text" name="publisherName" placeholder="èoî≈é–" style="text-align:left;"><br>
 		<input type="submit" value="ìoò^">
+		<input type="button" value="ñﬂÇÈ" onClick="history.go(-1)">
 		</form>
-	<input type="button" value="éGéèàÍóó" onClick="form.action=location.href='../../hobbyManager/view/G0040View.jsp'">
-	<input type="button" value="èóóDàÍóó"       onClick="form.action=location.href='../../hobbyManager/view/G0020View.jsp'">
 </body>
 </html>

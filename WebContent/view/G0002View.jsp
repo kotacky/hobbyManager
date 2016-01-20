@@ -24,18 +24,10 @@
 			 document.MyForm.submit();
 		 }
 
-		function init() {
-			if (document.MyForm.employeeId.value == "null") {
-				document.MyForm.employeeId.value = "";
-			}
-			if (document.MyForm.employeePassword.value == "null") {
-				document.MyForm.employeePassword.value = "";
-			}
-		}
-		 </script>
+	 </script>
 	 </head>
 
-	<body onload="init();">
+	<body>
 		<div id="wrapper">
 			<div id="headerBg" class="clearfix">
 				<div id="header">
@@ -44,7 +36,7 @@
 					<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0002Control">
 					ログアウトしますか
 						<input type="button" value="ログアウト" onClick="func('logout');"/>
-						<input type="button" value="戻る" onClick="history.back();"/>
+						<input type="button" value="戻る" onClick="history.go(-1)">
 						<input type="hidden" name="employeeAuthority">
 						<input type="hidden" name="processDiv">
 					</form>

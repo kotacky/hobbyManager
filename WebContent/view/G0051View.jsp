@@ -54,8 +54,7 @@
 		ƒWƒƒƒ“ƒ‹:
 		<input type="text" name="genre" placeholder="ƒWƒƒƒ“ƒ‹" style="text-align:left;"><br>
 		<input type="submit" value="“o˜^">
+		<input type="button" value="–ß‚é" onClick="history.go(-1)">
 		</form>
-	<input type="button" value="ƒhƒ‰ƒ}ˆê——" onClick="form.action=location.href='../../hobbyManager/view/G0050View.jsp'">
-	<input type="button" value="——Dˆê——"       onClick="form.action=location.href='../../hobbyManager/view/G0020View.jsp'">
 </body>
 </html>

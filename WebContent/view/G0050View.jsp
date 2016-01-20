@@ -127,16 +127,17 @@ String message = (String)request.getAttribute("message");%>
 	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0050Control">
 		ドラマID:
 		<input type="text" id="dramaId" name="dramaId" placeholder="ドラマID" style="text-align: left;">
-		ドラマ名:
-		<input type="text" id="dramaName" name="dramaName" placeholder="ドラマ名" style="text-align: left; ">
+		<div>ドラマ名:
+		<input type="text" id="dramaName" name="dramaName" placeholder="ドラマ名" style="text-align: left; "></div>
 		放送局:
 		<input type="text" id="television" name="television" placeholder="放送局" style="text-align: left; ">
 		ジャンル:
 		<input type="text" id="genre" name="genre" placeholder="ジャンル" style="text-align: left; ">
-		<input type="button" value="検索" onClick="func('select');" /><br />
+		<div>
+		<input type="button" value="検索" onClick="func('select');" />
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0051View.jsp';" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
-		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
+		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> /></div>
 		<%-- 該当がない場合のメッセージを表示 --%>
 		<div style="color:red;"><%= message %></div>
 		<br style="clear" />
