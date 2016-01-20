@@ -63,6 +63,7 @@ pageEncoding="Windows-31J"%>
 		<input type="password" name="employeePassword" placeholder="パスワード" required>（必須）<br>
 		<input type="submit" value="登録" >
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
+		<input type="button" value="戻る" onClick="history.go(-1)">
 	</form>
 </body>
 </html>

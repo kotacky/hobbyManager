@@ -51,8 +51,7 @@
 		L‰ïŽÐ–¼:
 		<input type="text" name="sponserName" placeholder="L‰ïŽÐ–¼" style="text-align:left;"><br>
 		<input type="submit" value="“o˜^">
+		<input type="button" value="–ß‚é" onClick="history.go(-1)">
 		</form>
-	<input type="button" value="‚b‚lˆê——" onClick="form.action=location.href='../../hobbyManager/view/G0070View.jsp'">
-	<input type="button" value="——Dˆê——"       onClick="form.action=location.href='../../hobbyManager/view/G0020View.jsp'">
 </body>
 </html>
