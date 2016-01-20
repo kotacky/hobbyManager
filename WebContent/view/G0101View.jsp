@@ -48,8 +48,9 @@
 		住所:
 		<input type="text" name="televisionAddress" placeholder="住所" style="text-align:left;"><br>
 		<input type="submit" value="登録">
-	</form>
-	<input type="button" value="テレビ局一覧" onClick="form.action=location.href='../../hobbyManager/view/G0100View.jsp'">
+		<input type="button" value="テレビ局一覧" onClick="form.action=location.href='../../hobbyManager/view/G0100View.jsp'">
 <%-- <input type="button" value="女優一覧" onClick="form.action=location.href='../../hobbyManager/view/G0020View.jsp'">--%>
+	</form>
+
 </body>
 </html>
