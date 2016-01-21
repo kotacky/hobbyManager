@@ -69,6 +69,7 @@
 			</div>
 			<div id="footer">
 				<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
+				<!-- test koshiko -->
 			</div>
 		</div>
 	</body>
