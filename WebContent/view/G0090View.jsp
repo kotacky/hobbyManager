@@ -18,18 +18,18 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 
 		function init() {
-			if (document.MyForm.genreId.value == null) {
-				document.MyForm.genreId.value = "";
+			if (document.myForm.genreId.value == null) {
+				document.myForm.genreId.value = "";
 			}
-			if (document.MyForm.genreName.value == null) {
-				document.MyForm.genreName.value = "";
+			if (document.myForm.genreName.value == null) {
+				document.myForm.genreName.value = "";
 			}
 		}
 	 </script>
@@ -117,7 +117,7 @@ String disabled = "disabled";%>
 
 <br/>
 <% //C‚ÖŒŸõ‚·‚éðŒ‚ð‘—‚é %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0090Control">
+	<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0090Control">
 		ƒWƒƒƒ“ƒ‹ID:
 		<input type="text" id="genreId" name="genreId" placeholder="ƒWƒƒƒ“ƒ‹ID" style="text-align: left;">
 		ƒWƒƒƒ“ƒ‹–¼:
@@ -154,7 +154,7 @@ String disabled = "disabled";%>
 <% } %>
 			</tbody>
 		</table>
-		<input type="hidden" name="processDiv">
+		<input type="hidden" name="process">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 	<div id="footer">

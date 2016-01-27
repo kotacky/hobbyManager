@@ -18,21 +18,21 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 
 		function init() {
-			if (document.MyForm.magazineId.value == null) {
-				document.MyForm.magazineId.value = "";
+			if (document.myForm.magazineId.value == null) {
+				document.myForm.magazineId.value = "";
 			}
-			if (document.MyForm.magazineName.value == null) {
-				document.MyForm.magazineName.value = "";
+			if (document.myForm.magazineName.value == null) {
+				document.myForm.magazineName.value = "";
 			}
-			if (document.MyForm.publisherName.value == null) {
-				document.MyForm.publisherName.value = "";
+			if (document.myForm.publisherName.value == null) {
+				document.myForm.publisherName.value = "";
 			}
 
 
@@ -125,7 +125,7 @@ String disabled = "disabled";%>
 
 
 <% //Cへ検索する条件を送る %>
-	<form onreset="return confirm('入力内容を削除してもよろしいですか？')" method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0040Control">
+	<form onreset="return confirm('入力内容を削除してもよろしいですか？')" method="POST" name="myForm" action="<%= request.getContextPath() %>/G0040Control">
 		雑誌ID:
 		<input type="text" id="magazineId" name="magazineId" placeholder="雑誌ID" style="text-align: left;">
 		雑誌名:
@@ -171,7 +171,7 @@ String disabled = "disabled";%>
 <% } %>
 			</tbody>
 		</table>
-		<input type="hidden" name="processDiv">
+		<input type="hidden" name="process">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 	<div id="footer">

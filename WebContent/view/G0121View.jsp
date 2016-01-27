@@ -41,7 +41,7 @@
 	<h1>楽曲新規登録</h1>
 
 <%--Cへ登録する条件を送る --%>
-	<form method="POST" name="Myform" action="<%=request.getContextPath() %>/G0121Control">
+	<form method="POST" name="myForm" action="<%=request.getContextPath() %>/G0121Control">
 		楽曲ID:
 		<input type="text" name="musicId"  placeholder="11XX" style="text-align: left;" required>（必須）<br>
 		楽曲名:

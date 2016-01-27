@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=Windows-31J" %>
+<%@ page import = "jp.co.wiss1.model.G0000Model" %>
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -11,7 +12,7 @@
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="imagetoolbar" content="no" />
 		<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="<%= request.getContextPath() %>/viw/css/import.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	</head>
@@ -38,13 +39,16 @@
 					</ul>
 				</div>
 			</div>
+
 			<div id="mainImgBox">
 				<img src="<%= request.getContextPath() %>/view/img/mainimg.jpg" alt="TOP‰æ‘œ" />
 			</div>
+			<% int loginFlag = G0000Model.getLogin("employeeId", "hashedPassword"); %>
+			<% out.println(loginFlag); %>
 			<div id="footer">
 				<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
 			</div>
 		</div>
-	<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
+	<input type="text" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</body>
 </html>

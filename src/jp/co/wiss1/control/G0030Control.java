@@ -29,10 +29,10 @@ public class G0030Control extends HttpServlet{
 		//
 
 		//どのボタンからの入力かを受け取る
-		String processDiv = request.getParameter("processDiv");
+		String process = request.getParameter("process");
 
 		//検索
-		if("select".equals(processDiv)){
+		if("select".equals(process)){
 			//Modelに引数を渡し、検索結果をリストに入れる
 			List<HashMap<String,String>> companyList = G0030Model.getCompanyList(companyId, companyName, companyAddress);
 
@@ -50,7 +50,7 @@ public class G0030Control extends HttpServlet{
 
 
 		//更新
-		if("update".equals(processDiv)){
+		if("update".equals(process)){
 			//ラジオボタン入力を受け取る
 			String updateCompanyId = request.getParameter("radioButton");
 
@@ -76,7 +76,7 @@ public class G0030Control extends HttpServlet{
 		}
 
 		//削除
-		if("delete".equals(processDiv)){
+		if("delete".equals(process)){
 
 			//ラジオボタン入力を受け取る
 			String deleteCompanyId = request.getParameter("radioButton");

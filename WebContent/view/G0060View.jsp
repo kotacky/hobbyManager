@@ -18,20 +18,20 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 		function init() {
-			if (document.MyForm.movieId.value == null) {
-				document.MyForm.movieId.value = "";
+			if (document.myForm.movieId.value == null) {
+				document.myForm.movieId.value = "";
 			}
-			if (document.MyForm.movieName.value == null) {
-				document.MyForm.movieName.value = "";
+			if (document.myForm.movieName.value == null) {
+				document.myForm.movieName.value = "";
 			}
-			if (document.MyForm.movieGenre.value == null) {
-				document.MyForm.movieGenre.value = "";
+			if (document.myForm.movieGenre.value == null) {
+				document.myForm.movieGenre.value = "";
 			}
 		}
 
@@ -122,7 +122,7 @@ String message = (String)request.getAttribute("message");%>
 
 
 <% //C‚ÖŒŸõ‚·‚éðŒ‚ð‘—‚é %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0060Control">
+	<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0060Control">
 		‰f‰æID:
 		<input type="text" id="movieId" name="movieId" placeholder="‰f‰æID" style="text-align: left;">
 		‰f‰æ–¼:
@@ -168,7 +168,7 @@ String message = (String)request.getAttribute("message");%>
 <% } %>
 			</tbody>
 		</table>
-		<input type="hidden" name="processDiv">
+		<input type="hidden" name="process">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 	<div id="footer">

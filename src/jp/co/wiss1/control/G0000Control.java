@@ -38,18 +38,19 @@ public class G0000Control extends HttpServlet{
 //		System.out.println(hashedPassword);
 
 		//Viewから処理命令を受け取る
-		String processDiv = request.getParameter("processDiv");
+		String process = request.getParameter("process");
 
 		int loginFlag = G0000Model.getLogin(employeeId, hashedPassword);
 		String employeeAuthority = G0000Model.authority(employeeId);
 		//session値の保存
 		session.setAttribute("employeeAuthority", employeeAuthority);
-		System.out.println(sessionAuthority);
+		//System.out.println(sessionAuthority);
 		System.out.println(employeeAuthority);
 
-		if("login".equals(processDiv)){
+		if("login".equals(process)){
 
 			if( loginFlag == 1 ){
+				System.out.println(loginFlag);
 				request.setAttribute("loginFlag", loginFlag);
 				RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0001View.jsp");
 				dispatch.forward(request, response);

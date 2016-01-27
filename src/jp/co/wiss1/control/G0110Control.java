@@ -25,7 +25,7 @@ public class G0110Control extends HttpServlet{
 		EncodingUtils.responseEncoding(request,response);
 
 		//どの処理を行うかの命令を受け取る
-		String processDiv = request.getParameter("processDiv");
+		String process = request.getParameter("process");
 
 		//処理に必要となる情報を受け取る
 		String artistId = request.getParameter("artistId");
@@ -35,8 +35,8 @@ public class G0110Control extends HttpServlet{
 
 
 		//検索(SELECT)の処理
-		System.out.println("check1"+processDiv);
-		if ("select".equals(processDiv)){
+		System.out.println("check1"+process);
+		if ("select".equals(process)){
 			//検索項目を渡し、リストを受け取る
 			List <HashMap<String,String>> artistList = G0110Model.getArtistList(artistId,artistName,companyName);
 			//Viewに渡すリストを設定
@@ -56,7 +56,7 @@ public class G0110Control extends HttpServlet{
 
 
 		//登録(INSERT)①の処理
-		if ("insert".equals(processDiv)){
+		if ("insert".equals(process)){
 
 			//会社名リストとコンテンツリストを受け取る
 			List <HashMap<String,String>> columnCompanyList = G0113Model.getColumnCompanyList();
@@ -73,7 +73,7 @@ public class G0110Control extends HttpServlet{
 
 
 		//更新①の処理
-				if("update".equals(processDiv)){
+				if("update".equals(process)){
 
 					//更新前の情報を引き出すための主キーを受け取る
 					String updateArtistId = request.getParameter("radioButton");
@@ -101,7 +101,7 @@ public class G0110Control extends HttpServlet{
 
 
 		 //削除(DELETE)の処理
-		 if ("delete".equals(processDiv)){
+		 if ("delete".equals(process)){
 
 			//削除対象の主キーを受け取る
 			String deleteArtistId = request.getParameter("radioButton");

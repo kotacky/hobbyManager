@@ -23,13 +23,13 @@ public class G0090Control extends HttpServlet{
 		EncodingUtils.responseEncoding(request,response);
 
 		//Viewから処理命令を受け取る
-		String processDiv = request.getParameter("processDiv");
+		String process = request.getParameter("process");
 
 		String genreId = request.getParameter("genreId");
 		String genreName = request.getParameter("genreName");
 
 
-		if("select".equals(processDiv)){
+		if("select".equals(process)){
 		//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
 		List<HashMap<String, String>> genreList = G0090Model.getGenreList(genreId, genreName);
 		//()をあげたら、HashMapのリストをモデルからもらう
@@ -52,7 +52,7 @@ public class G0090Control extends HttpServlet{
 		}
 
 		//更新①の処理
-		if("update".equals(processDiv)){
+		if("update".equals(process)){
 
 			//更新前の情報を引き出すための主キーを受け取る
 			String updategenreId = request.getParameter("radioButton");
@@ -78,7 +78,7 @@ public class G0090Control extends HttpServlet{
 		}
 
 		//削除の処理
-		if("delete".equals(processDiv)){
+		if("delete".equals(process)){
 
 			//削除に必要な情報を受け取る
 			String deletegenreId = request.getParameter("radioButton");

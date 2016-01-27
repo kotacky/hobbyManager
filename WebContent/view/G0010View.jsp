@@ -14,25 +14,25 @@
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<%= request.getContextPath() %>/view/css/iport.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 
 		function init() {
-			if (document.MyForm.employeeId.value == null) {
-				document.MyForm.employeeId.value = "";
+			if (document.myForm.employeeId.value == null) {
+				document.myForm.employeeId.value = "";
 			}
-			if (document.MyForm.employeeFamilyName.value == null) {
-				document.MyForm.employeeFamilyName.value = "";
+			if (document.myForm.employeeFamilyName.value == null) {
+				document.myForm.employeeFamilyName.value = "";
 			}
-			if (document.MyForm.employeeFirstName.value == null) {
-				document.MyForm.employeeFirstName.value = "";
+			if (document.myForm.employeeFirstName.value == null) {
+				document.myForm.employeeFirstName.value = "";
 			}
 		}
 	 </script>
@@ -122,7 +122,7 @@ String disabled = "disabled";%>
 	}%>
 
 <%-- C‚ÖŒŸõ‚·‚éðŒ‚ð‘—‚é --%>
-		<form method="POST" name=MyForm action="<%= request.getContextPath() %>/G0010Control">
+		<form method="POST" name=myForm action="<%= request.getContextPath() %>/G0010Control">
 			ŽÐˆõID:
 			<input type="text" id="employeeId" name="employeeId" placeholder="ŽÐˆõID"  style="text-align: left;">
 			©:
@@ -163,7 +163,7 @@ String disabled = "disabled";%>
 <% } %>
 				</tbody>
 			</table>
-			<input type="hidden" name="processDiv">
+			<input type="hidden" name="process">
 			<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 		</form>
 		<div id="footer">

@@ -18,23 +18,23 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 		function init() {
-			if (document.MyForm.dramaId.value == null) {
-				document.MyForm.dramaId.value = "";
+			if (document.myForm.dramaId.value == null) {
+				document.myForm.dramaId.value = "";
 			}
-			if (document.MyForm.dramaName.value == null) {
-				document.MyForm.dramaName.value = "";
+			if (document.myForm.dramaName.value == null) {
+				document.myForm.dramaName.value = "";
 			}
-			if (document.MyForm.television.value == null) {
-				document.MyForm.television.value = "";
+			if (document.myForm.television.value == null) {
+				document.myForm.television.value = "";
 			}
-			if (document.MyForm.genre.value == null) {
-				document.MyForm.genre.value = "";
+			if (document.myForm.genre.value == null) {
+				document.myForm.genre.value = "";
 			}
 		}
 
@@ -124,7 +124,7 @@ String message = (String)request.getAttribute("message");%>
 
 
 <% //Cへ検索する条件を送る %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0050Control">
+	<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0050Control">
 		ドラマID:
 		<input type="text" id="dramaId" name="dramaId" placeholder="ドラマID" style="text-align: left;">
 		<div>ドラマ名:
@@ -176,7 +176,7 @@ String message = (String)request.getAttribute("message");%>
 
 			</tbody>
 		</table>
-		<input type="hidden" name="processDiv">
+		<input type="hidden" name="process">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 	<div id="footer">

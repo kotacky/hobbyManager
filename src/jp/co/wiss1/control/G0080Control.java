@@ -24,7 +24,7 @@ public class G0080Control extends HttpServlet{
 		EncodingUtils.responseEncoding(request,response);
 
 		//Viewから処理命令を受け取る　
-		String processDiv = request.getParameter("processDiv");
+		String process = request.getParameter("process");
 
 		//処理に必要な情報を受け取る
 		String employeeId = request.getParameter("employeeId");
@@ -32,7 +32,7 @@ public class G0080Control extends HttpServlet{
 		String firstName = request.getParameter("employeeFirstName");
 
 		//検索の処理
-		if("select".equals(processDiv)){
+		if("select".equals(process)){
 
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
 			List<HashMap<String, String>> preferenceList = G0080Model.getPreferenceList(employeeId, familyName, firstName);
@@ -53,7 +53,7 @@ public class G0080Control extends HttpServlet{
 		}
 
 		//登録①の処理
-		if("insert".equals(processDiv)){
+		if("insert".equals(process)){
 
 			//登録画面に必要な要素を引き出す
 			List<HashMap<String, String>> employeeList = G0081Model.getColumnEmployeeList();
@@ -68,7 +68,7 @@ public class G0080Control extends HttpServlet{
 			dispatch.forward(request, response);
 		}
 		//削除の処理
-		if("delete".equals(processDiv)){
+		if("delete".equals(process)){
 
 			//処理に必要な情報を受け取る
 			String deleteEmployeeId = request.getParameter("radioButton");

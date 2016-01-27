@@ -25,7 +25,7 @@ public class G0020Control extends HttpServlet{
 		EncodingUtils.responseEncoding(request,response);
 
 		//どの処理を行うかの命令を受け取る
-		String processDiv = request.getParameter("processDiv");
+		String process = request.getParameter("process");
 
 		//処理に必要となる情報を受け取る
 		String actressId = request.getParameter("actressId");
@@ -33,7 +33,7 @@ public class G0020Control extends HttpServlet{
 
 
 		//検索(SELECT)の処理
-		if ("select".equals(processDiv)){
+		if ("select".equals(process)){
 
 			//検索項目を渡し、リストを受け取る
 			List <HashMap<String,String>> actressList = G0020Model.getActressList(actressId,actressName);
@@ -53,7 +53,7 @@ public class G0020Control extends HttpServlet{
 
 
 		//登録(INSERT)①の処理
-		if ("insert".equals(processDiv)){
+		if ("insert".equals(process)){
 
 			//会社名リストとコンテンツリストを受け取る
 			List <HashMap<String,String>> columnCompanyList = G0023Model.getColumnCompanyList();
@@ -76,7 +76,7 @@ public class G0020Control extends HttpServlet{
 
 
 		 //更新(UPDATE)①の処理
-		 if ("update".equals(processDiv)){
+		 if ("update".equals(process)){
 
 
 			//更新対象の主キーを受け取る
@@ -117,7 +117,7 @@ public class G0020Control extends HttpServlet{
 
 
 		 //削除(DELETE)の処理
-		 if ("delete".equals(processDiv)){
+		 if ("delete".equals(process)){
 
 			//削除対象の主キーを受け取る
 			String deleteActressId = request.getParameter("radioButton");

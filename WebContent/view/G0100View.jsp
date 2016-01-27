@@ -19,20 +19,20 @@
 		<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="text/javascript" src="./js/default.js"></script>
 		<script>
-			function func(MyCommand){
+			function func(myCommand){
 				<!--document + form name -->
-				document.MyForm.processDiv.value=MyCommand;
-				document.MyForm.submit();
+				document.myForm.process.value=myCommand;
+				document.myForm.submit();
 		}
 		function init() {
-			if (document.MyForm.televisionId.value == null) {
-				document.MyForm.televisionId.value = "";
+			if (document.myForm.televisionId.value == null) {
+				document.myForm.televisionId.value = "";
 			}
-			if (document.MyForm.televisionName.value == null) {
-				document.MyForm.televisionName.value = "";
+			if (document.myForm.televisionName.value == null) {
+				document.myForm.televisionName.value = "";
 			}
-			if (document.MyForm.televisionAddress.value == null) {
-				document.MyForm.televisionAddress.value = "";
+			if (document.myForm.televisionAddress.value == null) {
+				document.myForm.televisionAddress.value = "";
 			}
 		}
 
@@ -117,7 +117,7 @@
 		<% } %>
 
 
-		<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0100Control">
+		<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0100Control">
 			<div>
 			<br>
 				ƒeƒŒƒr‹ÇID:
@@ -160,7 +160,7 @@
 			<% } %>
 				</tbody>
 			</table>
-			<input type="hidden" name="processDiv">
+			<input type="hidden" name="process">
 			<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 		</form>
 		<div id="footer">

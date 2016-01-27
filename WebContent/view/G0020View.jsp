@@ -18,18 +18,18 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="./js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 
 		function init() {
-			if (document.MyForm.actressId.value == null) {
-				document.MyForm.actressId.value = "";
+			if (document.myForm.actressId.value == null) {
+				document.myForm.actressId.value = "";
 			}
-			if (document.MyForm.actressName.value == null) {
-				document.MyForm.actressName.value = "";
+			if (document.myForm.actressName.value == null) {
+				document.myForm.actressName.value = "";
 			}
 
 		}
@@ -119,7 +119,7 @@
 	}%>
 
 <%-- C‚ÖŒŸõ‚·‚éðŒ‚ð‘—‚é --%>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0020Control">
+	<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0020Control">
 			——DID:
 			<input type="text" id="actressId" name="actressId" placeholder="——DID" style="text-align: left;">
 			——D–¼:
@@ -161,7 +161,7 @@
 <% } %>
 				</tbody>
 			</table>
-			<input type="hidden" name="processDiv">
+			<input type="hidden" name="process">
 			<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 
 	</form>

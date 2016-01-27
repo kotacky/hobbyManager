@@ -31,10 +31,10 @@ public class G0100Control extends HttpServlet {
 
 		//viewの情報"prosessDiv"を受け取る
 		//Viewのどのボタンからきたか受け取る(hidden)
-		String processDiv = request.getParameter("processDiv");
-		System.out.println(processDiv);
+		String process = request.getParameter("process");
+		System.out.println(process);
 		//検索の中身がviewからきた情報にあったら
-		if("select".equals(processDiv)){
+		if("select".equals(process)){
 
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
 			List<HashMap<String, String>> televisionList = G0100Model.getTelevisionList(televisionId, televisionName, televisionAddress);
@@ -52,7 +52,7 @@ public class G0100Control extends HttpServlet {
 		}
 
 		//更新の処理
-		if("update".equals(processDiv)){
+		if("update".equals(process)){
 
 			//更新前の情報を引き出すためのラジオボタン入力を受け取る
 			//idを受け取る
@@ -78,7 +78,7 @@ public class G0100Control extends HttpServlet {
 			}
 		}
 		//削除の処理
-		if("delete".equals(processDiv)){
+		if("delete".equals(process)){
 
 			//ラジオボタン入力を受け取る
 			String deleteTelevisionId = request.getParameter("radioButton");

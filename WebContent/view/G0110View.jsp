@@ -20,21 +20,21 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 
 		function init() {
-			if (document.MyForm.artistId.value == null) {
-				document.MyForm.artistId.value = "";
+			if (document.myForm.artistId.value == null) {
+				document.myForm.artistId.value = "";
 			}
-			if (document.MyForm.artistName.value == null) {
-				document.MyForm.artistName.value = "";
+			if (document.myForm.artistName.value == null) {
+				document.myForm.artistName.value = "";
 			}
-			if (document.MyForm.companyName.value == null) {
-				document.MyForm.companyName.value = "";
+			if (document.myForm.companyName.value == null) {
+				document.myForm.companyName.value = "";
 			}
 		}
 	 </script>
@@ -120,7 +120,7 @@ String disabled = "disabled";%>
 
 
 <% //Cへ検索する条件を送る %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0110Control">
+	<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0110Control">
 
 		アーティストID:
 		<input type="text" id="artstId" name="artistId" placeholder="アーティストID"  style="text-align: left;">
@@ -158,7 +158,7 @@ String disabled = "disabled";%>
 <% } %>
 			</tbody>
 		</table>
-		<input type="hidden" name="processDiv">
+		<input type="hidden" name="process">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 	<div id="footer">

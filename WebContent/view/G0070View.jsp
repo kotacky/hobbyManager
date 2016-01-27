@@ -18,21 +18,21 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 
 		function init() {
-			if (document.MyForm.commercialId.value == null) {
-				document.MyForm.commercialId.value = "";
+			if (document.myForm.commercialId.value == null) {
+				document.myForm.commercialId.value = "";
 			}
-			if (document.MyForm.commercialName.value == null) {
-				document.MyForm.commercialName.value = "";
+			if (document.myForm.commercialName.value == null) {
+				document.myForm.commercialName.value = "";
 			}
-			if (document.MyForm.sponserName.value == null) {
-				document.MyForm.sponserName.value = "";
+			if (document.myForm.sponserName.value == null) {
+				document.myForm.sponserName.value = "";
 			}
 		}
 	 </script>
@@ -121,7 +121,7 @@ String disabled = "disabled";%>
 }%>
 
 <% //Cへ検索する条件を送る %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0070Control">
+	<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0070Control">
 		コマーシャルID:
 		<input type="text" id="commercialId" name="commercialId" placeholder="コマーシャルID" style="text-align: left;">
 		<div>
@@ -167,7 +167,7 @@ String disabled = "disabled";%>
 <% } %>
 			</tbody>
 		</table>
-		<input type="hidden" name="processDiv">
+		<input type="hidden" name="process">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 	<div id="footer">

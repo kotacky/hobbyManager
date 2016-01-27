@@ -18,21 +18,21 @@
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="./js/default.js"></script>
 	<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 
 		function init() {
-			if (document.MyForm.employeeId.value == null) {
-				document.MyForm.employeeId.value = "";
+			if (document.myForm.employeeId.value == null) {
+				document.myForm.employeeId.value = "";
 			}
-			if (document.MyForm.employeeFamilyName.value == null) {
-				document.MyForm.employeeFamilyName.value = "";
+			if (document.myForm.employeeFamilyName.value == null) {
+				document.myForm.employeeFamilyName.value = "";
 			}
-			if (document.MyForm.employeeFirstName.value == null) {
-				document.MyForm.employeeFirstName.value = "";
+			if (document.myForm.employeeFirstName.value == null) {
+				document.myForm.employeeFirstName.value = "";
 			}
 		}
 	 </script>
@@ -107,7 +107,7 @@
 
 
 <% //CÇ÷åüçıÇ∑ÇÈèåèÇëóÇÈ %>
-	<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0080Control">
+	<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0080Control">
 		é–àıID:
 		<input type="text" id="employeeId" name="employeeId" placeholder="é–àıID" style="text-align: left;">
 		ê©:
@@ -159,7 +159,7 @@
 			<% } %>
 			</tbody>
 		</table>
-		<input type="hidden" name="processDiv">
+		<input type="hidden" name="process">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 	<div id="footer">

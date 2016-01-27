@@ -23,7 +23,7 @@ public class G0060Control extends HttpServlet{
 		EncodingUtils.responseEncoding(request,response);
 
 		//Viewから処理命令を受け取る
-		String processDiv = request.getParameter("processDiv");
+		String process = request.getParameter("process");
 
 		//処理に必要な情報を受け取る
 		String movieId = request.getParameter("movieId");
@@ -31,7 +31,7 @@ public class G0060Control extends HttpServlet{
 		String releaseDate = request.getParameter("releaseDate");
 		String movieGenre = request.getParameter("movieGenre");
 		//検索の処理
-		if("select".equals(processDiv)){
+		if("select".equals(process)){
 
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
 			List<HashMap<String, String>> movieList = G0060Model.getMovieList(movieId, title, releaseDate, movieGenre);
@@ -53,7 +53,7 @@ public class G0060Control extends HttpServlet{
 		}
 
 		//更新①の処理
-		if("update".equals(processDiv)){
+		if("update".equals(process)){
 
 			//更新前の情報を引き出すためのラジオボタン入力を受け取る
 			//idを受け取る
@@ -80,7 +80,7 @@ public class G0060Control extends HttpServlet{
 		}
 
 		//削除の処理
-		if("delete".equals(processDiv)){
+		if("delete".equals(process)){
 
 			//削除に必要な情報を受け取る
 			String deleteMovieId = request.getParameter("radioButton");

@@ -18,10 +18,10 @@
 		<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 		<script>
-		 function func(MyCommand){
-		//	 alert("start!:[" + MyCommand + "]");
-			 document.MyForm.processDiv.value=MyCommand;
-			 document.MyForm.submit();
+		 function func(myCommand){
+		//	 alert("start!:[" + myCommand + "]");
+			 document.myForm.process.value=myCommand;
+			 document.myForm.submit();
 		 }
 
 	 </script>
@@ -33,12 +33,12 @@
 				<div id="header">
 					<h1>2015年度新人研修<br />好きな女優を管理してみよう</h1>
 					<ul id="gNavi" class="clearfix">
-					<form method="POST" name="MyForm" action="<%= request.getContextPath() %>/G0002Control">
+					<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0002Control">
 					ログアウトしますか
 						<input type="button" value="ログアウト" onClick="func('logout');"/>
 						<input type="button" value="戻る" onClick="history.go(-1)">
 						<input type="hidden" name="employeeAuthority">
-						<input type="hidden" name="processDiv">
+						<input type="hidden" name="process">
 					</form>
 					</ul>
 
