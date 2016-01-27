@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 
 import jp.co.wiss1.common.DBAccessUtils;
 
@@ -75,13 +76,14 @@ public class G0000Model{
        return loginFlag;
 	}
 
-
-		public static String authority(String employeeId){
+	public static HashMap<String, String> authority(String employeeId){
 
 		String employeeAuthority = null;
+		String user = null;
 		ResultSet resultSet = null;
 		Connection connection = null;
 		Statement statement = null;
+		HashMap<String, String> retMap = new HashMap();
 		try {
 
 			/* ここから下記括りまでがDBへのアクセスするお約束*/
@@ -110,20 +112,23 @@ public class G0000Model{
 	        //上記文章にて、設定した内容を元にSQL(postgres)アクセス！！
 
 
-	        //SELECT文の結果を参照
-	        while(resultSet.next()) {														//SELECT文の結果を参照
-				if((resultSet.getString("employee_authority")).equals("01")){
-					employeeAuthority = "01";
-					System.out.println(employeeAuthority);
-				}else if((resultSet.getString("employee_authority")).equals("00")){
-					employeeAuthority = "00";
-					System.out.println(employeeAuthority);
-				}else{
-					employeeAuthority = "01";
-					System.out.println(employeeAuthority);
-				}
+        //SELECT文の結果を参照
+        while(resultSet.next()) {														//SELECT文の結果を参照
+			if((resultSet.getString("employee_authority")).equals("01")){
+				employeeAuthority = "01";
+				System.out.println(employeeAuthority);
+			}else if((resultSet.getString("employee_authority")).equals("00")){
+				employeeAuthority = "00";
+				System.out.println(employeeAuthority);
+			}else{
+				employeeAuthority = "01";
+				System.out.println(employeeAuthority);
+			}
+			user = resultSet.getString("employee_first_name");
+			System.out.print(user);
 	        }
-
+        	retMap.put("employeeAuthority", employeeAuthority);
+        	retMap.put("employeeFirstName", user);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 	    	System.out.println("SQL failed");
@@ -143,7 +148,7 @@ public class G0000Model{
 	        	finally {
 	        	}
 	    	}
-	   return employeeAuthority;
+	   return retMap;
 	}
 }
 

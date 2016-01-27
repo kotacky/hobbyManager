@@ -1,5 +1,8 @@
 package jp.co.wiss1.control;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,12 +44,15 @@ public class G0000Control extends HttpServlet{
 		String process = request.getParameter("process");
 
 		int loginFlag = G0000Model.getLogin(employeeId, hashedPassword);
-		String employeeAuthority = G0000Model.authority(employeeId);
+		HashMap<String, String> map = G0000Model.authority(employeeId);
+		String employeeAuthority = map.get("employeeAuthority");
+		String employeeFirstName = map.get("employeeFirstName");
+
 		//session値の保存
 		session.setAttribute("employeeAuthority", employeeAuthority);
 		//System.out.println(sessionAuthority);
 		System.out.println(employeeAuthority);
-
+		session.setAttribute("employeeFirstName", employeeFirstName);
 		if("login".equals(process)){
 
 			if( loginFlag == 1 ){

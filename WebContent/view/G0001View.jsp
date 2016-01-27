@@ -23,6 +23,7 @@
 				<div id="header">
 					<h1>2015年度新人研修<br />好きな女優を管理してみよう</h1>
 					<ul id="gNavi" class="clearfix">
+						<li><% out.print(session.getAttribute("employeeFirstName")); %></li>
 						<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
 						<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
 						<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
@@ -44,11 +45,12 @@
 				<img src="<%= request.getContextPath() %>/view/img/mainimg.jpg" alt="TOP画像" />
 			</div>
 			<% int loginFlag = G0000Model.getLogin("employeeId", "hashedPassword"); %>
-			<% out.println(loginFlag); %>
+
+
 			<div id="footer">
 				<p id="copyright">Copyright (c) WISS1 Inc. All Rights Reserved.</p>
 			</div>
 		</div>
-	<input type="text" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
+	<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</body>
 </html>
