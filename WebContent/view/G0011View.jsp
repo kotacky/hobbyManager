@@ -48,6 +48,10 @@ pageEncoding="Windows-31J"%>
 		<input type="text" name="employeeFamilyName" placeholder="姓" required>（必須）<br>
 		名:
 		<input type="text" name="employeeFirstName" placeholder="名" required>（必須）<br>
+		姓(ふりがな):
+		<input type="text" name="familyNameRead" placeholder="ふりがな" required>（必須）<br>
+		名(ふりがな):
+		<input type="text" name="employeeFirstNameRead" placeholder="ふりがな" required>（必須）<br>
 		生年月日:
 		<input type="date" name="birthDate" ><br>
 		出身地:

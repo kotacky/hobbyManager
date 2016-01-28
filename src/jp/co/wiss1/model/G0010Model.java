@@ -54,11 +54,15 @@ public class G0010Model//git
         		System.out.println("2:" + sql);
         	}
         	if(!"".equals(familyName)) {
-        		sql = sql + "employee_family_name like '%"+ familyName +"%' AND ";
+        		sql = sql + "employee_family_name like '%"+ familyName +"%'"
+        				+ " OR family_name_read like '%"+ familyName +"%' AND ";
         		System.out.println("3:" + sql);
         	}
-        		sql = sql + "employee_first_name like '%"+ firstName +"%' ";
-        		sql = sql + " ORDER BY employee_id";
+        	sql = sql + "employee_first_name like '%"+ firstName +"%' "
+        			+ "OR employee_first_name_read like '%"+ firstName +"%'";
+    		sql = sql + " ORDER BY employee_id";
+    		System.out.println("4:" + sql);												//sql文終了
+
         		System.out.println("4:" + sql);												//sql文終了
 
             System.out.println("引数に" + employeeId + "が入力されました。");				//コメント一覧
