@@ -20,9 +20,6 @@ div#wrapper{
 /* ヘッダー */
 /*-------------------------------------*/
 
-div#headerBg{
-	background: #fff;
-}
 
 div#header{
 	width: 1100px;
@@ -52,6 +49,7 @@ div#header h2{
 /* グローバルナビゲーション */
 /*-------------------------------------*/
 
+/*
 ul#gNavi{
 	width: 700px;
 	float: right;
@@ -82,6 +80,107 @@ ul#gNavi li a:hover{
 ul#gNavi li.firstItem a{
 	padding-left: 10px;
 	border-left: 1px solid #ccc;
+}
+
+*/
+
+#gMenu{
+  list-style-type: none;
+  width: 800px;
+  height: 40px;
+  margin-top: 0px;
+  margin-left: auto;
+  padding: 0;
+  background: #DDDED3;
+  border-radius: 3px;
+}
+
+#gMenu li{
+  display: block;
+  position: relative;
+  width: 20%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#gMenu li a{
+  display: block;
+  margin: 0;
+  padding: 15px 0 11px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+
+}
+
+#gMenu li:hover > a{
+  background-color: rgba(0,0,255,0.1);;
+  color: #fff;
+}
+#gMenu > li:hover > a{
+  border-radius: 3px 3px 0 0;
+}
+
+#gMenu li ul{
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px 3px 0 0;
+}
+
+/*
+サブメニューの幅をメインメニューの倍にしたとき、
+右端のはみ出た分を左にずらします。。
+*/
+/*
+#gMenu li:last-child ul{
+  left: -100%;
+  width: 100%
+}
+*/
+
+#gMenu li ul li{
+  overflow: hidden;
+  width: 160px;
+  height: 0;
+  color: #fff;
+  -moz-transition: .2s;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  -ms-rtansition: .2s;
+  transition: .2s;
+  float: right;
+}
+#gMenu li ul li a{
+  padding: 13px 15px;
+  background-color: rgba(0,0,255,0.1);
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+#gMenu li:hover ul li{
+  overflow: visible;
+  height: 38px;
+}
+
+#gMenu li:hover ul li:first-child{
+  border-top: 0;
+}
+
+#gMenu li:hover ul li:last-child{
+  border-bottom: 0;
+}
+
+#gMenu li:hover ul li:last-child a{
+  border-radius: 0 0 3px 3px;
 }
 
 /*-------------------------------------*/

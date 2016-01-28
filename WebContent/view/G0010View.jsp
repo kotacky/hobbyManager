@@ -14,7 +14,6 @@
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<link href="<%= request.getContextPath() %>/view/css/index.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="<%= request.getContextPath() %>/view/css/iport.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<%= request.getContextPath() %>/view/js/default.js"></script>
 	<script>
@@ -40,22 +39,38 @@
 
 <body onload="init();">
 	<div id="header">
-		<ul id="gNavi" class="clearfix">
-			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">映画一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ドラマ一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
-			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0002View.jsp" title="">ログアウト</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">アーティスト一覧</a></li>
-
-		</ul>
+				<ul id="gMenu" class="clearfix">
+					  <li><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">トップ</a></li>
+					  <li><a>基本メニュー</a>
+					    <ul>
+					      <li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">アーティスト一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
+					    </ul>
+					  </li>
+					  <li><a>女優コンテンツ</a>
+					    <ul>
+					      <li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">映画一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ドラマ一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+					    </ul>
+					  </li>
+					  <li><a>所属・出演</a>
+					    <ul>
+					      <li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
+					    </ul>
+					  </li>
+					  <li><a><% out.print(session.getAttribute("employeeFirstName")); %></a>
+					    <ul>
+					      <li><a href="<%= request.getContextPath() %>/view/G0002View.jsp" title="">ログアウト</a></li>
+					    </ul>
+					  </li>
+				</ul>
 	</div>
 
 <%-- リストの取得 --%>
@@ -135,8 +150,7 @@ String disabled = "disabled";%>
 			<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0011View.jsp';" <%= createDisabled %>/>
 			<input type="button" value="更新" onClick="func('update');" <%= updateDisabled %> />
 			<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
-			<div style="color:red;"><%= message %></div>
-			<br style="clear" />
+			<div style="color:red;"><%= message %>
 
 			<%-- テーブルの表示--%>
 			<table class="brwsr1">

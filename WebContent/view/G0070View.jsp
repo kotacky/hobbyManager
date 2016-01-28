@@ -40,22 +40,38 @@
 
 <body onload="init();">
 	<div id="header">
-		<ul id="gNavi" class="clearfix">
-			<li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">映画一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ドラマ一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
-			<li class="firstItem"><a href="<%= request.getContextPath() %>/view/G0002View.jsp" title="">ログアウト</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
-			<li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">アーティスト一覧</a></li>
-
-		</ul>
+				<ul id="gMenu" class="clearfix">
+					  <li><a href="<%= request.getContextPath() %>/view/G0001View.jsp" title="">トップ</a></li>
+					  <li><a>基本メニュー</a>
+					    <ul>
+					      <li><a href="<%= request.getContextPath() %>/view/G0010View.jsp" title="">社員一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0020View.jsp" title="">女優一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0110View.jsp" title="">アーティスト一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0080View.jsp" title="">好み一覧</a></li>
+					    </ul>
+					  </li>
+					  <li><a>女優コンテンツ</a>
+					    <ul>
+					      <li><a href="<%= request.getContextPath() %>/view/G0060View.jsp" title="">映画一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0050View.jsp" title="">ドラマ一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0070View.jsp" title="">ＣＭ一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0040View.jsp" title="">雑誌一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0120View.jsp" title="">楽曲一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0090View.jsp" title="">ジャンル一覧</a></li>
+					    </ul>
+					  </li>
+					  <li><a>所属・出演</a>
+					    <ul>
+					      <li><a href="<%= request.getContextPath() %>/view/G0100View.jsp" title="">テレビ局一覧</a></li>
+					      <li><a href="<%= request.getContextPath() %>/view/G0030View.jsp" title="">所属会社一覧</a></li>
+					    </ul>
+					  </li>
+					  <li><a><% out.print(session.getAttribute("employeeFirstName")); %></a>
+					    <ul>
+					      <li><a href="<%= request.getContextPath() %>/view/G0002View.jsp" title="">ログアウト</a></li>
+					    </ul>
+					  </li>
+				</ul>
 	</div>
 
 	<h1>ＣＭ一覧</h1>
@@ -124,18 +140,15 @@ String disabled = "disabled";%>
 	<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0070Control">
 		コマーシャルID:
 		<input type="text" id="commercialId" name="commercialId" placeholder="コマーシャルID" style="text-align: left;">
-		<div>
 		ＣＭ名:
-		<input type="text" id="commercialName" name="commercialName" placeholder="ＣＭ名" style="text-align: left; ">
+		<input type="text" id="commercialName" name="commercialName" placeholder="ＣＭ名" style="text-align: left; "><br>
 		広告会社名:
 		<input type="text" id="sponserName" name="sponserName" placeholder="広告会社名" style="text-align: left; ">
-		</div>
 		<input type="button" value="検索" onClick="func('select');" /><br />
 		<input type="button" value="新規登録" onClick="form.action=location.href='../../hobbyManager/view/G0071View.jsp';" <%= createDisabled %> />
 		<input type="button" value="更新" onClick="func('update');" <%= disabled %> />
 		<input type="button" value="削除" onClick="func('delete');" <%= disabled %> />
 		<div style="color:red;"><%= message %></div>
-		<br style="clear" />
 <%
 //String employee_id=request.getParameter("employee_id");
 //String employee_family_name=request.getParameter("employee_family_name");
