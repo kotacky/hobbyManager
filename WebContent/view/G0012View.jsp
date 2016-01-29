@@ -81,9 +81,9 @@
 		名:
 		<input type="text" name="employeeFirstName" value=<% out.print(employeeList.get(0).get("employeeFirstName")); %> required>（必須）<br>
 		姓(ふりがな):
-		<input type="text" name="familyNameRead" value=<% out.print(employeeList.get(0).get("firstNameRead")); %> required>（必須）<br>
+		<input type="text" name="familyNameRead" value=<% out.print(employeeList.get(0).get("familyNameRead")); %> required>（必須）<br>
 		名(ふりがな):
-		<input type="text" name="employeeFirstNameRead" value=<% out.print(employeeList.get(0).get("firstNameRead")); %> required>（必須）<br>
+		<input type="text" name="employeeFirstNameRead" value=<% out.print(employeeList.get(0).get("employeeFirstNameRead")); %> required>（必須）<br>
 		生年月日:
 		<input type="date" name="birthDate" value=<% out.print(employeeList.get(0).get("employeeBirthDate")); %>><br>
 		出身地:

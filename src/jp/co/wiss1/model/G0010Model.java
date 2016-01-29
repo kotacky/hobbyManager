@@ -19,12 +19,12 @@ public class G0010Model//git
 	 * @return List 社員情報
 	 */
 	public static void main(String[] args) {
-		getEmployeeList("119" , "" , "");
+		getEmployeeList("119" , "" , "","" ,"");
 		deleteEmployee("0");
 	}
 
 
-	public static List<HashMap<String, String>> getEmployeeList(String employeeId , String familyName , String firstName)	//社員テーブル参照
+	public static List<HashMap<String, String>> getEmployeeList(String employeeId , String familyName , String firstName, String firstNameRead, String familyNameRead)	//社員テーブル参照
 	{
 
 		List<HashMap<String, String>> employeeList = new ArrayList<HashMap<String, String>>() ;

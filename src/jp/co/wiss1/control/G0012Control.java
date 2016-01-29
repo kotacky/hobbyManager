@@ -27,13 +27,16 @@ public class G0012Control extends HttpServlet{
 		String employeeId = request.getParameter("employeeId");
 		String familyName = request.getParameter("employeeFamilyName");
 		String firstName = request.getParameter("employeeFirstName");
-		String familyNameRead = request.getParameter("employeeFamilyNameRead");
+		String familyNameRead = request.getParameter("familyNameRead");
 		String firstNameRead = request.getParameter("employeeFirstNameRead");
 		String birthDate = request.getParameter("birthDate");
 		String from = request.getParameter("employeeFrom");
 		String bloodType = request.getParameter("employeeBloodType");
 		String authority = request.getParameter("employeeAuthority");
 		String password = request.getParameter("employeePassword");
+
+		System.out.println("employeeFamilyNameRead");
+		System.out.println("employeeFirstNameRead");
 
 		String hashedPassword = RealmBase.Digest(password, "MD5", "Windows-31J");
 

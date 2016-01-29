@@ -27,13 +27,15 @@ public class G0010Control extends HttpServlet{
 		String employeeId = request.getParameter("employeeId");
 		String familyName = request.getParameter("employeeFamilyName");
 		String firstName = request.getParameter("employeeFirstName");
+		String firstNameRead = request.getParameter("firstNameRead");
+		String familyNameRead = request.getParameter("employeeFirstNameRead");
 
 
 		//検索の処理
 		if("select".equals(process)){
 
 			//検索に必要なものを引数、検索結果のリストを戻り値としてメソッドを呼び出す。
-			List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId, familyName, firstName);
+			List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId, familyName, firstName, firstNameRead, familyNameRead);
 
 			//検索結果をViewに送る
 			if (employeeList.size() < 1) {
@@ -46,6 +48,8 @@ public class G0010Control extends HttpServlet{
 			request.setAttribute("employeeId", employeeId);
 			request.setAttribute("employeeFamilyName", familyName);
 			request.setAttribute("employeeFirstName", firstName);
+			request.setAttribute("familyNameRead", familyNameRead);
+			request.setAttribute("employeeFirstNameRead", firstNameRead);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 			dispatch.forward(request, response);
 		}
@@ -60,7 +64,7 @@ public class G0010Control extends HttpServlet{
 			if(updateEmployeeId != null){
 
 				//更新前の情報を検索メソッドで受け取る
-				List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(updateEmployeeId, "", "");
+				List<HashMap<String, String>> employeeList = G0010Model.getEmployeeList(updateEmployeeId, "", "", "", "");
 
 				//更新前の情報を更新ページに飛ばす
 				request.setAttribute("employeeList", employeeList);
@@ -99,7 +103,7 @@ public class G0010Control extends HttpServlet{
 			}
 
 			//デリート後のリストを検索メソッドで取り出す
-			List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId, familyName, firstName);
+			List <HashMap<String, String>> employeeList = G0010Model.getEmployeeList(employeeId, familyName, firstName, firstNameRead, familyNameRead);
 
 			//削除処理後のリストを送る
 			request.setAttribute("employeeList",employeeList);
@@ -108,6 +112,8 @@ public class G0010Control extends HttpServlet{
 			request.setAttribute("employeeId", employeeId);
 			request.setAttribute("employeeFamilyName", familyName);
 			request.setAttribute("employeeFirstName", firstName);
+			request.setAttribute("familyNameRead", familyNameRead);
+			request.setAttribute("employeeFirstNameRead", firstNameRead);
 			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
 			dispatch.forward(request, response);
 		}
