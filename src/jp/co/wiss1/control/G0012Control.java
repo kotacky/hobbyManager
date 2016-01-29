@@ -27,6 +27,8 @@ public class G0012Control extends HttpServlet{
 		String employeeId = request.getParameter("employeeId");
 		String familyName = request.getParameter("employeeFamilyName");
 		String firstName = request.getParameter("employeeFirstName");
+		String familyNameRead = request.getParameter("employeeFamilyNameRead");
+		String firstNameRead = request.getParameter("employeeFirstNameRead");
 		String birthDate = request.getParameter("birthDate");
 		String from = request.getParameter("employeeFrom");
 		String bloodType = request.getParameter("employeeBloodType");
@@ -36,7 +38,7 @@ public class G0012Control extends HttpServlet{
 		String hashedPassword = RealmBase.Digest(password, "MD5", "Windows-31J");
 
 		//更新するメソッドを呼び出す
-		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDate, from, bloodType, authority, hashedPassword);
+		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDate, from, bloodType, authority, hashedPassword, familyNameRead, firstNameRead);
 
 		//更新フラグを送る
 		if(updateFlag == 1){

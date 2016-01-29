@@ -12,12 +12,12 @@ public class G0012Model {
 	public static void main(String[] args)
 	{
 		// TODO 自動生成されたメソッド・スタブ
-		updateEmployee("","","","","","","","");
+		updateEmployee("","","","","","","","","","");
 	}
 
 
 	//社員一覧UPDATEの実行！！！
-	public static int updateEmployee(String employeeId , String familyName , String firstName ,String birthDate, String from , String bloodType, String authority, String hashedPassword) { //社員テーブル参照
+	public static int updateEmployee(String employeeId , String familyName , String firstName ,String birthDate, String from , String bloodType, String authority, String hashedPassword, String familyNameRead, String firstNameRead) { //社員テーブル参照
 
 		Connection connection = null;
     	Statement statement = null;
@@ -27,6 +27,8 @@ public class G0012Model {
 		employeeId = ChangeCharacter.CC(employeeId);
 		familyName = ChangeCharacter.CC(familyName);
 		firstName = ChangeCharacter.CC(firstName);
+		familyNameRead = ChangeCharacter.CC(familyNameRead);
+		firstNameRead = ChangeCharacter.CC(firstNameRead);
 		birthDate = ChangeCharacter.CC(birthDate);
 		from = ChangeCharacter.CC(from);
 		bloodType = ChangeCharacter.CC(bloodType);
@@ -51,7 +53,7 @@ public class G0012Model {
             		+ "employee_from = '"+ from +"',"
             		+ "employee_authority = '"+ authority +"',"
             		+ "employee_password = '"+ hashedPassword +"',"
-                    + "employee_blood_type = '"+ bloodType +"' WHERE "
+                    + "employee_blood_type = '"+ bloodType +"',"+ "family_name_read = '"+ familyNameRead +"',"+ "employee_first_name_read = '"+ firstNameRead +"' WHERE "
             		+ "employee_id = '"+ employeeId +"'";
             		System.out.println(sql);
 
@@ -66,6 +68,8 @@ public class G0012Model {
             System.out.println("引数に" + bloodType + "が入力されました。");
             System.out.println("引数に" + authority + "が入力されました。");
             System.out.println("引数に" + hashedPassword + "が入力されました。");
+            System.out.println("引数に" + familyNameRead + "が入力されました。");
+            System.out.println("引数に" + firstNameRead + "が入力されました。");
             System.out.println(sql);
 
 
