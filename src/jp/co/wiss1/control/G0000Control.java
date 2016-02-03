@@ -38,7 +38,7 @@ public class G0000Control extends HttpServlet{
 		引数に（"getParameterした値","アルゴリズム","文字コード"）*/
 		String hashedPassword = RealmBase.Digest(employeePassword, "MD5", "Windows-31J");
 
-//		System.out.println(hashedPassword);
+		//System.out.println(hashedPassword);
 
 		//Viewから処理命令を受け取る
 		String process = request.getParameter("process");
@@ -50,7 +50,7 @@ public class G0000Control extends HttpServlet{
 
 		//session値の保存
 		session.setAttribute("employeeAuthority", employeeAuthority);
-		//System.out.println(sessionAuthority);
+		System.out.println(sessionAuthority);
 		System.out.println(employeeAuthority);
 		session.setAttribute("employeeFirstName", employeeFirstName);
 		if("login".equals(process)){

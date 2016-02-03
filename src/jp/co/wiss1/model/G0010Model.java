@@ -50,20 +50,17 @@ public class G0010Model//git
             System.out.println("1:" + sql);
 
         	if(!"".equals(employeeId)) {
-        		sql = sql + "employee_id = '"+ employeeId +"' AND ";
+        		sql = sql + "employee_id = '"+ employeeId + "' AND ";
         		System.out.println("2:" + sql);
         	}
-        	if(!"".equals(familyName)) {
-        		sql = sql + "employee_family_name like '%"+ familyName +"%'"
-        				+ " OR family_name_read like '%"+ familyName +"%' AND ";
-        		System.out.println("3:" + sql);
-        	}
-        	sql = sql + "employee_first_name like '%"+ firstName +"%' "
-        			+ "OR employee_first_name_read like '%"+ firstName +"%'";
-    		sql = sql + " ORDER BY employee_id";
-    		System.out.println("4:" + sql);												//sql文終了
+    		sql = sql + "(employee_family_name like '%"+ familyName +"%'"
+    				+ " OR employee_family_name_read like '%"+ familyName +"%') ";
+    		sql = sql + "AND (employee_first_name like '%"+ firstName +"%' "
+    			+ "OR employee_first_name_read like '%"+ firstName +"%')";
 
-        		System.out.println("4:" + sql);												//sql文終了
+        	sql = sql + " ORDER BY employee_id ";
+
+    		System.out.println("4:" + sql);													//sql文終了
 
             System.out.println("引数に" + employeeId + "が入力されました。");				//コメント一覧
             System.out.println("引数に" + familyName + "が入力されました。");
@@ -85,6 +82,8 @@ public class G0010Model//git
         	   employeeInfo.put("employeeBloodType", resultSet.getString("employee_blood_type"));
         	   employeeInfo.put("employeeAuthority", resultSet.getString("employee_authority"));
         	   employeeInfo.put("employeePassword", resultSet.getString("employee_password"));
+        	   employeeInfo.put("familyNameRead", resultSet.getString("employee_family_name_read"));
+        	   employeeInfo.put("firstNameRead", resultSet.getString("employee_first_name_read"));
         	   employeeList.add(employeeInfo);
 
             	System.out.println(employeeInfo.get("employeeId"));								//リストに入ったかの確認
@@ -95,6 +94,9 @@ public class G0010Model//git
             	System.out.println(employeeInfo.get("employeeBloodType"));
             	System.out.println(employeeInfo.get("employeeAuthority"));
             	System.out.println(employeeInfo.get("employeePassword"));
+            	System.out.println(employeeInfo.get("familyNameRead"));
+            	System.out.println(employeeInfo.get("firstNameRead"));
+
             }
 
         }

@@ -22,7 +22,7 @@ public class G0011Model {
 	}
 
 	//List<HashMap<String,String>>⇒void
-	public static int insertEmployee(String employeeId , String familyName , String firstName,String familyNameRead ,String employeeFirstNameRead, String birthDate , String from , String bloodType , String authority, String hashedPassword) { //社員テーブルにINSERTするメソッド
+	public static int insertEmployee(String employeeId , String familyName , String firstName,String familyNameRead ,String firstNameRead, String birthDate , String from , String bloodType , String authority, String hashedPassword) { //社員テーブルにINSERTするメソッド
 
 		//List<HashMap<String,String>> insertEmployee = new ArrayList<HashMap<String,String>>() ;
 
@@ -40,7 +40,7 @@ public class G0011Model {
 		employeeId = ChangeCharacter.CC(employeeId);
 		familyName = ChangeCharacter.CC(familyName);
 		firstName = ChangeCharacter.CC(firstName);
-		employeeFirstNameRead = ChangeCharacter.CC(employeeFirstNameRead);
+		firstNameRead = ChangeCharacter.CC(firstNameRead);
 		familyNameRead = ChangeCharacter.CC(familyNameRead);
 		birthDate = ChangeCharacter.CC(birthDate);
 		from = ChangeCharacter.CC(from);
@@ -48,7 +48,7 @@ public class G0011Model {
 		authority = ChangeCharacter.CC(authority);
 		hashedPassword = ChangeCharacter.CC(hashedPassword);
 
-		System.out.print("確認"+employeeFirstNameRead);
+		System.out.print("確認"+firstNameRead);
 
 		try
         {
@@ -83,7 +83,7 @@ public class G0011Model {
             	insertSql = insertSql + "(employee_id"
             			+ ",employee_family_name"
             			+ ",employee_first_name"
-            			+ ",family_name_read"
+            			+ ",employee_family_name_read"
             			+ ",employee_first_name_read"
             			+ ",birth_date"
             			+ ",employee_from"
@@ -94,7 +94,7 @@ public class G0011Model {
             			+ ",'" + familyName + "'"
 						+ ",'" + familyNameRead + "'"
 						+ ",'" + firstName + "'"
-						+ ",'" + employeeFirstNameRead +  "'"
+						+ ",'" + firstNameRead +  "'"
 						+ ",'" + birthDate + "'"
 						+ ",'" + from + "'"
 		            	+ ",'" + bloodType + "'"
@@ -103,7 +103,7 @@ public class G0011Model {
 
             	insertCount = statement.executeUpdate(insertSql);
             	System.out.println(firstName + "確認No17");
-            	System.out.println(employeeFirstNameRead + "確認No8");
+            	System.out.println(firstNameRead + "確認No8");
             	System.out.println(familyNameRead + "確認No18");
             	System.out.println(familyName + "確認No20");
                 System.out.println(insertSql);

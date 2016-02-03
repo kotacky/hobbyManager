@@ -53,7 +53,9 @@ public class G0012Model {
             		+ "employee_from = '"+ from +"',"
             		+ "employee_authority = '"+ authority +"',"
             		+ "employee_password = '"+ hashedPassword +"',"
-                    + "employee_blood_type = '"+ bloodType +"',"+ "family_name_read = '"+ familyNameRead +"',"+ "employee_first_name_read = '"+ firstNameRead +"' WHERE "
+                    + "employee_blood_type = '"+ bloodType +"',"
+            		+ "employee_family_name_read = '"+ familyNameRead +"',"
+                    + "employee_first_name_read = '"+ firstNameRead +"' WHERE "
             		+ "employee_id = '"+ employeeId +"'";
             		System.out.println(sql);
 

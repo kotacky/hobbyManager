@@ -48,9 +48,11 @@ public class G0000Model{
             while(resultSet.next()) {														//SELECT文の結果を参照
 				if(hashedPassword.equals(resultSet.getString("employee_password"))){
 					loginFlag = 1;
+					System.out.println("loginFlagは" + loginFlag);
 				}
 				else{
 					loginFlag = 0;
+					System.out.println("loginFlagは" + loginFlag);
 				}
             }
 
@@ -67,7 +69,7 @@ public class G0000Model{
 	        		connection.close();
 	        	}
 	        	catch (Exception e){
-	        		System.err.println("SQL failed.");
+	        		//System.err.println("SQL failed.");
 	        		e.printStackTrace ();
 	        	}
 	        	finally {

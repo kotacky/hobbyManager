@@ -15,7 +15,18 @@ pageEncoding="Windows-31J"%>
 	<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="./js/default.js"></script>
+	<script type="text/javascript">
 
+	function formCheck(Time){
+	var now = new Date();
+	var checkday = new Date(Time.birthDate.value);
+	if(now.getTime() < checkday.getTime()){
+	window.alert(Time.birthDate.value + 'は、今日より後の日付です！\n入力しなおしてください。');
+	return false;
+	}
+	}
+
+	</script>
 </head>
 <body>
 	<div id="header">
@@ -57,7 +68,7 @@ pageEncoding="Windows-31J"%>
 
 
 <%-- Cへ登録する条件を送る --%>
-	<form method="POST" action="<%=request.getContextPath() %>/G0011Control">
+	<form method="POST" action="<%=request.getContextPath() %>/G0011Control" onsubmit="return formCheck(this);">
 		社員ID:
 		<input type="text" name="employeeId" placeholder="0000" required>（必須）<br>
 		姓:
@@ -67,7 +78,7 @@ pageEncoding="Windows-31J"%>
 		姓(ふりがな):
 		<input type="text" name="familyNameRead" placeholder="ふりがな" required>（必須）<br>
 		名(ふりがな):
-		<input type="text" name="employeeFirstNameRead" placeholder="ふりがな" required>（必須）<br>
+		<input type="text" name="firstNameRead" placeholder="ふりがな" required>（必須）<br>
 		生年月日:
 		<input type="date" name="birthDate" ><br>
 		出身地:
@@ -81,7 +92,7 @@ pageEncoding="Windows-31J"%>
 		</select><br>
 		パスワード:
 		<input type="password" name="employeePassword" placeholder="パスワード" required>（必須）<br>
-		<input type="submit" value="登録" >
+		<input type="submit" value="登録"  onClick="check()">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 		<input type="button" value="戻る" onClick="history.go(-1)">
 	</form>

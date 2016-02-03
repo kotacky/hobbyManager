@@ -17,8 +17,19 @@
 	<link href="<%= request.getContextPath() %>/view/css/import.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<%= request.getContextPath() %>/view/css/share.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="./js/default.js"></script>
-</head>
+	<script type="text/javascript">
 
+	function formCheck(Time){
+		var now = new Date();
+		var checkday = new Date(Time.birthDate.value);
+		if(now.getTime() < checkday.getTime()){
+		window.alert(Time.birthDate.value + 'は、今日より後の日付です！\n入力しなおしてください。');
+		return false;
+		}
+		}
+
+	</script>
+</head>
 <body>
 		<div id="header">
 			<ul id="gMenu" class="clearfix">
@@ -73,7 +84,7 @@
 
 <%-- リストからデータを取得し、編集を行い、更新するデータを送る --%>
 
-	<form method="POST" action="<%=request.getContextPath() %>/G0012Control">
+	<form method="POST" action="<%=request.getContextPath() %>/G0012Control" onsubmit="return formCheck(this);">
 		社員ID:
 		<input type="text" name="employeeId" readonly value=<% out.print(employeeList.get(0).get("employeeId")); %> required>（必須）<br>
 		姓:
@@ -83,7 +94,7 @@
 		姓(ふりがな):
 		<input type="text" name="familyNameRead" value=<% out.print(employeeList.get(0).get("familyNameRead")); %> required>（必須）<br>
 		名(ふりがな):
-		<input type="text" name="employeeFirstNameRead" value=<% out.print(employeeList.get(0).get("employeeFirstNameRead")); %> required>（必須）<br>
+		<input type="text" name="firstNameRead" value=<% out.print(employeeList.get(0).get("firstNameRead")); %> required>（必須）<br>
 		生年月日:
 		<input type="date" name="birthDate" value=<% out.print(employeeList.get(0).get("employeeBirthDate")); %>><br>
 		出身地:
@@ -98,6 +109,7 @@
 		パスワード:
 		<input type="password" name="employeePassword" required>（必須）<br>
 		<input type="submit" value="更新">
+		<input type="button" value="戻る" onClick="history.go(-1)">
 		<input type="hidden" name="employeeAuthority" value="<%= session.getAttribute("employeeAuthority") %>">
 	</form>
 </body>
