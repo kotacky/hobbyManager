@@ -29,14 +29,22 @@ public class G0012Control extends HttpServlet{
 		String firstName = request.getParameter("employeeFirstName");
 		String familyNameRead = request.getParameter("familyNameRead");
 		String firstNameRead = request.getParameter("firstNameRead");
+
 		String birthDate = request.getParameter("birthDate");
+		//String year = birthDateSub.substring(0, 3);
+		//String month = birthDateSub.substring(5, 6);
+		//String day = birthDateSub.substring(8, 9);
+
+		//String birthDate = year + month + day;
+
 		String from = request.getParameter("employeeFrom");
 		String bloodType = request.getParameter("employeeBloodType");
 		String authority = request.getParameter("employeeAuthority");
 		String password = request.getParameter("employeePassword");
 
-
+		//ハッシュパスワードをコンソールで確認
 		String hashedPassword = RealmBase.Digest(password, "MD5", "Windows-31J");
+
 
 		//更新するメソッドを呼び出す
 		int updateFlag = G0012Model.updateEmployee(employeeId, familyName, firstName, birthDate, from, bloodType, authority, hashedPassword, familyNameRead, firstNameRead);
@@ -44,10 +52,13 @@ public class G0012Control extends HttpServlet{
 		//更新フラグを送る
 		if(updateFlag == 1){
 			request.setAttribute("updateFlag",updateFlag);
+			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0013View.jsp");
+			dispatch.forward(request, response);
+
 		}else{
 			request.setAttribute("updateFlag",updateFlag);
+			RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
+			dispatch.forward(request, response);
 		}
-		RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/view/G0010View.jsp");
-		dispatch.forward(request, response);
 	}
 }

@@ -18,12 +18,23 @@ pageEncoding="Windows-31J"%>
 	<script type="text/javascript">
 
 	function formCheck(Time){
-	var now = new Date();
-	var checkday = new Date(Time.birthDate.value);
-	if(now.getTime() < checkday.getTime()){
-	window.alert(Time.birthDate.value + 'は、今日より後の日付です！\n入力しなおしてください。');
-	return false;
-	}
+		var now = new Date();
+		var checkday = new Date(Time.birthDate.value);
+		if(now.getTime() < checkday.getTime()){
+			window.alert(Time.birthDate.value + 'は、今日より後の日付です！\n入力しなおしてください。');
+
+			}else {
+			int year = new Date(Time.birthday.value).subString(0, 3);
+			int month = new Date(Time.birthday.value).subString(5, 6);
+			int day = new Date(Time.birthday.value).subString(8, 9);
+
+			int birthDay = year + month + day ;
+
+			birthDate = birthDay.toString();
+
+			}
+			return false;
+
 	}
 
 	</script>

@@ -26,7 +26,6 @@
 
 	 </script>
 	 </head>
-
 	<body>
 		<div id="wrapper">
 			<div id="headerBg" class="clearfix">
@@ -34,14 +33,13 @@
 					<h1>2015年度新人研修<br />好きな女優を管理してみよう</h1>
 					<ul id="gNavi" class="clearfix">
 					<form method="POST" name="myForm" action="<%= request.getContextPath() %>/G0002Control">
-					ログアウトしますか
+					ログアウトしますか<br>
 						<input type="button" value="ログアウト" onClick="func('logout');"/>
-						<input type="button" value="戻る" onClick="history.go(-1)">
 						<input type="hidden" name="employeeAuthority">
 						<input type="hidden" name="process">
 					</form>
+					<button type="button"  onClick="location.href='/hobbyManager/view/G0001View.jsp'">トップへ戻る</button>
 					</ul>
-
 				</div>
 			</div>
 			<div id="mainImgBox">

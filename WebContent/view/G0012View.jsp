@@ -23,9 +23,24 @@
 		var now = new Date();
 		var checkday = new Date(Time.birthDate.value);
 		if(now.getTime() < checkday.getTime()){
-		window.alert(Time.birthDate.value + 'は、今日より後の日付です！\n入力しなおしてください。');
+			window.alert(Time.birthDate.value + 'は、今日より後の日付です！\n入力しなおしてください。');
+
+		}else {
+			alert(Time.birthDate.value + 'は、	問題ありませんでした。');
+
+			//var birthDate = checkday.replace(/-/g,"");
+
+			/*
+			var year = now.subString(0, 3);
+			var month = now.subString(5, 6);
+			var day = now.subString(8, 9);
+
+			var birthDay = year + month + day ;
+			*/
+			}
+
 		return false;
-		}
+
 		}
 
 	</script>
